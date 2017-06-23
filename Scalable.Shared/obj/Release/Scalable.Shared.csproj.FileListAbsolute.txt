@@ -1,0 +1,12 @@
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Scalable.Shared\bin\Release\Scalable.Shared.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Scalable.Shared\bin\Release\Scalable.Shared.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.Properties.Resources.resources
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.csproj.GenerateResource.Cache
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\bin\Release\Scalable.Shared.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\bin\Release\Scalable.Shared.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.Properties.Resources.resources
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.pdb

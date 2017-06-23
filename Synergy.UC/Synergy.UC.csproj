@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{96DB4978-83C2-41A0-AA3A-612187D0B7CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Synergy.UC</RootNamespace>
+    <AssemblyName>Synergy.UC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\EntityItem.cs" />
+    <Compile Include="Common\EntityListRepository.cs" />
+    <Compile Include="Common\SmsServer.cs" />
+    <Compile Include="Controls\USmsPad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\USmsPad.Designer.cs">
+      <DependentUpon>USmsPad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UReminder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UReminder.Designer.cs">
+      <DependentUpon>UReminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UReminders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UReminders.Designer.cs">
+      <DependentUpon>UReminders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCurrentTaskDuration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCurrentTaskDuration.Designer.cs">
+      <DependentUpon>UCurrentTaskDuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UReminderPopup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UReminderPopup.Designer.cs">
+      <DependentUpon>UReminderPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\USuggestions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\USuggestions.Designer.cs">
+      <DependentUpon>USuggestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UTaskStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTaskStatistics.Designer.cs">
+      <DependentUpon>UTaskStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UTaskTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTaskTemplate.Designer.cs">
+      <DependentUpon>UTaskTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UTaskTemplates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTaskTemplates.Designer.cs">
+      <DependentUpon>UTaskTemplates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events\CurrentTaskTimeEventArgs.cs" />
+    <Compile Include="Forms\FSmsPad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FSmsPad.Designer.cs">
+      <DependentUpon>FSmsPad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FReminderPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FReminderPopup.Designer.cs">
+      <DependentUpon>FReminderPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FAbout.Designer.cs">
+      <DependentUpon>FAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UAbout.Designer.cs">
+      <DependentUpon>UAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UChecklist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UChecklist.Designer.cs">
+      <DependentUpon>UChecklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UChecklistItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UChecklistItem.Designer.cs">
+      <DependentUpon>UChecklistItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UProject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UProject.Designer.cs">
+      <DependentUpon>UProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ULocation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ULocation.Designer.cs">
+      <DependentUpon>ULocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UFileAttachment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UFileAttachment.Designer.cs">
+      <DependentUpon>UFileAttachment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UMessageBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UMessageBox.Designer.cs">
+      <DependentUpon>UMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UOptions.Designer.cs">
+      <DependentUpon>UOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\USplash.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\USplash.Designer.cs">
+      <DependentUpon>USplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UTaskChecklist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTaskChecklist.Designer.cs">
+      <DependentUpon>UTaskChecklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UTaskType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTaskType.Designer.cs">
+      <DependentUpon>UTaskType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UTaskView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTaskView.Designer.cs">
+      <DependentUpon>UTaskView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events\TaskCommentEventArgs.cs" />
+    <Compile Include="Events\TaskSearchEventArgs.cs" />
+    <Compile Include="Events\TaskSavedEventArgs.cs" />
+    <Compile Include="Events\TaskSelectedEventArgs.cs" />
+    <Compile Include="Controls\UTaskAdvanced.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTaskAdvanced.Designer.cs">
+      <DependentUpon>UTaskAdvanced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FCompanyGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FCurrentTaskDuration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FCurrentTaskDuration.Designer.cs">
+      <DependentUpon>FCurrentTaskDuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FFileAttachment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FFileAttachment.Designer.cs">
+      <DependentUpon>FFileAttachment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FMessageBox.Designer.cs">
+      <DependentUpon>FMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FOptions.Designer.cs">
+      <DependentUpon>FOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRecurrence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRecurrence.Designer.cs">
+      <DependentUpon>FRecurrence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FReminders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FReminders.Designer.cs">
+      <DependentUpon>FReminders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FSplash.Designer.cs">
+      <DependentUpon>FSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FSuggestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FSuggestions.Designer.cs">
+      <DependentUpon>FSuggestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FTask.Designer.cs">
+      <DependentUpon>FTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FTaskAdvanced.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FTaskAdvanced.Designer.cs">
+      <DependentUpon>FTaskAdvanced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FTaskChecklist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FTaskChecklist.Designer.cs">
+      <DependentUpon>FTaskChecklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FTaskStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FTaskStatistics.Designer.cs">
+      <DependentUpon>FTaskStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FTaskTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FTaskTemplate.Designer.cs">
+      <DependentUpon>FTaskTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FTaskTemplates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FTaskTemplates.Designer.cs">
+      <DependentUpon>FTaskTemplates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Picklists\TaskMessageList.cs" />
+    <Compile Include="Picklists\PicklistFactory.cs" />
+    <Compile Include="Picklists\TaskList.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\URecurrence.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\URecurrence.Designer.cs">
+      <DependentUpon>URecurrence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\USearchBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\USearchBar.Designer.cs">
+      <DependentUpon>USearchBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UTask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTask.Designer.cs">
+      <DependentUpon>UTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\UTasks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UTasks.Designer.cs">
+      <DependentUpon>UTasks.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gravity.Root\Gravity.Root.csproj">
+      <Project>{39228FC6-B6AD-4B41-84EE-BFE3D70063D9}</Project>
+      <Name>Gravity.Root</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mingle.Domain\Mingle.Domain.csproj">
+      <Project>{58CB702B-C287-4D28-B9CE-529661AA6C91}</Project>
+      <Name>Mingle.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mingle.UC\Mingle.UC.csproj">
+      <Project>{3F1F86A1-01F4-4979-BD54-6A8B316DBF37}</Project>
+      <Name>Mingle.UC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Shared\Scalable.Shared.csproj">
+      <Project>{d8afa5ad-113f-4b56-84a3-54a4dab1b9ca}</Project>
+      <Name>Scalable.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.SpellChecker\Scalable.SpellChecker.csproj">
+      <Project>{A426EE0B-E52E-4D74-AF24-06797142D7B2}</Project>
+      <Name>Scalable.SpellChecker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Win\Scalable.Win.csproj">
+      <Project>{4E261D74-25EF-48DE-A07B-8279F8C89DDF}</Project>
+      <Name>Scalable.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Synergy.Domain\Synergy.Domain.csproj">
+      <Project>{ECB2BF20-8469-43EA-90D0-4C1BE6509AEF}</Project>
+      <Name>Synergy.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\USmsPad.resx">
+      <DependentUpon>USmsPad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UReminder.resx">
+      <DependentUpon>UReminder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UReminders.resx">
+      <DependentUpon>UReminders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCurrentTaskDuration.resx">
+      <DependentUpon>UCurrentTaskDuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UReminderPopup.resx">
+      <DependentUpon>UReminderPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UChecklist.resx">
+      <DependentUpon>UChecklist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\USuggestions.resx">
+      <DependentUpon>USuggestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UTaskStatistics.resx">
+      <DependentUpon>UTaskStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UTaskTemplate.resx">
+      <DependentUpon>UTaskTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UTaskTemplates.resx">
+      <DependentUpon>UTaskTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FSmsPad.resx">
+      <DependentUpon>FSmsPad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FReminderPopup.resx">
+      <DependentUpon>FReminderPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FAbout.resx">
+      <DependentUpon>FAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UAbout.resx">
+      <DependentUpon>UAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UFileAttachment.resx">
+      <DependentUpon>UFileAttachment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UMessageBox.resx">
+      <DependentUpon>UMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UOptions.resx">
+      <DependentUpon>UOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\USplash.resx">
+      <DependentUpon>USplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UTaskAdvanced.resx">
+      <DependentUpon>UTaskAdvanced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UTaskChecklist.resx">
+      <DependentUpon>UTaskChecklist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UTaskView.resx">
+      <DependentUpon>UTaskView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FCurrentTaskDuration.resx">
+      <DependentUpon>FCurrentTaskDuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FFileAttachment.resx">
+      <DependentUpon>FFileAttachment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FMessageBox.resx">
+      <DependentUpon>FMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FOptions.resx">
+      <DependentUpon>FOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRecurrence.resx">
+      <DependentUpon>FRecurrence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FReminders.resx">
+      <DependentUpon>FReminders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FSplash.resx">
+      <DependentUpon>FSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FSuggestions.resx">
+      <DependentUpon>FSuggestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FTask.resx">
+      <DependentUpon>FTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FTaskAdvanced.resx">
+      <DependentUpon>FTaskAdvanced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FTaskChecklist.resx">
+      <DependentUpon>FTaskChecklist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FTaskStatistics.resx">
+      <DependentUpon>FTaskStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FTaskTemplate.resx">
+      <DependentUpon>FTaskTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FTaskTemplates.resx">
+      <DependentUpon>FTaskTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\URecurrence.resx">
+      <DependentUpon>URecurrence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\USearchBar.resx">
+      <DependentUpon>USearchBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UTask.resx">
+      <DependentUpon>UTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UTasks.resx">
+      <DependentUpon>UTasks.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pinned.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UnPinned.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ALARM.WAV" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

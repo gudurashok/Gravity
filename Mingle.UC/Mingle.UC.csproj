@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F1F86A1-01F4-4979-BD54-6A8B316DBF37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mingle.UC</RootNamespace>
+    <AssemblyName>Mingle.UC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\EntityItem.cs" />
+    <Compile Include="Common\EntityListRepository.cs" />
+    <Compile Include="Common\IParty.cs" />
+    <Compile Include="Controls\UEmailsAndIMs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UEmailsAndIMs.Designer.cs">
+      <DependentUpon>UEmailsAndIMs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UOptions.Designer.cs">
+      <DependentUpon>UOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UOrganizationOther.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UOrganizationOther.Designer.cs">
+      <DependentUpon>UOrganizationOther.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UParty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UParty.Designer.cs">
+      <DependentUpon>UParty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyContactsAndProfessions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyContactsAndProfessions.Designer.cs">
+      <DependentUpon>UPartyContactsAndProfessions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyCustom.Designer.cs">
+      <DependentUpon>UPartyCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyOther.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyOther.Designer.cs">
+      <DependentUpon>UPartyOther.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyRelations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyRelations.Designer.cs">
+      <DependentUpon>UPartyRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyDates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyDates.Designer.cs">
+      <DependentUpon>UPartyDates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyProfessions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyProfessions.Designer.cs">
+      <DependentUpon>UPartyProfessions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyLanguages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyLanguages.Designer.cs">
+      <DependentUpon>UPartyLanguages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyDepartments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyDepartments.Designer.cs">
+      <DependentUpon>UPartyDepartments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyIMs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyIMs.Designer.cs">
+      <DependentUpon>UPartyIMs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyWebsites.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyWebsites.Designer.cs">
+      <DependentUpon>UPartyWebsites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyEmails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyEmails.Designer.cs">
+      <DependentUpon>UPartyEmails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyAddresses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyAddresses.Designer.cs">
+      <DependentUpon>UPartyAddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyPhones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyPhones.Designer.cs">
+      <DependentUpon>UPartyPhones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyContacts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyContacts.Designer.cs">
+      <DependentUpon>UPartyContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyNatureOfContacts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyNatureOfContacts.Designer.cs">
+      <DependentUpon>UPartyNatureOfContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPersonOther.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPersonOther.Designer.cs">
+      <DependentUpon>UPersonOther.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPictureAndNotes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPictureAndNotes.Designer.cs">
+      <DependentUpon>UPictureAndNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPhotoAndCustom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPhotoAndCustom.Designer.cs">
+      <DependentUpon>UPhotoAndCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UWebsitesAndDates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UWebsitesAndDates.Designer.cs">
+      <DependentUpon>UWebsitesAndDates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events\PartySavedEventArgs.cs" />
+    <Compile Include="Events\PartySelectedEventArgs.cs" />
+    <Compile Include="Controls\UAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UAddress.Designer.cs">
+      <DependentUpon>UAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UParties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UParties.Designer.cs">
+      <DependentUpon>UParties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyBasic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyBasic.Designer.cs">
+      <DependentUpon>UPartyBasic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPartyPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPartyPreview.Designer.cs">
+      <DependentUpon>UPartyPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UFullName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UFullName.Designer.cs">
+      <DependentUpon>UFullName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FCompanyGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FPartyBasic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FPartyBasic.Designer.cs">
+      <DependentUpon>FPartyBasic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Picklists\PartyList.cs" />
+    <Compile Include="Picklists\PicklistFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\UEmailsAndIMs.resx">
+      <DependentUpon>UEmailsAndIMs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UOptions.resx">
+      <DependentUpon>UOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UOrganizationOther.resx">
+      <DependentUpon>UOrganizationOther.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UParty.resx">
+      <DependentUpon>UParty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyContactsAndProfessions.resx">
+      <DependentUpon>UPartyContactsAndProfessions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyCustom.resx">
+      <DependentUpon>UPartyCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyOther.resx">
+      <DependentUpon>UPartyOther.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyRelations.resx">
+      <DependentUpon>UPartyRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyDates.resx">
+      <DependentUpon>UPartyDates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyProfessions.resx">
+      <DependentUpon>UPartyProfessions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyLanguages.resx">
+      <DependentUpon>UPartyLanguages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyDepartments.resx">
+      <DependentUpon>UPartyDepartments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyIMs.resx">
+      <DependentUpon>UPartyIMs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyWebsites.resx">
+      <DependentUpon>UPartyWebsites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyEmails.resx">
+      <DependentUpon>UPartyEmails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyAddresses.resx">
+      <DependentUpon>UPartyAddresses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyPhones.resx">
+      <DependentUpon>UPartyPhones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyContacts.resx">
+      <DependentUpon>UPartyContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UAddress.resx">
+      <DependentUpon>UAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyNatureOfContacts.resx">
+      <DependentUpon>UPartyNatureOfContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UParties.resx">
+      <DependentUpon>UParties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyBasic.resx">
+      <DependentUpon>UPartyBasic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPartyPreview.resx">
+      <DependentUpon>UPartyPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UFullName.resx">
+      <DependentUpon>UFullName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPersonOther.resx">
+      <DependentUpon>UPersonOther.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPictureAndNotes.resx">
+      <DependentUpon>UPictureAndNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPhotoAndCustom.resx">
+      <DependentUpon>UPhotoAndCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UWebsitesAndDates.resx">
+      <DependentUpon>UWebsitesAndDates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FPartyBasic.resx">
+      <DependentUpon>FPartyBasic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gravity.Root\Gravity.Root.csproj">
+      <Project>{39228FC6-B6AD-4B41-84EE-BFE3D70063D9}</Project>
+      <Name>Gravity.Root</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mingle.Domain\Mingle.Domain.csproj">
+      <Project>{58CB702B-C287-4D28-B9CE-529661AA6C91}</Project>
+      <Name>Mingle.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.RavenDb\Scalable.RavenDb.csproj">
+      <Project>{DB6D01FB-D989-4220-BABF-97B7CFB13D86}</Project>
+      <Name>Scalable.RavenDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Shared\Scalable.Shared.csproj">
+      <Project>{D8AFA5AD-113F-4B56-84A3-54A4DAB1B9CA}</Project>
+      <Name>Scalable.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Win\Scalable.Win.csproj">
+      <Project>{4E261D74-25EF-48DE-A07B-8279F8C89DDF}</Project>
+      <Name>Scalable.Win</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

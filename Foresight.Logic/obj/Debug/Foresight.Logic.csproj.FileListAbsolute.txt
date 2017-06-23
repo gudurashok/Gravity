@@ -1,0 +1,100 @@
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Foresight.Logic.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Foresight.Logic.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Gravity.Root.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Insight.Domain.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Scalable.Shared.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Scalable.Win.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Scalable.RavenDb.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Mingle.Domain.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Raven.Client.Embedded.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Raven.Abstractions.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Raven.Database.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Lucene.Net.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Lucene.Net.Contrib.Spatial.NTS.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\ICSharpCode.NRefactory.CSharp.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Jint.Raven.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Spatial4n.Core.NTS.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Esent.Interop.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\NetTopologySuite.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\GeoAPI.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Mono.Cecil.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\PowerCollections.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Gravity.Root.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Insight.Domain.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Scalable.Shared.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Scalable.Win.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\bin\Debug\Mingle.Domain.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csprojResolveAssemblyReference.cache
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.Properties.Resources.resources
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csproj.GenerateResource.Cache
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Foresight.Logic.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Foresight.Logic.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Gravity.Root.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Insight.Domain.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Scalable.Win.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Mingle.Domain.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Raven.Client.Embedded.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Spatial4n.Core.NTS.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\GeoAPI.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\NetTopologySuite.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Lucene.Net.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Lucene.Net.Contrib.Spatial.NTS.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\ICSharpCode.NRefactory.CSharp.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Jint.Raven.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Esent.Interop.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\AWSSDK.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\PowerCollections.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Mono.Cecil.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Gravity.Root.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Insight.Domain.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Scalable.RavenDb.dll.config
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.Properties.Resources.resources
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Foresight.Logic.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Foresight.Logic.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Gravity.Root.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Insight.Domain.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Scalable.Win.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Mingle.Domain.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Gravity.Root.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Insight.Domain.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.Properties.Resources.resources
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.pdb

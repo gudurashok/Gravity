@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1406E479-8DD6-42FC-8C5A-492240261F8C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Insight.UC</RootNamespace>
+    <AssemblyName>Insight.UC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ISetup.cs" />
+    <Compile Include="Common\VoucherFactory.cs" />
+    <Compile Include="Controls\USaleInvoices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\USaleInvoices.Designer.cs">
+      <DependentUpon>USaleInvoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UItemList.Designer.cs">
+      <DependentUpon>UItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UFiscalDatePeriodList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UFiscalDatePeriodList.Designer.cs">
+      <DependentUpon>UFiscalDatePeriodList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCompanyList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCompanyList.Designer.cs">
+      <DependentUpon>UCompanyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UChartOfAccountList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UChartOfAccountList.Designer.cs">
+      <DependentUpon>UChartOfAccountList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UItem.Designer.cs">
+      <DependentUpon>UItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UItems.Designer.cs">
+      <DependentUpon>UItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UJournalVouchers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UJournalVouchers.Designer.cs">
+      <DependentUpon>UJournalVouchers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UAccountList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UAccountList.Designer.cs">
+      <DependentUpon>UAccountList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UBillTerm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UBillTerm.Designer.cs">
+      <DependentUpon>UBillTerm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UBillTerms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UBillTerms.Designer.cs">
+      <DependentUpon>UBillTerms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCashPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCashPayment.Designer.cs">
+      <DependentUpon>UCashPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UBankPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UBankPayment.Designer.cs">
+      <DependentUpon>UBankPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UChartOfAccounts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UChartOfAccounts.Designer.cs">
+      <DependentUpon>UChartOfAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UChartOfAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UChartOfAccount.Designer.cs">
+      <DependentUpon>UChartOfAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCompanyPeriods.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCompanyPeriods.Designer.cs">
+      <DependentUpon>UCompanyPeriods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCompanyPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCompanyPeriod.Designer.cs">
+      <DependentUpon>UCompanyPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UFiscalDatePeriods.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UFiscalDatePeriods.Designer.cs">
+      <DependentUpon>UFiscalDatePeriods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UFiscalDatePeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UFiscalDatePeriod.Designer.cs">
+      <DependentUpon>UFiscalDatePeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\EntityListRepository.cs" />
+    <Compile Include="Controls\UAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UAccount.Designer.cs">
+      <DependentUpon>UAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UDaybook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UDaybook.Designer.cs">
+      <DependentUpon>UDaybook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UDaybooks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UDaybooks.Designer.cs">
+      <DependentUpon>UDaybooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCompanies.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCompanies.Designer.cs">
+      <DependentUpon>UCompanies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UAccounts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UAccounts.Designer.cs">
+      <DependentUpon>UAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UBankReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UBankReceipt.Designer.cs">
+      <DependentUpon>UBankReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCashReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCashReceipt.Designer.cs">
+      <DependentUpon>UCashReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UJournalVoucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UJournalVoucher.Designer.cs">
+      <DependentUpon>UJournalVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ULineItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ULineItem.Designer.cs">
+      <DependentUpon>ULineItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPayments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPayments.Designer.cs">
+      <DependentUpon>UPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UReceipts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UReceipts.Designer.cs">
+      <DependentUpon>UReceipts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\USaleInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\USaleInvoice.Designer.cs">
+      <DependentUpon>USaleInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\USearchBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\USearchBar.Designer.cs">
+      <DependentUpon>USearchBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UVoucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UVoucher.Designer.cs">
+      <DependentUpon>UVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UVouchers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UVouchers.Designer.cs">
+      <DependentUpon>UVouchers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events\ItemAddedEventArgs.cs" />
+    <Compile Include="Events\VoucherSearchEventArgs.cs" />
+    <Compile Include="Events\VoucherSavedEventArgs.cs" />
+    <Compile Include="Forms\FSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FSetup.Designer.cs">
+      <DependentUpon>FSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FCompanyGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FDaybooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FDaybooks.Designer.cs">
+      <DependentUpon>FDaybooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FVoucher.Designer.cs">
+      <DependentUpon>FVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Picklists\AccountList.cs" />
+    <Compile Include="Picklists\CompanyList.cs" />
+    <Compile Include="Picklists\CompanyPeriodList.cs" />
+    <Compile Include="Picklists\ChartOfAccountList.cs" />
+    <Compile Include="Picklists\ItemList.cs" />
+    <Compile Include="Picklists\ItemCategoryList.cs" />
+    <Compile Include="Picklists\ItemGroupList.cs" />
+    <Compile Include="Picklists\FiscalDatePeriodList.cs" />
+    <Compile Include="Picklists\DaybookList.cs" />
+    <Compile Include="Picklists\PicklistFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCompany.Designer.cs">
+      <DependentUpon>UCompany.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gravity.Root\Gravity.Root.csproj">
+      <Project>{39228FC6-B6AD-4B41-84EE-BFE3D70063D9}</Project>
+      <Name>Gravity.Root</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Insight.Domain\Insight.Domain.csproj">
+      <Project>{07210F07-EFF8-4784-BBE5-C3970C9C1D62}</Project>
+      <Name>Insight.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mingle.Domain\Mingle.Domain.csproj">
+      <Project>{58CB702B-C287-4D28-B9CE-529661AA6C91}</Project>
+      <Name>Mingle.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mingle.UC\Mingle.UC.csproj">
+      <Project>{3F1F86A1-01F4-4979-BD54-6A8B316DBF37}</Project>
+      <Name>Mingle.UC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.RavenDb\Scalable.RavenDb.csproj">
+      <Project>{DB6D01FB-D989-4220-BABF-97B7CFB13D86}</Project>
+      <Name>Scalable.RavenDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Shared\Scalable.Shared.csproj">
+      <Project>{D8AFA5AD-113F-4B56-84A3-54A4DAB1B9CA}</Project>
+      <Name>Scalable.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Win\Scalable.Win.csproj">
+      <Project>{4E261D74-25EF-48DE-A07B-8279F8C89DDF}</Project>
+      <Name>Scalable.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Synergy.Domain\Synergy.Domain.csproj">
+      <Project>{ECB2BF20-8469-43EA-90D0-4C1BE6509AEF}</Project>
+      <Name>Synergy.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Synergy.UC\Synergy.UC.csproj">
+      <Project>{96DB4978-83C2-41A0-AA3A-612187D0B7CD}</Project>
+      <Name>Synergy.UC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\USaleInvoices.resx">
+      <DependentUpon>USaleInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UItemList.resx">
+      <DependentUpon>UItemList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UFiscalDatePeriodList.resx">
+      <DependentUpon>UFiscalDatePeriodList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCompanyList.resx">
+      <DependentUpon>UCompanyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UChartOfAccountList.resx">
+      <DependentUpon>UChartOfAccountList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UItem.resx">
+      <DependentUpon>UItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UItems.resx">
+      <DependentUpon>UItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UJournalVouchers.resx">
+      <DependentUpon>UJournalVouchers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UAccountList.resx">
+      <DependentUpon>UAccountList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UBillTerm.resx">
+      <DependentUpon>UBillTerm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UBillTerms.resx">
+      <DependentUpon>UBillTerms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCashPayment.resx">
+      <DependentUpon>UCashPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UBankPayment.resx">
+      <DependentUpon>UBankPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UAccounts.resx">
+      <DependentUpon>UAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UChartOfAccounts.resx">
+      <DependentUpon>UChartOfAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UChartOfAccount.resx">
+      <DependentUpon>UChartOfAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCompanyPeriods.resx">
+      <DependentUpon>UCompanyPeriods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCompanyPeriod.resx">
+      <DependentUpon>UCompanyPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UFiscalDatePeriods.resx">
+      <DependentUpon>UFiscalDatePeriods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UFiscalDatePeriod.resx">
+      <DependentUpon>UFiscalDatePeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UAccount.resx">
+      <DependentUpon>UAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UBankReceipt.resx">
+      <DependentUpon>UBankReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCashReceipt.resx">
+      <DependentUpon>UCashReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCompanies.resx">
+      <DependentUpon>UCompanies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UDaybook.resx">
+      <DependentUpon>UDaybook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UDaybooks.resx">
+      <DependentUpon>UDaybooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UJournalVoucher.resx">
+      <DependentUpon>UJournalVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ULineItem.resx">
+      <DependentUpon>ULineItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPayments.resx">
+      <DependentUpon>UPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UReceipts.resx">
+      <DependentUpon>UReceipts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\USaleInvoice.resx">
+      <DependentUpon>USaleInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\USearchBar.resx">
+      <DependentUpon>USearchBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UVoucher.resx">
+      <DependentUpon>UVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UVouchers.resx">
+      <DependentUpon>UVouchers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FSetup.resx">
+      <DependentUpon>FSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FDaybooks.resx">
+      <DependentUpon>FDaybooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FVoucher.resx">
+      <DependentUpon>FVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCompany.resx">
+      <DependentUpon>UCompany.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

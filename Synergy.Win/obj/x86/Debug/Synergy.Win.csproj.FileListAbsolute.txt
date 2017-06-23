@@ -1,0 +1,92 @@
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.Win.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.Win.Forms.FMain.resources
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.Win.Properties.Resources.resources
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.Win.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.TrustInfo.xml
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.exe
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Dictionary\en-US.dic
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.exe.config
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.exe.manifest
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.application
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.exe
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Gravity.Root.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Mingle.Domain.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Mingle.UC.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.Win.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.Domain.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.UC.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Raven.Client.Embedded.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.SpellChecker.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Spatial4n.Core.NTS.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\GeoAPI.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\NetTopologySuite.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Lucene.Net.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Lucene.Net.Contrib.Spatial.NTS.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\ICSharpCode.NRefactory.CSharp.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Jint.Raven.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Esent.Interop.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\AWSSDK.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\PowerCollections.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Mono.Cecil.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Gravity.Root.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Mingle.UC.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.RavenDb.dll.config
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.Domain.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Synergy.UC.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\bin\Debug\Scalable.SpellChecker.pdb
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.exe.manifest
+C:\Users\gw2ks\Downloads\GravityRaven 09-DEC-2014\Gravity\Synergy.Win\obj\x86\Debug\Synergy.application
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Dictionary\en-US.dic
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.exe.config
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.exe.manifest
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.application
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.exe
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Gravity.Root.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Mingle.Domain.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Mingle.UC.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Scalable.Win.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.Domain.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.UC.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Scalable.SpellChecker.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Gravity.Root.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Mingle.UC.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.Domain.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Synergy.UC.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\bin\Debug\Scalable.SpellChecker.pdb
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.Win.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.Win.Forms.FMain.resources
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.Win.Properties.Resources.resources
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.Win.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.TrustInfo.xml
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.exe.manifest
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.application
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.exe
+C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.pdb

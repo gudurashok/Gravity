@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07210F07-EFF8-4784-BBE5-C3970C9C1D62}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Insight.Domain</RootNamespace>
+    <AssemblyName>Insight.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RavenDB\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RavenDB\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RavenDB\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\InsightSession.cs" />
+    <Compile Include="Common\TransactionFactory.cs" />
+    <Compile Include="Entities\AccountEntity.cs" />
+    <Compile Include="Entities\BillTermEntity.cs" />
+    <Compile Include="Entities\ChartOfAccountEntity.cs" />
+    <Compile Include="Entities\CompanyEntity.cs" />
+    <Compile Include="Entities\CashReceiptEntity.cs" />
+    <Compile Include="Entities\InvoiceLineEntity.cs" />
+    <Compile Include="Entities\DaybookEntity.cs" />
+    <Compile Include="Entities\FiscalDatePeriodEntity.cs" />
+    <Compile Include="Entities\InvoiceTermEntity.cs" />
+    <Compile Include="Entities\ItemCategoryEntity.cs" />
+    <Compile Include="Entities\JournalVoucherEntity.cs" />
+    <Compile Include="Entities\ItemEntity.cs" />
+    <Compile Include="Entities\ItemGroupEntity.cs" />
+    <Compile Include="Entities\PurchaseInvoiceHeaderEntity.cs" />
+    <Compile Include="Entities\PurchaseInvoiceEntity.cs" />
+    <Compile Include="Entities\PurchaseInvoiceLineEntity.cs" />
+    <Compile Include="Entities\PurchaseInvoiceTermEntity.cs" />
+    <Compile Include="Entities\SaleInvoiceEntity.cs" />
+    <Compile Include="Entities\SaleInvoiceHeaderEntity.cs" />
+    <Compile Include="Entities\SaleInvoiceHeaderExEntity.cs" />
+    <Compile Include="Entities\SaleInvoiceLineEntity.cs" />
+    <Compile Include="Entities\SaleInvoiceTermEntity.cs" />
+    <Compile Include="Enums\AccountTypes.cs" />
+    <Compile Include="Enums\BankAccountType.cs" />
+    <Compile Include="Enums\CompanyPeriodType.cs" />
+    <Compile Include="Enums\ChartOfAccountType.cs" />
+    <Compile Include="Enums\DatabaseProvider.cs" />
+    <Compile Include="Enums\DaybookType.cs" />
+    <Compile Include="Enums\LedgerView.cs" />
+    <Compile Include="Enums\SourceDataProvider.cs" />
+    <Compile Include="Enums\TransactionType.cs" />
+    <Compile Include="Enums\TxnType.cs" />
+    <Compile Include="Enums\VehicleType.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\AccountMonthlyLedger.cs" />
+    <Compile Include="Model\AccountOpeningBalance.cs" />
+    <Compile Include="Model\AccountTransTables.cs" />
+    <Compile Include="Model\Asset.cs" />
+    <Compile Include="Model\BankAccount.cs" />
+    <Compile Include="Entities\BankPaymentEntity.cs" />
+    <Compile Include="Entities\BankReceiptEntity.cs" />
+    <Compile Include="Model\BankPayment.cs" />
+    <Compile Include="Model\BankReceipt.cs" />
+    <Compile Include="Model\BillTerm.cs" />
+    <Compile Include="Model\BrokeragePolicy.cs" />
+    <Compile Include="Model\Capital.cs" />
+    <Compile Include="Model\CashBook.cs" />
+    <Compile Include="Entities\CashPaymentEntity.cs" />
+    <Compile Include="Model\CashPayment.cs" />
+    <Compile Include="Model\ChartOfAccount.cs" />
+    <Compile Include="Model\ChartOfAccountMapper.cs" />
+    <Compile Include="Model\Company.cs" />
+    <Compile Include="Model\CompanyPeriod.cs" />
+    <Compile Include="Model\ContactBank.cs" />
+    <Compile Include="Entities\CompanyPeriodEntity.cs" />
+    <Compile Include="Model\CashReceipt.cs" />
+    <Compile Include="Model\CreditNote.cs" />
+    <Compile Include="Model\CreditNoteHeader.cs" />
+    <Compile Include="Model\CreditNoteLine.cs" />
+    <Compile Include="Model\CreditPolicy.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Daybook.cs" />
+    <Compile Include="Model\DebitNote.cs" />
+    <Compile Include="Model\DebitNoteHeader.cs" />
+    <Compile Include="Model\DebitNoteLine.cs" />
+    <Compile Include="Model\DiscountPolicy.cs" />
+    <Compile Include="Model\DocumentAdjustment.cs" />
+    <Compile Include="Model\FiscalDatePeriod.cs" />
+    <Compile Include="Model\IncomeTaxPolicy.cs" />
+    <Compile Include="Model\InventoryIssue.cs" />
+    <Compile Include="Model\InventoryReceive.cs" />
+    <Compile Include="Model\InvoiceLine.cs" />
+    <Compile Include="Model\InvoiceTerm.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\ItemCategory.cs" />
+    <Compile Include="Model\ItemGroup.cs" />
+    <Compile Include="Model\ItemLot.cs" />
+    <Compile Include="Model\ItemMonthlyLedger.cs" />
+    <Compile Include="Model\ItemPurchaseProp.cs" />
+    <Compile Include="Model\ItemQuantity.cs" />
+    <Compile Include="Model\ItemSaleProp.cs" />
+    <Compile Include="Model\ItemStockProp.cs" />
+    <Compile Include="Model\ItemTransTables.cs" />
+    <Compile Include="Model\JournalVoucher.cs" />
+    <Compile Include="Model\LineItem.cs" />
+    <Compile Include="Model\MiscMaterialIssue.cs" />
+    <Compile Include="Model\OpeningStock.cs" />
+    <Compile Include="Model\PurchaseInvoice.cs" />
+    <Compile Include="Model\PurchaseInvoiceLine.cs" />
+    <Compile Include="Model\PurchaseInvoiceTerm.cs" />
+    <Compile Include="Model\PurchaseOrder.cs" />
+    <Compile Include="Model\PurchaseOrderHeader.cs" />
+    <Compile Include="Model\PurchaseOrderLine.cs" />
+    <Compile Include="Model\RowColumn.cs" />
+    <Compile Include="Model\SaleInvoice.cs" />
+    <Compile Include="Model\SaleInvoiceHeaderEx.cs" />
+    <Compile Include="Model\SaleInvoiceLine.cs" />
+    <Compile Include="Model\SaleInvoiceTerm.cs" />
+    <Compile Include="Model\SaleOrder.cs" />
+    <Compile Include="Model\SaleOrderHeader.cs" />
+    <Compile Include="Model\SaleOrderLine.cs" />
+    <Compile Include="Model\SaleTaxColumn.cs" />
+    <Compile Include="Model\SaleTaxPolicy.cs" />
+    <Compile Include="Model\StockAdjustment.cs" />
+    <Compile Include="Model\StockTransfer.cs" />
+    <Compile Include="Model\Supplier.cs" />
+    <Compile Include="Entities\TransactionHeaderEntity.cs" />
+    <Compile Include="Model\SysConfig.cs" />
+    <Compile Include="Model\TransactionHeader.cs" />
+    <Compile Include="Model\UnitOfMeasurement.cs" />
+    <Compile Include="Model\Vehicle.cs" />
+    <Compile Include="Model\VoucherSearchCriteria.cs" />
+    <Compile Include="Model\Warehouse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Accounts.cs" />
+    <Compile Include="Repositories\CompanyPeriods.cs" />
+    <Compile Include="Repositories\Companies.cs" />
+    <Compile Include="Repositories\ChartOfAccounts.cs" />
+    <Compile Include="Repositories\SaleInvoices.cs" />
+    <Compile Include="Repositories\Items.cs" />
+    <Compile Include="Repositories\ItemCategories.cs" />
+    <Compile Include="Repositories\ItemGroups.cs" />
+    <Compile Include="Repositories\JournalVouchers.cs" />
+    <Compile Include="Repositories\BillTerms.cs" />
+    <Compile Include="Repositories\Transactions.cs" />
+    <Compile Include="Repositories\Payments.cs" />
+    <Compile Include="Repositories\Receipts.cs" />
+    <Compile Include="Repositories\Daybooks.cs" />
+    <Compile Include="Repositories\DefaultDataRepository.cs" />
+    <Compile Include="Repositories\FiscalDatePeriods.cs" />
+    <Compile Include="Repositories\InsightRepository.cs" />
+    <Compile Include="Repositories\TestInsightRepository.cs" />
+    <Compile Include="ViewModel\CompanyListItem.cs" />
+    <Compile Include="ViewModel\CompanyPeriodListItem.cs" />
+    <Compile Include="ViewModel\ChartOfAccountListItem.cs" />
+    <Compile Include="ViewModel\AccountListItem.cs" />
+    <Compile Include="ViewModel\BillTermListItem.cs" />
+    <Compile Include="ViewModel\BillTermView.cs" />
+    <Compile Include="ViewModel\LineItemView.cs" />
+    <Compile Include="ViewModel\SaleInvoiceListItem.cs" />
+    <Compile Include="ViewModel\ItemListItem.cs" />
+    <Compile Include="ViewModel\DaybookListItem.cs" />
+    <Compile Include="ViewModel\FiscalDatePeriodListItem.cs" />
+    <Compile Include="ViewModel\JournalVoucherListItem.cs" />
+    <Compile Include="ViewModel\TransactionListItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Indexes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gravity.Root\Gravity.Root.csproj">
+      <Project>{39228FC6-B6AD-4B41-84EE-BFE3D70063D9}</Project>
+      <Name>Gravity.Root</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mingle.Domain\Mingle.Domain.csproj">
+      <Project>{58CB702B-C287-4D28-B9CE-529661AA6C91}</Project>
+      <Name>Mingle.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.RavenDb\Scalable.RavenDb.csproj">
+      <Project>{DB6D01FB-D989-4220-BABF-97B7CFB13D86}</Project>
+      <Name>Scalable.RavenDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Shared\Scalable.Shared.csproj">
+      <Project>{D8AFA5AD-113F-4B56-84A3-54A4DAB1B9CA}</Project>
+      <Name>Scalable.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Synergy.Domain\Synergy.Domain.csproj">
+      <Project>{ECB2BF20-8469-43EA-90D0-4C1BE6509AEF}</Project>
+      <Name>Synergy.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

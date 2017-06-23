@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39228FC6-B6AD-4B41-84EE-BFE3D70063D9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gravity.Root</RootNamespace>
+    <AssemblyName>Gravity.Root</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Raven.Abstractions, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RavenDB\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RavenDB\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\EntityPrefix.cs" />
+    <Compile Include="Common\GravityAppBase.cs" />
+    <Compile Include="Common\GravityApplication.cs" />
+    <Compile Include="Common\ReleaseGravityAppBase.cs" />
+    <Compile Include="Common\RootUtil.cs" />
+    <Compile Include="Common\GravitySession.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\TestCoGroupGravityAppBase.cs" />
+    <Compile Include="Controls\UMultiUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UMultiUsers.Designer.cs">
+      <DependentUpon>UMultiUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UOptions.Designer.cs">
+      <DependentUpon>UOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UResponsibilities.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UResponsibilities.Designer.cs">
+      <DependentUpon>UResponsibilities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UResponsibility.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UResponsibility.Designer.cs">
+      <DependentUpon>UResponsibility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\URole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\URole.Designer.cs">
+      <DependentUpon>URole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\URoles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\EntityItem.cs" />
+    <Compile Include="Common\EntityListRepository.cs" />
+    <Compile Include="Controls\URoles.Designer.cs">
+      <DependentUpon>URoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UUser.Designer.cs">
+      <DependentUpon>UUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UUserFeedback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UUserFeedback.Designer.cs">
+      <DependentUpon>UUserFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UUsers.Designer.cs">
+      <DependentUpon>UUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UUserRole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UUserRole.Designer.cs">
+      <DependentUpon>UUserRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AppMenuItemEntity.cs" />
+    <Compile Include="Entities\FeedbackEntity.cs" />
+    <Compile Include="Entities\RoleResponsibilityEntity.cs" />
+    <Compile Include="Entities\UserConfigEntity.cs" />
+    <Compile Include="Entities\UserRoleEntity.cs" />
+    <Compile Include="Enums\AppControl.cs" />
+    <Compile Include="Enums\FeedbackType.cs" />
+    <Compile Include="Events\UserEventArgs.cs" />
+    <Compile Include="Events\UserRoleEventArgs.cs" />
+    <Compile Include="Events\ResponsibilityEventArgs.cs" />
+    <Compile Include="Forms\FChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FChangePassword.Designer.cs">
+      <DependentUpon>FChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FMainBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FMainBase.Designer.cs">
+      <DependentUpon>FMainBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UChangePassword.Designer.cs">
+      <DependentUpon>UChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCompanyGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCompanyGroup.Designer.cs">
+      <DependentUpon>UCompanyGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCompanyGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCompanyGroups.Designer.cs">
+      <DependentUpon>UCompanyGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCredentials.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCredentials.Designer.cs">
+      <DependentUpon>UCredentials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CoGroupEntity.cs" />
+    <Compile Include="Entities\Credentials.cs" />
+    <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Enums\AppCommandType.cs" />
+    <Compile Include="Events\CoGroupSelectedEventArgs.cs" />
+    <Compile Include="Events\CoGroupSavedEventArgs.cs" />
+    <Compile Include="Events\OpenCoGroupEventArgs.cs" />
+    <Compile Include="Forms\FCompanyGroupBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FCompanyGroupBase.Designer.cs">
+      <DependentUpon>FCompanyGroupBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FCompanyGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FCompanyGroups.Designer.cs">
+      <DependentUpon>FCompanyGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FMultiUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FMultiUsers.Designer.cs">
+      <DependentUpon>FMultiUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FOptions.Designer.cs">
+      <DependentUpon>FOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FUserFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FUserFeedback.Designer.cs">
+      <DependentUpon>FUserFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppMenuItem.cs" />
+    <Compile Include="Model\Command.cs" />
+    <Compile Include="Model\CommandProp.cs" />
+    <Compile Include="Model\CompanyGroup.cs" />
+    <Compile Include="Entities\SysConfigEntity.cs" />
+    <Compile Include="Model\CoGroupListItem.cs" />
+    <Compile Include="Events\LoginEventArgs.cs" />
+    <Compile Include="Forms\FLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FLogin.Designer.cs">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserRoleModel.cs" />
+    <Compile Include="Model\RoleResponsibility.cs" />
+    <Compile Include="Model\UserConfig.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Picklists\CoGroupList.cs" />
+    <Compile Include="Picklists\UserHeirarchyList.cs" />
+    <Compile Include="Picklists\RoleResponsibilityList.cs" />
+    <Compile Include="Picklists\PicklistFactory.cs" />
+    <Compile Include="Picklists\UserList.cs" />
+    <Compile Include="Picklists\UserRoleList.cs" />
+    <Compile Include="Repositories\CoGroupRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ULogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ULogin.Designer.cs">
+      <DependentUpon>ULogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\AppStoreManager.cs" />
+    <Compile Include="Repositories\UserHierarchy.cs" />
+    <Compile Include="Repositories\UserRoles.cs" />
+    <Compile Include="Repositories\RoleResponsibilities.cs" />
+    <Compile Include="Repositories\DefaultDataRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\Users.cs" />
+    <Compile Include="Repositories\TestUsersRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="ViewModel\UserHeirarchyListItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\UMultiUsers.resx">
+      <DependentUpon>UMultiUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UOptions.resx">
+      <DependentUpon>UOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UResponsibilities.resx">
+      <DependentUpon>UResponsibilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UResponsibility.resx">
+      <DependentUpon>UResponsibility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\URole.resx">
+      <DependentUpon>URole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\URoles.resx">
+      <DependentUpon>URoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UUser.resx">
+      <DependentUpon>UUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UUserFeedback.resx">
+      <DependentUpon>UUserFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UUsers.resx">
+      <DependentUpon>UUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UUserRole.resx">
+      <DependentUpon>UUserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FChangePassword.resx">
+      <DependentUpon>FChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FMainBase.resx">
+      <DependentUpon>FMainBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UChangePassword.resx">
+      <DependentUpon>UChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCompanyGroup.resx">
+      <DependentUpon>UCompanyGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCompanyGroups.resx">
+      <DependentUpon>UCompanyGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCredentials.resx">
+      <DependentUpon>UCredentials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FCompanyGroupBase.resx">
+      <DependentUpon>FCompanyGroupBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FCompanyGroups.resx">
+      <DependentUpon>FCompanyGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FLogin.resx">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FMultiUsers.resx">
+      <DependentUpon>FMultiUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FOptions.resx">
+      <DependentUpon>FOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FUserFeedback.resx">
+      <DependentUpon>FUserFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ULogin.resx">
+      <DependentUpon>ULogin.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scalable.RavenDb\Scalable.RavenDb.csproj">
+      <Project>{DB6D01FB-D989-4220-BABF-97B7CFB13D86}</Project>
+      <Name>Scalable.RavenDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Win\Scalable.Win.csproj">
+      <Project>{4E261D74-25EF-48DE-A07B-8279F8C89DDF}</Project>
+      <Name>Scalable.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Shared\Scalable.Shared.csproj">
+      <Project>{D8AFA5AD-113F-4B56-84A3-54A4DAB1B9CA}</Project>
+      <Name>Scalable.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notifyIcon.Icon.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

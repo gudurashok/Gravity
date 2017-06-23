@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECB2BF20-8469-43EA-90D0-4C1BE6509AEF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Synergy.Domain</RootNamespace>
+    <AssemblyName>Synergy.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RavenDB\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RavenDB\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RavenDB\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\ChecklistEntity.cs" />
+    <Compile Include="Entities\AttachmentEntity.cs" />
+    <Compile Include="Entities\ChecklistItemEntity.cs" />
+    <Compile Include="Entities\TaskReminderEntity.cs" />
+    <Compile Include="Entities\ExecutionEntity.cs" />
+    <Compile Include="Entities\TaskExecutionEntity.cs" />
+    <Compile Include="Entities\TaskMessageEntity.cs" />
+    <Compile Include="Entities\TaskCommentEntity.cs" />
+    <Compile Include="Entities\LocationEntity.cs" />
+    <Compile Include="Entities\ProjectEntity.cs" />
+    <Compile Include="Entities\RecurrenceEntity.cs" />
+    <Compile Include="Entities\TaskEntity.cs" />
+    <Compile Include="Entities\TaskTemplateEntity.cs" />
+    <Compile Include="Entities\TaskTypeEntity.cs" />
+    <Compile Include="Enums\RecurrenceRepeatFrom.cs" />
+    <Compile Include="Enums\RecipientType.cs" />
+    <Compile Include="Enums\SearchIn.cs" />
+    <Compile Include="Enums\AttachmentType.cs" />
+    <Compile Include="Enums\TaskOrderByField.cs" />
+    <Compile Include="Enums\TaskGroupByField.cs" />
+    <Compile Include="Enums\TaskUpdateType.cs" />
+    <Compile Include="Enums\DatePeriodField.cs" />
+    <Compile Include="Enums\DayOfWeekIndexType.cs" />
+    <Compile Include="Enums\DayOfWeekType.cs" />
+    <Compile Include="Enums\DaysOfWeek.cs" />
+    <Compile Include="Enums\Duration.cs" />
+    <Compile Include="Enums\MonthName.cs" />
+    <Compile Include="Enums\Priority.cs" />
+    <Compile Include="Enums\RecurrenceRangeType.cs" />
+    <Compile Include="Enums\RecurrenceType.cs" />
+    <Compile Include="Enums\TaskStatus.cs" />
+    <Compile Include="Indexes\Task_Search.cs" />
+    <Compile Include="Indexes\Task_UserStats.cs" />
+    <Compile Include="Indexes\IIndexDefinition.cs" />
+    <Compile Include="Indexes\Task_Count.cs" />
+    <Compile Include="Model\Attachment.cs" />
+    <Compile Include="Model\Checklist.cs" />
+    <Compile Include="Model\CurrentTaskDetails.cs" />
+    <Compile Include="Model\PhoneNumbersExtractor.cs" />
+    <Compile Include="Model\Suggestion.cs" />
+    <Compile Include="Model\TaskRecurrence.cs" />
+    <Compile Include="Model\TaskReminder.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\SysConfig.cs" />
+    <Compile Include="Model\TaskComment.cs" />
+    <Compile Include="Model\TaskExecution.cs" />
+    <Compile Include="Model\TaskMessage.cs" />
+    <Compile Include="Model\TaskSearchCriteria.cs" />
+    <Compile Include="Model\Task.cs" />
+    <Compile Include="Model\TaskTemplate.cs" />
+    <Compile Include="Model\TaskType.cs" />
+    <Compile Include="Enums\TaskUpdateAction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Suggestions.cs" />
+    <Compile Include="Repositories\TaskTemplates.cs" />
+    <Compile Include="Repositories\TaskStatistics.cs" />
+    <Compile Include="Repositories\TaskReminders.cs" />
+    <Compile Include="Repositories\DefaultDataRepository.cs" />
+    <Compile Include="Repositories\TaskAttachments.cs" />
+    <Compile Include="Repositories\TaskMessages.cs" />
+    <Compile Include="Repositories\Tasks.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\TestTasksRepository.cs" />
+    <Compile Include="ViewModel\MessageListItem.cs" />
+    <Compile Include="ViewModel\TaskStatsListItem.cs" />
+    <Compile Include="ViewModel\TaskListItem.cs" />
+    <Compile Include="ViewModel\TaskReminderListItem.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Gravity.Root\Gravity.Root.csproj">
+      <Project>{39228FC6-B6AD-4B41-84EE-BFE3D70063D9}</Project>
+      <Name>Gravity.Root</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.RavenDb\Scalable.RavenDb.csproj">
+      <Project>{DB6D01FB-D989-4220-BABF-97B7CFB13D86}</Project>
+      <Name>Scalable.RavenDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Shared\Scalable.Shared.csproj">
+      <Project>{D8AFA5AD-113F-4B56-84A3-54A4DAB1B9CA}</Project>
+      <Name>Scalable.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Win\Scalable.Win.csproj">
+      <Project>{4E261D74-25EF-48DE-A07B-8279F8C89DDF}</Project>
+      <Name>Scalable.Win</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

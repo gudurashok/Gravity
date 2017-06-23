@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Scalable.SpellChecker</name>
+    </assembly>
+    <members>
+        <member name="F:Scalable.SpellChecker.Forms.FSuggestion.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Scalable.SpellChecker.Forms.FSuggestion.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Scalable.SpellChecker.Forms.FSuggestion.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Scalable.SpellChecker.Controls.SpellTextBox.MisspelledStyle">
+            <summary>
+                The Underline style used to mark misspelled words
+            </summary>
+        </member>
+        <member name="F:Scalable.SpellChecker.Forms.FOptions.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Scalable.SpellChecker.Forms.FOptions.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Scalable.SpellChecker.Forms.FOptions.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

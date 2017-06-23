@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+    <PublishUrlHistory>\\SVR-1\Public\Nish\SynergySetup\|\\SVR-1\Public\RS\SynergySetup\|\\SVR-1\Public\SynergyReleases\|http://nishg/|C:\SynergySetup\</PublishUrlHistory>
+    <InstallUrlHistory>\\TFS\Public\SynergyReleases\|\\SVR-1\Public\SynergyReleases\</InstallUrlHistory>
+    <SupportUrlHistory>http://www.iscalable/support</SupportUrlHistory>
+    <UpdateUrlHistory>http://localhost/Synergy/</UpdateUrlHistory>
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory>http://www.iscalable/connect</ErrorReportUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+</Project>

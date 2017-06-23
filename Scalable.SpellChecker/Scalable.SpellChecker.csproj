@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A426EE0B-E52E-4D74-AF24-06797142D7B2}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>Scalable.SpellChecker</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Scalable.SpellChecker</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CheckAsYouType.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckAsYouTypeState.cs" />
+    <Compile Include="Controls\NativeMethods.cs" />
+    <Compile Include="Controls\SpellRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SpellTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Affix\AffixEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Affix\AffixEntryCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Affix\AffixEntryEnumerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Affix\AffixRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Affix\AffixRuleCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Affix\AffixRuleEnumerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Affix\AffixUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Phonetic\PhoneticRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Phonetic\PhoneticRuleCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Phonetic\PhoneticRuleEnumerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Phonetic\PhoneticUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Word.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dictionary\WordDictionary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\FOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FOptions.Designer.cs">
+      <DependentUpon>FOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FSuggestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FSuggestion.Designer.cs">
+      <DependentUpon>FSuggestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReplaceWordEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Spelling.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpellingEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TraceWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Controls\CheckAsYouType.resx">
+      <DependentUpon>CheckAsYouType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SpellTextBox.resx">
+      <DependentUpon>SpellTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Dictionary.bmp" />
+    <EmbeddedResource Include="Dictionary\WordDictionary.resx">
+      <DependentUpon>WordDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FOptions.resx">
+      <DependentUpon>FOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FSuggestion.resx">
+      <DependentUpon>FSuggestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spelling.bmp" />
+    <EmbeddedResource Include="Spelling.resx">
+      <DependentUpon>Spelling.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scalable.Win\Scalable.Win.csproj">
+      <Project>{4E261D74-25EF-48DE-A07B-8279F8C89DDF}</Project>
+      <Name>Scalable.Win</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dictionary\en-US.dic">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

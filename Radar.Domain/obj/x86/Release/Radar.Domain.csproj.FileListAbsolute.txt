@@ -1,0 +1,8 @@
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Radar.Domain\bin\Release\Radar.Domain.exe
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Radar.Domain\bin\Release\Radar.Domain.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Radar.Domain\bin\Release\Scalable.Shared.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Radar.Domain\bin\Release\SMSClient.dll
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Radar.Domain\bin\Release\Scalable.Shared.pdb
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Radar.Domain\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Radar.Domain\obj\x86\Release\Radar.Domain.exe
+C:\Users\sonyvaio.S3PL\Documents\Visual Studio 2010\Projects\GravityRaven\Gravity\Radar.Domain\obj\x86\Release\Radar.Domain.pdb
