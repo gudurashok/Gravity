@@ -11,24 +11,21 @@ using Scalable.Shared.Common;
 using Scalable.Win.Controls;
 using Insight.Domain.Repositories;
 using Scalable.Win.FormControls;
+using Insight.Domain.ViewModel;
 
 namespace Ferry.Win.Controls
 {
     public partial class UCompanyPeriods : UPicklist
     {
-        #region Constructor
-
         public UCompanyPeriods()
         {
             InitializeComponent();
         }
 
-        #endregion
-
-        #region Loading
-
         public override void Initialize()
         {
+            btnOpen.Hide();
+            SearchProperty = "Company";
             buildList();
         }
 
@@ -36,7 +33,9 @@ namespace Ferry.Win.Controls
         {
             initializeListView();
             buildColumns();
-            fillListData();
+            Repository = new CompanyPeriods();
+            FillList(true);
+            setCompanyPeriodViewState();
         }
 
         private void initializeListView()
@@ -46,40 +45,17 @@ namespace Ferry.Win.Controls
 
         private void buildColumns()
         {
-            ListView.Columns.Add(new iColumnHeader("Company Name", true));
+            ListView.Columns.Add(new iColumnHeader("Company", true));
             ListView.Columns.Add(new iColumnHeader("Period", 75));
-            ListView.Columns.Add(new iColumnHeader("Data Path", 131));
             ListView.Columns.Add(new iColumnHeader("Provider", 55));
             ListView.Columns.Add(new iColumnHeader("Imported", 55));
         }
 
-        private void fillListData()
-        {
-            var repo = new InsightRepository();
-            ListData = repo.GetAllCompanyPeriods();
-
-            setCompanyPeriodViewState();
-        }
-
         private void setCompanyPeriodViewState()
         {
-            if (areCompanyPeriodsExist())
-            {
-                ListView.SelectTopItem();
-                ParentForm.AcceptButton = btnOK;
-            }
-            else
+            if (!ListView.HasItems())
                 disableCompanyPeriodButtons();
         }
-
-        private bool areCompanyPeriodsExist()
-        {
-            return ListView.HasItems();
-        }
-
-        #endregion
-
-        #region Add Periods
 
         private void btnAddPeriods_Click(object sender, EventArgs e)
         {
@@ -90,12 +66,8 @@ namespace Ferry.Win.Controls
         {
             var fCoGroupPeriods = new FCoGroupPeriods();
             fCoGroupPeriods.ShowDialog();
-            RefreshList();
+            FillList(true);
         }
-
-        #endregion
-
-        #region Add Period
 
         private void btnAddPeriod_Click(object sender, EventArgs e)
         {
@@ -115,10 +87,6 @@ namespace Ferry.Win.Controls
             return cp;
         }
 
-        #endregion
-
-        #region Edit period
-
         private void btnEditPeriod_Click(object sender, EventArgs e)
         {
             EventHandlerExecutor.Execute(processEditPeriod);
@@ -130,10 +98,6 @@ namespace Ferry.Win.Controls
             var cp = repo.GetCompanyPeriodById(getSelectedCompanyPeriod().Entity.Id);
             saveCompanyPeriod(cp);
         }
-
-        #endregion
-
-        #region Delete Period
 
         private void btnDeletePeriod_Click(object sender, EventArgs e)
         {
@@ -147,7 +111,7 @@ namespace Ferry.Win.Controls
 
             Cursor = Cursors.WaitCursor;
             //_dbc.DeleteCompanyPeriod(getSelectedCompanyPeriod());
-            RefreshList();
+            FillList(true);
         }
 
         private bool shouldDeleteCompanyPeriod()
@@ -168,10 +132,6 @@ namespace Ferry.Win.Controls
             return MessageBoxUtil.GetConfirmationYesNo(Resources.DeleteCompanyPeriod) == DialogResult.Yes;
         }
 
-        #endregion
-
-        #region Import Selected Periods
-
         private void btnImport_Click(object sender, EventArgs e)
         {
             EventHandlerExecutor.Execute(processImportPeriods);
@@ -180,7 +140,7 @@ namespace Ferry.Win.Controls
         void processImportPeriods()
         {
             importSelectedCompanyPeriods();
-            RefreshList();
+            FillList(true);
         }
 
         private void importSelectedCompanyPeriods()
@@ -194,10 +154,6 @@ namespace Ferry.Win.Controls
             return (from ListViewItem lvi in ListView.CheckedItems
                     select getSelectedCompanyPeriod(lvi)).ToList();
         }
-
-        #endregion
-
-        #region Show selected period details
 
         private void ListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -229,10 +185,6 @@ namespace Ferry.Win.Controls
         {
             return ListView.SelectedItems.Count == 1;
         }
-
-        #endregion
-
-        #region Check period already imported
 
         private void ListView_ItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -297,15 +249,6 @@ namespace Ferry.Win.Controls
             return ListView.CheckedItems.Count > 0;
         }
 
-        #endregion
-
-        #region Common
-
-        public void RefreshList()
-        {
-            fillListData();
-        }
-
         private void saveCompanyPeriod(CompanyPeriod cp)
         {
             if (getCompanyPeriodInfo(cp) != DialogResult.OK)
@@ -321,7 +264,7 @@ namespace Ferry.Win.Controls
             //    else
             //        _dbc.SaveCompanyPeriod(getSelectedCompanyPeriod(), cp);
 
-            RefreshList();
+            FillList(true);
         }
 
         private DialogResult getCompanyPeriodInfo(CompanyPeriod cp)
@@ -337,7 +280,7 @@ namespace Ferry.Win.Controls
 
         private CompanyPeriod getSelectedCompanyPeriod(ListViewItem lvi)
         {
-            return lvi.Tag as CompanyPeriod;
+            return (lvi.Tag as CompanyPeriodListItem).CompanyPeriod;
         }
 
         private void enableCompanyPeriodButtons()
@@ -353,7 +296,5 @@ namespace Ferry.Win.Controls
             btnDeletePeriod.Enabled = false;
             ParentForm.AcceptButton = btnAddPeriods;
         }
-
-        #endregion
     }
 }

@@ -265,8 +265,7 @@ namespace Ferry.Logic.Base
 
         protected virtual void OnExtracting(ExtractingEventArgs e)
         {
-            if (ExtractingHandler != null)
-                ExtractingHandler(this, e);
+            ExtractingHandler?.Invoke(this, e);
         }
 
         #endregion

@@ -11,25 +11,17 @@ namespace Ferry.Logic.Base
 {
     public abstract class DataImportContext
     {
-        #region Declarations
-
         private Database _soureDatabase;
         private DataContext _targetDbContext;
         private const string importDataPath = @"\ImportData";
         protected readonly CompanyPeriod companyPeriod;
         public DataImporter Importer { get; private set; }
 
-        #endregion
-
-        #region Constructor
-
         protected DataImportContext(CompanyPeriod companyPeriod)
         {
             this.companyPeriod = companyPeriod;
             initializeImport();
         }
-
-        #endregion
 
         private void initializeImport()
         {
@@ -39,8 +31,6 @@ namespace Ferry.Logic.Base
             _targetDbContext = createTargetDatabaseContext();
             Importer = CreateImporterInstance(_soureDatabase, _targetDbContext, companyPeriod);
         }
-
-        #region Public Methods
 
         public void PerformImport()
         {
@@ -90,10 +80,6 @@ namespace Ferry.Logic.Base
             companyPeriod.Entity.IsImported = true;
             _targetDbContext.Commit();
         }
-
-        #endregion
-
-        #region Internal Methods
 
         private Exception getPreparedException(Exception finallyException, Exception importException)
         {
@@ -161,7 +147,5 @@ namespace Ferry.Logic.Base
                 file.CopyImportSourceFile(destFileName);
             }
         }
-
-        #endregion
     }
 }

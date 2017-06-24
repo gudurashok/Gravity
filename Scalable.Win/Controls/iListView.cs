@@ -149,7 +149,7 @@ namespace Scalable.Win.Controls
         private string getColumnValue(object data, iColumnHeader col)
         {
             var pi = data.GetType().GetProperty(col.Name);
-            Debug.Assert(pi != null, string.Format("Property Name {0} not found on object {1}", col.Name, data));
+            Debug.Assert(pi != null, string.Format("Property Name '{0}' not found on object '{1}'", col.Name, data));
             var value = pi.GetValue(data, null);
             if (value == null)
                 return "";

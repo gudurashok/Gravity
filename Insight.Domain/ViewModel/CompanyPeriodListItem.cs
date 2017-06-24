@@ -15,5 +15,20 @@ namespace Insight.Domain.ViewModel
         {
             get { return CompanyPeriod.Period.Entity.Name; }
         }
+
+        public string Path
+        {
+            get { return CompanyPeriod.Entity.SourceDataPath; }
+        }
+
+        public string Provider
+        {
+            get { return CompanyPeriod.Entity.SourceDataProvider.ToString(); }
+        }
+
+        public string Imported
+        {
+            get { return CompanyPeriod.Entity.IsImported ? "Yes" : "No"; }
+        }
     }
 }

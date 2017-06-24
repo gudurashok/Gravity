@@ -134,3 +134,39 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Win\obj\x86
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Win\obj\x86\Debug\Insight.exe
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Win\obj\x86\Debug\Insight.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Dictionary\en-US.dic
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.exe.config
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.exe
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Gravity.Root.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.UC.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Mingle.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Mingle.UC.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Scalable.Win.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Synergy.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Synergy.UC.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Scalable.SpellChecker.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Gravity.Root.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.UC.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Mingle.UC.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Synergy.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Synergy.UC.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Scalable.SpellChecker.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.Forms.FMain.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.exe
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.pdb

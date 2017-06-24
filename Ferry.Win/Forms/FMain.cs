@@ -32,7 +32,7 @@ namespace Ferry.Win.Forms
 
         protected override void OnRefreshList()
         {
-            uCompanyPeriods.RefreshList();
+            uCompanyPeriods.FillList(true);
         }
     }
 }

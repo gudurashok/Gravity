@@ -104,3 +104,28 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Mingle.Win\obj\x86\
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Mingle.Win\obj\x86\Debug\Mingle.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Mingle.Win\obj\x86\Debug\Mingle.exe
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Mingle.Win\obj\x86\Debug\Mingle.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Mingle.exe.config
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Mingle.exe
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Mingle.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Gravity.Root.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Mingle.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Mingle.UC.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Scalable.Win.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Gravity.Root.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Mingle.UC.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\obj\x86\Debug\Mingle.Win.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\obj\x86\Debug\Mingle.Win.Forms.FMain.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\obj\x86\Debug\Mingle.Win.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\obj\x86\Debug\Mingle.Win.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\obj\x86\Debug\Mingle.exe
+C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Win\obj\x86\Debug\Mingle.pdb

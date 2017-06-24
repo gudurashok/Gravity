@@ -13,6 +13,11 @@ using Scalable.Win.Controls;
 using Scalable.Win.Forms;
 using Scalable.Shared.Common;
 using Insight.Domain.Repositories;
+using Gravity.Root.Common;
+using Mingle.Domain.Entities;
+using Mingle.Domain.Repositories;
+using Scalable.Shared.Model;
+using Mingle.Domain.Model;
 
 namespace Ferry.Win.Forms
 {
@@ -24,6 +29,16 @@ namespace Ferry.Win.Forms
         private IList<SourceCompanyGroup> _companyGroups;
         private readonly iFolderBrowser _importPathBrowser;
         private CompanyImporter _companyImporter;
+        private InsightRepository _insightRepo;
+
+        #endregion
+
+        #region Properties
+
+        public InsightRepository InsightRepo
+        {
+            get { return _insightRepo ?? (_insightRepo = new InsightRepository()); }
+        }
 
         #endregion
 
@@ -263,20 +278,59 @@ namespace Ferry.Win.Forms
             MessageBoxUtil.ShowMessage(Resources.CoGroupSavedSuccessfully);
         }
 
+        private IEnumerable<string> getSelectedCompanyNames()
+        {
+            return (from ListViewItem lvi in lvwCoPeriods.CheckedItems
+                    select lvi.Tag).OfType<SourceCompanyPeriod>()
+                                   .OrderBy(x => x.CompanyName)
+                                   .Distinct()
+                                   .Select(scp => scp.CompanyName)
+                                   .ToList();
+        }
+
         private void saveSelectedCompanyPeriods()
         {
-            var repo = new InsightRepository();
-            foreach (var cp in (from ListViewItem lvi in lvwCoPeriods.CheckedItems
-                                select lvi.Tag).OfType<SourceCompanyPeriod>())
+            foreach (var companyName in getSelectedCompanyNames())
             {
-                var companyPeriod = CompanyPeriod.New();
-                companyPeriod.Company = new Company(new CompanyEntity { Code = cp.CompanyCode, Name = cp.CompanyName });
-                companyPeriod.Period = repo.GetFiscalDatePeriodByPeriod(cp.Period, true);
-                companyPeriod.Entity.SourceDataPath = cp.SourceDataPath;
-                companyPeriod.Entity.SourceDataProvider = _companyImporter.Provider;
+                var partyId = createParty(companyName);
 
-                repo.Save(companyPeriod);
+                foreach (var scp in (from ListViewItem lvi in lvwCoPeriods.CheckedItems
+                                     select lvi.Tag).OfType<SourceCompanyPeriod>()
+                                                    .Where(x => x.CompanyName == companyName))
+                {
+
+                    var companyId = createCompany(scp.CompanyCode, scp.CompanyName, partyId);
+                    var periodId = createDatePeriod(scp.Period);
+                    var companyPeriod = new CompanyPeriodEntity();
+                    companyPeriod.CompanyId = companyId;
+                    companyPeriod.PeriodId = periodId;
+                    companyPeriod.SourceDataPath = scp.SourceDataPath;
+                    companyPeriod.SourceDataProvider = _companyImporter.Provider;
+                    InsightRepo.Save(companyPeriod);
+                }
             }
+        }
+
+        private string createParty(string partyName)
+        {
+            var party = PartyEntity.New();
+            party.Name = Name = partyName;
+            InsightRepo.Save(party);
+            return party.Id;
+        }
+
+        private string createCompany(string code, string name, string partyId)
+        {
+            var company = new CompanyEntity { Code = code, Name = name, PartyId = partyId };
+            company.PartyId = partyId;
+            InsightRepo.Save(company);
+            return company.Id;
+        }
+
+        private string createDatePeriod(DatePeriod period)
+        {
+            var result = InsightRepo.GetFiscalDatePeriodByPeriod(period, true);
+            return result.Entity.Id;
         }
 
         private void clearSavedCompanyPeriods()

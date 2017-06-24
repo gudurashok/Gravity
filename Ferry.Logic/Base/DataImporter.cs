@@ -42,8 +42,7 @@ namespace Ferry.Logic.Base
 
         private void onImporting(ImportingEventArgs e)
         {
-            if (Importing != null)
-                Importing(this, e);
+            Importing?.Invoke(this, e);
         }
 
         internal void RaiseImportingEvent(ImportingEventArgs e)

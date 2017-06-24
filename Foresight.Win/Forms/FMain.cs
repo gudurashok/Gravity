@@ -17,29 +17,14 @@ namespace Foresight.Win.Forms
 {
     public partial class FMain : FFormBase
     {
-        #region Declarations
-
         private FCompanyGroups _coGroupsForm { get; set; }
-
-        #endregion
-
-        #region Properties
-
         public bool IsClosing { get; set; }
-
-        #endregion
-
-        #region Constructors
 
         public FMain(FCompanyGroups groupForm)
         {
             InitializeComponent();
             _coGroupsForm = groupForm;
         }
-
-        #endregion
-
-        #region Event Handlers
 
         private void FMain_Load(object sender, EventArgs e)
         {
@@ -148,10 +133,6 @@ namespace Foresight.Win.Forms
                 executeCommand();
         }
 
-        #endregion
-
-        //#region Public Methods
-
         //public void InitializeForm(bool isGroupChanged)
         //{
         //    if (isGroupChanged)
@@ -160,10 +141,6 @@ namespace Foresight.Win.Forms
         //    setFormTitle();
         //    lvwCommandBar.SelectTopItem(true);
         //}
-
-        //#endregion
-
-        #region Internal Methods
 
         private void populateReportsCommandBar()
         {
@@ -183,10 +160,10 @@ namespace Foresight.Win.Forms
 
         private void setFormTitle()
         {
-            Text = string.Format("{0} - {1}", 
-                                ForesightSession.CompanyGroup.Entity.Name, 
+            Text = string.Format("{0} - {1}",
+                                ForesightSession.CompanyGroup.Entity.Name,
                                 GravityApplication.GetProductName());
-            
+
             lblTitle.Text = ForesightSession.CompanyGroup.Entity.Name;
         }
 
@@ -249,7 +226,5 @@ namespace Foresight.Win.Forms
             var asm = Assembly.GetExecutingAssembly();
             return asm.CreateInstance("Foresight.Win.Reports." + command.UIControlName, true) as Form;
         }
-
-        #endregion
     }
 }

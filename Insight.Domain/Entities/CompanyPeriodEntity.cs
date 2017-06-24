@@ -14,5 +14,10 @@ namespace Insight.Domain.Entities
         public SourceDataProvider SourceDataProvider { get; set; }
         public string SourceDataPath { get; set; }
         public bool IsImported { get; set; }
+
+        public CompanyPeriodEntity()
+        {
+            SourceDataProvider = SourceDataProvider.Insight;
+        }
     }
 }

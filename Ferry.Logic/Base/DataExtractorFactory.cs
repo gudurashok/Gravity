@@ -5,6 +5,7 @@ using Ferry.Logic.Properties;
 using Ferry.Logic.TCS;
 using Foresight.Logic.DataAccess;
 using Insight.Domain.Enums;
+using Ferry.Logic.Insight;
 
 namespace Ferry.Logic.Base
 {
@@ -20,6 +21,8 @@ namespace Ferry.Logic.Base
                     return new McsDataExtractor(sourceDatabase, targetDbContext);
                 case SourceDataProvider.Tcs:
                     return new TcsDataExtractor(sourceDatabase, targetDbContext);
+                case SourceDataProvider.Insight:
+                    return new InsightDataExtractor(sourceDatabase, targetDbContext);
                 default:
                     throw new ValidationException(string.Format(Resources.SourceDatabaseProviderNotSupported, provider));
             }

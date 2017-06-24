@@ -17,3 +17,10 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\obj
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\obj\Debug\Scalable.Shared.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\obj\Debug\Scalable.Shared.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.Shared\obj\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Debug\Scalable.Shared.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Debug\Scalable.Shared.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Debug\Scalable.Shared.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Debug\Scalable.Shared.pdb

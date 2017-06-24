@@ -16,11 +16,11 @@ namespace Insight.Domain.Repositories
 {
     public class InsightRepository : RepositoryBase
     {
-        public IEnumerable<CompanyPeriod> GetAllCompanyPeriods()
-        {
-            using (var s = Store.OpenSession())
-                return s.Query<CompanyPeriod>().ToList();
-        }
+        //public IEnumerable<CompanyPeriodEntity> GetAllCompanyPeriods()
+        //{
+        //    using (var s = Store.OpenSession())
+        //        return s.Query<CompanyPeriodEntity>().ToList();
+        //}
 
         public string GetCompanyPeriodIdByNameAndFinPeriod(string companyName, DatePeriod searchPeriod)
         {
@@ -67,6 +67,7 @@ namespace Insight.Domain.Repositories
                     datePeriod = FiscalDatePeriod.CreateInstanceFrom(period);
                 }
 
+                Save(datePeriod.Entity);
                 return datePeriod;
             }
         }
@@ -178,10 +179,10 @@ namespace Insight.Domain.Repositories
                         .SingleOrDefault(c => c.Id == id);
 
                 return new CompanyPeriod(cp)
-                           {
-                               Company = new Company(s.Load<CompanyEntity>(cp.CompanyId)),
-                               Period = new FiscalDatePeriod(s.Load<FiscalDatePeriodEntity>(cp.PeriodId))
-                           };
+                {
+                    Company = new Company(s.Load<CompanyEntity>(cp.CompanyId)),
+                    Period = new FiscalDatePeriod(s.Load<FiscalDatePeriodEntity>(cp.PeriodId))
+                };
             }
         }
 

@@ -11,6 +11,8 @@ namespace Insight.Domain.Enums
         [Description("MCS")]
         Mcs = 2,
         [Description("TCS")]
-        Tcs = 3
+        Tcs = 3,
+        [Description("Insight")]
+        Insight = 4
     }
 }
