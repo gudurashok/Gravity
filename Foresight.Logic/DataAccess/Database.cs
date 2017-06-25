@@ -8,14 +8,8 @@ namespace Foresight.Logic.DataAccess
 {
     public class Database
     {
-        #region Internal Declarations
-
         private IDbConnection _connection;
         private IDbTransaction _transaction;
-
-        #endregion
-
-        #region Public Members
 
         public void ChangeDatabase(string databaseName)
         {
@@ -130,7 +124,5 @@ namespace Foresight.Logic.DataAccess
             var value = cmd.ExecuteScalar();
             return  ForesightUtil.ConvertDbNullToString(value);
         }
-
-        #endregion
     }
 }

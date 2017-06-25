@@ -44,7 +44,7 @@ namespace Insight.UC.Picklists
 
         protected override IListRepository createRepository()
         {
-            return new CompanyPeriods();
+            return CompanyPeriods.NewLoadOnlyInsightDataSourceCompanies();
         }
     }
 }

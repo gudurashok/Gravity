@@ -33,7 +33,7 @@ namespace Ferry.Win.Controls
         {
             initializeListView();
             buildColumns();
-            Repository = new CompanyPeriods();
+            Repository = CompanyPeriods.NewLoadAllNonInsightDataSourceCompanies();
             FillList(true);
             setCompanyPeriodViewState();
         }

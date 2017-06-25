@@ -13,8 +13,6 @@ namespace Ferry.Logic.Base
 {
     public class DataImporter
     {
-        #region Declarations
-
         protected readonly Database sourceDatabase;
         protected readonly DataContext targetDbContext;
         protected readonly CompanyPeriod companyPeriod;
@@ -24,10 +22,6 @@ namespace Ferry.Logic.Base
         public event ImportingEventHandler Importing;
         public bool IsCancelled;
 
-        #endregion
-
-        #region Constructor
-
         public DataImporter(Database sourceDatabase, DataContext targetDbContext, CompanyPeriod companyPeriod)
         {
             this.sourceDatabase = sourceDatabase;
@@ -35,10 +29,6 @@ namespace Ferry.Logic.Base
             this.companyPeriod = companyPeriod;
             ieaFactory = new ImportingEventArgsFactory(this);
         }
-
-        #endregion
-
-        #region Progress Indicator
 
         private void onImporting(ImportingEventArgs e)
         {
@@ -55,10 +45,6 @@ namespace Ferry.Logic.Base
             ieaFactory.RaiseImportingEvent(e);
         }
 
-        #endregion
-
-        #region Txn Type
-
         protected int GetTxnType(string dbCr)
         {
             return dbCr == "C" ? 0 : 1;
@@ -68,10 +54,6 @@ namespace Ferry.Logic.Base
         {
             return txnType == 0 ? "Receipt" : "Payment";
         }
-
-        #endregion
-
-        #region Public Members
 
         public void Execute()
         {
@@ -85,10 +67,6 @@ namespace Ferry.Logic.Base
         {
             IsCancelled = true;
         }
-
-        #endregion
-
-        #region Composed Main Methods
 
         private void extract()
         {
@@ -141,8 +119,6 @@ namespace Ferry.Logic.Base
             ieaFactory.RaiseImportingEvent("Updating company period");
             targetDbContext.SetCompanyPeriodColumnValue(companyPeriod);
         }
-
-        #endregion
 
         #region Transaction Import Methods
 

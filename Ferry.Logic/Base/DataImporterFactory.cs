@@ -5,7 +5,6 @@ using Ferry.Logic.Properties;
 using Ferry.Logic.TCS;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
-using Ferry.Logic.Insight;
 
 namespace Ferry.Logic.Base
 {
@@ -21,8 +20,6 @@ namespace Ferry.Logic.Base
                     return new McsDataImportContext(companyPeriod);
                 case SourceDataProvider.Tcs:
                     return new TcsDataImportContext(companyPeriod);
-                case SourceDataProvider.Insight:
-                    return new InsightDataImportContext(companyPeriod);
                 default:
                     throw new ValidationException(string.Format(Resources.ImporterNotSupported, companyPeriod.Entity.SourceDataProvider));
             }

@@ -9,17 +9,61 @@ using Scalable.Shared.Model;
 using Scalable.Shared.Repositories;
 using Mingle.Domain.Model;
 using Mingle.Domain.Repositories;
+using Insight.Domain.Enums;
 
 namespace Insight.Domain.Repositories
 {
     public class CompanyPeriods : RepositoryBase, IListRepository
     {
+        private enum CoSourceDataProvider
+        {
+            Insight = 0,
+            NonInsight = 1,
+            Both = 2
+        }
+
+        public static CompanyPeriods NewLoadAllDataSourceCompanies()
+        {
+            return new CompanyPeriods(CoSourceDataProvider.Both);
+        }
+
+        public static CompanyPeriods NewLoadAllNonInsightDataSourceCompanies()
+        {
+            return new CompanyPeriods(CoSourceDataProvider.NonInsight);
+        }
+
+        public static CompanyPeriods NewLoadOnlyInsightDataSourceCompanies()
+        {
+            return new CompanyPeriods(CoSourceDataProvider.Insight);
+        }
+
+        private CoSourceDataProvider _coSourceDataProvider;
+
+        private CompanyPeriods(CoSourceDataProvider coSourceDataProvider)
+        {
+            _coSourceDataProvider = coSourceDataProvider;
+        }
+
+        private int[] getSourceDataProviderToInclude()
+        {
+            if (_coSourceDataProvider == CoSourceDataProvider.Insight)
+                return new int[] { (int)SourceDataProvider.Insight };
+            else
+                return new int[]
+                {
+                    (int)SourceDataProvider.Easy,
+                    (int)SourceDataProvider.Mcs,
+                    (int)SourceDataProvider.Tcs
+                };
+        }
+
         public IList<dynamic> SearchItems(PicklistSearchCriteria criteria)
         {
             using (var s = Store.OpenSession())
             {
                 return s.Query<CompanyPeriodEntity>()
                         .ToList()
+                        .Where(c => getSourceDataProviderToInclude().Contains((int)c.SourceDataProvider))
                         .Select(c => new CompanyPeriodListItem
                         {
                             CompanyPeriod = new CompanyPeriod(c)

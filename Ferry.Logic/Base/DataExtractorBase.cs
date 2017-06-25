@@ -63,8 +63,6 @@ namespace Ferry.Logic.Base
 
         #endregion
 
-        #region Constructor
-
         protected DataExtractorBase(Database sourceDatabase)
         {
             this.sourceDatabase = sourceDatabase;
@@ -90,20 +88,12 @@ namespace Ferry.Logic.Base
             SourceMiscInventoryIssues = new List<SourceMiscInventoryIssue>();
         }
 
-        #endregion
-
-        #region Public Methods
-
         public void Extract()
         {
             extractMasters();
             extractTransactions();
             transformMasters();
         }
-
-        #endregion
-
-        #region Private Methods
 
         private void extractMasters()
         {
@@ -172,8 +162,6 @@ namespace Ferry.Logic.Base
         {
             executeCacheMethod();
         }
-
-        #endregion
 
         #region Source Data Caching Abstract Methods
 

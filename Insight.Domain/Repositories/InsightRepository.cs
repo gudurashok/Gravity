@@ -200,7 +200,7 @@ namespace Insight.Domain.Repositories
         {
             using (var s = Store.OpenSession())
             {
-                var result = s.Query<DaybookEntity>().FirstOrDefault(d => d.Id == id);
+                var result = s.Load<DaybookEntity>(id);
                 var daybook = new Daybook(result);
                 daybook.Account = new Account(s.Load<AccountEntity>(daybook.Entity.AccountId));
                 return daybook;
@@ -332,7 +332,6 @@ namespace Insight.Domain.Repositories
             return transaction;
         }
 
-        //TODO: Duplicated with GetTransactionWithFullDetails method. resolve it
         public static JournalVoucher GetJVWithFullDetails(JournalVoucherEntity entity, IDocumentSession s)
         {
             var jv = new JournalVoucher(entity);

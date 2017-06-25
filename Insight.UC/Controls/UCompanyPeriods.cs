@@ -22,7 +22,7 @@ namespace Insight.UC.Controls
         {
             SearchProperty = "Company";
             buildColumns();
-            Repository = new CompanyPeriods();
+            Repository = CompanyPeriods.NewLoadOnlyInsightDataSourceCompanies();
             FillList(true);
             uCompanyPeriod.Initialize();
             uCompanyPeriod.ItemSaved += uCompanyPeriod_CompanyPeriodSaved;

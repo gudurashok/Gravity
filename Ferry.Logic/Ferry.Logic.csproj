@@ -74,8 +74,6 @@
     <Compile Include="EASY\EasyCompanyExtractor.cs" />
     <Compile Include="EASY\EasyDataExtractor.cs" />
     <Compile Include="EASY\EasyDataImportContext.cs" />
-    <Compile Include="Insight\InsightDataExtractor.cs" />
-    <Compile Include="Insight\InsightDataImportContext.cs" />
     <Compile Include="MCS\McsCompanyExtractor.cs" />
     <Compile Include="MCS\McsDataExtractor.cs" />
     <Compile Include="MCS\McsDataImportContext.cs" />
