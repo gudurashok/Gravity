@@ -81,7 +81,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ApplicationFactory.cs" />
+    <Compile Include="Common\ForesightApp.cs" />
     <Compile Include="Common\ForesightConstants.cs" />
+    <Compile Include="Common\TestCoGroupFerryApp.cs" />
     <Compile Include="Forms\FLedgerUpdater.cs">
       <SubType>Form</SubType>
     </Compile>
