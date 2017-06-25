@@ -344,7 +344,7 @@ namespace Ferry.Logic.MCS
             var account = new AccountEntity();
 
             if (checkGroup && !string.IsNullOrWhiteSpace(sourceAccount.GroupCode))
-                account.GroupId = loadAccount(getAccount(sourceAccount.GroupCode)).Entity.Id;
+                account.GroupId = LoadAccount(GetAccount(sourceAccount.GroupCode)).Entity.Id;
 
             account.Code = sourceAccount.Code;
             account.Name = sourceAccount.Name;
@@ -353,7 +353,7 @@ namespace Ferry.Logic.MCS
             account.City = null; // sourceAccount.City;
             account.State = null; // sourceAccount.State;
             account.Pin = sourceAccount.Pin;
-            account.ChartOfAccountId = loadChartOfAccount(sourceAccount.ChartOfAccountCode).Entity.Id;
+            account.ChartOfAccountId = LoadChartOfAccount(sourceAccount.ChartOfAccountCode).Entity.Id;
             //account.IsActive = sourceAccount.IsActive;
             return account;
         }
@@ -376,7 +376,7 @@ namespace Ferry.Logic.MCS
             transformDaybookType(sourceDaybook);
             book.Entity.Type = (DaybookType)Convert.ToInt32(sourceDaybook.Type);
             book.Entity.Code = sourceDaybook.Code;
-            book.Account = loadAccount(getAccount(sourceDaybook.AccountCode));
+            book.Account = LoadAccount(GetAccount(sourceDaybook.AccountCode));
             book.Entity.AccountId = book.Account.Entity.Id;
             book.Entity.Name = sourceDaybook.Name;
             return book;
@@ -420,7 +420,7 @@ namespace Ferry.Logic.MCS
             return item;
         }
 
-        internal override Item getItem(string itemCode)
+        internal override Item GetItem(string itemCode)
         {
             var item = Items.SingleOrDefault(i => i.Entity.Code == itemCode) ?? createDummyItem(itemCode);
             return item;
@@ -446,7 +446,7 @@ namespace Ferry.Logic.MCS
             return item;
         }
 
-        internal override Item loadItem(Item item)
+        internal override Item LoadItem(Item item)
         {
             if (!string.IsNullOrWhiteSpace(item.Entity.Id))
                 return item;
@@ -465,7 +465,7 @@ namespace Ferry.Logic.MCS
 
         #region Common
 
-        internal override Account loadAccount(AccountEntity account)
+        internal override Account LoadAccount(AccountEntity account)
         {
             if (!string.IsNullOrWhiteSpace(account.Id))
                 return new Account(account);
@@ -480,7 +480,7 @@ namespace Ferry.Logic.MCS
             return result;
         }
 
-        internal override AccountEntity getAccount(string accountCode)
+        internal override AccountEntity GetAccount(string accountCode)
         {
             return Accounts.FirstOrDefault(a => a.Code == accountCode) ?? createDummyAccount(accountCode);
         }
@@ -491,11 +491,11 @@ namespace Ferry.Logic.MCS
             {
                 Code = accountCode,
                 Name = getDummyName(accountCode),
-                ChartOfAccountId = loadChartOfAccount("99").Entity.Id
+                ChartOfAccountId = LoadChartOfAccount("99").Entity.Id
             };
         }
 
-        internal override ChartOfAccount loadChartOfAccount(string glgCode)
+        internal override ChartOfAccount LoadChartOfAccount(string glgCode)
         {
             var coaId = ChartOfAccountsMapper
                             .Where(c => c.McsCode == glgCode || (glgCode.Length > 1 && c.McsCode == glgCode.Substring(0, 1).Trim()))
@@ -516,7 +516,7 @@ namespace Ferry.Logic.MCS
             ChartOfAccount parent = null;
 
             if (glgCode.Length > 1)
-                parent = loadChartOfAccount(glgCode.Substring(0, 1));
+                parent = LoadChartOfAccount(glgCode.Substring(0, 1));
 
             return insertChartOfAccount(glgCode, parent);
         }

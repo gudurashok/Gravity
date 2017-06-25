@@ -8,9 +8,11 @@ namespace Insight.Domain.Entities
         public string Id { get; set; }
         public string Code { get; set; }
         public string GroupId { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "ChartOfAccountNameCannotBeEmpty")]
+        [Required(ErrorMessageResourceType = typeof(Resources), 
+            ErrorMessageResourceName = "ChartOfAccountNameCannotBeEmpty")]
         public string ChartOfAccountId { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "AccountNameCannotBeEmpty")]
+        [Required(ErrorMessageResourceType = typeof(Resources), 
+            ErrorMessageResourceName = "AccountNameCannotBeEmpty")]
         public string Name { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }

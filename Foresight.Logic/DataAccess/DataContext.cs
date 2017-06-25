@@ -35,7 +35,8 @@ namespace Foresight.Logic.DataAccess
         public DataContext(CompanyGroup companyGroup)
         {
             _db = DatabaseFactory.GetForesightDatabase(companyGroup);
-            ForesightSession.CompanyGroup = GetCompanyGroupById(GetCompanyGroupIdByName(companyGroup.Entity.Name));
+            ForesightSession.CompanyGroup = 
+                GetCompanyGroupById(GetCompanyGroupIdByName(companyGroup.Entity.Name));
         }
 
         #endregion

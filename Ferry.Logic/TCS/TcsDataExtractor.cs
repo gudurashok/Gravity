@@ -24,7 +24,7 @@ namespace Ferry.Logic.TCS
             return TcsSqlQueries.SelectAllGeneralLedgerGroups;
         }
 
-        internal override ChartOfAccount loadChartOfAccount(string glgCode)
+        internal override ChartOfAccount LoadChartOfAccount(string glgCode)
         {
             var coaId = ChartOfAccountsMapper
                             .Where(c => c.TcsCode == glgCode || (glgCode.Length > 1 && c.TcsCode == glgCode.Substring(0, 1).Trim()))

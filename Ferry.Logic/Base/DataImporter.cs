@@ -148,7 +148,7 @@ namespace Ferry.Logic.Base
         private AccountOpeningBalance getAccountOpeningBalance(SourceAccount sourceAccount)
         {
             var aob = new AccountOpeningBalance();
-            aob.Account = extractor.loadAccount(extractor.getAccount(sourceAccount.Code));
+            aob.Account = extractor.LoadAccount(extractor.GetAccount(sourceAccount.Code));
             aob.Date = companyPeriod.Period.Entity.Financial.From;
             aob.Amount = sourceAccount.OpeningBalance;
             return aob;
@@ -183,14 +183,13 @@ namespace Ferry.Logic.Base
             }
         }
 
-        private SaleInvoice getSaleInvoice(SourceTransaction sourceTransaction,
-                                                       Daybook daybook)
+        private SaleInvoice getSaleInvoice(SourceTransaction sourceTransaction, Daybook daybook)
         {
             var saleInvoice = SaleInvoice.New();
             fillTransactionHeader(sourceTransaction, daybook, saleInvoice.Entity);
 
             saleInvoice.Daybook = daybook;
-            saleInvoice.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            saleInvoice.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             var sale = (SaleInvoiceHeaderEntity)saleInvoice.Entity;
             sale.BrokerageAmount = 0; // sourceTransaction.BrokerageAmount;
             sale.Through = sourceTransaction.Through;
@@ -232,7 +231,7 @@ namespace Ferry.Logic.Base
         {
             var line = SaleInvoiceLine.New();
             line.Entity.LineNr = sourceLineItem.LineNr;
-            line.Item = extractor.loadItem(extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceLineItem.ItemCode));
+            line.Item = extractor.LoadItem(extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceLineItem.ItemCode));
             line.Entity.ItemDescription = sourceLineItem.ItemName;
             line.Entity.Quantity1 = Convert.ToDouble(ForesightUtil.ConvertDbNull(sourceLineItem.Quantity1));
             line.Entity.Packing = Convert.ToDouble(ForesightUtil.ConvertDbNull(sourceLineItem.Packing));
@@ -288,7 +287,7 @@ namespace Ferry.Logic.Base
             fillTransactionHeader(sourceTransaction, daybook, purchaseInvoice.Entity);
 
             purchaseInvoice.Daybook = daybook;
-            purchaseInvoice.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            purchaseInvoice.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             var purchase = (PurchaseInvoiceHeaderEntity)purchaseInvoice.Entity;
             purchase.BrokerageAmount = 0; // sourceTransaction.BrokerageAmount;
             purchase.Through = sourceTransaction.Through;
@@ -308,7 +307,7 @@ namespace Ferry.Logic.Base
         private PurchaseInvoiceLine getPurchaseInvoiceLineItem(SourceLineItem sourceLineItem)
         {
             var line = PurchaseInvoiceLine.New();
-            line.Item = extractor.loadItem(extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceLineItem.ItemCode));
+            line.Item = extractor.LoadItem(extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceLineItem.ItemCode));
             line.Entity.LineNr = sourceLineItem.LineNr;
             line.Entity.ItemDescription = sourceLineItem.ItemName;
             line.Entity.Quantity1 = sourceLineItem.Quantity1;
@@ -349,7 +348,7 @@ namespace Ferry.Logic.Base
             term.Entity.Description = sourceLineItemTerm.Description;
             term.Entity.Percentage = sourceLineItemTerm.Percentage;
             term.Entity.Amount = sourceLineItemTerm.Amount;
-            term.Account = extractor.loadAccount(extractor.getAccount(sourceLineItemTerm.AccountCode));
+            term.Account = extractor.LoadAccount(extractor.GetAccount(sourceLineItemTerm.AccountCode));
         }
 
         private IEnumerable<SourceLineItem> readInvoiceLines(SourceTransaction sourceTransaction)
@@ -398,7 +397,7 @@ namespace Ferry.Logic.Base
             fillTransactionHeader(sourceTransaction, daybook, receipt.Entity);
 
             receipt.Daybook = daybook;
-            receipt.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            receipt.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             return receipt;
         }
 
@@ -408,7 +407,7 @@ namespace Ferry.Logic.Base
             fillTransactionHeader(sourceTransaction, daybook, payment.Entity);
 
             payment.Daybook = daybook;
-            payment.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            payment.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             return payment;
         }
 
@@ -451,7 +450,7 @@ namespace Ferry.Logic.Base
             fillTransactionHeader(sourceTransaction, daybook, receipt.Entity);
 
             receipt.Daybook = daybook;
-            receipt.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            receipt.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             ((BankReceiptEntity)receipt.Entity).ChequeNr = sourceTransaction.ChequeNr;
             ((BankReceiptEntity)receipt.Entity).BankBranchName = sourceTransaction.BankBranchName;
             ((BankReceiptEntity)receipt.Entity).IsRealised = isChequeRealised(sourceTransaction.ChequeDate);
@@ -464,7 +463,7 @@ namespace Ferry.Logic.Base
             fillTransactionHeader(sourceTransaction, daybook, payment.Entity);
 
             payment.Daybook = daybook;
-            payment.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            payment.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             ((BankPaymentEntity)payment.Entity).ChequeNr = sourceTransaction.ChequeNr;
             ((BankPaymentEntity)payment.Entity).IsRealised = isChequeRealised(sourceTransaction.ChequeDate);
             return payment;
@@ -507,7 +506,7 @@ namespace Ferry.Logic.Base
             var note = new CreditNoteHeader();
             fillTransactionHeader(sourceTransaction, daybook, note);
             note.Daybook = daybook;
-            note.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            note.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             return note;
         }
 
@@ -515,7 +514,7 @@ namespace Ferry.Logic.Base
         {
             var line = new CreditNoteLine();
             line.LineNr = 0; // Convert.ToInt32(sourceData["ITSR"]);
-            line.Item = extractor.loadItem(extractor.getItem(sourceLineItem.ItemCode));
+            line.Item = extractor.LoadItem(extractor.GetItem(sourceLineItem.ItemCode));
             line.Quantity1 = sourceLineItem.Quantity1;
             line.Quantity2 = sourceLineItem.Quantity2;
             line.Quantity3 = sourceLineItem.Quantity3;
@@ -556,7 +555,7 @@ namespace Ferry.Logic.Base
             var note = new DebitNoteHeader();
             fillTransactionHeader(sourceTransaction, daybook, note);
             note.Daybook = daybook;
-            note.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            note.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             return note;
         }
 
@@ -564,7 +563,7 @@ namespace Ferry.Logic.Base
         {
             var line = new DebitNoteLine();
             line.LineNr = 0; // Convert.ToInt32(sourceData["ITSR"]);
-            line.Item = extractor.loadItem(extractor.getItem(sourceLineItem.ItemCode));
+            line.Item = extractor.LoadItem(extractor.GetItem(sourceLineItem.ItemCode));
             line.Quantity1 = sourceLineItem.Quantity1;
             line.Quantity2 = sourceLineItem.Quantity2;
             line.Quantity3 = sourceLineItem.Quantity3;
@@ -601,7 +600,7 @@ namespace Ferry.Logic.Base
             var jv = JournalVoucher.New();
             fillTransactionHeader(sourceTransaction, daybook, jv.Entity);
             jv.Daybook = daybook;
-            jv.Account = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode));
+            jv.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             ((JournalVoucherEntity)jv.Entity).TxnType = GetTxnType(sourceTransaction.TransactionType);
             return jv;
         }
@@ -631,9 +630,9 @@ namespace Ferry.Logic.Base
             var lot = new ItemLot();
             lot.LotNr = sourceLineItem.DocumentNr;
             lot.Date = sourceLineItem.Date;
-            lot.Account = extractor.loadAccount(extractor.getAccount(sourceLineItem.AccountCode));
+            lot.Account = extractor.LoadAccount(extractor.GetAccount(sourceLineItem.AccountCode));
             lot.LineNr = sourceLineItem.LineNr;
-            lot.Item = extractor.loadItem(extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceLineItem.ItemCode));
+            lot.Item = extractor.LoadItem(extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceLineItem.ItemCode));
             lot.Quantity1 = sourceLineItem.Quantity1;
             lot.Packing = sourceLineItem.Packing;
             lot.Quantity2 = sourceLineItem.Quantity2;
@@ -676,7 +675,7 @@ namespace Ferry.Logic.Base
             issue.DocumentNr = sourceInventoryIssue.DocumentNr;
             issue.Date = sourceInventoryIssue.Date;
             issue.LotId = (getItemLotByLotNrLineNr(sourceInventoryIssue)).Id;
-            issue.Account = extractor.loadAccount(extractor.getAccount(sourceInventoryIssue.AccountCode));
+            issue.Account = extractor.LoadAccount(extractor.GetAccount(sourceInventoryIssue.AccountCode));
             issue.Quantity1 = sourceInventoryIssue.Quantity1;
             issue.Quantity2 = sourceInventoryIssue.Quantity2;
             return issue;
@@ -710,7 +709,8 @@ namespace Ferry.Logic.Base
             receive.Date = sourceInventoryReceive.Date;
             receive.Issue = getInventoryIssueByDocNr(sourceInventoryReceive.IssueDocNr);
             receive.LineNr = sourceInventoryReceive.LineNr;
-            receive.Item = extractor.loadItem(extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceInventoryReceive.ItemCode));
+            receive.Item = extractor.LoadItem(
+                extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceInventoryReceive.ItemCode));
             receive.Quantity1 = sourceInventoryReceive.Quantity1;
             receive.Packing = sourceInventoryReceive.Packing;
             receive.Quantity2 = sourceInventoryReceive.Quantity2;
@@ -758,7 +758,8 @@ namespace Ferry.Logic.Base
             issue.DocumentNr = sourceMiscInventoryIssue.DocumentNr;
             issue.Date = sourceMiscInventoryIssue.Date;
             issue.LineNr = sourceMiscInventoryIssue.LineNr;
-            issue.Item = extractor.loadItem(extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceMiscInventoryIssue.ItemCode));
+            issue.Item = extractor.LoadItem(
+                extractor.Items.SingleOrDefault(i => i.Entity.Code == sourceMiscInventoryIssue.ItemCode));
             issue.Quantity1 = sourceMiscInventoryIssue.Quantity1;
             issue.Quantity2 = sourceMiscInventoryIssue.Quantity2;
             return issue;
@@ -784,7 +785,8 @@ namespace Ferry.Logic.Base
             t.DaybookId = daybook.Entity.Id;
             t.DocumentNr = sourceTransaction.DocumentNr;
             t.Date = sourceTransaction.TransactionDate;
-            t.AccountId = extractor.loadAccount(extractor.getAccount(sourceTransaction.AccountCode)).Entity.Id;
+            t.AccountId = extractor.LoadAccount(
+                extractor.GetAccount(sourceTransaction.AccountCode)).Entity.Id;
             t.BrokerId = string.Empty;
             t.Amount = sourceTransaction.Amount;
             t.IsAdjusted = sourceTransaction.IsAdjusted;

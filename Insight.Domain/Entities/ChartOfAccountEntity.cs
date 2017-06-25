@@ -11,7 +11,8 @@ namespace Insight.Domain.Entities
         public string ParentId { get; set; }
         public ChartOfAccountType Type { get; set; }
         public string Sorting { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "ChartOfAccountNameCannotBeEmpty")]
+        [Required(ErrorMessageResourceType = typeof(Resources), 
+            ErrorMessageResourceName = "ChartOfAccountNameCannotBeEmpty")]
         public string Name { get; set; }
 
         public ChartOfAccountEntity()

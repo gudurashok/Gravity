@@ -57,6 +57,22 @@ namespace Insight.Domain.Repositories
                 };
         }
 
+        public IList<CompanyPeriod> GetAllCompanyPeriods()
+        {
+            using (var s = Store.OpenSession())
+            {
+                return s.Query<CompanyPeriodEntity>()
+                        .ToList()
+                        .Where(c => getSourceDataProviderToInclude().Contains((int)c.SourceDataProvider))
+                        .Select(c => new CompanyPeriod(c)
+                        {
+                            Company = new Company(getCompanyEntity(c, s)),
+                            Period = new FiscalDatePeriod(s.Load<FiscalDatePeriodEntity>(c.PeriodId))
+                        })
+                        .ToList();
+            }
+        }
+
         public IList<dynamic> SearchItems(PicklistSearchCriteria criteria)
         {
             using (var s = Store.OpenSession())

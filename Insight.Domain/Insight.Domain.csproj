@@ -192,6 +192,8 @@
     <Compile Include="Repositories\CompanyPeriods.cs" />
     <Compile Include="Repositories\Companies.cs" />
     <Compile Include="Repositories\ChartOfAccounts.cs" />
+    <Compile Include="Repositories\IForesightDataMethods.cs" />
+    <Compile Include="Repositories\InsightDataRepository.cs" />
     <Compile Include="Repositories\SaleInvoices.cs" />
     <Compile Include="Repositories\Items.cs" />
     <Compile Include="Repositories\ItemCategories.cs" />

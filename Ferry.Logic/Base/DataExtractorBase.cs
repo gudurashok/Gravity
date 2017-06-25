@@ -213,11 +213,11 @@ namespace Ferry.Logic.Base
 
         #region Transforming masters helping methods
 
-        internal abstract Account loadAccount(AccountEntity account);
-        internal abstract AccountEntity getAccount(string accountCode);
-        internal abstract ChartOfAccount loadChartOfAccount(string glgCode);
-        internal abstract Item loadItem(Item item);
-        internal virtual Item getItem(string itemCode) { return null; }
+        internal abstract Account LoadAccount(AccountEntity account);
+        internal abstract AccountEntity GetAccount(string accountCode);
+        internal abstract ChartOfAccount LoadChartOfAccount(string glgCode);
+        internal abstract Item LoadItem(Item item);
+        internal virtual Item GetItem(string itemCode) { return null; }
 
         #endregion
 
