@@ -13,7 +13,7 @@ namespace Ferry.Insight.Service
 {
     public class ImportProcessor
     {
-        private const int millisecondsTimeout = 2000;
+        private const int millisecondsTimeout = 30000;
         private Thread _thread = null;
 
         public void Setup()
