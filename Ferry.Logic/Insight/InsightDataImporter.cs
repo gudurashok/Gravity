@@ -40,17 +40,29 @@ namespace Ferry.Logic.Insight
 
         public void Execute()
         {
-            _targetDbContext.DeleteCompanyPeriodData(_companyPeriod);
-            extract();
-            importTransactions();
-            updateCompanyPeriod();
-            completeImport();
+            try
+            {
+                _targetDbContext.DeleteCompanyPeriodData(_companyPeriod, true);
+                extract();
+                importTransactions();
+                updateCompanyPeriod();
+                //completeImport();
+                _targetDbContext.Commit();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _targetDbContext.Dispose();
+            }
         }
 
-        private void completeImport()
-        {
-            _targetDbContext.SetCompanyPeriodIsImported(_companyPeriod, true);
-        }
+        //private void completeImport()
+        //{
+        //    _targetDbContext.SetCompanyPeriodIsImported(_companyPeriod, true);
+        //}
 
         private void updateCompanyPeriod()
         {

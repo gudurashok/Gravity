@@ -137,7 +137,7 @@ namespace Ferry.Win.Forms
             EventHandlerExecutor.Execute(processSelectedCoGroup, sender, e);
         }
 
-        void processSelectedCoGroup(object sender, EventArgs e)
+        private void processSelectedCoGroup(object sender, EventArgs e)
         {
             var args = e as ItemCheckedEventArgs;
             if (args.Item.Checked)

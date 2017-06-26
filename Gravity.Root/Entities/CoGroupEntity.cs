@@ -13,7 +13,8 @@ namespace Gravity.Root.Entities
         public string Name { get; set; }
         public string DatabaseName { get; set; }
         public string ForesightDatabaseName { get; set; }
-        
+        public int ForesightGroupId { get; set; }
+
         public static CoGroupEntity New()
         {
             return new CoGroupEntity { Id = EntityPrefix.CoGroupPrefix };

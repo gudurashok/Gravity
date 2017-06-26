@@ -45,9 +45,13 @@
                             "SELECT COUNT(*) FROM Company" +
                             " WHERE [Name] = @Name";
 
+        public const string SelectCompanyByCode =
+                            "SELECT * FROM Company" +
+                            " WHERE Code='{0}'";
+
         public const string SelectCompanyById =
                             "SELECT * FROM Company" +
-                            " WHERE Id = @Id";
+                            " WHERE Id={0}";
 
         public const string InsertCompany =
                             "INSERT INTO Company (Code, [Name], GroupId) " +
@@ -128,6 +132,13 @@
                             "SELECT * FROM [DatePeriod] " +
                             " WHERE FinancialFrom=@FinFrom " +
                             " AND FinancialTo=@FinTo ";
+
+        public const string InsertDatePeriod =
+                            "INSERT INTO [DatePeriod] " +
+                            "(Name, FinancialFrom, FinancialTo, " +
+                            "AssesmentFrom, AssesmentTo) " +
+                            " VALUES (@PeriodName, @FinFrom, @FinTo, " +
+                            "@AssesmentFrom, @AssesmentTo)";
 
         public const string SelectCompanyPeriodById =
                             "SELECT CompanyId, PeriodId FROM CompanyPeriod WHERE Id=@Id";
@@ -212,7 +223,7 @@
         public const string SelectChartOfAccountByParentId =
                             "SELECT * FROM ChartOfAccount WHERE Id = @parentId";
 
-        public const string SelectChartOfAccountIdsByParentId = 
+        public const string SelectChartOfAccountIdsByParentId =
                             "SELECT DISTINCT Id FROM ChartOfAccount " +
                             " WHERE ParentId = @parentId";
 

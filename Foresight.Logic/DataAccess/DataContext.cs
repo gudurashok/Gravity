@@ -78,29 +78,41 @@ namespace Foresight.Logic.DataAccess
 
         #region Company
 
-        private Company getCompanyById(int id)
+        public Company GetCompanyByCode(string code)
         {
-            var reader = _db.ExecuteReader(SqlQueries.SelectCompanyById, "@Id", id);
-
-            Company company = null;
-            if (reader.Read())
-                company = new Company(new CompanyEntity
-                {
-                    Id = reader["Id"].ToString(),
-                    Code = reader["Code"].ToString(),
-                    Name = reader["Name"].ToString(),
-                });
-            reader.Close();
-            return company;
+            return getCompanyBySql(string.Format(SqlQueries.SelectCompanyByCode, code));
         }
 
-        private void insertCompany(Company company)
+        public Company GetCompanyById(int id)
+        {
+            return getCompanyBySql(string.Format(SqlQueries.SelectCompanyById, id));
+        }
+
+        private Company getCompanyBySql(string sql)
+        {
+            using (var reader = _db.ExecuteReader(sql))
+            {
+                Company company = null;
+                if (reader.Read())
+                    company = new Company(new CompanyEntity
+                    {
+                        Id = reader["Id"].ToString(),
+                        Code = reader["Code"].ToString(),
+                        Name = reader["Name"].ToString(),
+                    });
+
+                return company;
+            };
+        }
+
+        private void insertCompany(CompanyPeriod cp, int companyGroupId)
         {
             var cmd = _db.CreateCommand(SqlQueries.InsertCompany);
-            _db.AddParameterWithValue(cmd, "@Code", company.Entity.Code);
-            _db.AddParameterWithValue(cmd, "@Name", company.Entity.Name);
+            _db.AddParameterWithValue(cmd, "@Code", cp.Company.GetCodeCreatedFromId());
+            _db.AddParameterWithValue(cmd, "@Name", cp.Company.Entity.Name);
+            _db.AddParameterWithValue(cmd, "@GroupId", companyGroupId);
             cmd.ExecuteNonQuery();
-            company.Entity.Id = _db.GetGeneratedIdentityValue();
+            cp.Foresight.CompanyId = Convert.ToInt32(_db.GetGeneratedIdentityValue());
         }
 
         public void DeleteCompany(Company company)
@@ -162,13 +174,13 @@ namespace Foresight.Logic.DataAccess
             return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
         }
 
-        public void SaveCompanyPeriod(CompanyPeriod cp)
+        public void SaveCompanyPeriod(CompanyPeriod cp, int companyGroupId)
         {
             if (isCompanyPeriodExist(cp))
                 throw new ValidationException(Resources.PeriodAlreadyExists);
 
-            if (cp.Company.IsNew())
-                insertCompany(cp.Company);
+            if (cp.Foresight.IsNewCompany())
+                insertCompany(cp, companyGroupId);
 
             insertCompanyPeriod(cp);
         }
@@ -180,10 +192,10 @@ namespace Foresight.Logic.DataAccess
             _db.AddParameterWithValue(cmd, "@DataPath", cp.Entity.SourceDataPath);
             _db.AddParameterWithValue(cmd, "@SourceDataProvider", cp.Entity.SourceDataProvider);
             cmd.ExecuteNonQuery();
-            cp.Entity.Id = _db.GetGeneratedIdentityValue();
+            cp.Entity.ForesighId = Convert.ToInt32(_db.GetGeneratedIdentityValue());
         }
 
-        public void SaveCompanyPeriod(CompanyPeriod oldCp, CompanyPeriod newCp)
+        public void SaveCompanyPeriod(CompanyPeriod oldCp, CompanyPeriod newCp, int companyGroupId)
         {
             if (isCompanyPeriodExist(newCp))
                 throw new ValidationException(Resources.PeriodAlreadyExists);
@@ -193,7 +205,7 @@ namespace Foresight.Logic.DataAccess
                 _db.BeginTransaction();
 
                 if (newCp.Company.IsNew())
-                    insertCompany(newCp.Company);
+                    insertCompany(newCp, companyGroupId);
 
                 updateCompanyPeriod(oldCp, newCp);
                 setCompanyPeriodColumnValue(oldCp, newCp);
@@ -225,8 +237,8 @@ namespace Foresight.Logic.DataAccess
 
         private void addCompanyPeriodParams(IDbCommand cmd, CompanyPeriod cp)
         {
-            _db.AddParameterWithValue(cmd, "@CompanyId", cp.Company.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@PeriodId", cp.Period.Entity.Id);
+            _db.AddParameterWithValue(cmd, "@CompanyId", cp.Foresight.CompanyId);
+            _db.AddParameterWithValue(cmd, "@PeriodId", cp.Foresight.PeriodId);
         }
 
         public int GetCompanyPeriodIdByNameAndFinPeriod(string name, FiscalDatePeriod period)
@@ -279,7 +291,7 @@ namespace Foresight.Logic.DataAccess
         private CompanyPeriod readCompanyPeriod(IDataReader reader)
         {
             var period = CompanyPeriod.New();
-            period.Company = getCompanyById(Convert.ToInt16(reader["CompanyId"]));
+            period.Company = GetCompanyById(Convert.ToInt16(reader["CompanyId"]));
             period.Entity.Id = reader["Id"].ToString();
             period.Period = new FiscalDatePeriod(new FiscalDatePeriodEntity());
             period.Period.Entity.Id = reader["periodId"].ToString();
@@ -419,9 +431,9 @@ namespace Foresight.Logic.DataAccess
             };
         }
 
-        public void DeleteCompanyPeriodData(CompanyPeriod companyPeriod)
+        public void DeleteCompanyPeriodData(CompanyPeriod companyPeriod, bool forceDelete = false)
         {
-            if (!companyPeriod.Entity.IsImported)
+            if (!forceDelete && !companyPeriod.Entity.IsImported)
                 return;
 
             var cmd = _db.CreateCommand();
@@ -442,6 +454,18 @@ namespace Foresight.Logic.DataAccess
         #endregion
 
         #region DatePeriod
+
+        public int AddDatePeriod(FiscalDatePeriod period)
+        {
+            var cmd = _db.CreateCommand(SqlQueries.InsertDatePeriod);
+            _db.AddParameterWithValue(cmd, "@PeriodName", period.Entity.Financial.ToYearString());
+            _db.AddParameterWithValue(cmd, "@FinFrom", period.Entity.Financial.From);
+            _db.AddParameterWithValue(cmd, "@FinTo", period.Entity.Financial.To);
+            _db.AddParameterWithValue(cmd, "@AssesmentFrom", period.Entity.Assessment.From);
+            _db.AddParameterWithValue(cmd, "@AssesmentTo", period.Entity.Assessment.To);
+            cmd.ExecuteNonQuery();
+            return Convert.ToInt32(_db.GetGeneratedIdentityValue());
+        }
 
         public FiscalDatePeriod GetDatePeriodById(int id)
         {

@@ -12,6 +12,9 @@ using Scalable.Win.Controls;
 using Insight.Domain.Repositories;
 using Scalable.Win.FormControls;
 using Insight.Domain.ViewModel;
+using Insight.Domain.Enums;
+using Foresight.Logic.DataAccess;
+using Gravity.Root.Common;
 
 namespace Ferry.Win.Controls
 {
@@ -33,7 +36,7 @@ namespace Ferry.Win.Controls
         {
             initializeListView();
             buildColumns();
-            Repository = CompanyPeriods.NewLoadAllNonInsightDataSourceCompanies();
+            Repository = CompanyPeriods.NewLoadAllDataSourceCompanies();
             FillList(true);
             setCompanyPeriodViewState();
         }
@@ -55,6 +58,42 @@ namespace Ferry.Win.Controls
         {
             if (!ListView.HasItems())
                 disableCompanyPeriodButtons();
+        }
+
+        private void btnCreatePeriod_Click(object sender, EventArgs e)
+        {
+            EventHandlerExecutor.Execute(processCreateForsightCompanyPeriod);
+        }
+
+        private void processCreateForsightCompanyPeriod()
+        {
+            btnCreatePeriod.Enabled = false;
+            createInsightCompanyPeriodInForesight(getSelectedCompanyPeriod());
+        }
+
+        private void createInsightCompanyPeriodInForesight(CompanyPeriod companyPeriod)
+        {
+            var coGroup = GravitySession.CompanyGroup;
+            var dbContext = new DataContext(coGroup);
+            dbContext.BeginTransaction();
+            var period = dbContext.GetDatePeriodByFinPeriod(companyPeriod.Period);
+            if (period == null)
+                companyPeriod.Foresight.PeriodId = dbContext.AddDatePeriod(companyPeriod.Period);
+            else
+                companyPeriod.Foresight.PeriodId = Convert.ToInt32(period.Entity.Id);
+
+            var co = dbContext.GetCompanyByCode(companyPeriod.Company.GetCodeCreatedFromId());
+            companyPeriod.Foresight.CompanyId = Convert.ToInt32(co.Entity.Id);
+
+            dbContext.SaveCompanyPeriod(companyPeriod, coGroup.Entity.ForesightGroupId);
+            updateForesightCompanyPeriodIdInInsight(companyPeriod);
+            dbContext.Commit();
+        }
+
+        private void updateForesightCompanyPeriodIdInInsight(CompanyPeriod companyPeriod)
+        {
+            var repo = (Repository as CompanyPeriods);
+            repo.Save(companyPeriod.Entity);
         }
 
         private void btnAddPeriods_Click(object sender, EventArgs e)
@@ -160,7 +199,7 @@ namespace Ferry.Win.Controls
             EventHandlerExecutor.Execute(processSelectedPeriod);
         }
 
-        void processSelectedPeriod()
+        private void processSelectedPeriod()
         {
             displayPeriodDataPath();
             setPeriodButtonsState();
@@ -191,7 +230,7 @@ namespace Ferry.Win.Controls
             EventHandlerExecutor.Execute(processCheckPeriod, sender, e);
         }
 
-        void processCheckPeriod(object sender, EventArgs e)
+        private void processCheckPeriod(object sender, EventArgs e)
         {
             var args = e as ItemCheckEventArgs;
             //_dbc.ClearUnfinishedImports(getExecutingProcessesExpr());
@@ -241,12 +280,45 @@ namespace Ferry.Win.Controls
 
         private void setImportButtonState()
         {
-            btnOK.Enabled = areAnyItemsChecked();
+            btnOK.Enabled = shouldEnableImportButton();
         }
 
-        private bool areAnyItemsChecked()
+        private bool shouldEnableImportButton()
         {
-            return ListView.CheckedItems.Count > 0;
+            if (ListView.CheckedItems.Count > 0)
+            {
+                var provider = getCheckedItemCompanyProvider();
+                if (provider == SourceDataProvider.Insight)
+                {
+                    var selectedCompanyPeriods = getSelectedCompanyPeriods();
+                    var insightCoCount = selectedCompanyPeriods.Count(cp =>
+                            cp.Entity.SourceDataProvider == SourceDataProvider.Insight &&
+                            cp.Entity.ForesighId != 0);
+
+                    return insightCoCount != 0;
+                }
+
+                return provider != SourceDataProvider.None;
+            }
+
+            return false;
+        }
+
+        private SourceDataProvider getCheckedItemCompanyProvider()
+        {
+            var selectedCompanyPeriods = getSelectedCompanyPeriods();
+            var insightCoCount = selectedCompanyPeriods.Count(cp =>
+               cp.Entity.SourceDataProvider == SourceDataProvider.Insight);
+
+            if (selectedCompanyPeriods.Count == insightCoCount)
+                return SourceDataProvider.Insight;
+
+            var nonInsightCoCount = selectedCompanyPeriods.Count(cp =>
+               cp.Entity.SourceDataProvider != SourceDataProvider.Insight);
+
+            return selectedCompanyPeriods.Count == nonInsightCoCount
+                ? SourceDataProvider.Tcs
+                : SourceDataProvider.None;
         }
 
         private void saveCompanyPeriod(CompanyPeriod cp)
@@ -285,13 +357,26 @@ namespace Ferry.Win.Controls
 
         private void enableCompanyPeriodButtons()
         {
-            btnEditPeriod.Enabled = true;
-            btnDeletePeriod.Enabled = true;
+            var cp = getSelectedCompanyPeriod();
+            btnCreatePeriod.Visible = cp.Entity.SourceDataProvider == SourceDataProvider.Insight;
+            if (cp.Entity.SourceDataProvider == SourceDataProvider.Insight)
+            {
+                btnCreatePeriod.Enabled = cp.Entity.ForesighId == 0;
+                btnEditPeriod.Enabled = false;
+                btnDeletePeriod.Enabled = false;
+            }
+            else
+            {
+                btnEditPeriod.Enabled = true;
+                btnDeletePeriod.Enabled = true;
+            }
+
             ParentForm.AcceptButton = btnOK;
         }
 
         private void disableCompanyPeriodButtons()
         {
+            btnCreatePeriod.Visible = false;
             btnEditPeriod.Enabled = false;
             btnDeletePeriod.Enabled = false;
             ParentForm.AcceptButton = btnAddPeriods;

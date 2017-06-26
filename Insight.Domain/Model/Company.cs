@@ -3,6 +3,7 @@ using Insight.Domain.Entities;
 using Insight.Domain.Properties;
 using Insight.Domain.Repositories;
 using Mingle.Domain.Model;
+using System;
 
 namespace Insight.Domain.Model
 {
@@ -38,6 +39,12 @@ namespace Insight.Domain.Model
                 throw new ValidationException(Resources.CompanyAlreadyExist);
 
             repo.Save(Entity);
+        }
+
+        public string GetCodeCreatedFromId()
+        {
+            var result = Entity.Id.Substring(Entity.Id.IndexOf("/") + 1);
+            return result;
         }
 
         public static Company New()

@@ -4,6 +4,7 @@ using Insight.Domain.Model;
 using Insight.Domain.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Ferry.Insight.Service
 {
@@ -14,9 +15,8 @@ namespace Ferry.Insight.Service
             try
             {
                 var companyPerdiods = getInsightCompanyPeriods();
-                foreach (var companyPeriod in companyPerdiods)
+                foreach (var companyPeriod in companyPerdiods.Where(cp => cp.Entity.ForesighId != 0))
                 {
-                    companyPeriod.Entity.IsImported = true;
                     var importer = new InsightDataImporter(GravitySession.CompanyGroup, companyPeriod);
                     importer.Execute();
                 }

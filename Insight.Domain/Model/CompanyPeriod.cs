@@ -10,6 +10,11 @@ namespace Insight.Domain.Model
         public int Id { get; set; }
         public int CompanyId { get; set; }
         public int PeriodId { get; set; }
+
+        public bool IsNewCompany()
+        {
+            return CompanyId == 0;
+        }
     }
 
     public class CompanyPeriod
@@ -22,6 +27,7 @@ namespace Insight.Domain.Model
         public CompanyPeriod(CompanyPeriodEntity entity)
         {
             Entity = entity;
+            Foresight = new ForesightCompanyPeriod();
         }
 
         public bool IsNew()
