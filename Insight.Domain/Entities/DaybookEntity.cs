@@ -9,7 +9,8 @@ namespace Insight.Domain.Entities
         public string Id { get; set; }
         public DaybookType Type { get; set; }
         public string Code { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "DaybookNameCannotBeEmpty")]
+        [Required(ErrorMessageResourceType = typeof(Resources), 
+            ErrorMessageResourceName = "DaybookNameCannotBeEmpty")]
         public string Name { get; set; }
         public string AccountId { get; set; }
     }

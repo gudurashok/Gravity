@@ -8,7 +8,8 @@ namespace Insight.Domain.Entities
         public string Id { get; set; }
         public string InvoiceId { get; set; }
         public int LineNr { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "ItemNameCannotBeEmpty")]
+        [Required(ErrorMessageResourceType = typeof(Resources), 
+            ErrorMessageResourceName = "ItemNameCannotBeEmpty")]
         public string ItemId { get; set; }
         public string ItemDescription { get; set; }
         public double Quantity1 { get; set; }

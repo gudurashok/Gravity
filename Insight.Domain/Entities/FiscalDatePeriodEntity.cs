@@ -7,7 +7,8 @@ namespace Insight.Domain.Entities
     public class FiscalDatePeriodEntity
     {
         public string Id { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "FiscalDatePeriodNameCannotBeEmpty")]
+        [Required(ErrorMessageResourceType = typeof(Resources), 
+            ErrorMessageResourceName = "FiscalDatePeriodNameCannotBeEmpty")]
         public string Name { get; set; }
         public DatePeriod Financial { get; set; }
         public DatePeriod Assessment { get; set; }

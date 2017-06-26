@@ -12,7 +12,8 @@ namespace Mingle.Domain.Entities
     {
         public string Id { get; set; }
         public PartyType Type { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "PartyNameCannotBeEmpty")]
+        [Required(ErrorMessageResourceType = typeof(Resources), 
+            ErrorMessageResourceName = "PartyNameCannotBeEmpty")]
         public string Name { get; set; }
         public string ParentId { get; set; }
         public string Salutation { get; set; }
