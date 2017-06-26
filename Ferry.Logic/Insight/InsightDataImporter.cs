@@ -23,6 +23,7 @@ namespace Ferry.Logic.Insight
             _companyGroup = companyGroup;
             _companyPeriod = companyPeriod;
             createTargetDatabaseContext();
+            setForesightCompanyPeriod();
         }
 
         private void createTargetDatabaseContext()
@@ -31,8 +32,15 @@ namespace Ferry.Logic.Insight
             _targetDbContext.BeginTransaction();
         }
 
+        private void setForesightCompanyPeriod()
+        {
+            _companyPeriod.Foresight = _targetDbContext
+                    .GetForesightCompanyPeriod(_companyPeriod.Entity.ForesighId);
+        }
+
         public void Execute()
         {
+            _targetDbContext.DeleteCompanyPeriodData(_companyPeriod);
             extract();
             importTransactions();
             updateCompanyPeriod();

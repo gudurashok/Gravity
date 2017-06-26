@@ -26,7 +26,7 @@ namespace Foresight.Logic.Common
 
         public static DatabaseProvider GetForesightDatabaseProvider()
         {
-            var genus = AppConfig.AppGenus;
+            var genus = AppConfig.ForesightAppGenus;
 
             switch (genus)
             {
@@ -39,9 +39,9 @@ namespace Foresight.Logic.Common
             }
         }
 
-        public static string GetLionValue()
+        public static string GetServerValue()
         {
-            return ConfigurationManager.AppSettings.Get("Lion");
+            return ConfigurationManager.AppSettings.Get("ForesightServer");
         }
 
         public static object ConvertToDbValue(object value)

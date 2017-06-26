@@ -8,10 +8,12 @@ namespace Gravity.Root.Entities
     {
         public string Id { get; set; }
         public string Code { get; set; }
-        [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "CoGroupNameCannotBeEmpty")]
+        [Required(ErrorMessageResourceType = typeof(Resources), 
+            ErrorMessageResourceName = "CoGroupNameCannotBeEmpty")]
         public string Name { get; set; }
         public string DatabaseName { get; set; }
-
+        public string ForesightDatabaseName { get; set; }
+        
         public static CoGroupEntity New()
         {
             return new CoGroupEntity { Id = EntityPrefix.CoGroupPrefix };

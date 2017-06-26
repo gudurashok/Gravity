@@ -3,11 +3,7 @@ using Insight.Domain.Model;
 using Insight.Domain.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Ferry.Insight.Service
 {
@@ -42,11 +38,11 @@ namespace Ferry.Insight.Service
             }
             catch (ThreadAbortException)
             {
-                EventLog.WriteEntry("Ferry.Insight.Process Service", "Stopped successfully");
+                ServiceConfig.WriteLog("Stopped successfully");
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("Ferry.Insight.Process Service", ex.ToString());
+                ServiceConfig.WriteLog(ex.ToString());
             }
         }
 
@@ -57,6 +53,7 @@ namespace Ferry.Insight.Service
                 var companyPerdiods = getInsightCompanyPeriods();
                 foreach (var companyPeriod in companyPerdiods)
                 {
+                    companyPeriod.Entity.IsImported = true;
                     var importer = new InsightDataImporter(null, companyPeriod);
                     importer.Execute();
                     Thread.Sleep(millisecondsTimeout);
@@ -64,7 +61,7 @@ namespace Ferry.Insight.Service
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("Ferry.Insight.Process Service", ex.ToString());
+                ServiceConfig.WriteLog(ex.ToString());
             }
         }
 

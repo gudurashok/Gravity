@@ -28,7 +28,7 @@ namespace Ferry.Insight.Service
             }
             catch (Exception ex)
             {
-                writeEntry(ex.ToString());
+                ServiceConfig.WriteLog(ex.ToString());
             }
         }
 
@@ -48,13 +48,8 @@ namespace Ferry.Insight.Service
             }
             catch (Exception ex)
             {
-                writeEntry(ex.ToString());
+                ServiceConfig.WriteLog(ex.ToString());
             }
-        }
-
-        private void writeEntry(string message)
-        {
-            EventLog.WriteEntry("Ferry.Insight.Process Service", message);
         }
     }
 }

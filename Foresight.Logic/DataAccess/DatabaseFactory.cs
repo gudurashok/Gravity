@@ -9,7 +9,7 @@ namespace Foresight.Logic.DataAccess
         public static Database GetForesightDatabase(CompanyGroup companyGroup)
         {
             var db = GetForesightDatabase(TargetDbConnInfoFactory.GetConnectionInfo(companyGroup));
-            db.ChangeDatabase("");
+            db.ChangeDatabase(companyGroup.Entity.ForesightDatabaseName);
             return db;
         }
 

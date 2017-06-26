@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -46,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceConfig.cs" />
+    <Compile Include="FerryInsightServiceApp.cs" />
+    <Compile Include="ImportProcessorLocal.cs" />
     <Compile Include="ImportProcessor.cs" />
     <Compile Include="ImportService.cs">
       <SubType>Component</SubType>
@@ -78,9 +83,17 @@
       <Project>{07210f07-eff8-4784-bbe5-c3970c9c1d62}</Project>
       <Name>Insight.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Scalable.RavenDb\Scalable.RavenDb.csproj">
+      <Project>{db6d01fb-d989-4220-babf-97b7cfb13d86}</Project>
+      <Name>Scalable.RavenDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Scalable.Shared\Scalable.Shared.csproj">
       <Project>{d8afa5ad-113f-4b56-84a3-54a4dab1b9ca}</Project>
       <Name>Scalable.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scalable.Win\Scalable.Win.csproj">
+      <Project>{4e261d74-25ef-48de-a07b-8279f8c89ddf}</Project>
+      <Name>Scalable.Win</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

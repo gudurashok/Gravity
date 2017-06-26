@@ -11,7 +11,7 @@ namespace Foresight.Logic.Connection
     {
         public static IDbConnectionInfo GetConnectionInfo(CompanyGroup companyGroup)
         {
-            var genus = AppConfig.AppGenus;
+            var genus = AppConfig.ForesightAppGenus;
 
             switch (genus)
             {
@@ -26,7 +26,7 @@ namespace Foresight.Logic.Connection
 
         public static IDbConnectionInfo GetSqlConnectionInfo()
         {
-            return new SqlServerConnectionInfo(ForesightUtil.GetLionValue());
+            return new SqlServerConnectionInfo(ForesightUtil.GetServerValue());
         }
     }
 }

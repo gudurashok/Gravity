@@ -22,19 +22,19 @@ namespace Foresight.Logic.Ledger
         {
             var deleteCmd = _cmd.Connection.CreateCommand();
             deleteCmd.Transaction = _cmd.Transaction;
-            var rdr = getTransTableList(deleteCmd);
-            while (rdr.Read())
-                deleteTransTablePeriodData(_cmd, _cp, rdr);
-
-            rdr.Close();
+            using (var rdr = getTransTableList(deleteCmd))
+            {
+                while (rdr.Read())
+                    deleteTransTablePeriodData(_cmd, _cp, rdr);
+            }
         }
 
         private void deleteTransTablePeriodData(IDbCommand cmd, CompanyPeriod cp, IDataReader rdr)
         {
             cmd.CommandText = string.Format(SqlQueries.DeleteTransTablePeriodData, rdr["TableName"]);
             cmd.Parameters.Clear();
-            _db.AddParameterWithValue(cmd, "@CompanyId", cp.Company.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@PeriodId", cp.Period.Entity.Id);
+            _db.AddParameterWithValue(cmd, "@CompanyId", cp.Foresight.CompanyId);
+            _db.AddParameterWithValue(cmd, "@PeriodId", cp.Foresight.PeriodId);
             cmd.ExecuteNonQuery();
         }
 

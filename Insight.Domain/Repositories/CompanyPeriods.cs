@@ -48,12 +48,20 @@ namespace Insight.Domain.Repositories
         {
             if (_coSourceDataProvider == CoSourceDataProvider.Insight)
                 return new int[] { (int)SourceDataProvider.Insight };
-            else
+            else if (_coSourceDataProvider == CoSourceDataProvider.NonInsight)
                 return new int[]
                 {
                     (int)SourceDataProvider.Easy,
                     (int)SourceDataProvider.Mcs,
                     (int)SourceDataProvider.Tcs
+                };
+            else
+                return new int[]
+                {
+                    (int)SourceDataProvider.Easy,
+                    (int)SourceDataProvider.Mcs,
+                    (int)SourceDataProvider.Tcs,
+                    (int)SourceDataProvider.Insight
                 };
         }
 

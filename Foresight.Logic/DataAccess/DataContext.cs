@@ -35,8 +35,10 @@ namespace Foresight.Logic.DataAccess
         public DataContext(CompanyGroup companyGroup)
         {
             _db = DatabaseFactory.GetForesightDatabase(companyGroup);
-            ForesightSession.CompanyGroup = 
-                GetCompanyGroupById(GetCompanyGroupIdByName(companyGroup.Entity.Name));
+            ForesightSession.CompanyGroup = companyGroup;
+
+            //ForesightSession.CompanyGroup = 
+            //    GetCompanyGroupById(GetCompanyGroupIdByName(companyGroup.Entity.ForesightDatabaseName));
         }
 
         #endregion
@@ -390,12 +392,31 @@ namespace Foresight.Logic.DataAccess
         {
             var cmd = _db.CreateCommand(string.Format(SqlQueries.DeleteTransTablePeriodData, "AccountLedger"));
 
-            _db.AddParameterWithValue(cmd, "@CompanyId", companyPeriod.Company.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@PeriodId", companyPeriod.Period.Entity.Id);
+            _db.AddParameterWithValue(cmd, "@CompanyId", companyPeriod.Foresight.CompanyId);
+            _db.AddParameterWithValue(cmd, "@PeriodId", companyPeriod.Foresight.PeriodId);
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = string.Format(SqlQueries.DeleteTransTablePeriodData, "ItemLedger");
             cmd.ExecuteNonQuery();
+        }
+
+        public ForesightCompanyPeriod GetForesightCompanyPeriod(int id)
+        {
+            var cmd = _db.CreateCommand();
+            cmd.CommandText = SqlQueries.SelectCompanyPeriodById;
+            _db.AddParameterWithValue(cmd, "@Id", id);
+            using (var rdr = cmd.ExecuteReader())
+            {
+                if (!rdr.Read())
+                    throw new Exception($"Foresight company period id {id} not found.");
+
+                return new ForesightCompanyPeriod
+                {
+                    Id = id,
+                    CompanyId = Convert.ToInt32(rdr["CompanyId"]),
+                    PeriodId = Convert.ToInt32(rdr["PeriodId"])
+                };
+            };
         }
 
         public void DeleteCompanyPeriodData(CompanyPeriod companyPeriod)
@@ -404,8 +425,8 @@ namespace Foresight.Logic.DataAccess
                 return;
 
             var cmd = _db.CreateCommand();
-            var did = new DeleteImportedData(_db, cmd, companyPeriod);
-            did.Delete();
+            var importedData = new DeleteImportedData(_db, cmd, companyPeriod);
+            importedData.Delete();
         }
 
         public void SetCompanyPeriodIsImported(CompanyPeriod companyPeriod, bool isImported)

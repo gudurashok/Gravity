@@ -129,6 +129,9 @@
                             " WHERE FinancialFrom=@FinFrom " +
                             " AND FinancialTo=@FinTo ";
 
+        public const string SelectCompanyPeriodById =
+                            "SELECT CompanyId, PeriodId FROM CompanyPeriod WHERE Id=@Id";
+
         public const string SelectDatePeriodById =
                             "SELECT * FROM DatePeriod WHERE Id = @Id";
 

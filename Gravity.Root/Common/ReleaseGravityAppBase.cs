@@ -44,6 +44,7 @@ namespace Gravity.Root.Common
 
                 GravitySession.ReInitialize();
                 openCompanyGroup(coGroup);
+
                 if (loginNotPerformed())
                 {
                     GravitySession.Dispose();
@@ -92,9 +93,9 @@ namespace Gravity.Root.Common
                 return Directory.Exists(coGroup.DatabaseName);
 
             bool exists = true;
-            
+
             GravitySession.Initialize();
-            
+
             if (AppConfig.AppGenus != Genus.RavenHQ)
             {
                 exists = GravitySession.StoreManager.Store

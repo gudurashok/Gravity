@@ -9,7 +9,7 @@ namespace Foresight.Logic.DataAccess
     {
         public static ForesightDatabase GetInstance()
         {
-            var genus = AppConfig.AppGenus;
+            var genus = AppConfig.ForesightAppGenus;
 
             switch (genus)
             {

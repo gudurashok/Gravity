@@ -16,6 +16,7 @@ namespace Insight.Domain.Entities
         public SourceDataProvider SourceDataProvider { get; set; }
         public string SourceDataPath { get; set; }
         public bool IsImported { get; set; }
+        public int ForesighId { get; set; }
 
         public CompanyPeriodEntity()
         {

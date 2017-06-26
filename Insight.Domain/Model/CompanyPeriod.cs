@@ -5,11 +5,19 @@ using Insight.Domain.Repositories;
 
 namespace Insight.Domain.Model
 {
+    public class ForesightCompanyPeriod
+    {
+        public int Id { get; set; }
+        public int CompanyId { get; set; }
+        public int PeriodId { get; set; }
+    }
+
     public class CompanyPeriod
     {
         public CompanyPeriodEntity Entity { get; set; }
         public Company Company { get; set; }
         public FiscalDatePeriod Period { get; set; }
+        public ForesightCompanyPeriod Foresight { get; set; }
 
         public CompanyPeriod(CompanyPeriodEntity entity)
         {

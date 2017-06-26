@@ -1,25 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ferry.Insight.Service
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         static void Main()
         {
+            var app = new FerryInsightServiceApp();
+            app.Initialize();
+#if DEBUG
+            var s = new ImportProcessorLocal();
+            s.Execute();
+#else
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
                 new ImportService()
             };
             ServiceBase.Run(ServicesToRun);
+#endif
         }
     }
 }

@@ -104,6 +104,20 @@ namespace Scalable.Shared.Common
             }
         }
 
+        public static Genus ForesightAppGenus
+        {
+            get
+            {
+                var keyName = "ForesightGenus";
+                var genus = ConfigurationManager.AppSettings.Get(keyName);
+                Genus result;
+                if (Enum.TryParse(genus, true, out result))
+                    return result;
+
+                throw new ValidationException(String.Format("Incorrect {0} {1}", keyName, genus));
+            }
+        }
+
         public static Genus AppGenus
         {
             get
