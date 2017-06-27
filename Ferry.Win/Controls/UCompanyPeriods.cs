@@ -76,18 +76,35 @@ namespace Ferry.Win.Controls
             var coGroup = GravitySession.CompanyGroup;
             var dbContext = new DataContext(coGroup);
             dbContext.BeginTransaction();
+
             var period = dbContext.GetDatePeriodByFinPeriod(companyPeriod.Period);
             if (period == null)
                 companyPeriod.Foresight.PeriodId = dbContext.AddDatePeriod(companyPeriod.Period);
             else
                 companyPeriod.Foresight.PeriodId = Convert.ToInt32(period.Entity.Id);
 
-            var co = dbContext.GetCompanyByCode(companyPeriod.Company.GetCodeCreatedFromId());
-            companyPeriod.Foresight.CompanyId = Convert.ToInt32(co.Entity.Id);
+            var foresightCo = getForesightCompany(dbContext, companyPeriod.Company);
+            companyPeriod.Foresight.CompanyId = Convert.ToInt32(foresightCo.Entity.Id);
+            companyPeriod.Entity.ForesighId = dbContext.SaveCompanyPeriod(companyPeriod);
 
-            dbContext.SaveCompanyPeriod(companyPeriod, coGroup.Entity.ForesightGroupId);
             updateForesightCompanyPeriodIdInInsight(companyPeriod);
             dbContext.Commit();
+        }
+
+        private Company getForesightCompany(DataContext dbc, Company insightCo)
+        {
+            var foresightCo = dbc.GetCompanyByCode(insightCo.GetCodeCreatedFromId());
+            if (foresightCo != null)
+                return foresightCo;
+
+            var id = dbc.InsertCompany(insightCo.Entity,
+                                        GravitySession.CompanyGroup.Entity.ForesightGroupId);
+            return new Company(new CompanyEntity
+            {
+                Id = id.ToString(),
+                Code = insightCo.Entity.Code,
+                Name = insightCo.Entity.Name
+            });
         }
 
         private void updateForesightCompanyPeriodIdInInsight(CompanyPeriod companyPeriod)

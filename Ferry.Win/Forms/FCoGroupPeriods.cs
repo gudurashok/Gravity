@@ -18,6 +18,7 @@ using Mingle.Domain.Entities;
 using Mingle.Domain.Repositories;
 using Scalable.Shared.Model;
 using Mingle.Domain.Model;
+using Foresight.Logic.DataAccess;
 
 namespace Ferry.Win.Forms
 {
@@ -290,41 +291,86 @@ namespace Ferry.Win.Forms
 
         private void saveSelectedCompanyPeriods()
         {
+            var dbContext = new DataContext(GravitySession.CompanyGroup);
+
             foreach (var companyName in getSelectedCompanyNames())
             {
-                var partyId = createParty(companyName);
+                var insightCo = getCompany(companyName);
+                var foresightCo = getForesightCompany(dbContext, insightCo);
 
                 foreach (var scp in (from ListViewItem lvi in lvwCoPeriods.CheckedItems
                                      select lvi.Tag).OfType<SourceCompanyPeriod>()
                                                     .Where(x => x.CompanyName == companyName))
                 {
 
-                    var companyId = createCompany(scp.CompanyCode, scp.CompanyName, partyId);
                     var periodId = createDatePeriod(scp.Period);
-                    var companyPeriod = new CompanyPeriodEntity();
-                    companyPeriod.CompanyId = companyId;
-                    companyPeriod.PeriodId = periodId;
-                    companyPeriod.SourceDataPath = scp.SourceDataPath;
-                    companyPeriod.SourceDataProvider = _companyImporter.Provider;
-                    InsightRepo.Save(companyPeriod);
+
+                    var copEntity = new CompanyPeriodEntity();
+                    copEntity.CompanyId = insightCo.Id;
+                    copEntity.PeriodId = periodId;
+                    copEntity.SourceDataPath = scp.SourceDataPath;
+                    copEntity.SourceDataProvider = _companyImporter.Provider;
+
+                    var companyPeriod = new CompanyPeriod(copEntity);
+                    companyPeriod.Company = new Company(insightCo);
+                    companyPeriod.Foresight.CompanyId = Convert.ToInt32(foresightCo.Entity.Id);
+                    companyPeriod.Period = new FiscalDatePeriod(new FiscalDatePeriodEntity
+                    {
+                        Financial = scp.Period
+                    });
+                    var period = dbContext.GetDatePeriodByFinPeriod(companyPeriod.Period);
+                    if (period == null)
+                        companyPeriod.Foresight.PeriodId = dbContext.AddDatePeriod(companyPeriod.Period);
+                    else
+                        companyPeriod.Foresight.PeriodId = Convert.ToInt32(period.Entity.Id);
+
+                    companyPeriod.Entity.ForesighId = dbContext.SaveCompanyPeriod(companyPeriod);
+                    InsightRepo.Save(copEntity);
                 }
             }
         }
 
-        private string createParty(string partyName)
+        private Company getForesightCompany(DataContext dbc, CompanyEntity insightCo)
         {
-            var party = PartyEntity.New();
-            party.Name = Name = partyName;
-            InsightRepo.Save(party);
-            return party.Id;
+            var foresightCo = dbc.GetCompanyByCode(insightCo.Code);
+            if (foresightCo != null)
+                return foresightCo;
+
+            var id = dbc.InsertCompany(insightCo, GravitySession.CompanyGroup.Entity.ForesightGroupId);
+            return new Company(new CompanyEntity
+            {
+                Id = id.ToString(),
+                Code = insightCo.Code,
+                Name = insightCo.Name
+            });
         }
 
-        private string createCompany(string code, string name, string partyId)
+        private CompanyEntity getCompany(string companyName)
+        {
+            var coEntity = InsightRepo.GetCompanyByName(companyName);
+            if (coEntity != null)
+                return coEntity;
+
+            var partyId = createParty(companyName);
+            var coCode = partyId.Substring(partyId.IndexOf("/") + 1);
+            coEntity = createCompany(coCode, companyName, partyId);
+            return coEntity;
+        }
+
+        private string createParty(string partyName)
+        {
+            var entity = PartyEntity.New();
+            entity.Name = Name = partyName;
+            InsightRepo.Save(entity);
+            return entity.Id;
+        }
+
+        private CompanyEntity createCompany(string code, string name, string partyId)
         {
             var company = new CompanyEntity { Code = code, Name = name, PartyId = partyId };
             company.PartyId = partyId;
             InsightRepo.Save(company);
-            return company.Id;
+            return company;
         }
 
         private string createDatePeriod(DatePeriod period)

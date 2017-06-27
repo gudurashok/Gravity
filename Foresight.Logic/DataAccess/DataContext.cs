@@ -105,14 +105,14 @@ namespace Foresight.Logic.DataAccess
             };
         }
 
-        private void insertCompany(CompanyPeriod cp, int companyGroupId)
+        public int InsertCompany(CompanyEntity company, int companyGroupId)
         {
             var cmd = _db.CreateCommand(SqlQueries.InsertCompany);
-            _db.AddParameterWithValue(cmd, "@Code", cp.Company.GetCodeCreatedFromId());
-            _db.AddParameterWithValue(cmd, "@Name", cp.Company.Entity.Name);
+            _db.AddParameterWithValue(cmd, "@Code", company.Code);
+            _db.AddParameterWithValue(cmd, "@Name", company.Name);
             _db.AddParameterWithValue(cmd, "@GroupId", companyGroupId);
             cmd.ExecuteNonQuery();
-            cp.Foresight.CompanyId = Convert.ToInt32(_db.GetGeneratedIdentityValue());
+            return Convert.ToInt32(_db.GetGeneratedIdentityValue());
         }
 
         public void DeleteCompany(Company company)
@@ -174,28 +174,25 @@ namespace Foresight.Logic.DataAccess
             return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
         }
 
-        public void SaveCompanyPeriod(CompanyPeriod cp, int companyGroupId)
+        public int SaveCompanyPeriod(CompanyPeriod cp)
         {
             if (isCompanyPeriodExist(cp))
                 throw new ValidationException(Resources.PeriodAlreadyExists);
 
-            if (cp.Foresight.IsNewCompany())
-                insertCompany(cp, companyGroupId);
-
-            insertCompanyPeriod(cp);
+            return insertCompanyPeriod(cp);
         }
 
-        private void insertCompanyPeriod(CompanyPeriod cp)
+        private int insertCompanyPeriod(CompanyPeriod cp)
         {
             var cmd = _db.CreateCommand(SqlQueries.InsertCompanyPeriod);
             addCompanyPeriodParams(cmd, cp);
             _db.AddParameterWithValue(cmd, "@DataPath", cp.Entity.SourceDataPath);
             _db.AddParameterWithValue(cmd, "@SourceDataProvider", cp.Entity.SourceDataProvider);
             cmd.ExecuteNonQuery();
-            cp.Entity.ForesighId = Convert.ToInt32(_db.GetGeneratedIdentityValue());
+            return Convert.ToInt32(_db.GetGeneratedIdentityValue());
         }
 
-        public void SaveCompanyPeriod(CompanyPeriod oldCp, CompanyPeriod newCp, int companyGroupId)
+        public void SaveCompanyPeriod(CompanyPeriod oldCp, CompanyPeriod newCp)
         {
             if (isCompanyPeriodExist(newCp))
                 throw new ValidationException(Resources.PeriodAlreadyExists);
@@ -204,8 +201,8 @@ namespace Foresight.Logic.DataAccess
             {
                 _db.BeginTransaction();
 
-                if (newCp.Company.IsNew())
-                    insertCompany(newCp, companyGroupId);
+                //if (newCp.Company.IsNew())
+                //    InsertCompany(newCp, companyGroupId);
 
                 updateCompanyPeriod(oldCp, newCp);
                 setCompanyPeriodColumnValue(oldCp, newCp);
@@ -311,8 +308,8 @@ namespace Foresight.Logic.DataAccess
         {
             try
             {
-                var cmd = _db.CreateCommand();
                 _db.BeginTransaction();
+                var cmd = _db.CreateCommand();
 
                 if (cp.Entity.IsImported)
                 {

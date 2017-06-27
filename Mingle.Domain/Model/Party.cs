@@ -8,15 +8,8 @@ namespace Mingle.Domain.Model
     public class Party
     {
         private bool isFullDetailsPopulated;
-
-        #region Properties
-
         public PartyEntity Entity { get; private set; }
         public Party Parent { get; set; }
-
-        #endregion
-
-        #region Constructor
 
         public Party(PartyEntity entity)
         {
@@ -28,18 +21,10 @@ namespace Mingle.Domain.Model
             return new Party(PartyEntity.New());
         }
 
-        #endregion
-
-        #region Equals
-
         public bool Equals(Party party)
         {
             return Entity.Id == party.Entity.Id;
         }
-
-        #endregion
-
-        #region ToString
 
         public override string ToString()
         {
@@ -52,8 +37,6 @@ namespace Mingle.Domain.Model
                             ? Entity.Name
                             : string.Format("{0} {1}", Entity.Salutation.Trim(), Entity.Name);
         }
-
-        #endregion
 
         public bool IsNew()
         {
