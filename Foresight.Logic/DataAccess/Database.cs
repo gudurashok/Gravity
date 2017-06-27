@@ -118,11 +118,19 @@ namespace Foresight.Logic.DataAccess
             _connection = null;
         }
 
+        public bool IsDatabaseExists(string databaseName)
+        {
+            var cmd = CreateCommand(SqlQueries.SelectCountFromSysDatabases);
+            AddParameterWithValue(cmd, "@name", databaseName);
+            var value = Convert.ToInt32(cmd.ExecuteScalar());
+            return value == 1;
+        }
+
         public string GetGeneratedIdentityValue()
         {
             var cmd = CreateCommand(SqlQueries.ReadGeneratedIdentityValue);
             var value = cmd.ExecuteScalar();
-            return  ForesightUtil.ConvertDbNullToString(value);
+            return ForesightUtil.ConvertDbNullToString(value);
         }
     }
 }

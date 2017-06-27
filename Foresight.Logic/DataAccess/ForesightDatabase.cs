@@ -12,22 +12,65 @@ namespace Foresight.Logic.DataAccess
 {
     public abstract class ForesightDatabase : IDisposable
     {
-        #region Declarations
-
         protected Database db;
-
-        #endregion
-
-        #region Common
 
         public void Dispose()
         {
             db.Close();
         }
 
-        #endregion
+        public bool IsCompanyGroupNameExist(CompanyGroup companyGroup)
+        {
+            var cmd = db.CreateCommand(SqlQueries.SelectCountByCompanyGroupName);
+            db.AddParameterWithValue(cmd, "@name", companyGroup.Entity.Name);
+            var value = cmd.ExecuteScalar();
+            return Convert.ToInt32(value) > 0;
+        }
 
-        #region Command
+        public IEnumerable<CompanyGroup> GetCompanyGroups()
+        {
+            var result = new List<CompanyGroup>();
+            var rdr = db.ExecuteReader(SqlQueries.SelectAllCompanyGroups);
+            while (rdr.Read())
+                result.Add(readCompanyGroup(rdr));
+
+            rdr.Close();
+            return result;
+        }
+
+        private CompanyGroup readCompanyGroup(IDataReader rdr)
+        {
+            var companyGroup = CompanyGroup.New();
+            companyGroup.Entity.Name = rdr["Name"].ToString();
+            companyGroup.FilePath = rdr["DatabaseName"].ToString();
+            companyGroup.Entity.Id = rdr["Id"].ToString();
+            return companyGroup;
+        }
+
+        public int SaveCompanyGroup(CompanyGroup companyGroup)
+        {
+            var cmd = db.CreateCommand(SqlQueries.ForesightInsertCompanyGroup);
+            db.AddParameterWithValue(cmd, "@Name", companyGroup.Entity.Name);
+            db.AddParameterWithValue(cmd, "@DatabaseName", companyGroup.FilePath);
+            cmd.ExecuteNonQuery();
+            var newId = db.GetGeneratedIdentityValue();
+            return Convert.ToInt32(newId);
+        }
+
+        public int UpdateCompanyGroup(CompanyGroup companyGroup)
+        {
+            var cmd = db.CreateCommand(SqlQueries.ForesightUpdateCompanyGroup);
+            db.AddParameterWithValue(cmd, "@Id", companyGroup.Entity.Id);
+            db.AddParameterWithValue(cmd, "@Name", companyGroup.Entity.Name);
+            db.AddParameterWithValue(cmd, "@DatabaseName", companyGroup.FilePath);
+            cmd.ExecuteNonQuery();
+            return 0;
+        }
+
+        public void DeleteCompanyGroup(CompanyGroup companyGroup)
+        {
+            db.ExecuteNonQuery(SqlQueries.ForesightDeleteCompanyGroup, "@Id", companyGroup.Entity.Id);
+        }
 
         public Command GetCommandByNr(int nr)
         {
@@ -78,19 +121,15 @@ namespace Foresight.Logic.DataAccess
                                                     "@commandId", commandId);
             while (rdr.Read())
                 result.Add(new CommandProp
-                            {
-                                Id = rdr["Id"].ToString(),
-                                PropName = rdr["PropName"].ToString(),
-                                PropValue = rdr["PropValue"].ToString()
-                            });
+                {
+                    Id = rdr["Id"].ToString(),
+                    PropName = rdr["PropName"].ToString(),
+                    PropValue = rdr["PropValue"].ToString()
+                });
 
             rdr.Close();
             return result;
         }
-
-        #endregion
-
-        #region Chart Of Account Mapper
 
         public IList<ChartOfAccountMapper> GetChartOfAccountsMapper()
         {
@@ -115,15 +154,9 @@ namespace Foresight.Logic.DataAccess
             return coaMapper;
         }
 
-        #endregion
-
-        #region DbScript
-
         public string GetDbScript()
         {
             return db.ExecuteScalar(SqlQueries.SelectDbScript).ToString();
         }
-
-        #endregion
     }
 }

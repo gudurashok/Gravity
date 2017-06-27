@@ -9,7 +9,7 @@ namespace Gravity.Root.Model
 {
     public class CompanyGroup
     {
-        private const string DefaultId = "CoGroupEntities/1";
+        private const string defaultId = "CoGroupEntities/1";
         public CoGroupEntity Entity { get; private set; }
         private string _databaseName;
 
@@ -39,7 +39,7 @@ namespace Gravity.Root.Model
         public static CompanyGroup CreateTestCoGroup()
         {
             var coGroup = New();
-            coGroup.Entity.Id = DefaultId;
+            coGroup.Entity.Id = defaultId;
             coGroup.Entity.Name = getCompanyName();
             //coGroup.CreateDatabaseName();
             return coGroup;
@@ -79,6 +79,8 @@ namespace Gravity.Root.Model
             }
             private set { _databaseName = value; }
         }
+
+        public string FilePath { get; set; }
 
         private void createDatabaseName()
         {

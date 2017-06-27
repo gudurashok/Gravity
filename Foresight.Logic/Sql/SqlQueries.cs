@@ -6,6 +6,9 @@
 
         public const string ReadGeneratedIdentityValue =
                             "SELECT @@identity";
+        public const string SelectCountFromSysDatabases =
+                        "SELECT COUNT(*) FROM " +
+                        "master.dbo.sysdatabases WHERE name=@name";
 
         #endregion
 
@@ -27,7 +30,7 @@
 
         public const string SelectCountByCompanyGroupName =
                             "SELECT COUNT(*) FROM CompanyGroup " +
-                            " WHERE Name = @name AND Id <> @id";
+                            " WHERE Name=@name";
 
         public const string InsertCompanyGroup =
                             "INSERT INTO CompanyGroup (Id, [Name]) " +

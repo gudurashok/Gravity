@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\CoGroupDatabase.cs" />
+    <Compile Include="DataAccess\CoGroupDatabaseFactory.cs" />
+    <Compile Include="DataAccess\CoGroupSqlCeDatabase.cs" />
+    <Compile Include="DataAccess\CoGroupSqlServerDatabase.cs" />
     <Compile Include="Ledger\LedgerUpdateAbortException.cs" />
     <Compile Include="Ledger\UpdatingEventArgs.cs" />
     <Compile Include="Ledger\DeleteImportedData.cs" />

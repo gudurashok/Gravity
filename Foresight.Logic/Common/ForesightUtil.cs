@@ -13,6 +13,8 @@ namespace Foresight.Logic.Common
 {
     public static class ForesightUtil
     {
+        public const string ForesightDbPassword = "iScalable@2011";
+
         public static void TestDatabaseConnection()
         {
             TestDatabaseConnection(TargetDbConnInfoFactory.GetSqlConnectionInfo());

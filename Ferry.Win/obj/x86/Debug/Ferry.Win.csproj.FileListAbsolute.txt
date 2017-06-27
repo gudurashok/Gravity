@@ -161,3 +161,4 @@ C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Properties
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FStatusMessage.resources
