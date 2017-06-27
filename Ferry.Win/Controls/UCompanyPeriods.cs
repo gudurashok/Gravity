@@ -89,6 +89,7 @@ namespace Ferry.Win.Controls
 
             updateForesightCompanyPeriodIdInInsight(companyPeriod);
             dbContext.Commit();
+            MessageBoxUtil.ShowMessage("Foresight company of this period successfully created.");
         }
 
         private Company getForesightCompany(DataContext dbc, Company insightCo)
