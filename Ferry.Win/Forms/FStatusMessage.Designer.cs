@@ -81,7 +81,7 @@
             this.MinimizeBox = false;
             this.Name = "FStatusMessage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FStatusMessage";
+            this.Text = "Ferry: Creating company group";
             ((System.ComponentModel.ISupportInitialize)(this.picWaitIndicator)).EndInit();
             this.pnlStart.ResumeLayout(false);
             this.ResumeLayout(false);

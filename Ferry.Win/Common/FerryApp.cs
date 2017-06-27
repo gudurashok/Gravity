@@ -30,6 +30,7 @@ namespace Ferry.Win.Common
 
                 statusMessageForm.SetStatusMessage("Please wait while the group is being created...");
                 statusMessageForm.Show();
+                statusMessageForm.Refresh();
                 createForesightCompanyGroup();
                 return true;
             }

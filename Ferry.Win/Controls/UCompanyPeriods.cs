@@ -98,6 +98,7 @@ namespace Ferry.Win.Controls
             if (foresightCo != null)
                 return foresightCo;
 
+            insightCo.Entity.Code = insightCo.GetCodeCreatedFromId();
             var id = dbc.InsertCompany(insightCo.Entity,
                                         GravitySession.CompanyGroup.Entity.ForesightGroupId);
             return new Company(new CompanyEntity
