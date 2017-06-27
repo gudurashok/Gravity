@@ -20,7 +20,9 @@ namespace Ferry.Win.Forms
         protected override void InitializeForm()
         {
             base.InitializeForm();
-            uCompanyPeriods.Initialize();
+
+            uCompanyPeriods.Hide();
+            //uCompanyPeriods.Initialize();
             Application.HideSplash2();
         }
 
@@ -32,7 +34,7 @@ namespace Ferry.Win.Forms
 
         protected override void OnRefreshList()
         {
-            uCompanyPeriods.FillList(true);
+            //uCompanyPeriods.FillList(true);
         }
     }
 }
