@@ -70,6 +70,7 @@ namespace Ferry.Win.Forms
         {
             createCoGroupListColumns();
             createCoPeriodListColumns();
+            lvwCoPeriods.ItemChecked += lvwCoPeriods_ItemChecked;
         }
 
         private void createCoGroupListColumns()
@@ -98,7 +99,9 @@ namespace Ferry.Win.Forms
 
         void processImportFrom(object sender, EventArgs e)
         {
-            if (_importPathBrowser.Show() == string.Empty) return;
+            if (_importPathBrowser.Show() == string.Empty)
+                return;
+
             _companyImporter = new CompanyImporter(_importPathBrowser.SelectedPath, true);
             processProviderDataPath();
         }
@@ -109,8 +112,10 @@ namespace Ferry.Win.Forms
             if (noCompanyGroupsFound())
                 return;
 
+            lvwCoGroups.ItemChecked -= lvwCoGroups_ItemChecked;
             fillCompanyGroups();
             displaySourceProviderInfo();
+            lvwCoGroups.ItemChecked += lvwCoGroups_ItemChecked;
         }
 
         private bool noCompanyGroupsFound()
@@ -231,6 +236,16 @@ namespace Ferry.Win.Forms
             EventHandlerExecutor.Execute(processSelectedPeriod, sender, e);
         }
 
+        private void lvwCoPeriods_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            EventHandlerExecutor.Execute(setSaveButtonState);
+        }
+
+        private void setSaveButtonState()
+        {
+            btnSave.Enabled = lvwCoPeriods.CheckedItems.Count > 0;
+        }
+
         void processSelectedPeriod(object sender, EventArgs e)
         {
             var args = e as ItemCheckEventArgs;
@@ -283,17 +298,18 @@ namespace Ferry.Win.Forms
         {
             return (from ListViewItem lvi in lvwCoPeriods.CheckedItems
                     select lvi.Tag).OfType<SourceCompanyPeriod>()
-                                   .OrderBy(x => x.CompanyName)
-                                   .Distinct()
                                    .Select(scp => scp.CompanyName)
+                                   .Distinct()
+                                   .OrderBy(x => x)
                                    .ToList();
         }
 
         private void saveSelectedCompanyPeriods()
         {
             var dbContext = new DataContext(GravitySession.CompanyGroup);
+            var companyNames = getSelectedCompanyNames();
 
-            foreach (var companyName in getSelectedCompanyNames())
+            foreach (var companyName in companyNames)
             {
                 var insightCo = getCompany(companyName);
                 var foresightCo = getForesightCompany(dbContext, insightCo);
@@ -303,7 +319,7 @@ namespace Ferry.Win.Forms
                                                     .Where(x => x.CompanyName == companyName))
                 {
 
-                    var periodId = createDatePeriod(scp.Period);
+                    var periodId = getInsightDatePeriodId(scp.Period);
 
                     var copEntity = new CompanyPeriodEntity();
                     copEntity.CompanyId = insightCo.Id;
@@ -314,10 +330,7 @@ namespace Ferry.Win.Forms
                     var companyPeriod = new CompanyPeriod(copEntity);
                     companyPeriod.Company = new Company(insightCo);
                     companyPeriod.Foresight.CompanyId = Convert.ToInt32(foresightCo.Entity.Id);
-                    companyPeriod.Period = new FiscalDatePeriod(new FiscalDatePeriodEntity
-                    {
-                        Financial = scp.Period
-                    });
+                    companyPeriod.Period = FiscalDatePeriod.CreateInstanceFrom(scp.Period);
                     var period = dbContext.GetDatePeriodByFinPeriod(companyPeriod.Period);
                     if (period == null)
                         companyPeriod.Foresight.PeriodId = dbContext.AddDatePeriod(companyPeriod.Period);
@@ -373,9 +386,9 @@ namespace Ferry.Win.Forms
             return company;
         }
 
-        private string createDatePeriod(DatePeriod period)
+        private string getInsightDatePeriodId(DatePeriod period)
         {
-            var result = InsightRepo.GetFiscalDatePeriodByPeriod(period, true);
+            var result = InsightRepo.GetFiscalDatePeriodByPeriodName(period, true);
             return result.Entity.Id;
         }
 

@@ -33,42 +33,45 @@ namespace Insight.Domain.Repositories
                 if (company == null)
                     return string.Empty;
 
-                var dp = s.Query<FiscalDatePeriod>()
-                                .Where(p => p.Entity.Financial.From == searchPeriod.From &&
-                                            p.Entity.Financial.To == searchPeriod.To)
+                var dp = s.Query<FiscalDatePeriodEntity>()
+                                .Where(p => p.Financial.From == searchPeriod.From &&
+                                            p.Financial.To == searchPeriod.To)
                                 .SingleOrDefault();
 
                 if (dp == null)
                     return string.Empty;
 
-                var period = s.Query<CompanyPeriod>()
-                                .Where(cp => cp.Company.Entity.Id == company.Id &&
-                                        cp.Period.Entity.Id == dp.Entity.Id)
+                var period = s.Query<CompanyPeriodEntity>()
+                                .Where(cp => cp.CompanyId == company.Id &&
+                                        cp.PeriodId == dp.Id)
                                 .SingleOrDefault();
 
                 if (period != null)
-                    return period.Entity.Id;
+                    return period.Id;
             }
 
             return string.Empty;
         }
 
-        public FiscalDatePeriod GetFiscalDatePeriodByPeriod(DatePeriod period, bool createIfNotExist)
+        public FiscalDatePeriod GetFiscalDatePeriodByPeriodName(DatePeriod period, bool createIfNotExist)
         {
             using (var s = Store.OpenSession())
             {
-                var datePeriod = s.Query<FiscalDatePeriod>()
-                                     .Where(dp => dp.Entity.Financial.From == period.From &&
-                                                  dp.Entity.Financial.To == period.To)
-                                     .FirstOrDefault();
+                var datePeriods = s.Query<FiscalDatePeriodEntity>().ToList();
+                var datePeriod = datePeriods
+                                .Where(dp => dp.Financial.From == period.From &&
+                                        dp.Financial.To == period.To)
+                                .FirstOrDefault();
 
                 if (datePeriod == null && createIfNotExist)
                 {
-                    datePeriod = FiscalDatePeriod.CreateInstanceFrom(period);
+                    var fdp = FiscalDatePeriod.CreateInstanceFrom(period);
+                    datePeriod = fdp.Entity;
+                    Save(datePeriod);
+                    return fdp;
                 }
 
-                Save(datePeriod.Entity);
-                return datePeriod;
+                return new FiscalDatePeriod(datePeriod);
             }
         }
 

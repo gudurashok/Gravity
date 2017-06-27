@@ -168,7 +168,7 @@ namespace Ferry.Win.Forms
             _cp.Entity.SourceDataPath = txtDataPath.Text;
 
             var repo = new InsightRepository();
-            _cp.Period = repo.GetFiscalDatePeriodByPeriod(_selectedScp.Period, true);
+            _cp.Period = repo.GetFiscalDatePeriodByPeriodName(_selectedScp.Period, true);
             _cp.Entity.SourceDataProvider = _companyImporter.Provider;
         }
 

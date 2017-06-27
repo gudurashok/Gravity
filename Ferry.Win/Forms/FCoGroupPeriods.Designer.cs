@@ -77,6 +77,7 @@
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "&Save";
+            this.btnSave.Enabled = false;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -96,7 +97,6 @@
             this.lvwCoGroups.TabIndex = 2;
             this.lvwCoGroups.UseCompatibleStateImageBehavior = false;
             this.lvwCoGroups.View = System.Windows.Forms.View.Details;
-            this.lvwCoGroups.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvwCoGroups_ItemChecked);
             // 
             // pnlDetails
             // 
