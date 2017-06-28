@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEditPeriod = new Scalable.Win.Controls.iButton();
             this.btnDeletePeriod = new Scalable.Win.Controls.iButton();
             this.btnAddPeriod = new Scalable.Win.Controls.iButton();
             this.btnAddPeriods = new Scalable.Win.Controls.iButton();
@@ -41,7 +40,7 @@
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(567, 6);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(5);
             this.btnOK.Text = "&Import";
             this.btnOK.Click += new System.EventHandler(this.btnImport_Click);
             // 
@@ -68,7 +67,6 @@
             // 
             this.CommandBar.Controls.Add(this.btnCreatePeriod);
             this.CommandBar.Controls.Add(this.btnAddPeriods);
-            this.CommandBar.Controls.Add(this.btnEditPeriod);
             this.CommandBar.Controls.Add(this.btnDeletePeriod);
             this.CommandBar.Controls.Add(this.btnAddPeriod);
             this.CommandBar.Location = new System.Drawing.Point(-1, 389);
@@ -78,27 +76,14 @@
             this.CommandBar.Controls.SetChildIndex(this.btnOK, 0);
             this.CommandBar.Controls.SetChildIndex(this.btnAddPeriod, 0);
             this.CommandBar.Controls.SetChildIndex(this.btnDeletePeriod, 0);
-            this.CommandBar.Controls.SetChildIndex(this.btnEditPeriod, 0);
             this.CommandBar.Controls.SetChildIndex(this.btnAddPeriods, 0);
             this.CommandBar.Controls.SetChildIndex(this.btnCreatePeriod, 0);
-            // 
-            // btnEditPeriod
-            // 
-            this.btnEditPeriod.Enabled = false;
-            this.btnEditPeriod.Location = new System.Drawing.Point(194, 6);
-            this.btnEditPeriod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnEditPeriod.Name = "btnEditPeriod";
-            this.btnEditPeriod.Size = new System.Drawing.Size(80, 28);
-            this.btnEditPeriod.TabIndex = 3;
-            this.btnEditPeriod.Text = "Edit";
-            this.btnEditPeriod.UseVisualStyleBackColor = true;
-            this.btnEditPeriod.Click += new System.EventHandler(this.btnEditPeriod_Click);
             // 
             // btnDeletePeriod
             // 
             this.btnDeletePeriod.Enabled = false;
-            this.btnDeletePeriod.Location = new System.Drawing.Point(278, 6);
-            this.btnDeletePeriod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeletePeriod.Location = new System.Drawing.Point(194, 6);
+            this.btnDeletePeriod.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletePeriod.Name = "btnDeletePeriod";
             this.btnDeletePeriod.Size = new System.Drawing.Size(80, 28);
             this.btnDeletePeriod.TabIndex = 4;
@@ -109,7 +94,7 @@
             // btnAddPeriod
             // 
             this.btnAddPeriod.Location = new System.Drawing.Point(110, 6);
-            this.btnAddPeriod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddPeriod.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPeriod.Name = "btnAddPeriod";
             this.btnAddPeriod.Size = new System.Drawing.Size(80, 28);
             this.btnAddPeriod.TabIndex = 2;
@@ -120,7 +105,7 @@
             // btnAddPeriods
             // 
             this.btnAddPeriods.Location = new System.Drawing.Point(8, 6);
-            this.btnAddPeriods.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddPeriods.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPeriods.Name = "btnAddPeriods";
             this.btnAddPeriods.Size = new System.Drawing.Size(98, 28);
             this.btnAddPeriods.TabIndex = 1;
@@ -145,19 +130,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPeriodDataPath.BackColor = System.Drawing.Color.White;
             this.txtPeriodDataPath.Location = new System.Drawing.Point(49, 361);
-            this.txtPeriodDataPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPeriodDataPath.Margin = new System.Windows.Forms.Padding(4);
             this.txtPeriodDataPath.Name = "txtPeriodDataPath";
             this.txtPeriodDataPath.ReadOnly = true;
             this.txtPeriodDataPath.Size = new System.Drawing.Size(621, 22);
             this.txtPeriodDataPath.TabIndex = 3;
             this.txtPeriodDataPath.TabStop = false;
             // 
-            // btnCreate
+            // btnCreatePeriod
             // 
             this.btnCreatePeriod.Enabled = false;
-            this.btnCreatePeriod.Location = new System.Drawing.Point(362, 6);
+            this.btnCreatePeriod.Location = new System.Drawing.Point(278, 6);
             this.btnCreatePeriod.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreatePeriod.Name = "btnCreate";
+            this.btnCreatePeriod.Name = "btnCreatePeriod";
             this.btnCreatePeriod.Size = new System.Drawing.Size(80, 28);
             this.btnCreatePeriod.TabIndex = 5;
             this.btnCreatePeriod.Text = "Create";
@@ -185,8 +170,6 @@
         }
 
         #endregion
-
-        private Scalable.Win.Controls.iButton btnEditPeriod;
         private Scalable.Win.Controls.iButton btnDeletePeriod;
         private Scalable.Win.Controls.iButton btnAddPeriod;
         private Scalable.Win.Controls.iButton btnAddPeriods;

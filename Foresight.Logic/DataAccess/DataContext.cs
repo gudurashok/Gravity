@@ -317,8 +317,7 @@ namespace Foresight.Logic.DataAccess
                     did.Delete();
                 }
 
-                deleteCompanyPeriod(cmd, cp.Entity.Id);
-
+                deleteCompanyPeriod(cmd, cp.Entity.ForesighId);
                 _db.Commit();
             }
             catch
@@ -330,7 +329,7 @@ namespace Foresight.Logic.DataAccess
             }
         }
 
-        private void deleteCompanyPeriod(IDbCommand cmd, string id)
+        private void deleteCompanyPeriod(IDbCommand cmd, int id)
         {
             cmd.CommandText = SqlQueries.DeleteCompanyPeriod;
             _db.AddParameterWithValue(cmd, "@Id", id);

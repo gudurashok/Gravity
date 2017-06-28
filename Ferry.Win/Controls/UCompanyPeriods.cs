@@ -145,18 +145,6 @@ namespace Ferry.Win.Controls
             return cp;
         }
 
-        private void btnEditPeriod_Click(object sender, EventArgs e)
-        {
-            EventHandlerExecutor.Execute(processEditPeriod);
-        }
-
-        void processEditPeriod()
-        {
-            var repo = new InsightRepository();
-            var cp = repo.GetCompanyPeriodById(getSelectedCompanyPeriod().Entity.Id);
-            saveCompanyPeriod(cp);
-        }
-
         private void btnDeletePeriod_Click(object sender, EventArgs e)
         {
             EventHandlerExecutor.Execute(processDeletePeriod);
@@ -168,7 +156,11 @@ namespace Ferry.Win.Controls
                 return;
 
             Cursor = Cursors.WaitCursor;
-            //_dbc.DeleteCompanyPeriod(getSelectedCompanyPeriod());
+            var cp = getSelectedCompanyPeriod();
+            var dbc = new DataContext(GravitySession.CompanyGroup);
+            dbc.DeleteCompanyPeriod(cp);
+            var repo = (Repository as CompanyPeriods);
+            repo.DeleteById(cp.Entity.Id);
             FillList(true);
         }
 
@@ -381,12 +373,10 @@ namespace Ferry.Win.Controls
             if (cp.Entity.SourceDataProvider == SourceDataProvider.Insight)
             {
                 btnCreatePeriod.Enabled = cp.Entity.ForesighId == 0;
-                btnEditPeriod.Enabled = false;
                 btnDeletePeriod.Enabled = false;
             }
             else
             {
-                btnEditPeriod.Enabled = true;
                 btnDeletePeriod.Enabled = true;
             }
 
@@ -396,7 +386,6 @@ namespace Ferry.Win.Controls
         private void disableCompanyPeriodButtons()
         {
             btnCreatePeriod.Visible = false;
-            btnEditPeriod.Enabled = false;
             btnDeletePeriod.Enabled = false;
             ParentForm.AcceptButton = btnAddPeriods;
         }
