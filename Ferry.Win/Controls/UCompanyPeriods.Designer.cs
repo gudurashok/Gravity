@@ -98,6 +98,7 @@
             this.btnAddPeriod.Name = "btnAddPeriod";
             this.btnAddPeriod.Size = new System.Drawing.Size(80, 28);
             this.btnAddPeriod.TabIndex = 2;
+            this.btnAddPeriod.Visible = false;
             this.btnAddPeriod.Text = "Add";
             this.btnAddPeriod.UseVisualStyleBackColor = true;
             this.btnAddPeriod.Click += new System.EventHandler(this.btnAddPeriod_Click);

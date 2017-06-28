@@ -92,9 +92,12 @@ namespace Insight.Domain.Repositories
             throw new NotImplementedException();
         }
 
-        public IList<Company> GetAllCompanies()
+        public IList<CompanyEntity> GetAllCompanies()
         {
-            return new List<Company>();
+            using (var s = Store.OpenSession())
+            {
+                return s.Query<CompanyEntity>().ToList();
+            }
         }
 
         public CompanyEntity GetCompanyByName(string name)

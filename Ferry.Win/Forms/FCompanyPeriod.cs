@@ -47,7 +47,7 @@ namespace Ferry.Win.Forms
         private void initializeForm()
         {
             var repo = new InsightRepository();
-            _companies = repo.GetAllCompanies();
+            //_companies = repo.GetAllCompanies();
 
             fillCompanies();
             btnDataSourceBrowser.Enabled = _cp.IsNew();
