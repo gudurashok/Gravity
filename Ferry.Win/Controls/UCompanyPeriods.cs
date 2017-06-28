@@ -245,12 +245,16 @@ namespace Ferry.Win.Controls
         private void processCheckPeriod(object sender, EventArgs e)
         {
             var args = e as ItemCheckEventArgs;
-            //_dbc.ClearUnfinishedImports(getExecutingProcessesExpr());
+            var cp = getSelectedCompanyPeriod(ListView.Items[args.Index]);
+            if (cp.Entity.SourceDataProvider != SourceDataProvider.Insight)
+            {
+                var dbc = new DataContext(GravitySession.CompanyGroup);
+                dbc.ClearUnfinishedImports(getExecutingProcessesExpr());
+            }
 
             if (args.NewValue != CheckState.Checked)
                 return;
 
-            var cp = getSelectedCompanyPeriod(ListView.Items[args.Index]);
             if (cp.Entity.SourceDataProvider != SourceDataProvider.Insight)
                 if (!shouldImportCompanyPeriod(cp))
                     args.NewValue = CheckState.Unchecked;
