@@ -378,9 +378,9 @@ namespace Foresight.Logic.DataAccess
             while (rdr.Read())
             {
                 cmd.CommandText = string.Format(SqlQueries.UpdateTransTablesCompanyPeriod, rdr["TableName"]);
-                ((IDbDataParameter)cmd.Parameters["@CompanyPeriodId"]).Value = companyPeriod.Entity.Id;
-                ((IDbDataParameter)cmd.Parameters["@CompanyId"]).Value = companyPeriod.Company.Entity.Id;
-                ((IDbDataParameter)cmd.Parameters["@PeriodId"]).Value = companyPeriod.Period.Entity.Id;
+                ((IDbDataParameter)cmd.Parameters["@CompanyPeriodId"]).Value = companyPeriod.Foresight.Id;
+                ((IDbDataParameter)cmd.Parameters["@CompanyId"]).Value = companyPeriod.Foresight.CompanyId;
+                ((IDbDataParameter)cmd.Parameters["@PeriodId"]).Value = companyPeriod.Foresight.PeriodId;
                 cmd.ExecuteNonQuery();
             }
 
@@ -441,8 +441,8 @@ namespace Foresight.Logic.DataAccess
         {
             var cmd = _db.CreateCommand();
             cmd.CommandText = SqlQueries.UpdateCompanyPeriodSetIsImportedFlagValue;
-            _db.AddParameterWithValue(cmd, "@companyId", companyPeriod.Company.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@periodId", companyPeriod.Period.Entity.Id);
+            _db.AddParameterWithValue(cmd, "@companyId", companyPeriod.Foresight.CompanyId);
+            _db.AddParameterWithValue(cmd, "@periodId", companyPeriod.Foresight.PeriodId);
             _db.AddParameterWithValue(cmd, "@isImported", isImported);
             cmd.ExecuteNonQuery();
         }
@@ -538,12 +538,12 @@ namespace Foresight.Logic.DataAccess
         private string saveSaleInvoice(SaleInvoice header)
         {
             var cmd = _db.CreateCommand(SqlQueries.InsertSaleInvoiceHeader);
-            setSaleInvoiceHeaderParams(cmd, header.Entity as SaleInvoiceHeaderEntity);
+            setSaleInvoiceHeaderParams(cmd, header.Entity as SaleInvoiceEntity);
             cmd.ExecuteNonQuery();
             return _db.GetGeneratedIdentityValue();
         }
 
-        private void setSaleInvoiceHeaderParams(IDbCommand cmd, SaleInvoiceHeaderEntity header)
+        private void setSaleInvoiceHeaderParams(IDbCommand cmd, SaleInvoiceEntity header)
         {
             setTransParams(cmd, header);
             _db.AddParameterWithValue(cmd, "@brokerageAmount", header.BrokerageAmount);
@@ -633,12 +633,12 @@ namespace Foresight.Logic.DataAccess
         private string savePurchaseHeader(PurchaseInvoice header)
         {
             var cmd = _db.CreateCommand(SqlQueries.InsertPurchaseInvoiceHeader);
-            setPurchaseInvoiceHeaderParams(cmd, header.Entity as PurchaseInvoiceHeaderEntity);
+            setPurchaseInvoiceHeaderParams(cmd, header.Entity as PurchaseInvoiceEntity);
             cmd.ExecuteNonQuery();
             return _db.GetGeneratedIdentityValue();
         }
 
-        private void setPurchaseInvoiceHeaderParams(IDbCommand cmd, PurchaseInvoiceHeaderEntity header)
+        private void setPurchaseInvoiceHeaderParams(IDbCommand cmd, PurchaseInvoiceEntity header)
         {
             setTransParams(cmd, header);
             _db.AddParameterWithValue(cmd, "@brokerageAmount", header.BrokerageAmount);
@@ -869,6 +869,7 @@ namespace Foresight.Logic.DataAccess
         private void setJournalVoucherParams(IDbCommand cmd, JournalVoucher jv)
         {
             setTransParams(cmd, jv.Entity);
+            _db.AddParameterWithValue(cmd, "@txnType", (jv.Entity as JournalVoucherEntity).TxnType);
         }
 
         #endregion
@@ -1320,8 +1321,7 @@ namespace Foresight.Logic.DataAccess
             var coa = new ChartOfAccount(new ChartOfAccountEntity());
             coa.Entity.Id = rdr["Id"].ToString();
             coa.Entity.Nr = Convert.ToInt32(rdr["Nr"]);
-
-            var parentId = Convert.ToInt32(rdr["ParentId"]);
+            var parentId = Convert.ToInt32(ForesightUtil.ConvertDbNull(rdr["ParentId"]));
             if (parentId != 0)
                 coa.Parent = getChartOfAccountParent(parentId);
 
@@ -1431,7 +1431,7 @@ namespace Foresight.Logic.DataAccess
 
         private void setDaybookParams(IDbCommand cmd, Daybook book)
         {
-            _db.AddParameterWithValue(cmd, "@type", (int)book.Entity.Type);
+            _db.AddParameterWithValue(cmd, "@type", ((int)book.Entity.Type).ToString());
             _db.AddParameterWithValue(cmd, "@code", book.Entity.Code);
             _db.AddParameterWithValue(cmd, "@name", book.Entity.Name);
             _db.AddParameterWithValue(cmd, "@accountId", getDaybookAccountId(book));
@@ -1489,7 +1489,7 @@ namespace Foresight.Logic.DataAccess
             item.Group = GetItemGroupById(Convert.ToInt32(rdr["GroupId"]));
             item.Entity.Name = rdr["Name"].ToString();
             item.Entity.ShortName = rdr["ShortName"].ToString();
-            item.Category = GetItemCategoryById(Convert.ToInt32(rdr["CategoryId"]));
+            item.Category = GetItemCategoryById(Convert.ToInt32(ForesightUtil.ConvertDbNull(rdr["CategoryId"])));
             item.Entity.HasBom = Convert.ToBoolean(rdr["HasBom"]);
             item.Entity.IsActive = Convert.ToBoolean(rdr["IsActive"]);
             return item;
@@ -1505,7 +1505,7 @@ namespace Foresight.Logic.DataAccess
 
         private void setItemParams(IDbCommand cmd, Item item)
         {
-            _db.AddParameterWithValue(cmd, "@groupId", item.Group.Entity.Id);
+            _db.AddParameterWithValue(cmd, "@groupId", Convert.ToInt32(item.Group.Entity.Id));
             _db.AddParameterWithValue(cmd, "@name", item.Entity.Name);
             _db.AddParameterWithValue(cmd, "@shortName", ForesightUtil.ConvertToDbValue(item.Entity.ShortName));
             _db.AddParameterWithValue(cmd, "@categoryId", item.Category.Entity.Id);

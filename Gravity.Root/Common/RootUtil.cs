@@ -13,11 +13,11 @@ namespace Gravity.Root.Common
             try
             {
                 var repo = new CoGroupRepository();
-                repo.Save(new ErrorMessage
-                        {
-                            DateTime = DateTime.Now,
-                            Text = exception.ToString()
-                        });
+                repo.Insert(new ErrorMessage
+                {
+                    DateTime = DateTime.Now,
+                    Text = exception.ToString()
+                });
 
             }
             catch (Exception ex)

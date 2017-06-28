@@ -21,7 +21,7 @@ namespace Ferry.Win.Forms
         #region Internal Declarations
 
         private Stopwatch _timer;
-        private readonly DataContext _dbc = ForesightSession.Dbc;
+        private readonly DataContext _dbc;
         private DataImportContext _idc;
         private IList<CompanyPeriod> _companyPeriods { get; set; }
         private bool _isImportInProgress;
@@ -35,6 +35,7 @@ namespace Ferry.Win.Forms
         {
             InitializeComponent();
             _companyPeriods = companyPeriods;
+            _dbc = new DataContext(GravitySession.CompanyGroup);
         }
 
         #endregion
@@ -49,13 +50,20 @@ namespace Ferry.Win.Forms
         void processLoad(object sender, EventArgs e)
         {
             base.OnLoad(e);
-            InitializeForm();
+            initializeForm();
         }
 
-        private void InitializeForm()
+        private void initializeForm()
         {
             lblTimeElapsed.Text = string.Empty;
+            setForesightCompanyPeriod();
             fillCompanyPeriods();
+        }
+
+        private void setForesightCompanyPeriod()
+        {
+            foreach (var cp in _companyPeriods)
+                cp.Foresight = _dbc.GetForesightCompanyPeriod(cp.Entity.ForesighId);
         }
 
         private void fillCompanyPeriods()
@@ -69,6 +77,7 @@ namespace Ferry.Win.Forms
             lvwList.Columns.Clear();
             lvwList.Columns.Add(new iColumnHeader("Company", true));
             lvwList.Columns.Add(new iColumnHeader("Period", 75));
+            lvwList.Width = lvwList.Width + 1;
         }
 
         private void fillRows()

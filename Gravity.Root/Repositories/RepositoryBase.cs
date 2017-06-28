@@ -48,6 +48,15 @@ namespace Gravity.Root.Repositories
             }
         }
 
+        public virtual void Insert(dynamic entity)
+        {
+            using (var session = Store.OpenSession())
+            {
+                session.Store(entity);
+                session.SaveChanges();
+            }
+        }
+
         public virtual string Save(dynamic entity)
         {
             using (var session = Store.OpenSession())

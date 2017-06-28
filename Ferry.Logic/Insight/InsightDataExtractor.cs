@@ -8,6 +8,7 @@ using Insight.Domain.Entities;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using Insight.Domain.Repositories;
+using Gravity.Root.Common;
 
 namespace Ferry.Logic.Insight
 {
@@ -178,7 +179,8 @@ namespace Ferry.Logic.Insight
 
         private void loadChartOfAccounts()
         {
-            ChartOfAccounts = ForesightSession.Dbc.GetChartOfAccounts();
+            var dbc = new DataContext(GravitySession.CompanyGroup);
+            ChartOfAccounts = dbc.GetChartOfAccounts();
         }
 
         //protected abstract void LoadAccounts();

@@ -6,6 +6,7 @@ using Foresight.Logic.Common;
 using Foresight.Logic.DataAccess;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Gravity.Root.Common;
 
 namespace Ferry.Logic.Base
 {
@@ -109,7 +110,7 @@ namespace Ferry.Logic.Base
 
         private DataContext createTargetDatabaseContext()
         {
-            var dbc = ForesightSession.Dbc; //new DataContext(companyPeriod.Company.Group);
+            var dbc = new DataContext(GravitySession.CompanyGroup);
             dbc.BeginTransaction();
             return dbc;
         }

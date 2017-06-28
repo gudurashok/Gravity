@@ -162,20 +162,21 @@ namespace Ferry.Win.Controls
             var repo = (Repository as CompanyPeriods);
             repo.DeleteById(cp.Entity.Id);
             FillList(true);
+            Cursor = Cursors.Default;
         }
 
         private bool shouldDeleteCompanyPeriod()
         {
             var cp = getSelectedCompanyPeriod();
+            setForesightCompanyPeriod(cp);
+            var dbc = new DataContext(GravitySession.CompanyGroup);
+            if (dbc.IsCompanyPeriodImporting(cp))
+            {
+                MessageBoxUtil.ShowMessage(Resources.CompanyPeriodAlreadyImportingCannotDelete);
+                return false;
+            }
 
-            //if (_dbc.IsCompanyPeriodImporting(cp))
-            //{
-            //    ScalableUtil.ShowMessage(Resources.CompanyPeriodAlreadyImportingCannotDelete);
-            //    return false;
-            //}
-
-            //_dbc.CheckIsCompanyPeriodImported(cp);
-
+            dbc.CheckIsCompanyPeriodImported(cp);
             if (cp.Entity.IsImported)
                 return MessageBoxUtil.GetConfirmationYesNo(Resources.DeleteImportedCompanyPeriod) == DialogResult.Yes;
 
@@ -249,8 +250,10 @@ namespace Ferry.Win.Controls
             if (args.NewValue != CheckState.Checked)
                 return;
 
-            if (!shouldImportCompanyPeriod(getSelectedCompanyPeriod(ListView.Items[args.Index])))
-                args.NewValue = CheckState.Unchecked;
+            var cp = getSelectedCompanyPeriod(ListView.Items[args.Index]);
+            if (cp.Entity.SourceDataProvider != SourceDataProvider.Insight)
+                if (!shouldImportCompanyPeriod(cp))
+                    args.NewValue = CheckState.Unchecked;
         }
 
         private string getExecutingProcessesExpr()
@@ -265,23 +268,19 @@ namespace Ferry.Win.Controls
 
         private bool shouldImportCompanyPeriod(CompanyPeriod cp)
         {
-            //if (_dbc.IsCompanyPeriodImporting(cp))
-            //{
-            //    ScalableUtil.ShowMessage(
-            //                Resources.CompanyPeriodAlreadyImportingCannotImport);
-            //    return false;
-            //}
+            setForesightCompanyPeriod(cp);
+            var dbc = new DataContext(GravitySession.CompanyGroup);
+            if (dbc.IsCompanyPeriodImporting(cp))
+            {
+                MessageBoxUtil.ShowMessage(Resources.CompanyPeriodAlreadyImportingCannotImport);
+                return false;
+            }
 
-            //_dbc.CheckIsCompanyPeriodImported(cp);
+            dbc.CheckIsCompanyPeriodImported(cp);
+            if (cp.Entity.IsImported)
+                return MessageBoxUtil.GetConfirmationYesNo(Resources.PeriodIsAlreadyImported) == DialogResult.Yes;
 
-            //if (cp.IsImported)
-            //    return ScalableUtil.GetConfirmationYesNo(
-            //                Resources.PeriodIsAlreadyImported) == DialogResult.Yes;
-
-            //return true;
-
-
-            return true; //TODO: Should be removed when uncommented above code block
+            return true;
         }
 
         private void ListView_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -364,6 +363,12 @@ namespace Ferry.Win.Controls
         private CompanyPeriod getSelectedCompanyPeriod(ListViewItem lvi)
         {
             return (lvi.Tag as CompanyPeriodListItem).CompanyPeriod;
+        }
+
+        private void setForesightCompanyPeriod(CompanyPeriod cp)
+        {
+            var dbc = new DataContext(GravitySession.CompanyGroup);
+            cp.Foresight = dbc.GetForesightCompanyPeriod(cp.Entity.ForesighId);
         }
 
         private void enableCompanyPeriodButtons()

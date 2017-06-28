@@ -51,7 +51,7 @@ namespace Foresight.Logic.DataAccess
         {
             var cmd = db.CreateCommand(SqlQueries.ForesightInsertCompanyGroup);
             db.AddParameterWithValue(cmd, "@Name", companyGroup.Entity.Name);
-            db.AddParameterWithValue(cmd, "@DatabaseName", companyGroup.FilePath);
+            db.AddParameterWithValue(cmd, "@DatabaseName", companyGroup.Entity.ForesightDatabaseName);
             cmd.ExecuteNonQuery();
             var newId = db.GetGeneratedIdentityValue();
             return Convert.ToInt32(newId);

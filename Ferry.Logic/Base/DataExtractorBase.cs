@@ -9,6 +9,7 @@ using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using ExtractingEventArgs = Ferry.Logic.Common.ExtractingEventArgs;
 using ExtractingEventHandler = Ferry.Logic.Common.ExtractingEventHandler;
+using Gravity.Root.Common;
 
 namespace Ferry.Logic.Base
 {
@@ -200,7 +201,8 @@ namespace Ferry.Logic.Base
 
         private void loadChartOfAccounts()
         {
-            ChartOfAccounts = ForesightSession.Dbc.GetChartOfAccounts();
+            var dbc = new DataContext(GravitySession.CompanyGroup);
+            ChartOfAccounts = dbc.GetChartOfAccounts();
         }
 
         protected abstract void LoadAccounts();

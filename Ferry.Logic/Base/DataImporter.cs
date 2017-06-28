@@ -8,6 +8,7 @@ using Foresight.Logic.DataAccess;
 using Insight.Domain.Entities;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
+using Insight.Domain.Repositories;
 
 namespace Ferry.Logic.Base
 {
@@ -112,6 +113,9 @@ namespace Ferry.Logic.Base
         {
             ieaFactory.RaiseImportingEvent("Completing import");
             targetDbContext.SetCompanyPeriodIsImported(companyPeriod, true);
+            var repo = CompanyPeriods.NewLoadAllDataSourceCompanies();
+            companyPeriod.Entity.IsImported = true;
+            repo.Save(companyPeriod.Entity);
         }
 
         private void updateCompanyPeriod()
@@ -190,7 +194,7 @@ namespace Ferry.Logic.Base
 
             saleInvoice.Daybook = daybook;
             saleInvoice.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
-            var sale = (SaleInvoiceHeaderEntity)saleInvoice.Entity;
+            var sale = (SaleInvoiceEntity)saleInvoice.Entity;
             sale.BrokerageAmount = 0; // sourceTransaction.BrokerageAmount;
             sale.Through = sourceTransaction.Through;
             sale.VehicleId = string.Empty;
@@ -288,7 +292,7 @@ namespace Ferry.Logic.Base
 
             purchaseInvoice.Daybook = daybook;
             purchaseInvoice.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
-            var purchase = (PurchaseInvoiceHeaderEntity)purchaseInvoice.Entity;
+            var purchase = (PurchaseInvoiceEntity)purchaseInvoice.Entity;
             purchase.BrokerageAmount = 0; // sourceTransaction.BrokerageAmount;
             purchase.Through = sourceTransaction.Through;
             purchase.Transport = sourceTransaction.Transport;
@@ -377,7 +381,7 @@ namespace Ferry.Logic.Base
             {
                 insertCashTransaction(sourceTransaction, daybook);
                 ReportProgress(ieaFactory.ForCashTransaction(daybook.Entity.Code,
-                                        GetTxnTypeFullName(Convert.ToInt32(sourceTransaction.TransactionType)),
+                                        GetTxnTypeFullName(Convert.ToInt32(GetTxnType(sourceTransaction.TransactionType))),
                                                     sourceTransaction.DocumentNr));
                 if (IsCancelled) break;
             }
