@@ -1,27 +1,26 @@
-﻿using Foresight.Logic.Connection;
+﻿using System;
+using Foresight.Logic.Connection;
+using Gravity.Root.Model;
 using Scalable.Shared.Common;
+using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace Foresight.Logic.DataAccess
 {
     public class ForesightSqlCeDatabase : ForesightDatabase
     {
-        #region Declarations
-
         private const string databaseFileName = "Foresight.isd";
         private const string foresightFilePassword = "iScalable@2011";
-
-        #endregion
-
-        #region Constructors
 
         public ForesightSqlCeDatabase()
         {
             setDatabaseContext();
         }
 
-        #endregion
-
-        #region Internal Methods
+        public override bool IsCompanyGroupExist(CompanyGroup companyGroup)
+        {
+            return File.Exists(companyGroup.ForesightDatabaseName);
+        }
 
         private void setDatabaseContext()
         {
@@ -33,7 +32,5 @@ namespace Foresight.Logic.DataAccess
         {
             return AppConfig.AppPath + @"\" + databaseFileName;
         }
-
-        #endregion
     }
 }

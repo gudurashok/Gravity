@@ -12,6 +12,7 @@ namespace Gravity.Root.Model
         private const string defaultId = "CoGroupEntities/1";
         public CoGroupEntity Entity { get; private set; }
         private string _databaseName;
+        private string _foresightDatabaseName;
 
         public CompanyGroup(CoGroupEntity entity)
         {
@@ -57,6 +58,43 @@ namespace Gravity.Root.Model
         public bool IsNew()
         {
             return Entity.Id == EntityPrefix.CoGroupPrefix;
+        }
+
+        public string ForesightDatabaseName
+        {
+            get
+            {
+                if (!string.IsNullOrWhiteSpace(_foresightDatabaseName))
+                    return _foresightDatabaseName;
+
+                if (!string.IsNullOrWhiteSpace(Entity.ForesightDatabaseName))
+                    return Entity.ForesightDatabaseName;
+
+                createForesightDatabaseName();
+                _foresightDatabaseName = getForesightDatabaseName();
+                return _foresightDatabaseName;
+            }
+
+            set { _foresightDatabaseName = value; }
+        }
+
+        private void createForesightDatabaseName()
+        {
+            Entity.ForesightDatabaseName = FileNameUtil.GetValidFileName(
+                                    string.Concat(Entity.Name.Replace(" ", ""), ".",
+                                                    AppConfig.ForesightDbNameSuffix));
+        }
+
+        private string getForesightDatabaseName()
+        {
+            return AppConfig.ForesightAppGenus == Genus.Server
+                        ? Entity.ForesightDatabaseName
+                        : getForesightDatabaseNameWithPath();
+        }
+
+        private string getForesightDatabaseNameWithPath()
+        {
+            return string.Format(@"{0}\{1}", AppConfig.ForesightDataPath, Entity.ForesightDatabaseName);
         }
 
         public string DatabaseName

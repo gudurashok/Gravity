@@ -1,4 +1,6 @@
 ﻿using Foresight.Logic.Connection;
+using Gravity.Root.Model;
+using System;
 
 namespace Foresight.Logic.DataAccess
 {
@@ -9,6 +11,11 @@ namespace Foresight.Logic.DataAccess
         public ForesightSqlServerDatabase()
         {
             setDatabaseContext();
+        }
+
+        public override bool IsCompanyGroupExist(CompanyGroup companyGroup)
+        {
+            return db.IsDatabaseExists(companyGroup.ForesightDatabaseName);
         }
 
         private void setDatabaseContext()

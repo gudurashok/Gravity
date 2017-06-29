@@ -17,18 +17,24 @@ namespace Scalable.Shared.Common
 
         public static string CoGroupDataPath
         {
-            get { return string.Format(@"{0}\Groups\", DataPath); }
+            get
+            {
+                var dataPath = ConfigurationManager.AppSettings.Get("DataPath");
+                return string.Format(@"{0}\Groups\", getDataPath(dataPath, "Data"));
+            }
         }
 
-        private static string DataPath
+        public static string ForesightDataPath
         {
-            get { return getDataPath(); }
+            get
+            {
+                var dataPath = ConfigurationManager.AppSettings.Get("ForesightDataPath");
+                return string.Format(@"{0}\Groups\", getDataPath(dataPath, "ForesightData"));
+            }
         }
 
-        private static string getDataPath()
+        private static string getDataPath(string dataPath, string defaultPath)
         {
-            var dataPath = ConfigurationManager.AppSettings.Get("DataPath");
-
             if (string.IsNullOrWhiteSpace(dataPath))
                 return AppPath + @"\" + "Data";
 
@@ -93,6 +99,11 @@ namespace Scalable.Shared.Common
         {
             get { return ConfigurationManager.AppSettings.Get("CoGroupId"); }
             set { saveConfigItem("CoGroupId", value); }
+        }
+
+        public static string ForesightDbNameSuffix
+        {
+            get { return "Foresight"; }
         }
 
         public static string AppDbNameSuffix

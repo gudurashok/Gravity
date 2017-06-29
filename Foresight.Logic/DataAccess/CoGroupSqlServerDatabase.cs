@@ -26,7 +26,7 @@ namespace Foresight.Logic.DataAccess
 
         protected override string getCompanyGroupDatabaseName()
         {
-            return companyGroup.DatabaseName;
+            return companyGroup.ForesightDatabaseName;
         }
 
         protected override void setDatabaseContext()

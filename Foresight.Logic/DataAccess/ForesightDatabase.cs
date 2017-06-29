@@ -19,6 +19,8 @@ namespace Foresight.Logic.DataAccess
             db.Close();
         }
 
+        public abstract bool IsCompanyGroupExist(CompanyGroup companyGroup);
+
         public bool IsCompanyGroupNameExist(CompanyGroup companyGroup)
         {
             var cmd = db.CreateCommand(SqlQueries.SelectCountByCompanyGroupName);

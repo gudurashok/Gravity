@@ -9,12 +9,9 @@ namespace Foresight.Logic.DataAccess
     public class CoGroupSqlCeDatabase : CoGroupDatabase
     {
         private const string dataFileExtension = ".fsd";
-        private const string allForesightDataFiles = "*" + dataFileExtension;
-        private const string dataPath = @"\Data";
 
         protected override void createCompanyGroupDatabase()
         {
-            //new SqlCeSaveCompanyGroupRules().Check(companyGroup);
             createCompanyGroupWithEngine();
             groupDb = DatabaseFactory.GetForesightDatabase(companyGroup);
         }
@@ -49,7 +46,7 @@ namespace Foresight.Logic.DataAccess
 
         private string getCompanyGroupFileName()
         {
-            return getDataPath() + @"\" + companyGroup.DatabaseName + dataFileExtension;
+            return companyGroup.ForesightDatabaseName + dataFileExtension;
         }
 
         protected override void setDatabaseContext()
@@ -73,7 +70,7 @@ namespace Foresight.Logic.DataAccess
             //if (path == null) path = DataPath;
 
             //return Common.GetAppPath();
-            var path = AppConfig.CoGroupDataPath;
+            var path = AppConfig.ForesightDataPath;
 
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);

@@ -66,6 +66,8 @@ namespace Foresight.Logic.DataAccess
         private int createCompanyGroup()
         {
             companyGroup.FilePath = getCompanyGroupDatabaseName();
+            companyGroup.ForesightDatabaseName = companyGroup.FilePath;
+            companyGroup.Entity.ForesightDatabaseName = companyGroup.FilePath;
             validateCompanyGroup(companyGroup);
 #if DEBUG
             checkScriptFileExists();

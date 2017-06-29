@@ -48,21 +48,18 @@ namespace Ferry.Win.Common
 
         private bool shouldCreateForesightCompanyGroup()
         {
-            var message = $"Company group \n'{GravitySession.CompanyGroup.Entity.Name}'\n" +
-                          $"doesn't exist.\n\nClick Yes to create now.";
+            var message = $"Company group \n'{GravitySession.CompanyGroup.Entity.Name} not found.'\n" +
+                          $"Check it's physical file {GravitySession.CompanyGroup.ForesightDatabaseName} exists.\n\n" +
+                          $"If you are sure that its first time, then click Yes to create a new group now.";
             return MessageBoxUtil.GetConfirmationYesNo(message) == DialogResult.Yes;
         }
 
         private void createForesightCompanyGroup()
         {
-            var db = CoGroupDatabaseFactory.GetInstance();
-
-            if (!db.IsDatabaseExists(AppConfig.AppDbNameSuffix))
-                throw new Exception($"Gravity Foresight master datbase '{AppConfig.AppDbNameSuffix}' not found.");
-
             var companyGroup = CompanyGroup.New();
             companyGroup.Entity.Name = GravitySession.CompanyGroup.Entity.Name;
-            companyGroup.Entity.ForesightDatabaseName = companyGroup.DatabaseName;
+            companyGroup.Entity.ForesightDatabaseName = companyGroup.ForesightDatabaseName;
+            var db = CoGroupDatabaseFactory.GetInstance();
             companyGroup.Entity.ForesightGroupId = db.SaveCompanyGroup(companyGroup);
             var repo = new CoGroupRepository();
             companyGroup.Entity.Id = GravitySession.CompanyGroup.Entity.Id;
@@ -72,7 +69,11 @@ namespace Ferry.Win.Common
         private bool isForesightCompanyGroupExists()
         {
             var db = ForesightDatabaseFactory.GetInstance();
-            return (db.IsCompanyGroupNameExist(GravitySession.CompanyGroup));
+
+            if (db.IsCompanyGroupNameExist(GravitySession.CompanyGroup))
+                return (db.IsCompanyGroupExist(GravitySession.CompanyGroup));
+
+            return false;
         }
 
         protected override FMainBase getMainForm()
