@@ -16,7 +16,7 @@ namespace Foresight.Logic.Connection
             switch (genus)
             {
                 case Genus.Embedded:
-                    return new SqlCeConnectionInfo(companyGroup.FilePath, ForesightUtil.ForesightDbPassword);
+                    return new SqlCeConnectionInfo(companyGroup.ForesightDatabaseName, ForesightUtil.ForesightDbPassword);
                 case Genus.Server:
                     return GetSqlConnectionInfo();
                 default:
