@@ -61,6 +61,7 @@ namespace Foresight.Win.Forms
             lvwList.Columns.Clear();
             lvwList.Columns.Add(new iColumnHeader("Company", true));
             lvwList.Columns.Add(new iColumnHeader("Period", 75));
+            lvwList.Width = lvwList.Width + 1;
         }
 
         private void fillRows()

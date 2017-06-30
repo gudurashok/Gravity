@@ -13,9 +13,9 @@ namespace Mingle.Win.Common
             return new FCompanyGroup(coGroup);
         }
 
-        protected override FMainBase getMainForm()
+        protected override void setMainForm()
         {
-            return new FMain(this);
+            MainForm = new FMain(this);
         }
 
         //protected override void insertData()

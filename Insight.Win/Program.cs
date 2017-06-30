@@ -15,6 +15,7 @@ namespace Insight.Win
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var app = ApplicationFactory.Instance();
+            app.MinimumSplashScreenDisplayTime = 1000;
             app.Run(Environment.GetCommandLineArgs());
         }
     }

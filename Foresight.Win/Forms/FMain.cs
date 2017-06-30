@@ -17,13 +17,11 @@ namespace Foresight.Win.Forms
 {
     public partial class FMain : FFormBase
     {
-        private FCompanyGroups _coGroupsForm { get; set; }
         public bool IsClosing { get; set; }
 
-        public FMain(FCompanyGroups groupForm)
+        public FMain()
         {
             InitializeComponent();
-            _coGroupsForm = groupForm;
         }
 
         private void FMain_Load(object sender, EventArgs e)
@@ -33,9 +31,20 @@ namespace Foresight.Win.Forms
 
         private void initialize()
         {
+            ForesightSession.OpenCompanyGroup(GravitySession.CompanyGroup);
+            setFormTitle();
             lblUserName.Text = GravitySession.User.Entity.Name;
             populateReportsCommandBar();
             lvwCommandBar.SelectTopItem();
+        }
+
+        private void setFormTitle()
+        {
+            Text = string.Format("{0} - {1}",
+                                ForesightSession.CompanyGroup.Entity.Name,
+                                GravityApplication.GetProductName());
+
+            lblTitle.Text = ForesightSession.CompanyGroup.Entity.Name;
         }
 
         private void FMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -50,11 +59,6 @@ namespace Foresight.Win.Forms
                 return;
 
             args.Cancel = MessageBoxUtil.GetConfirmationYesNo("Want to exit Foresight?") == DialogResult.No;
-        }
-
-        private void FMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            EventHandlerExecutor.Execute(_coGroupsForm.Close);
         }
 
         private void FMain_KeyDown(object sender, KeyEventArgs e)
@@ -87,17 +91,6 @@ namespace Foresight.Win.Forms
         void processCompanyPeriods()
         {
             new FLedgerUpdater(ForesightSession.Dbc.GetCompanyPeriods()).ShowDialog(this);
-        }
-
-        private void companyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EventHandlerExecutor.Execute(processCompanyGroups);
-        }
-
-        void processCompanyGroups()
-        {
-            _coGroupsForm.Show();
-            Hide();
         }
 
         private void pnlCommandBar_Resize(object sender, EventArgs e)
@@ -133,15 +126,6 @@ namespace Foresight.Win.Forms
                 executeCommand();
         }
 
-        //public void InitializeForm(bool isGroupChanged)
-        //{
-        //    if (isGroupChanged)
-        //        tabMain.TabPages.Clear();
-
-        //    setFormTitle();
-        //    lvwCommandBar.SelectTopItem(true);
-        //}
-
         private void populateReportsCommandBar()
         {
             var reports = ForesightDatabaseFactory.GetInstance().GetAllCommands();
@@ -156,15 +140,6 @@ namespace Foresight.Win.Forms
                 return;
 
             tabMain.TabPages.Remove(tabMain.SelectedTab);
-        }
-
-        private void setFormTitle()
-        {
-            Text = string.Format("{0} - {1}",
-                                ForesightSession.CompanyGroup.Entity.Name,
-                                GravityApplication.GetProductName());
-
-            lblTitle.Text = ForesightSession.CompanyGroup.Entity.Name;
         }
 
         private Command getSelectedCommand()

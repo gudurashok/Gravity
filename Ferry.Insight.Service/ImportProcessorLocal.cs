@@ -15,7 +15,8 @@ namespace Ferry.Insight.Service
             try
             {
                 var companyPerdiods = getInsightCompanyPeriods();
-                foreach (var companyPeriod in companyPerdiods.Where(cp => cp.Entity.ForesighId != 0))
+                foreach (var companyPeriod in companyPerdiods
+                                    .Where(cp => cp.Entity.ForesighId != 0))
                 {
                     var importer = new InsightDataImporter(GravitySession.CompanyGroup, companyPeriod);
                     importer.Execute();

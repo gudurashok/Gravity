@@ -55,9 +55,9 @@ namespace Synergy.Win.Common
             return new[] { Assembly.GetAssembly(typeof(IIndexDefinition)) };
         }
 
-        protected override FMainBase getMainForm()
+        protected override void setMainForm()
         {
-            return new FMain(this);
+            MainForm = new FMain(this);
         }
     }
 }

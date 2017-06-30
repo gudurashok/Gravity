@@ -43,7 +43,6 @@ namespace Foresight.Win.Forms
             this.tabMain = new Scalable.Win.Controls.iTabControl();
             this.menuStrip1 = new Scalable.Win.Controls.iMenuStrip();
             this.updateLedgersToolStripMenuItem = new Scalable.Win.Controls.iToolStripMenuItem();
-            this.companyToolStripMenuItem = new Scalable.Win.Controls.iToolStripMenuItem();
             this.lnkAbout = new Scalable.Win.Controls.iLinkLabel();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -71,7 +70,6 @@ namespace Foresight.Win.Forms
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Cyan;
             this.lblTitle.Location = new System.Drawing.Point(11, 9);
-            this.lblTitle.Size = new System.Drawing.Size(73, 23);
             // 
             // lblUserName
             // 
@@ -187,8 +185,7 @@ namespace Foresight.Win.Forms
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateLedgersToolStripMenuItem,
-            this.companyToolStripMenuItem});
+            this.updateLedgersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 43);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -202,14 +199,6 @@ namespace Foresight.Win.Forms
             this.updateLedgersToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
             this.updateLedgersToolStripMenuItem.Text = "&Update Ledgers";
             this.updateLedgersToolStripMenuItem.Click += new System.EventHandler(this.updateLedgersToolStripMenuItem_Click);
-            // 
-            // companyToolStripMenuItem
-            // 
-            this.companyToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyToolStripMenuItem.Name = "companyToolStripMenuItem";
-            this.companyToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.companyToolStripMenuItem.Text = "&Company...";
-            this.companyToolStripMenuItem.Click += new System.EventHandler(this.companyToolStripMenuItem_Click);
             // 
             // lnkAbout
             // 
@@ -243,7 +232,6 @@ namespace Foresight.Win.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Foresight";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FMain_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FMain_FormClosed);
             this.Load += new System.EventHandler(this.FMain_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FMain_KeyDown);
             this.Controls.SetChildIndex(this.pnlHeader, 0);
@@ -280,7 +268,6 @@ namespace Foresight.Win.Forms
         private Scalable.Win.Controls.iTabControl tabMain;
         private Scalable.Win.Controls.iMenuStrip menuStrip1;
         private Scalable.Win.Controls.iToolStripMenuItem updateLedgersToolStripMenuItem;
-        private Scalable.Win.Controls.iToolStripMenuItem companyToolStripMenuItem;
         private Scalable.Win.Controls.iLinkLabel lnkAbout;
     }
 }

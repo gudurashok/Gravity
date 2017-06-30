@@ -31,9 +31,9 @@ namespace Insight.Win.Common
                 new TestInsightRepository().Insert();
         }
 
-        protected override FMainBase getMainForm()
+        protected override void setMainForm()
         {
-            return new FMain(this);
+            MainForm = new FMain(this);
         }
     }
 }

@@ -11,9 +11,8 @@ namespace Foresight.Win
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var foresight = new ForesightApplication();
-            foresight.MinimumSplashScreenDisplayTime = 1000;
-            foresight.Run(Environment.GetCommandLineArgs());
+            var app = ApplicationFactory.Instance();
+            app.Run(Environment.GetCommandLineArgs());
         }
     }
 }

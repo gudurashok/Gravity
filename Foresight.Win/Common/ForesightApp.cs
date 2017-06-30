@@ -1,13 +1,14 @@
-﻿//using Gravity.Root.Common;
-//using Gravity.Root.Forms;
+﻿using Foresight.Win.Forms;
+using Gravity.Root.Common;
+using Gravity.Root.Forms;
 
-//namespace Foresight.Win.Common
-//{
-//    public class ForesightApp : ReleaseGravityAppBase
-//    {
-//        protected override FMainBase getMainForm()
-//        {
-//            return new FMain(this);
-//        }
-//    }
-//}
+namespace Foresight.Win.Common
+{
+    public class ForesightApp : ReleaseGravityAppBase
+    {
+        protected override void setMainForm()
+        {
+            MainForm = new FMain();
+        }
+    }
+}

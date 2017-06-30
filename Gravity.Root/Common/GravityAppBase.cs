@@ -24,9 +24,9 @@ namespace Gravity.Root.Common
             return (loginForm.ShowDialog() != DialogResult.OK);
         }
 
-        protected virtual FMainBase getMainForm()
+        protected virtual void setMainForm()
         {
-            return new FMainBase(this);
+            MainForm = new FMainBase(this);
         }
 
         protected void applicationContext_ThreadExit(object sender, EventArgs e)

@@ -53,9 +53,10 @@ namespace Gravity.Root.Common
 
                 //insertData();
                 createIndexes();
-                ShowSplash();
+                //ShowSplash();
                 ApplicationContext.ThreadExit += applicationContext_ThreadExit;
-                MainForm = getMainForm();
+                //MainForm = getMainForm();
+                setMainForm();
                 setUserConfig();
                 GravitySession.Application = this;
                 return true;

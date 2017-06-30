@@ -23,9 +23,9 @@ namespace Synergy.Win.Common
             return new FSplash();
         }
 
-        protected override FMainBase getMainForm()
+        protected override void setMainForm()
         {
-            return new FMain(this);
+            MainForm = new FMain(this);
         }
 
         //protected override void createIndexes()

@@ -76,9 +76,9 @@ namespace Ferry.Win.Common
             return false;
         }
 
-        protected override FMainBase getMainForm()
+        protected override void setMainForm()
         {
-            return new FMain(this);
+            MainForm = new FMain(this);
         }
     }
 }

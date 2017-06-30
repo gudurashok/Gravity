@@ -28,7 +28,7 @@ namespace Gravity.Root.Common
 
                 insertData();
                 ApplicationContext.ThreadExit += applicationContext_ThreadExit;
-                MainForm = getMainForm();
+                setMainForm();
                 setUserConfig();
                 GravitySession.Application = this;
                 return true;
