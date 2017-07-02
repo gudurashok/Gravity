@@ -24,6 +24,29 @@ namespace Scalable.Win.Controls
 
         #endregion
 
+        #region Alternate Coloring
+
+        public void SetAlternateColor()
+        {
+            var alternate = false;
+
+            foreach (ListViewItem lvi in Items)
+            {
+                if (alternate)
+                    setAlternateColor(lvi);
+
+                alternate = !alternate;
+            }
+        }
+
+        private void setAlternateColor(ListViewItem lvi)
+        {
+            lvi.UseItemStyleForSubItems = true;
+            lvi.BackColor = Color.LightYellow;
+        }
+
+        #endregion
+
         #region Copy Items to Clipboard
 
         private void setupCopyContextMenuItems()

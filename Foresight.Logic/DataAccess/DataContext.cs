@@ -1254,12 +1254,13 @@ namespace Foresight.Logic.DataAccess
         public IList<ChartOfAccount> GetChartOfAccounts()
         {
             var result = new List<ChartOfAccount>();
-            var rdr = _db.ExecuteReader(SqlQueries.SelectAllChartOfAccounts);
-            while (rdr.Read())
-                result.Add(readChartOfAccount(rdr));
+            using (var rdr = _db.ExecuteReader(SqlQueries.SelectAllChartOfAccounts))
+            {
+                while (rdr.Read())
+                    result.Add(readChartOfAccount(rdr));
 
-            rdr.Close();
-            return result;
+                return result;
+            }
         }
 
         public ChartOfAccount GetChartOfAccountById(string id)

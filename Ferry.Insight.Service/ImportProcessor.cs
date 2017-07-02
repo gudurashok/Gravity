@@ -9,7 +9,6 @@ namespace Ferry.Insight.Service
 {
     public class ImportProcessor
     {
-        private const int millisecondsTimeout = 30000;
         private Thread _thread = null;
 
         public void Setup()
@@ -33,7 +32,7 @@ namespace Ferry.Insight.Service
                 while (true)
                 {
                     processDataImport();
-                    Thread.Sleep(millisecondsTimeout);
+                    Thread.Sleep(ServiceConfig.ImportIntervalInMilliseconds);
                 }
             }
             catch (ThreadAbortException)
@@ -56,7 +55,6 @@ namespace Ferry.Insight.Service
                     companyPeriod.Entity.IsImported = true;
                     var importer = new InsightDataImporter(null, companyPeriod);
                     importer.Execute();
-                    Thread.Sleep(millisecondsTimeout);
                 }
             }
             catch (Exception ex)

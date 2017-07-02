@@ -15,8 +15,18 @@ namespace Scalable.Win.Controls
             : this(name, name) { }
 
         public iColumnHeader(string name, string headerText)
+            : this(name, headerText, DataType.Text) { }
+
+        public iColumnHeader(string name, DataType dataType, int width)
+            : this(name, name, dataType, width) { }
+
+        public iColumnHeader(string name, string headerText, DataType dataType)
+            : this(name, headerText, dataType, 25) { }
+
+        public iColumnHeader(string name, string headerText, DataType dataType, int width)
         {
-            DataType = DataType.Text;
+            DataType = dataType;
+            Width = width;
             Name = name;
             Text = headerText;
             TextAlign = getTextAlignment();

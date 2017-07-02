@@ -9,6 +9,8 @@ using Gravity.Root.Model;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Scalable.Win.Controls;
+using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
@@ -269,13 +271,22 @@ namespace Foresight.Win.Reports
         private void buildReportViewColumns()
         {
             lvwReport.Columns.Clear();
-            lvwReport.Columns.Add("Account Name", 150);
-            lvwReport.Columns.Add("Opening Credit", 100, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Opening Debit", 100, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Txn Credit", 100, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Txn Debit", 100, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Closing Credit", 100, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Closing Debit", 100, HorizontalAlignment.Right);
+
+            lvwReport.Columns.Add(new iColumnHeader("Account Name", true, 150));
+            lvwReport.Columns.Add(new iColumnHeader("Opening Credit", DataType.Number, 120));
+            lvwReport.Columns.Add(new iColumnHeader("Opening Debit", DataType.Number, 120));
+            lvwReport.Columns.Add(new iColumnHeader("Txn Credit", DataType.Number, 120));
+            lvwReport.Columns.Add(new iColumnHeader("Txn Debit", DataType.Number, 120));
+            lvwReport.Columns.Add(new iColumnHeader("Closing Credit", DataType.Number, 120));
+            lvwReport.Columns.Add(new iColumnHeader("Closing Debit", DataType.Number, 120));
+
+            //lvwReport.Columns.Add("Account Name", 150);
+            //lvwReport.Columns.Add("Opening Credit", 100, HorizontalAlignment.Right);
+            //lvwReport.Columns.Add("Opening Debit", 100, HorizontalAlignment.Right);
+            //lvwReport.Columns.Add("Txn Credit", 100, HorizontalAlignment.Right);
+            //lvwReport.Columns.Add("Txn Debit", 100, HorizontalAlignment.Right);
+            //lvwReport.Columns.Add("Closing Credit", 100, HorizontalAlignment.Right);
+            //lvwReport.Columns.Add("Closing Debit", 100, HorizontalAlignment.Right);
 
             createChartOfAccountGroups();
         }

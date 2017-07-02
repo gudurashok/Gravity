@@ -136,12 +136,13 @@ namespace Foresight.Logic.DataAccess
         public IList<ChartOfAccountMapper> GetChartOfAccountsMapper()
         {
             var result = new List<ChartOfAccountMapper>();
-            var rdr = db.ExecuteReader(SqlQueries.SelectChartOfAccountsMapper);
-            while (rdr.Read())
-                result.Add(readChartOfAccountMapper(rdr));
+            using (var rdr = db.ExecuteReader(SqlQueries.SelectChartOfAccountsMapper))
+            {
+                while (rdr.Read())
+                    result.Add(readChartOfAccountMapper(rdr));
 
-            rdr.Close();
-            return result;
+                return result;
+            }
         }
 
         private ChartOfAccountMapper readChartOfAccountMapper(IDataReader rdr)
@@ -153,6 +154,7 @@ namespace Foresight.Logic.DataAccess
             coaMapper.EasyCode = ForesightUtil.ConvertDbNullToString(rdr["EasyCode"]);
             coaMapper.McsCode = ForesightUtil.ConvertDbNullToString(rdr["McsCode"]);
             coaMapper.TcsCode = ForesightUtil.ConvertDbNullToString(rdr["TcsCode"]);
+            coaMapper.InsightCode = ForesightUtil.ConvertDbNullToString(rdr["InsightCode"]);
             return coaMapper;
         }
 

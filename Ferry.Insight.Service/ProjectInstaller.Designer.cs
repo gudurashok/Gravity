@@ -39,9 +39,9 @@
             // 
             // InsightFerryServiceInstaller
             // 
-            this.InsightFerryServiceInstaller.Description = "Gravity Software Tools - Insight Import Ferry Service";
+            this.InsightFerryServiceInstaller.Description = "Gravity Software Tools - Insight Data Import Ferry Service into Foresight";
             this.InsightFerryServiceInstaller.DisplayName = "Gravity Tools - Insight Import Service";
-            this.InsightFerryServiceInstaller.ServiceName = "Gravity Tools - Insight Import Service";
+            this.InsightFerryServiceInstaller.ServiceName = "Gravity Insight Import Service";
             // 
             // ProjectInstaller
             // 

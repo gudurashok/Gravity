@@ -137,27 +137,27 @@ namespace Insight.Domain.Repositories
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "SUPPLIERS (TRADE CREDITORS)";
             coa.ParentId = parentId;
-            coa.Nr = 1;
+            coa.Nr = 6;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "OTHER CREDITORS";
             coa.ParentId = parentId;
-            coa.Nr = 2;
+            coa.Nr = 7;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "PROVISIONS";
             coa.ParentId = parentId;
-            coa.Nr = 3;
+            coa.Nr = 8;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "PROFIT & LOSS";
-            coa.Nr = 6;
+            coa.Nr = 9;
             _session.Store(coa);
         }
 
@@ -166,7 +166,7 @@ namespace Insight.Domain.Repositories
             var coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "FIXED ASSETS";
-            coa.Nr = 1;
+            coa.Nr = 10;
             _session.Store(coa);
             var parentId = coa.Id;
 
@@ -174,33 +174,33 @@ namespace Insight.Domain.Repositories
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "LAND & BUILDINGS";
             coa.ParentId = parentId;
-            coa.Nr = 1;
+            coa.Nr = 11;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "PLANT & MACHINERY";
             coa.ParentId = parentId;
-            coa.Nr = 2;
+            coa.Nr = 12;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "FURNITURE & FIXTURES";
             coa.ParentId = parentId;
-            coa.Nr = 3;
+            coa.Nr = 13;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "INVESTMENTS";
-            coa.Nr = 2;
+            coa.Nr = 14;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "CURRENT ASSETS, LOANS & ADVANCES";
-            coa.Nr = 3;
+            coa.Nr = 15;
             _session.Store(coa);
             parentId = coa.Id;
 
@@ -208,34 +208,34 @@ namespace Insight.Domain.Repositories
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "INVENTORIES";
             coa.ParentId = parentId;
-            coa.Nr = 1;
+            coa.Nr = 16;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "CUSTOMERS (TRADE DEBTORS)";
             coa.ParentId = parentId;
-            coa.Nr = 2;
+            coa.Nr = 17;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "CASH & BANK BALANCES";
             coa.ParentId = parentId;
-            coa.Nr = 3;
+            coa.Nr = 18;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "LOANS & ADVANCES";
             coa.ParentId = parentId;
-            coa.Nr = 4;
+            coa.Nr = 19;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "MISCELLANIOUS EXPENDITURES";
-            coa.Nr = 4;
+            coa.Nr = 20;
             _session.Store(coa);
         }
 
@@ -243,14 +243,26 @@ namespace Insight.Domain.Repositories
         {
             var coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Income;
-            coa.Name = "SALE";
-            coa.Nr = 1;
+            coa.Name = "SALES";
+            coa.Nr = 21;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Income;
             coa.Name = "OTHER INCOME";
-            coa.Nr = 2;
+            coa.Nr = 22;
+            _session.Store(coa);
+
+            coa = new ChartOfAccountEntity();
+            coa.Type = ChartOfAccountType.Income;
+            coa.Name = "TRADING INCOME";
+            coa.Nr = 23;
+            _session.Store(coa);
+
+            coa = new ChartOfAccountEntity();
+            coa.Type = ChartOfAccountType.Income;
+            coa.Name = "PROFIT & LOSS INCOME";
+            coa.Nr = 24;
             _session.Store(coa);
         }
 
@@ -259,25 +271,37 @@ namespace Insight.Domain.Repositories
             var coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "OPENING STOCK";
-            coa.Nr = 1;
+            coa.Nr = 25;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "PURCHASE";
-            coa.Nr = 2;
+            coa.Nr = 26;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "FACTORY EXPENSES";
-            coa.Nr = 3;
+            coa.Nr = 27;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "OTHER EXPENSES";
-            coa.Nr = 4;
+            coa.Nr = 28;
+            _session.Store(coa);
+
+            coa = new ChartOfAccountEntity();
+            coa.Type = ChartOfAccountType.Expense;
+            coa.Name = "TRADING EXPENSES";
+            coa.Nr = 29;
+            _session.Store(coa);
+
+            coa = new ChartOfAccountEntity();
+            coa.Type = ChartOfAccountType.Expense;
+            coa.Name = "PROFIT & LOSS EXPENSES";
+            coa.Nr = 30;
             _session.Store(coa);
         }
 
@@ -511,15 +535,15 @@ namespace Insight.Domain.Repositories
         {
             var chartOfAccountId = getChartOfAccountId("301", null);
             var d = new DaybookEntity();
-            d.Name = "CASH SALE";
+            d.Name = "CASH SALES";
             d.Type = DaybookType.Sale;
-            d.AccountId = createAccount("CASH SALE", chartOfAccountId);
+            d.AccountId = createAccount("CASH SALES", chartOfAccountId);
             _session.Store(d);
 
             d = new DaybookEntity();
-            d.Name = "CREDIT SALE";
+            d.Name = "CREDIT SALES";
             d.Type = DaybookType.Sale;
-            d.AccountId = createAccount("CREDIT SALE", chartOfAccountId);
+            d.AccountId = createAccount("CREDIT SALES", chartOfAccountId);
             _session.Store(d);
 
             var parentCoaId = getChartOfAccountParentId("20303");
@@ -545,9 +569,9 @@ namespace Insight.Domain.Repositories
 
             chartOfAccountId = getChartOfAccountId("302", null);
             d = new DaybookEntity();
-            d.Name = "DEBIT NOTE";
+            d.Name = "DEBIT NOTES";
             d.Type = DaybookType.DebitNote;
-            d.AccountId = createAccount("DEBIT NOTE", chartOfAccountId);
+            d.AccountId = createAccount("DEBIT NOTES", chartOfAccountId);
             _session.Store(d);
 
             d = new DaybookEntity();
@@ -558,15 +582,15 @@ namespace Insight.Domain.Repositories
 
             chartOfAccountId = getChartOfAccountId("404", null);
             d = new DaybookEntity();
-            d.Name = "CREDIT NOTE";
+            d.Name = "CREDIT NOTES";
             d.Type = DaybookType.CreditNote;
-            d.AccountId = createAccount("CREDIT NOTE", chartOfAccountId);
+            d.AccountId = createAccount("CREDIT NOTES", chartOfAccountId);
             _session.Store(d);
 
             d = new DaybookEntity();
-            d.Name = "SALE RETURN";
+            d.Name = "SALES RETURN";
             d.Type = DaybookType.SaleReturn;
-            d.AccountId = createAccount("SALE RETURN", chartOfAccountId);
+            d.AccountId = createAccount("SALES RETURN", chartOfAccountId);
             _session.Store(d);
 
             d = new DaybookEntity();
