@@ -74,8 +74,11 @@
     <Compile Include="EASY\EasyCompanyExtractor.cs" />
     <Compile Include="EASY\EasyDataExtractor.cs" />
     <Compile Include="EASY\EasyDataImportContext.cs" />
+    <Compile Include="Insight\ForesightDaybook.cs" />
     <Compile Include="Insight\InsightDataExtractor.cs" />
     <Compile Include="Insight\InsightDataImporter.cs" />
+    <Compile Include="Insight\ForesightAccount.cs" />
+    <Compile Include="Insight\ForesightChartOfAccount.cs" />
     <Compile Include="MCS\McsCompanyExtractor.cs" />
     <Compile Include="MCS\McsDataExtractor.cs" />
     <Compile Include="MCS\McsDataImportContext.cs" />

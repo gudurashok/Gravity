@@ -48,8 +48,18 @@ namespace Foresight.Logic.DataAccess
             if (_transaction == null)
                 return;
 
-            _transaction.Commit();
-            _transaction = null;
+            try
+            {
+                _transaction.Commit();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _transaction = null;
+            }
         }
 
         public void Rollback()

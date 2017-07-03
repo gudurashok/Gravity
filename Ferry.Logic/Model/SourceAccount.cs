@@ -2,10 +2,10 @@
 {
     public class SourceAccount
     {
-        public string GroupCode { get; set; }
         public string Code { get; set; }
-        public string Name { get; set; }
+        public string GroupCode { get; set; }
         public string ChartOfAccountCode { get; set; }
+        public string Name { get; set; }
         public decimal OpeningBalance { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }

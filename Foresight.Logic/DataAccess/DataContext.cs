@@ -1124,20 +1124,18 @@ namespace Foresight.Logic.DataAccess
         public Account GetAccountByNameAndAddress(AccountEntity account)
         {
             var cmd = _db.CreateCommand(SqlQueries.SelectAccountByNameAndAddress);
-            _db.AddParameterWithValue(cmd, "@name", ForesightUtil.ConvertToDbValue(account.Name));
-            _db.AddParameterWithValue(cmd, "@addressLine1", ForesightUtil.ConvertToDbValue(account.AddressLine1));
-            _db.AddParameterWithValue(cmd, "@addressLine2", ForesightUtil.ConvertToDbValue(account.AddressLine2));
-            _db.AddParameterWithValue(cmd, "@city", ForesightUtil.ConvertToDbValue(account.City));
-            _db.AddParameterWithValue(cmd, "@state", ForesightUtil.ConvertToDbValue(account.State));
-            _db.AddParameterWithValue(cmd, "@pin", ForesightUtil.ConvertToDbValue(account.Pin));
+            _db.AddParameterWithValue(cmd, "@name", account.Name);
+            _db.AddParameterWithValue(cmd, "@addressLine1", account.AddressLine1);
+            _db.AddParameterWithValue(cmd, "@addressLine2", account.AddressLine2);
+            _db.AddParameterWithValue(cmd, "@city", account.City);
+            _db.AddParameterWithValue(cmd, "@state", account.State);
+            _db.AddParameterWithValue(cmd, "@pin", account.Pin);
             return readAccountHelper(cmd.ExecuteReader());
         }
 
         private Account readAccountHelper(IDataReader rdr)
         {
-            var result = readAccount(rdr);
-            rdr.Close();
-            return result;
+            using (rdr) return readAccount(rdr);
         }
 
         private Account readAccount(IDataReader rdr)
@@ -1147,7 +1145,6 @@ namespace Foresight.Logic.DataAccess
 
             var account = new Account(new AccountEntity());
             fillAccount(rdr, account);
-            rdr.Close();
 
             if (account.Entity.GroupId != account.Entity.Id)
                 account.Group = GetAccountById(account.Entity.GroupId);
@@ -1309,12 +1306,13 @@ namespace Foresight.Logic.DataAccess
 
         private ChartOfAccount readChartOfAccountHelper(IDataReader rdr)
         {
-            if (!rdr.Read())
-                return null;
+            using (rdr)
+            {
+                if (!rdr.Read())
+                    return null;
 
-            var result = readChartOfAccount(rdr);
-            rdr.Close();
-            return result;
+                return readChartOfAccount(rdr);
+            }
         }
 
         private ChartOfAccount readChartOfAccount(IDataReader rdr)
@@ -1327,7 +1325,6 @@ namespace Foresight.Logic.DataAccess
                 coa.Parent = getChartOfAccountParent(parentId);
 
             coa.Entity.Name = rdr["Name"].ToString();
-            //coa.Sorting = Convert.ToInt32(rdr["Sorting"]); //TODO: Analysis sorting type from different providers and assign
             return coa;
         }
 
@@ -1354,7 +1351,7 @@ namespace Foresight.Logic.DataAccess
 
         private string getChartOfAccountParentId(ChartOfAccount coa)
         {
-            return coa.Parent == null ? string.Empty : coa.Parent.Entity.Id;
+            return coa.Parent == null ? "0" : coa.Parent.Entity.Id;
         }
 
         public IList<int> GetChartOfAccountIDsFor(int parentId)
@@ -1380,12 +1377,13 @@ namespace Foresight.Logic.DataAccess
         public IList<Daybook> GetDaybooks()
         {
             var daybooks = new List<Daybook>();
-            var rdr = _db.ExecuteReader(SqlQueries.SelectAllDaybooks);
-            while (rdr.Read())
-                daybooks.Add(readDaybook(rdr));
+            using (var rdr = _db.ExecuteReader(SqlQueries.SelectAllDaybooks))
+            {
+                while (rdr.Read())
+                    daybooks.Add(readDaybook(rdr));
 
-            rdr.Close();
-            return daybooks;
+                return daybooks;
+            }
         }
 
         public Daybook GetDaybookByCode(string code)
@@ -1440,7 +1438,9 @@ namespace Foresight.Logic.DataAccess
 
         private string getDaybookAccountId(Daybook book)
         {
-            return book.Entity.Type == DaybookType.JournalVoucher ? string.Empty : book.Account.Entity.Id;
+            return book.Entity.Type == DaybookType.JournalVoucher
+                                        ? string.Empty
+                                        : book.Account.Entity.Id;
         }
 
         public int GetDaybookIdOfAccount(string accountId)

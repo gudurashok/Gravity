@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Ferry.Insight.Service
 {
@@ -7,7 +8,8 @@ namespace Ferry.Insight.Service
     {
         public static void WriteLog(string message)
         {
-            EventLog.WriteEntry("Ferry.Insight.Process Service", message);
+            const string eventLogSourceName = "Gravity.Ferry.Insight.Import";
+            EventLog.WriteEntry(eventLogSourceName, message);
         }
 
         public static int ImportIntervalInMilliseconds

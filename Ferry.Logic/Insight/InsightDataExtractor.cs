@@ -12,219 +12,307 @@ using Gravity.Root.Common;
 
 namespace Ferry.Logic.Insight
 {
-    internal class InsightDataExtractor
+    public class InsightDataExtractor
     {
-        IForesightDataMethods _insightDataRepository;
-
-        IList<KeyValuePair<string[], DaybookType>> _daybookCodes;
+        readonly CompanyPeriod _companyPeriod;
+        readonly IInsightDataRepository _insightDataRepository;
+        readonly DataContext _targetDbContext;
+        IList<ChartOfAccount> _cachedTargetChartOfAccounts;
+        IList<Daybook> _cachedTargetDaybooks;
 
         public IList<ChartOfAccountMapper> ChartOfAccountsMapper;
-        public IList<SourceChartOfAccount> SourceChartOfAccounts;
-        public IList<SourceAccount> SourceAccounts;
-        public IList<SourceDaybook> SourceDaybooks;
-        public IList<SourceItemCategory> SourceItemCategories;
-        public IList<SourceItemGroup> SourceItemGroups;
-        public IList<SourceItem> SourceItems;
-        public IList<RowColumn> RowColumns;
+        public IList<ChartOfAccountEntity> SourceChartOfAccounts;
+        public IList<AccountEntity> SourceAccounts;
+        public IList<DaybookEntity> SourceDaybooks;
 
-        public IList<SourceLineItem> SourceLineItems;
-        public IList<SourceLineItemTerm> SourceLineItemTerms;
-        public IList<SourceTransaction> SourceTransactions;
-        public IList<SourceLineItem> SourceItemLots;
-        public IList<SourceInventoryIssue> SourceInventoryIssues;
-        public IList<SourceInventoryReceive> SourceInventoryReceives;
-        public IList<SourceMiscInventoryIssue> SourceMiscInventoryIssues;
+        public IList<CashReceiptEntity> SourceCashReceipts;
 
-        public IList<ChartOfAccount> ChartOfAccounts;
-        public IList<Daybook> Daybooks;
-        public IList<AccountEntity> Accounts;
-        public IList<Item> Items;
-        public IList<ItemCategory> ItemCategories;
-        public IList<ItemGroup> ItemGroups;
+        public IList<ForesightChartOfAccount> TargetChartOfAccounts;
+        public IList<ForesightAccount> TargetAccounts;
+        public IList<ForesightDaybook> TargetDaybooks;
 
-        public InsightDataExtractor()
+        public InsightDataExtractor(CompanyPeriod companyPeriod, DataContext targetDbContext)
         {
-            initSourceDataLists();
-            _insightDataRepository = new InsightDataRepository();
-        }
-
-        private void initSourceDataLists()
-        {
-            ChartOfAccountsMapper = new List<ChartOfAccountMapper>();
-            SourceChartOfAccounts = new List<SourceChartOfAccount>();
-            SourceAccounts = new List<SourceAccount>();
-            SourceDaybooks = new List<SourceDaybook>();
-            SourceItemCategories = new List<SourceItemCategory>();
-            SourceItemGroups = new List<SourceItemGroup>();
-            SourceItems = new List<SourceItem>();
-            RowColumns = new List<RowColumn>();
-
-            SourceLineItems = new List<SourceLineItem>();
-            SourceLineItemTerms = new List<SourceLineItemTerm>();
-            SourceTransactions = new List<SourceTransaction>();
-            SourceInventoryIssues = new List<SourceInventoryIssue>();
-            SourceInventoryReceives = new List<SourceInventoryReceive>();
-            SourceMiscInventoryIssues = new List<SourceMiscInventoryIssue>();
+            _companyPeriod = companyPeriod;
+            _targetDbContext = targetDbContext;
+            _insightDataRepository = new InsightDataRepository(_companyPeriod);
         }
 
         public void Extract()
         {
             extractMasters();
-            extractTransactions();
             transformMasters();
+            extractTransactions();
         }
 
         private void extractMasters()
         {
-            loadChartOfAccountsMapper();
-            loadSourceChartOfAccounts();
-            loadSourceAccounts();
-            //LoadSourceDaybooks();
-            //LoadSourceItemCategories();
-            //LoadSourceItemGroups();
-            //LoadSourceItems();
-            //LoadRowColumns();
+            readChartOfAccountsMapper();
+            readSourceChartOfAccounts();
+            readSourceAccounts();
+            reaadSourceDaybooks();
         }
 
-        private void extractTransactions()
-        {
-            //LoadSourceLineItems();
-            //LoadSourceLineItemTerms();
-            //LoadSourceTransactions();
-            //LoadItemLots();
-            //LoadInventoryIssue();
-            //LoadInventoryReceives();
-            //LoadMiscInventoryIssues();
-        }
-
-        private void transformMasters()
-        {
-            loadChartOfAccounts();
-            //LoadAccounts();
-            //LoadDaybooks();
-            //LoadItemCategories();
-            //LoadItemGroups();
-            //LoadItems();
-        }
-
-        private void loadChartOfAccountsMapper()
+        private void readChartOfAccountsMapper()
         {
             ChartOfAccountsMapper = ForesightDatabaseFactory
                                     .GetInstance()
                                     .GetChartOfAccountsMapper();
         }
 
-        private void loadSourceChartOfAccounts()
+        private void readSourceChartOfAccounts()
         {
-            var chartOfAccounts = _insightDataRepository.GetAllChatOfAccounts();
-            foreach (var coa in chartOfAccounts)
+            SourceChartOfAccounts = _insightDataRepository.GetAllChatOfAccounts();
+        }
+
+        private void readSourceAccounts()
+        {
+            SourceAccounts = _insightDataRepository.GetAllAccounts();
+        }
+
+        private void reaadSourceDaybooks()
+        {
+            SourceDaybooks = _insightDataRepository.GetAllDaybooks();
+        }
+
+        private void extractTransactions()
+        {
+            readSourceTransactions();
+        }
+
+        private void readSourceTransactions()
+        {
+            readCashReceipts();
+            //loadCashPayments();
+            //loadBankReceipts();
+            //loadBankPayments();
+        }
+
+        private void readCashReceipts()
+        {
+            SourceCashReceipts = _insightDataRepository.GetAllCashReceipts();
+        }
+
+        private void transformMasters()
+        {
+            _cachedTargetChartOfAccounts = _targetDbContext.GetChartOfAccounts();
+            transformChartOfAccounts();
+            transformAccounts();
+
+            _cachedTargetDaybooks = _targetDbContext.GetDaybooks();
+            transformDaybooks();
+        }
+
+        private void transformChartOfAccounts()
+        {
+            TargetChartOfAccounts = new List<ForesightChartOfAccount>();
+            foreach (var sourceChartOfAccount in SourceChartOfAccounts)
+                transformChartOfAccount(sourceChartOfAccount);
+        }
+
+        private void transformChartOfAccount(ChartOfAccountEntity sourceChartOfAccount)
+        {
+            ChartOfAccountEntity parentCoa = null;
+
+            if (string.IsNullOrWhiteSpace(sourceChartOfAccount.ParentId))
             {
-                SourceChartOfAccounts.Add(new SourceChartOfAccount
+                parentCoa = new ChartOfAccountEntity
                 {
-                    Nr = coa.Nr.ToString(),
-                    Name = coa.Name
-                });
+                    Name = sourceChartOfAccount.Type.ToString().ToUpper(),
+                    Type = ChartOfAccountType.None,
+                };
             }
-        }
-
-        private void loadSourceAccounts()
-        {
-            var accounts = _insightDataRepository.GetAllAccounts();
-            foreach (var account in accounts)
+            else
             {
-                SourceAccounts.Add(new SourceAccount
-                {
-                    ChartOfAccountCode = account.ChartOfAccountId,
-                    GroupCode = account.GroupId,
-                    Code = account.Id,
-                    Name = account.Name,
-                    OpeningBalance = getAccountOpeningBalance(),
-                    AddressLine1 = account.AddressLine1,
-                    AddressLine2 = account.AddressLine2,
-                    City = account.City,
-                    State = account.State,
-                    Pin = account.Pin,
-                    IsActive = account.IsActive,
-                });
-            }
-        }
+                parentCoa = SourceChartOfAccounts
+                            .Where(coa => coa.Id == sourceChartOfAccount.ParentId)
+                            .SingleOrDefault();
 
-        private decimal getAccountOpeningBalance()
-        {
-            //var openBalanceType = ForesightUtil.ConvertDbNullToString(reader["OPB_CR_DR"]);
-            //if (!string.IsNullOrWhiteSpace(openBalanceType) && openBalanceType == "D")
-            //    result.OpeningBalance = Convert.ToDecimal(ForesightUtil.ConvertDbNull(reader["OP_BAL"])) * -1;
-            //else
-            //    result.OpeningBalance = Convert.ToDecimal(ForesightUtil.ConvertDbNull(reader["OP_BAL"]));
-
-            return 0;
-        }
-
-
-        //protected abstract void LoadSourceDaybooks();
-        //protected virtual void LoadSourceItemCategories() { }
-        //protected virtual void LoadSourceItemGroups() { }
-        //protected abstract void LoadSourceItems();
-        //protected virtual void LoadRowColumns() { }
-
-        //protected abstract void LoadSourceLineItems();
-        //protected virtual void LoadSourceLineItemTerms() { }
-        //protected abstract void LoadSourceTransactions();
-        //protected virtual void LoadItemLots() { }
-        //protected virtual void LoadInventoryIssue() { }
-        //protected virtual void LoadInventoryReceives() { }
-        //protected virtual void LoadMiscInventoryIssues() { }
-
-        #region Transforming Masters Abstract Methods
-
-        private void loadChartOfAccounts()
-        {
-            var dbc = new DataContext(GravitySession.CompanyGroup);
-            ChartOfAccounts = dbc.GetChartOfAccounts();
-        }
-
-        //protected abstract void LoadAccounts();
-        //protected abstract void LoadDaybooks();
-        //protected virtual void LoadItemCategories() { }
-        //protected virtual void LoadItemGroups() { }
-        //protected abstract void LoadItems();
-
-        #endregion
-
-        #region Transforming masters helping methods
-
-
-        //public ChartOfAccount loadChartOfAccount(string glgCode);
-        //public Item LoadItem(Item item);
-        //public Item GetItem(string itemCode) { return null; }
-
-        #endregion
-
-        #region Common
-
-        protected void transformDaybookType(SourceDaybook sourceDaybook)
-        {
-            foreach (var daybookCode in _daybookCodes)
-            {
-                var codeLen = daybookCode.Key.FirstOrDefault().Length;
-
-                if (isDaybook(daybookCode.Key, codeLen, sourceDaybook.Type) ||
-                        isDaybook(daybookCode.Key, codeLen, sourceDaybook.Code))
-                {
-                    sourceDaybook.Type = ((int)daybookCode.Value).ToString();
-                    return;
-                }
+                transformChartOfAccount(parentCoa);
             }
 
-            if (!char.IsDigit(Convert.ToChar(sourceDaybook.Type)))
-                sourceDaybook.Type = ((int)DaybookType.Unknown).ToString();
+            var foresightCoa = getForesightChartOfAccount(parentCoa, null);
+            getForesightChartOfAccount(sourceChartOfAccount, foresightCoa);
         }
 
-        private bool isDaybook(IEnumerable<string> daybookKeys, int codeLen, string field)
+        private ForesightChartOfAccount getForesightChartOfAccount(
+                                ChartOfAccountEntity sourceChartOfAccount,
+                                ForesightChartOfAccount parentCoa)
         {
-            return field.Length >= codeLen && daybookKeys.Contains(field.Substring(0, codeLen));
+            var coa = _cachedTargetChartOfAccounts
+                        .Where(c => c.Entity.Name == sourceChartOfAccount.Name)
+                        .SingleOrDefault();
+
+            ForesightChartOfAccount result = null;
+            if (coa == null)
+                result = insertChartOfAccount(sourceChartOfAccount, parentCoa);
+            else
+                result = new ForesightChartOfAccount
+                {
+                    Entity = sourceChartOfAccount,
+                    ForesightId = Convert.ToInt32(coa.Entity.Id),
+                    ParentForesightId = coa.Parent == null ? 0 : Convert.ToInt32(coa.Parent.Entity.Id),
+                };
+
+            TargetChartOfAccounts.Add(result);
+            return result;
         }
 
-        #endregion
+        private ForesightChartOfAccount insertChartOfAccount(
+                            ChartOfAccountEntity entity, ForesightChartOfAccount parentCoa)
+        {
+            var coa = new ChartOfAccount(new ChartOfAccountEntity());
+            coa.Entity.Name = entity.Name;
+            entity.Nr = _cachedTargetChartOfAccounts.Count > 0
+                            ? _cachedTargetChartOfAccounts.Max(tca => tca.Entity.Nr) + 1
+                            : 1;
+            coa.Entity.Nr = entity.Nr;
+            if (parentCoa != null)
+            {
+                var parentEntity = new ChartOfAccountEntity
+                {
+                    Id = parentCoa.ForesightId.ToString(),
+                    Name = parentCoa.Entity.Name,
+                    Nr = parentCoa.Entity.Nr,
+                };
+                coa.Parent = new ChartOfAccount(parentEntity);
+            }
+            _targetDbContext.SaveChartOfAccount(coa);
+            _cachedTargetChartOfAccounts.Add(coa);
+            return new ForesightChartOfAccount()
+            {
+                Entity = entity,
+                ForesightId = Convert.ToInt32(coa.Entity.Id),
+                ParentForesightId = parentCoa == null ? 0 : Convert.ToInt32(parentCoa.ParentForesightId),
+            };
+        }
+
+        private void transformAccounts()
+        {
+            TargetAccounts = new List<ForesightAccount>();
+            fillForesightAccounts(getAccountGroups());
+            fillForesightAccounts(getAccounts());
+        }
+
+        private IEnumerable<AccountEntity> getAccountGroups()
+        {
+            return SourceAccounts
+                .Where(a => string.IsNullOrWhiteSpace(a.GroupId) || a.Id == a.GroupId);
+        }
+
+        private IEnumerable<AccountEntity> getAccounts()
+        {
+            return SourceAccounts.Where(a => !string.IsNullOrWhiteSpace(a.GroupId) && a.Id != a.GroupId);
+        }
+
+        private void fillForesightAccounts(IEnumerable<AccountEntity> sourceAccounts)
+        {
+            foreach (var sourceAccount in sourceAccounts)
+                getForesightAccount(sourceAccount);
+        }
+
+        private ForesightAccount getForesightAccount(AccountEntity sourceAccount)
+        {
+            var targetAccount = _targetDbContext.GetAccountByNameAndAddress(sourceAccount);
+            ForesightAccount result = null;
+            if (targetAccount == null)
+                result = insertAccount(sourceAccount);
+            else
+                result = new ForesightAccount
+                {
+                    Entity = sourceAccount,
+                    ForesightId = Convert.ToInt32(targetAccount.Entity.Id),
+                };
+
+            TargetAccounts.Add(result);
+            return result;
+        }
+
+        private ForesightAccount insertAccount(AccountEntity account)
+        {
+            var coa = TargetChartOfAccounts
+                        .Where(ca => ca.Entity.Id == account.ChartOfAccountId)
+                        .SingleOrDefault();
+
+            var newAccount = new AccountEntity
+            {
+                Id = account.Id,
+                Code = account.Code,
+                ChartOfAccountId = coa.ForesightId.ToString(),
+                Name = account.Name,
+                GroupId = account.GroupId,
+                PartyId = account.PartyId,
+                AddressLine1 = account.AddressLine1,
+                AddressLine2 = account.AddressLine2,
+                City = account.City,
+                State = account.State,
+                Pin = account.Pin,
+                IsActive = account.IsActive,
+            };
+
+            _targetDbContext.SaveAccount(newAccount);
+
+            return new ForesightAccount()
+            {
+                Entity = account,
+                ForesightId = Convert.ToInt32(newAccount.Id),
+            };
+        }
+
+        private void transformDaybooks()
+        {
+            TargetDaybooks = new List<ForesightDaybook>();
+            foreach (var daybook in SourceDaybooks)
+                getForesightDaybook(daybook);
+        }
+
+        private ForesightDaybook getForesightDaybook(DaybookEntity sourceDaybook)
+        {
+            var targetDaybook = _cachedTargetDaybooks
+                        .Where(c => c.Entity.Type == sourceDaybook.Type &&
+                               c.Entity.Name == sourceDaybook.Name)
+                        .SingleOrDefault();
+
+            ForesightDaybook result = null;
+            if (targetDaybook == null)
+                result = insertDaybook(sourceDaybook);
+            else
+                result = new ForesightDaybook
+                {
+                    Entity = targetDaybook.Entity,
+                    ForesightId = Convert.ToInt32(targetDaybook.Entity.Id),
+                };
+
+            TargetDaybooks.Add(result);
+            return result;
+        }
+
+        private ForesightDaybook insertDaybook(DaybookEntity daybookEntity)
+        {
+            var account = TargetAccounts
+                        .Where(a => a.Entity.Id == daybookEntity.AccountId)
+                        .SingleOrDefault();
+
+            var accountId = account == null ? "0" : account.ForesightId.ToString();
+
+            var bookEntity = new DaybookEntity
+            {
+                Id = daybookEntity.Id,
+                Type = daybookEntity.Type,
+                Code = daybookEntity.Id.Substring(daybookEntity.Id.LastIndexOf("/") + 1),
+                Name = daybookEntity.Name,
+                AccountId = accountId,
+            };
+
+            var daybook = new Daybook(bookEntity);
+            var accountEntity = new AccountEntity { Id = accountId };
+            daybook.Account = new Account(accountEntity);
+            _targetDbContext.SaveDaybook(daybook);
+            return new ForesightDaybook()
+            {
+                Entity = daybookEntity,
+                ForesightId = Convert.ToInt32(bookEntity.Id),
+            };
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace Ferry.Win.Forms
         private readonly CompanyPeriod _cp;
         private readonly iFolderBrowser _importPathBrowser;
         private CompanyImporter _companyImporter;
-        private IList<Company> _companies;
+        //private IList<Company> _companies;
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace Ferry.Win.Forms
             var repo = new InsightRepository();
             //_companies = repo.GetAllCompanies();
 
-            fillCompanies();
+            //fillCompanies();
             btnDataSourceBrowser.Enabled = _cp.IsNew();
             if (!_cp.IsNew())
                 fillForm(_cp);
@@ -68,10 +68,10 @@ namespace Ferry.Win.Forms
         //               };
         //}
 
-        private void fillCompanies()
-        {
-            cmbCompany.DataSource = _companies;
-        }
+        //private void fillCompanies()
+        //{
+        //    cmbCompany.DataSource = _companies;
+        //}
 
         #endregion
 
@@ -101,22 +101,22 @@ namespace Ferry.Win.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            EventHandlerExecutor.Execute(deleteCompany);
+            //EventHandlerExecutor.Execute(deleteCompany);
         }
 
-        private void deleteCompany()
-        {
-            if (companyNotSelected())
-                cmbCompany.Text = string.Empty;
-            else
-            {
-                var repo = new InsightRepository();
-                repo.DeleteCompany(cmbCompany.SelectedItem as Company);
-                _companies.Remove(cmbCompany.SelectedItem as Company);
-                clearCompanies();
-                fillCompanies();
-            }
-        }
+        //private void deleteCompany()
+        //{
+        //    if (companyNotSelected())
+        //        cmbCompany.Text = string.Empty;
+        //    else
+        //    {
+        //        var repo = new InsightRepository();
+        //        repo.DeleteCompany(cmbCompany.SelectedItem as Company);
+        //        _companies.Remove(cmbCompany.SelectedItem as Company);
+        //        clearCompanies();
+        //        fillCompanies();
+        //    }
+        //}
 
         private bool companyNotSelected()
         {

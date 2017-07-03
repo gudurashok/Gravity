@@ -103,30 +103,35 @@ namespace Insight.Domain.Repositories
         private void createChartOfAccountsLiabilities()
         {
             var coa = new ChartOfAccountEntity();
+            coa.Code = 1;
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "CAPITAL ACCOUNTS";
             coa.Nr = 1;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 2;
             coa.Type = ChartOfAccountType.Liability;
-            coa.Name = "RESERVES AND SURPLUS";
+            coa.Name = "RESERVES & SURPLUS";
             coa.Nr = 2;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 3;
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "SECURED LOANS";
             coa.Nr = 3;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 4;
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "UNSECURED LOANS";
             coa.Nr = 4;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 5;
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "CURRENT LIABILITIES";
             coa.Nr = 5;
@@ -134,174 +139,199 @@ namespace Insight.Domain.Repositories
             var parentId = coa.Id;
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 6;
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "SUPPLIERS (TRADE CREDITORS)";
             coa.ParentId = parentId;
-            coa.Nr = 6;
+            coa.Nr = 1;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 7;
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "OTHER CREDITORS";
             coa.ParentId = parentId;
-            coa.Nr = 7;
+            coa.Nr = 2;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 8;
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "PROVISIONS";
             coa.ParentId = parentId;
-            coa.Nr = 8;
+            coa.Nr = 3;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 9;
             coa.Type = ChartOfAccountType.Liability;
             coa.Name = "PROFIT & LOSS";
-            coa.Nr = 9;
+            coa.Nr = 6;
             _session.Store(coa);
         }
 
         private void createChartOfAccountsAssets()
         {
             var coa = new ChartOfAccountEntity();
+            coa.Code = 10;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "FIXED ASSETS";
-            coa.Nr = 10;
+            coa.Nr = 1;
             _session.Store(coa);
             var parentId = coa.Id;
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 11;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "LAND & BUILDINGS";
             coa.ParentId = parentId;
-            coa.Nr = 11;
+            coa.Nr = 1;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 12;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "PLANT & MACHINERY";
             coa.ParentId = parentId;
-            coa.Nr = 12;
+            coa.Nr = 2;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 13;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "FURNITURE & FIXTURES";
             coa.ParentId = parentId;
-            coa.Nr = 13;
+            coa.Nr = 3;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 14;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "INVESTMENTS";
-            coa.Nr = 14;
+            coa.Nr = 2;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 15;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "CURRENT ASSETS, LOANS & ADVANCES";
-            coa.Nr = 15;
+            coa.Nr = 3;
             _session.Store(coa);
             parentId = coa.Id;
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 16;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "INVENTORIES";
             coa.ParentId = parentId;
-            coa.Nr = 16;
+            coa.Nr = 1;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 17;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "CUSTOMERS (TRADE DEBTORS)";
             coa.ParentId = parentId;
-            coa.Nr = 17;
+            coa.Nr = 2;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 18;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "CASH & BANK BALANCES";
             coa.ParentId = parentId;
-            coa.Nr = 18;
+            coa.Nr = 3;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 19;
             coa.Type = ChartOfAccountType.Asset;
             coa.Name = "LOANS & ADVANCES";
             coa.ParentId = parentId;
-            coa.Nr = 19;
+            coa.Nr = 4;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 20;
             coa.Type = ChartOfAccountType.Asset;
-            coa.Name = "MISCELLANIOUS EXPENDITURES";
-            coa.Nr = 20;
+            coa.Name = "MISCELLANEOUS EXPENDITURES";
+            coa.Nr = 4;
             _session.Store(coa);
         }
 
         private void createChartOfAccountsIncomes()
         {
             var coa = new ChartOfAccountEntity();
+            coa.Code = 21;
             coa.Type = ChartOfAccountType.Income;
             coa.Name = "SALES";
-            coa.Nr = 21;
+            coa.Nr = 1;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 22;
             coa.Type = ChartOfAccountType.Income;
-            coa.Name = "OTHER INCOME";
-            coa.Nr = 22;
+            coa.Name = "OTHER INCOMES";
+            coa.Nr = 2;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 23;
             coa.Type = ChartOfAccountType.Income;
-            coa.Name = "TRADING INCOME";
-            coa.Nr = 23;
+            coa.Name = "TRADING INCOMES";
+            coa.Nr = 3;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 24;
             coa.Type = ChartOfAccountType.Income;
-            coa.Name = "PROFIT & LOSS INCOME";
-            coa.Nr = 24;
+            coa.Name = "PROFIT & LOSS INCOMES";
+            coa.Nr = 4;
             _session.Store(coa);
         }
 
         private void createChartOfAccountsExpenses()
         {
             var coa = new ChartOfAccountEntity();
+            coa.Code = 25;
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "OPENING STOCK";
-            coa.Nr = 25;
+            coa.Nr = 1;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 26;
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "PURCHASE";
-            coa.Nr = 26;
+            coa.Nr = 2;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 27;
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "FACTORY EXPENSES";
-            coa.Nr = 27;
+            coa.Nr = 3;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 28;
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "OTHER EXPENSES";
-            coa.Nr = 28;
+            coa.Nr = 4;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 29;
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "TRADING EXPENSES";
-            coa.Nr = 29;
+            coa.Nr = 5;
             _session.Store(coa);
 
             coa = new ChartOfAccountEntity();
+            coa.Code = 30;
             coa.Type = ChartOfAccountType.Expense;
             coa.Name = "PROFIT & LOSS EXPENSES";
-            coa.Nr = 30;
+            coa.Nr = 6;
             _session.Store(coa);
         }
 
@@ -455,11 +485,6 @@ namespace Insight.Domain.Repositories
             _session.Store(a);
 
             a = new AccountEntity();
-            a.Name = "CREDIT NOTES A/C";
-            a.ChartOfAccountId = coaId; //404
-            _session.Store(a);
-
-            a = new AccountEntity();
             a.Name = "SALES TAX EXPENSES";
             a.ChartOfAccountId = coaId; //404
             _session.Store(a);
@@ -471,11 +496,6 @@ namespace Insight.Domain.Repositories
 
             a = new AccountEntity();
             a.Name = "SALARY EXPENSES";
-            a.ChartOfAccountId = coaId; //404
-            _session.Store(a);
-
-            a = new AccountEntity();
-            a.Name = "SALES RETURN A/C";
             a.ChartOfAccountId = coaId; //404
             _session.Store(a);
 
@@ -510,7 +530,8 @@ namespace Insight.Domain.Repositories
             var type = (ChartOfAccountType)Convert.ToInt32(code.Substring(0, 1));
             var nr = getChartOfAccountNr(code, parentId);
             var result = _session.Query<ChartOfAccountEntity>()
-                        .Where(coa => coa.Type == type && coa.Nr == nr && coa.ParentId == parentId)
+                        .Where(coa => coa.Type == type && coa.Nr == nr &&
+                               coa.ParentId == parentId)
                         .FirstOrDefault();
 
             return result != null ? result.Id : null;
@@ -518,7 +539,11 @@ namespace Insight.Domain.Repositories
 
         private int getChartOfAccountNr(string code, string parentId)
         {
-            return Convert.ToInt32(string.IsNullOrWhiteSpace(parentId) ? code.Substring(1, 2) : code.Substring(3));
+            var nr = string.IsNullOrWhiteSpace(parentId)
+                        ? code.Substring(1, 2)
+                        : code.Substring(3);
+
+            return Convert.ToInt32(nr);
         }
 
         #endregion

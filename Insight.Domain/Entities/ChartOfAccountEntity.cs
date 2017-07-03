@@ -6,6 +6,7 @@ namespace Insight.Domain.Entities
 {
     public class ChartOfAccountEntity
     {
+        public int Code { get; set; }
         public string Id { get; set; }
         public int Nr { get; set; }
         public string ParentId { get; set; }

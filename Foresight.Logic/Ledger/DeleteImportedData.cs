@@ -38,7 +38,7 @@ namespace Foresight.Logic.Ledger
             cmd.ExecuteNonQuery();
         }
 
-        private static IDataReader getTransTableList(IDbCommand cmd)
+        private IDataReader getTransTableList(IDbCommand cmd)
         {
             cmd.CommandText = SqlQueries.SelectTransTables;
             return cmd.ExecuteReader();

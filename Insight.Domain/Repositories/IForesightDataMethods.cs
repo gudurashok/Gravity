@@ -8,9 +8,14 @@ using System.Threading.Tasks;
 
 namespace Insight.Domain.Repositories
 {
-    public interface IForesightDataMethods
+    public interface IInsightDataRepository
     {
-        IList<AccountEntity> GetAllAccounts();
         IList<ChartOfAccountEntity> GetAllChatOfAccounts();
+        IList<AccountEntity> GetAllAccounts();
+        IList<DaybookEntity> GetAllDaybooks();
+        IList<CashReceiptEntity> GetAllCashReceipts();
+        IList<CashPaymentEntity> GetAllCashPayments();
+        IList<BankReceiptEntity> GetAllBankReceipts();
+        IList<BankPaymentEntity> GetAllBankPayments();
     }
 }
