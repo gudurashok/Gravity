@@ -372,19 +372,18 @@ namespace Foresight.Logic.DataAccess
 
         public void SetCompanyPeriodColumnValue(CompanyPeriod companyPeriod)
         {
-            var rdr = getTransTableList();
-            var cmd = createUpdateCompanyPeriodColumnCommand();
-
-            while (rdr.Read())
+            using (var rdr = getTransTableList())
             {
-                cmd.CommandText = string.Format(SqlQueries.UpdateTransTablesCompanyPeriod, rdr["TableName"]);
-                ((IDbDataParameter)cmd.Parameters["@CompanyPeriodId"]).Value = companyPeriod.Foresight.Id;
-                ((IDbDataParameter)cmd.Parameters["@CompanyId"]).Value = companyPeriod.Foresight.CompanyId;
-                ((IDbDataParameter)cmd.Parameters["@PeriodId"]).Value = companyPeriod.Foresight.PeriodId;
-                cmd.ExecuteNonQuery();
+                var cmd = createUpdateCompanyPeriodColumnCommand();
+                while (rdr.Read())
+                {
+                    cmd.CommandText = string.Format(SqlQueries.UpdateTransTablesCompanyPeriod, rdr["TableName"]);
+                    ((IDbDataParameter)cmd.Parameters["@CompanyPeriodId"]).Value = companyPeriod.Foresight.Id;
+                    ((IDbDataParameter)cmd.Parameters["@CompanyId"]).Value = companyPeriod.Foresight.CompanyId;
+                    ((IDbDataParameter)cmd.Parameters["@PeriodId"]).Value = companyPeriod.Foresight.PeriodId;
+                    cmd.ExecuteNonQuery();
+                }
             }
-
-            rdr.Close();
         }
 
         private IDbCommand createUpdateCompanyPeriodColumnCommand()

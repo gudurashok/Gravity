@@ -91,118 +91,31 @@ namespace Ferry.Logic.Insight
 
         private void importCashReceipts()
         {
-            //foreach (var daybook in getDaybooksOf(DaybookType.Cash))
-            //    loadCashTransactions(readTransactionsByDaybook(daybook), daybook);
+            foreach (var daybook in getDaybooksOf(DaybookType.Cash))
+                loadCashReceipts(getCashReceipts(daybook.Entity.Id), daybook);
+        }
+
+        private void loadCashReceipts(IEnumerable<CashReceiptEntity> cashReceipts, ForesightDaybook daybook)
+        {
+            foreach (var cashReceipt in cashReceipts)
+            {
+                var account = _dataExtractor.TargetAccounts
+                                .Where(a => a.Entity.Id == cashReceipt.AccountId)
+                                .SingleOrDefault();
+                cashReceipt.DaybookId = daybook.ForesightId.ToString();
+                cashReceipt.AccountId = account.ForesightId.ToString();
+                _targetDbContext.SaveCashReceipt(new CashReceipt(cashReceipt));
+            }
+        }
+
+        private IEnumerable<CashReceiptEntity> getCashReceipts(string daybookId)
+        {
+            return _dataExtractor.SourceCashReceipts.Where(t => t.DaybookId == daybookId);
         }
 
         private IEnumerable<ForesightDaybook> getDaybooksOf(DaybookType type)
         {
             return _dataExtractor.TargetDaybooks.Where(d => d.Entity.Type == type);
         }
-
-        //private IEnumerable<SourceTransaction> getCashReceipts(string daybookCode)
-        //{
-        //    return _dataExtractor.SourceTransactions.Where(t => t.DaybookCode == daybookCode);
-        //}
-
-        //private void importAccountOpeningBalances()
-        //{
-        //    loadAccountOpeningBalances(getAccountOpeningBalances());
-        //}
-
-        //private IEnumerable<SourceAccount> getAccountOpeningBalances()
-        //{
-        //    return _dataExtractor.SourceAccounts.Where(a => a.OpeningBalance != 0);
-        //}
-
-        //private void loadAccountOpeningBalances(IEnumerable<SourceAccount> sourceAccounts)
-        //{
-        //    foreach (var aob in sourceAccounts.Select(getAccountOpeningBalance))
-        //        _targetDbContext.SaveAccountOpeningBalance(aob);
-        //}
-
-        //private AccountOpeningBalance getAccountOpeningBalance(SourceAccount sourceAccount)
-        //{
-        //    var aob = new AccountOpeningBalance();
-        //    aob.Account = loadAccount(sourceAccount.Code);
-        //    aob.Date = _companyPeriod.Period.Entity.Financial.From;
-        //    aob.Amount = sourceAccount.OpeningBalance;
-        //    return aob;
-        //}
-
-        //private Account loadAccount(string accountCode)
-        //{
-        //    var account = getAccount(accountCode);
-
-        //    if (!string.IsNullOrWhiteSpace(account.Id))
-        //        return new Account(account);
-
-        //    var result = _targetDbContext.GetAccountByNameAndAddress(account);
-        //    if (result == null)
-        //    {
-        //        _targetDbContext.SaveAccount(account);
-        //        return new Account(account);
-        //    }
-
-        //    return result;
-        //}
-
-        //private AccountEntity getAccount(string accountCode)
-        //{
-        //    return _dataExtractor.TargetAccounts.SingleOrDefault(a => a.Code == accountCode)
-        //                    ?? createDummyAccount(accountCode);
-        //}
-
-        //private AccountEntity createDummyAccount(string accountCode)
-        //{
-        //    return new AccountEntity
-        //    {
-        //        Code = accountCode,
-        //        Name = getDummyName(accountCode),
-        //        ChartOfAccountId = loadChartOfAccount("99").Entity.Id
-        //    };
-        //}
-
-        //private string getDummyName(string name)
-        //{
-        //    return string.Format("{0} not found", name);
-        //}
-
-        //private ChartOfAccount loadChartOfAccount(string glgCode)
-        //{
-        //    var coaId = _dataExtractor.ChartOfAccountsMapper
-        //                    .Where(c => c.EasyCode == glgCode)
-        //                    .Select(c => c.ChartOfAccountId)
-        //                    .SingleOrDefault();
-
-        //    var coa = _dataExtractor.TargetChartOfAccounts
-        //                    .Where(c => c.Entity.Id == coaId ||
-        //                            c.Entity.Name == getDummyName(glgCode))
-        //                    .SingleOrDefault();
-        //    return coa ?? createChartOfAccount(glgCode);
-        //}
-
-        //private ChartOfAccount createChartOfAccount(string glgCode)
-        //{
-        //    ChartOfAccount parent = null;
-
-        //    if (glgCode.Length == 5)
-        //        parent = loadChartOfAccount(glgCode.Substring(0, 3));
-
-        //    return insertChartOfAccount(glgCode, parent);
-        //}
-
-        //private ChartOfAccount insertChartOfAccount(string glgCode, ChartOfAccount parent)
-        //{
-        //    var coa = new ChartOfAccount(new ChartOfAccountEntity());
-        //    coa.Entity.Name = getDummyName(glgCode);
-        //    coa.Entity.Nr = _dataExtractor.TargetChartOfAccounts.Max(c => c.Entity.Nr) + 1;
-        //    coa.Parent = parent;
-
-        //    _dataExtractor.TargetChartOfAccounts.Add(coa);
-        //    _targetDbContext.SaveChartOfAccount(coa);
-
-        //    return coa;
-        //}
     }
 }

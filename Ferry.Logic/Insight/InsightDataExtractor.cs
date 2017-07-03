@@ -279,7 +279,7 @@ namespace Ferry.Logic.Insight
             else
                 result = new ForesightDaybook
                 {
-                    Entity = targetDaybook.Entity,
+                    Entity = sourceDaybook,
                     ForesightId = Convert.ToInt32(targetDaybook.Entity.Id),
                 };
 
