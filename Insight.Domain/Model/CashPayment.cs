@@ -19,9 +19,10 @@ namespace Insight.Domain.Model
         {
             if (!IsNew())
                 return;
-            
+
             var repo = new InsightRepository();
-            Entity.DocumentNr = repo.GetNewCashPaymentDocNr();
+            var docNr = repo.GetNewCashPaymentDocNr(Entity.DaybookId, CompanyPeriod.Entity.Id);
+            Entity.DocumentNr = docNr.Trim().PadLeft(10);
         }
     }
 }

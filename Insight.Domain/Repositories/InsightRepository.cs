@@ -245,65 +245,94 @@ namespace Insight.Domain.Repositories
             }
         }
 
-        public string GetNewCashReceiptDocNr()
+        //TODO: Remove duplication of generating docNr in all these document types...
+        public string GetNewCashReceiptDocNr(string daybookId, string companyPeriodId)
         {
             using (var s = Store.OpenSession())
             {
-                var result = s.Query<CashReceiptEntity>().OrderByDescending(c => c.Id).FirstOrDefault();
+                var result = s.Query<CashReceiptEntity>()
+                              .Where(doc => doc.DaybookId == daybookId &&
+                                     doc.CompanyPeriodId == companyPeriodId)
+                              .OrderByDescending(c => c.DocumentNr)
+                              .FirstOrDefault();
                 return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
             }
         }
 
-        public string GetNewSaleInvoiceDocNr()
+        public string GetNewCashPaymentDocNr(string daybookId, string companyPeriodId)
         {
             using (var s = Store.OpenSession())
             {
-                var result = s.Query<SaleInvoiceEntity>().OrderByDescending(c => c.Id).FirstOrDefault();
+                var result = s.Query<CashPaymentEntity>()
+                              .Where(doc => doc.DaybookId == daybookId &&
+                                     doc.CompanyPeriodId == companyPeriodId)
+                              .OrderByDescending(c => c.DocumentNr)
+                              .FirstOrDefault();
                 return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
             }
         }
 
-        public string GetNewPurchaseInvoiceDocNr()
+        public string GetNewBankReceiptDocNr(string daybookId, string companyPeriodId)
         {
             using (var s = Store.OpenSession())
             {
-                var result = s.Query<PurchaseInvoiceEntity>().OrderByDescending(c => c.Id).FirstOrDefault();
+                var result = s.Query<BankReceiptEntity>()
+                              .Where(doc => doc.DaybookId == daybookId &&
+                                     doc.CompanyPeriodId == companyPeriodId)
+                              .OrderByDescending(c => c.DocumentNr)
+                              .FirstOrDefault();
                 return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
             }
         }
 
-        public string GetNewCashPaymentDocNr()
+        public string GetNewBankPaymentDocNr(string daybookId, string companyPeriodId)
         {
             using (var s = Store.OpenSession())
             {
-                var result = s.Query<CashPaymentEntity>().OrderByDescending(c => c.Id).FirstOrDefault();
+                var result = s.Query<BankPaymentEntity>()
+                              .Where(doc => doc.DaybookId == daybookId &&
+                                     doc.CompanyPeriodId == companyPeriodId)
+                              .OrderByDescending(c => c.DocumentNr)
+                              .FirstOrDefault();
                 return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
             }
         }
 
-        public string GetNewBankReceiptDocNr()
+        public string GetNewJVDocNr(string daybookId, string companyPeriodId)
         {
             using (var s = Store.OpenSession())
             {
-                var result = s.Query<BankReceiptEntity>().OrderByDescending(c => c.Id).FirstOrDefault();
+                var result = s.Query<JournalVoucherEntity>()
+                              .Where(doc => doc.DaybookId == daybookId &&
+                                     doc.CompanyPeriodId == companyPeriodId)
+                              .OrderByDescending(c => c.DocumentNr)
+                              .FirstOrDefault();
                 return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
             }
         }
 
-        public string GetNewBankPaymentDocNr()
+        public string GetNewSaleInvoiceDocNr(string daybookId, string companyPeriodId)
         {
             using (var s = Store.OpenSession())
             {
-                var result = s.Query<BankPaymentEntity>().OrderByDescending(c => c.Id).FirstOrDefault();
+                var result = s.Query<SaleInvoiceEntity>()
+                                .Where(doc => doc.DaybookId == daybookId &&
+                                       doc.CompanyPeriodId == companyPeriodId)
+                                .OrderByDescending(c => c.DocumentNr)
+                                .FirstOrDefault();
                 return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
             }
         }
 
-        public string GetNewJVDocNr()
+        public string GetNewPurchaseInvoiceDocNr(string daybookId, string companyPeriodId)
         {
             using (var s = Store.OpenSession())
             {
-                var result = s.Query<JournalVoucherEntity>().OrderByDescending(c => c.Id).FirstOrDefault();
+                var result = s.Query<PurchaseInvoiceEntity>()
+                              .Where(doc => doc.DaybookId == daybookId &&
+                                     doc.CompanyPeriodId == companyPeriodId)
+                              .OrderByDescending(c => c.DocumentNr)
+                              .FirstOrDefault();
                 return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
             }
         }

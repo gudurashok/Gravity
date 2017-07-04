@@ -24,7 +24,8 @@ namespace Insight.Domain.Model
                 return;
 
             var repo = new InsightRepository();
-            Entity.DocumentNr = repo.GetNewJVDocNr();
+            var docNr = repo.GetNewJVDocNr(Entity.DaybookId, CompanyPeriod.Entity.Id);
+            Entity.DocumentNr = docNr.Trim().PadLeft(10);
         }
     }
 }

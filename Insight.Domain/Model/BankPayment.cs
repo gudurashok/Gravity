@@ -21,7 +21,8 @@ namespace Insight.Domain.Model
                 return;
 
             var repo = new InsightRepository();
-            Entity.DocumentNr = repo.GetNewBankPaymentDocNr();
+            var docNr = repo.GetNewBankPaymentDocNr(Entity.DaybookId, CompanyPeriod.Entity.Id);
+            Entity.DocumentNr = docNr.Trim().PadLeft(10);
         }
     }
 }

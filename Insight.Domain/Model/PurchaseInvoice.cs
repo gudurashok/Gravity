@@ -30,10 +30,11 @@ namespace Insight.Domain.Model
                 term.Entity.InvoiceId = id;
         }
 
-        public static string GetNewDocumentNr()
+        public string GetNewDocumentNr()
         {
             var repo = new InsightRepository();
-            return repo.GetNewPurchaseInvoiceDocNr();
+            var docNr = repo.GetNewPurchaseInvoiceDocNr(Entity.DaybookId, CompanyPeriod.Entity.Id);
+            return docNr.Trim().PadLeft(10);
         }
 
         public override void Save()

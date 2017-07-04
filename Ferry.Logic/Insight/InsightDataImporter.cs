@@ -47,7 +47,7 @@ namespace Ferry.Logic.Insight
                 extract();
                 importTransactions();
                 updateCompanyPeriod();
-                //completeImport();
+                completeImport();
                 _targetDbContext.Commit();
             }
             finally
@@ -56,10 +56,10 @@ namespace Ferry.Logic.Insight
             }
         }
 
-        //private void completeImport()
-        //{
-        //    _targetDbContext.SetCompanyPeriodIsImported(_companyPeriod, true);
-        //}
+        private void completeImport()
+        {
+            _targetDbContext.SetCompanyPeriodIsImported(_companyPeriod, true);
+        }
 
         private void updateCompanyPeriod()
         {
