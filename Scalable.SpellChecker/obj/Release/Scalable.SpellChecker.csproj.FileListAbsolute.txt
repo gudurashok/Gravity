@@ -28,3 +28,18 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.SpellCheck
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.Spelling.resources
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\bin\Release\Dictionary\en-US.dic
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\bin\Release\Scalable.SpellChecker.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\bin\Release\Scalable.Win.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\bin\Release\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\bin\Release\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\bin\Release\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.Controls.CheckAsYouType.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.Controls.SpellTextBox.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.Dictionary.WordDictionary.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.Forms.FOptions.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.Forms.FSuggestion.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.Spelling.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.SpellChecker\obj\Release\Scalable.SpellChecker.dll

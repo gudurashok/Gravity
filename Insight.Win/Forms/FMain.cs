@@ -53,6 +53,7 @@ namespace Insight.Win.Forms
 
             if (InsightSession.CompanyPeriod == null)
             {
+                IsAppExit = true;
                 Close();
                 return;
             }

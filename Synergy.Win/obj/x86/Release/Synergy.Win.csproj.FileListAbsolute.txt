@@ -82,3 +82,39 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Release\Synergy.application
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Release\Synergy.exe
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Release\Synergy.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Dictionary\en-US.dic
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.exe.config
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.exe.manifest
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.application
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.exe
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Gravity.Root.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Mingle.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Mingle.UC.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Scalable.Win.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.UC.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Raven.Abstractions.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Raven.Database.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Scalable.SpellChecker.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Newtonsoft.Json.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Gravity.Root.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Mingle.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Mingle.UC.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Release\Synergy.UC.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.Win.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.Win.Forms.FMain.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.Win.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.Win.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.TrustInfo.xml
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.exe.manifest
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.application
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.exe
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Release\Synergy.pdb

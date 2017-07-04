@@ -52,3 +52,26 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Domain\obj\
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Domain\obj\Release\Insight.Domain.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Domain\obj\Release\Insight.Domain.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Domain\obj\Release\Insight.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Insight.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Insight.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Gravity.Root.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Mingle.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Newtonsoft.Json.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Raven.Abstractions.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Synergy.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Scalable.Win.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Raven.Database.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Gravity.Root.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Mingle.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Synergy.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Release\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Release\Insight.Domain.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Release\Insight.Domain.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Release\Insight.Domain.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Release\Insight.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Release\Insight.Domain.pdb

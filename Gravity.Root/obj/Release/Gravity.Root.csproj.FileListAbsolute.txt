@@ -84,3 +84,43 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Gravity.Root\obj\Re
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Gravity.Root\obj\Release\Gravity.Root.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Gravity.Root\obj\Release\Gravity.Root.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Gravity.Root\obj\Release\Gravity.Root.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Gravity.Root.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Gravity.Root.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Raven.Abstractions.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Scalable.Win.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Raven.Database.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Newtonsoft.Json.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\bin\Release\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UMultiUsers.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UOptions.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UResponsibilities.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UResponsibility.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.URole.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.URoles.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UUser.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UUserFeedback.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UUsers.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UUserRole.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Forms.FChangePassword.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Forms.FMainBase.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UChangePassword.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UCompanyGroup.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UCompanyGroups.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.UCredentials.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Forms.FCompanyGroupBase.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Forms.FCompanyGroups.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Forms.FLogin.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Forms.FMultiUsers.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Forms.FOptions.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Forms.FUserFeedback.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.Controls.ULogin.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Gravity.Root\obj\Release\Gravity.Root.pdb
