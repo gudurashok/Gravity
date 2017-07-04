@@ -3,9 +3,28 @@ using Gravity.Root.Repositories;
 using Scalable.Shared.Common;
 using Gravity.Root.Properties;
 using System.Windows.Forms;
+using Raven.Imports.Newtonsoft.Json;
 
 namespace Gravity.Root.Common
 {
+    public static class ObjectCloneExtensions
+    {
+        public static T Clone<T>(this T source)
+        {
+            if (Object.ReferenceEquals(source, null))
+            {
+                return default(T);
+            }
+
+            var deserializeSettings = new JsonSerializerSettings
+            {
+                ObjectCreationHandling = ObjectCreationHandling.Replace
+            };
+
+            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(source), deserializeSettings);
+        }
+    }
+
     public class RootUtil
     {
         public static void LogError(Exception exception)

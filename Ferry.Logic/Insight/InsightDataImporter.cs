@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gravity.Root.Common;
 
 namespace Ferry.Logic.Insight
 {
@@ -152,7 +153,7 @@ namespace Ferry.Logic.Insight
 
         private void importBankReceipts()
         {
-            foreach (var daybook in getDaybooksOf(DaybookType.Cash))
+            foreach (var daybook in getDaybooksOf(DaybookType.Bank))
                 loadBankReceipts(getBankReceipts(daybook.Entity.Id), daybook);
         }
 
@@ -180,7 +181,7 @@ namespace Ferry.Logic.Insight
 
         private void importBankPayments()
         {
-            foreach (var daybook in getDaybooksOf(DaybookType.Cash))
+            foreach (var daybook in getDaybooksOf(DaybookType.Bank))
                 loadBankPayments(getBankPayments(daybook.Entity.Id), daybook);
         }
 
@@ -208,7 +209,7 @@ namespace Ferry.Logic.Insight
 
         private void importJournalVouchers()
         {
-            foreach (var daybook in getDaybooksOf(DaybookType.Cash))
+            foreach (var daybook in getDaybooksOf(DaybookType.JournalVoucher))
                 loadJournalVouchers(getJournalVouchers(daybook.Entity.Id), daybook);
         }
 
@@ -216,13 +217,27 @@ namespace Ferry.Logic.Insight
         {
             foreach (var jv in journalVouchers)
             {
-                var account = _dataExtractor.TargetAccounts
-                                .Where(a => a.Entity.Id == jv.AccountId)
-                                .SingleOrDefault();
                 jv.DaybookId = daybook.ForesightId.ToString();
-                jv.AccountId = account.ForesightId.ToString();
-                _targetDbContext.SaveJournalVoucher(new JournalVoucher(jv));
+
+                var voucher = createJV(jv, jv.CreditAccountId, (int)TxnType.Credit, jv.NotesCredit);
+                _targetDbContext.SaveJournalVoucher(new JournalVoucher(voucher));
+
+                voucher = createJV(jv, jv.DebitAccountId, (int)TxnType.Debit, jv.NotesDebit);
+                _targetDbContext.SaveJournalVoucher(new JournalVoucher(voucher));
             }
+        }
+
+        private JournalVoucherEntity createJV(JournalVoucherEntity jv,
+                                            string accountId, int txnType, string notes)
+        {
+            var result = jv.Clone();
+            var account = _dataExtractor.TargetAccounts
+                            .Where(a => a.Entity.Id == accountId)
+                            .SingleOrDefault();
+            result.AccountId = account.ForesightId.ToString();
+            result.TxnType = txnType;
+            result.Notes = notes;
+            return result;
         }
 
         private IEnumerable<JournalVoucherEntity> getJournalVouchers(string daybookId)
