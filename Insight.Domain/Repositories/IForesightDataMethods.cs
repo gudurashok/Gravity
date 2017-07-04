@@ -17,5 +17,6 @@ namespace Insight.Domain.Repositories
         IList<CashPaymentEntity> GetAllCashPayments();
         IList<BankReceiptEntity> GetAllBankReceipts();
         IList<BankPaymentEntity> GetAllBankPayments();
+        IList<JournalVoucherEntity> GetAllJournalVouchers();
     }
 }

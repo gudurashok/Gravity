@@ -101,5 +101,18 @@ namespace Insight.Domain.Repositories
                         .ToList();
             }
         }
+
+        public IList<JournalVoucherEntity> GetAllJournalVouchers()
+        {
+            using (var s = Store.OpenSession())
+            {
+                return s.Query<JournalVoucherEntity>()
+                        .Where(doc => doc.CompanyPeriodId == _companyPeriod.Entity.Id)
+                        .OrderBy(doc => doc.DaybookId)
+                        .OrderBy(doc => doc.Date)
+                        .OrderBy(doc => doc.Id)
+                        .ToList();
+            }
+        }
     }
 }
