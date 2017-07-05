@@ -26,6 +26,7 @@ namespace Ferry.Win.Forms
         private IList<CompanyPeriod> _companyPeriods { get; set; }
         private bool _isImportInProgress;
         private bool _isImportSuccess = true;
+        private Timer _elapsedTimeTimer = null;
 
         #endregion
 
@@ -119,11 +120,10 @@ namespace Ferry.Win.Forms
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Timer elapsedTimeTimer = null;
-
             try
             {
-                elapsedTimeTimer = setupElapsedTimeTimer();
+                lblTimeElapsed.Text = $"Time elapsed: 00:00:00 hrs";
+                setupElapsedTimeTimer();
                 startImport();
             }
             catch (ImportAbortException)
@@ -132,26 +132,28 @@ namespace Ferry.Win.Forms
             }
             finally
             {
-                if (elapsedTimeTimer != null)
-                    elapsedTimeTimer.Tick -= elapsedTimeTimer_Tick;
+                if (_elapsedTimeTimer != null)
+                {
+                    _elapsedTimeTimer.Stop();
+                    _elapsedTimeTimer.Tick -= elapsedTimeTimer_Tick;
+                }
 
                 Cursor = Cursors.Default;
                 AcceptButton = btnOK;
             }
         }
 
-        private Timer setupElapsedTimeTimer()
+        private void setupElapsedTimeTimer()
         {
-            var elapsedTimeTimer = new Timer();
-            elapsedTimeTimer.Interval = 1000;
-            elapsedTimeTimer.Enabled = true;
-            elapsedTimeTimer.Tick += elapsedTimeTimer_Tick;
-            return elapsedTimeTimer;
+            var _elapsedTimeTimer = new Timer();
+            _elapsedTimeTimer.Interval = 1000;
+            _elapsedTimeTimer.Enabled = true;
+            _elapsedTimeTimer.Tick += elapsedTimeTimer_Tick;
         }
 
         void elapsedTimeTimer_Tick(object sender, EventArgs e)
         {
-            lblTimeElapsed.Text = string.Format("Time elapsed: {0}", getTimeSpanDisplayText(_timer.Elapsed));
+            lblTimeElapsed.Text = $"Time elapsed: {getTimeSpanDisplayText(_timer.Elapsed)}";
         }
 
         private string getTimeSpanDisplayText(TimeSpan ts)
@@ -166,6 +168,7 @@ namespace Ferry.Win.Forms
         {
             Cursor = Cursors.WaitCursor;
             _timer = new Stopwatch();
+            _timer.Start();
             setPreImportState();
             performImport();
             _timer.Stop();
