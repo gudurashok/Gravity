@@ -126,4 +126,3 @@ C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Debug\Synergy.exe.manife
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Debug\Synergy.application
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Debug\Synergy.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\obj\x86\Debug\Synergy.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Debug\Dictionary\en-US.dic

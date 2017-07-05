@@ -53,7 +53,9 @@ namespace Insight.Win.Forms
 
             if (InsightSession.CompanyPeriod == null)
             {
+#if !DEBUG
                 IsAppExit = true;
+#endif
                 Close();
                 return;
             }
@@ -82,14 +84,14 @@ namespace Insight.Win.Forms
             mainMenuStrip.Items.Add(item);
         }
 
-        #region Change company period
+#region Change company period
 
         void coPeriodMenuItem_Click(object sender, EventArgs e)
         {
             EventHandlerExecutor.Execute(selectCompanyPeriod);
         }
 
-        #endregion
+#endregion
 
         private void addSetupMenuItem()
         {
@@ -136,9 +138,9 @@ namespace Insight.Win.Forms
                                 GravitySession.User.Entity.Designation);
         }
 
-        #endregion
+#endregion
 
-        #region Set Tool Stip menu item
+#region Set Tool Stip menu item
 
         void setupToolStripMenuItem_Click(object sender, EventArgs eventArgs)
         {
@@ -151,15 +153,15 @@ namespace Insight.Win.Forms
             f1.ShowDialog();
         }
 
-        #endregion
+#endregion
 
-        #region Polling timer tick
+#region Polling timer tick
 
         protected override void ProcessPollingTimerTick()
         {
         }
 
-        #endregion
+#endregion
     }
 }
 

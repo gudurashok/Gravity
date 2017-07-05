@@ -54,10 +54,12 @@ namespace Scalable.RavenDb.DataAccess
             }.Initialize();
         }
 
-        public override IDocumentSession OpenSession()
-        {
-            return store.OpenSession();
-        }
+        //public override IDocumentSession OpenSession()
+        //{
+        //    var result = store.OpenSession();
+        //    result.Advanced.MaxNumberOfRequestsPerSession = MaxNumberOfRequestsPerSession;
+        //    return result;
+        //}
 
         public override string[] GetDatabaseNames()
         {

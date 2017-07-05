@@ -20,9 +20,6 @@ namespace Insight.Domain.Repositories
         {
             using (var s = Store.OpenSession())
             {
-                //TODO: find a solution for incremental loading in UI
-                s.Advanced.MaxNumberOfRequestsPerSession = 10000;
-
                 IList<dynamic> bankPayments = getBankPaymentsSearchQuery(s)
                                             .Where(v => v.CompanyPeriodId == InsightSession.CompanyPeriod.Entity.Id)
                                             .ToList()

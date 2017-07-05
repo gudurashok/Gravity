@@ -15,17 +15,19 @@ namespace Scalable.RavenDb.DataAccess
         public override void OpenDatabase(string databaseName)
         {
             store = new EmbeddableDocumentStore
-                    {
-                        RunInMemory = AppConfig.AppGenus == Genus.RunInMemory,
-                        DataDirectory = databaseName,
-                        UseEmbeddedHttpServer = AppConfig.UseEmbeddedHttpServer
-                    }.Initialize();
+            {
+                RunInMemory = AppConfig.AppGenus == Genus.RunInMemory,
+                DataDirectory = databaseName,
+                UseEmbeddedHttpServer = AppConfig.UseEmbeddedHttpServer
+            }.Initialize();
         }
 
-        public override IDocumentSession OpenSession()
-        {
-            return store.OpenSession();
-        }
+        //public override IDocumentSession OpenSession()
+        //{
+        //    var result = store.OpenSession();
+        //    result.Advanced.MaxNumberOfRequestsPerSession = MaxNumberOfRequestsPerSession;
+        //    return result;
+        //}
 
         public override string[] GetDatabaseNames()
         {
