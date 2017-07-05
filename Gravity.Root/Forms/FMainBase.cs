@@ -412,15 +412,18 @@ namespace Gravity.Root.Forms
         protected virtual void OnRefreshList()
         {
             var result = AppActiveControl as UListView;
-
             if (result != null)
                 result.FillList(true);
         }
 
-        protected void RefreshAllLists()
+        protected virtual void RefreshAllLists()
         {
-            foreach (var control in Controls.Cast<object>().Where(control => (control as UListView) != null))
-                ((UListView)control).FillList(true);
+            foreach (var control in Controls.Cast<object>()
+                                            .Where(control => (control as UListView) != null))
+            {
+                var uControl = ((UListView)control);
+                uControl.FillList(true);
+            }
         }
 
         #endregion

@@ -79,7 +79,7 @@ namespace Insight.UC.Controls
         public override void Initialize()
         {
             BuildColumns();
-            performSearch(new VoucherSearchCriteria());
+            InitializeList();
             uSearchBar.Initialize();
             uSearchBar.Search += uSearchBar_Search;
             toggleSearchBar();
@@ -87,10 +87,15 @@ namespace Insight.UC.Controls
 
         void uSearchBar_Search(object sender, VoucherSearchEventArgs e)
         {
-            performSearch(e.Criteria);
+            initializeList(e.Criteria);
         }
 
-        private void performSearch(VoucherSearchCriteria criteria)
+        public void InitializeList()
+        {
+            initializeList(new VoucherSearchCriteria());
+        }
+
+        private void initializeList(VoucherSearchCriteria criteria)
         {
             Repository = GetRepository(criteria);
             FillList(true);

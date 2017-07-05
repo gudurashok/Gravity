@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using Gravity.Root.Common;
@@ -10,6 +11,7 @@ using Insight.UC.Picklists;
 using Scalable.Shared.Common;
 using Scalable.Win.Common;
 using InsightEntityListRepository = Insight.UC.Common.EntityListRepository;
+using Insight.UC.Controls;
 
 namespace Insight.Win.Forms
 {
@@ -36,12 +38,24 @@ namespace Insight.Win.Forms
             companyPeriod.Initialize();
             companyPeriod.uPicklist.FillList(true);
 
-            if (companyPeriod.ShowDialog() != DialogResult.OK) 
+            if (companyPeriod.ShowDialog() != DialogResult.OK)
                 return;
 
             InsightSession.CompanyPeriod = ((CompanyPeriodListItem)companyPeriod.PicklistItems[0]).CompanyPeriod;
             SetFormTitle();
             RefreshAllLists();
+        }
+
+        protected override void RefreshAllLists()
+        {
+            foreach (var control in Controls.Cast<object>()
+                                            .Where(control => (control as UVouchers) != null))
+            {
+                var uVouchers = ((UVouchers)control);
+                uVouchers.InitializeList();
+            }
+
+            base.RefreshAllLists();
         }
 
         #region Initialization
@@ -84,14 +98,14 @@ namespace Insight.Win.Forms
             mainMenuStrip.Items.Add(item);
         }
 
-#region Change company period
+        #region Change company period
 
         void coPeriodMenuItem_Click(object sender, EventArgs e)
         {
             EventHandlerExecutor.Execute(selectCompanyPeriod);
         }
 
-#endregion
+        #endregion
 
         private void addSetupMenuItem()
         {
@@ -138,9 +152,9 @@ namespace Insight.Win.Forms
                                 GravitySession.User.Entity.Designation);
         }
 
-#endregion
+        #endregion
 
-#region Set Tool Stip menu item
+        #region Set Tool Stip menu item
 
         void setupToolStripMenuItem_Click(object sender, EventArgs eventArgs)
         {
@@ -153,15 +167,15 @@ namespace Insight.Win.Forms
             f1.ShowDialog();
         }
 
-#endregion
+        #endregion
 
-#region Polling timer tick
+        #region Polling timer tick
 
         protected override void ProcessPollingTimerTick()
         {
         }
 
-#endregion
+        #endregion
     }
 }
 
