@@ -169,3 +169,4 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.Proper
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Dictionary\en-US.dic

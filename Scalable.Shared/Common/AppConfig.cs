@@ -76,7 +76,7 @@ namespace Scalable.Shared.Common
 
         private static void saveConfigItem(string key, string value)
         {
-            var config = ConfigurationManager.OpenMappedExeConfiguration(  .OpenExeConfiguration(ConfigurationUserLevel.None);
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings.Remove(key);
             config.AppSettings.Settings.Add(key, value);
             config.Save(ConfigurationSaveMode.Modified);
