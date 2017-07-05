@@ -14,8 +14,11 @@ namespace Insight.UC.Controls
 
         protected override void ProcessNew()
         {
-            DataSource = new CashReceipt(
-                new CashReceiptEntity()) { Daybook = Voucher.Daybook };
+            var oldDate = dtpDate.Value;
+            DataSource = new CashReceipt(new CashReceiptEntity { Date = oldDate })
+            {
+                Daybook = Voucher.Daybook
+            };
         }
     }
 }

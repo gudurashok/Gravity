@@ -41,8 +41,11 @@ namespace Insight.UC.Controls
 
         protected override void ProcessNew()
         {
-            DataSource = new BankPayment(
-                new BankPaymentEntity()) { Daybook = Voucher.Daybook };
+            var oldDate = dtpDate.Value;
+            DataSource = new BankPayment(new BankPaymentEntity { Date = oldDate })
+            {
+                Daybook = Voucher.Daybook
+            };
         }
     }
 }

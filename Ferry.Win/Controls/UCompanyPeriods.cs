@@ -219,6 +219,7 @@ namespace Ferry.Win.Controls
                                     .Where(cp => cp.Entity.ForesighId != 0))
                 {
                     statusForm.SetStatusMessage($"Importing: {companyPeriod.ToStringNameAndPeriod()}");
+                    statusForm.Show();
                     statusForm.Refresh();
                     var importer = new InsightDataImporter(GravitySession.CompanyGroup, companyPeriod);
                     importer.Execute();

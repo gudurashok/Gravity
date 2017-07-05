@@ -83,7 +83,9 @@ namespace Insight.UC.Controls
 
         private DateTime getDate()
         {
-            return Voucher.Entity.Date == DateTime.MinValue ? DateTime.Today : Voucher.Entity.Date;
+            return Voucher.Entity.Date == DateTime.MinValue 
+                            ? DateTime.Today 
+                            : Voucher.Entity.Date;
         }
 
         private void commandBarButton_Click(object sender, EventArgs e)

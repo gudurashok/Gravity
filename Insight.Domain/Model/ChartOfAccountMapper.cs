@@ -11,6 +11,5 @@ namespace Insight.Domain.Model
         public string EasyCode { get; set; }
         public string McsCode { get; set; }
         public string TcsCode { get; set; }
-        public string InsightCode { get; set; }
     }
 }

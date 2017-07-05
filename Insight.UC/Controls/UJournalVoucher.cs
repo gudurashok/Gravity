@@ -73,8 +73,11 @@ namespace Insight.UC.Controls
 
         protected override void ProcessNew()
         {
-            DataSource = new JournalVoucher(
-                new JournalVoucherEntity()) { Daybook = Voucher.Daybook };
+            var oldDate = dtpDate.Value;
+            DataSource = new JournalVoucher(new JournalVoucherEntity { Date = oldDate })
+            {
+                Daybook = Voucher.Daybook
+            };
         }
     }
 }

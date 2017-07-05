@@ -137,7 +137,11 @@ namespace Insight.UC.Controls
 
         protected override void ProcessNew()
         {
-            DataSource = new SaleInvoice(new SaleInvoiceEntity()) { Daybook = _saleInvoice.Daybook };
+            var oldDate = dtpDate.Value;
+            DataSource = new SaleInvoice(new SaleInvoiceEntity { Date = oldDate })
+            {
+                Daybook = _saleInvoice.Daybook
+            };
         }
 
         #endregion

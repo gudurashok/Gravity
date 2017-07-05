@@ -143,7 +143,6 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Rele
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Release\Insight.UC.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Release\Insight.UC.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Release\Insight.UC.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Release\Dictionary\en-US.dic
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Release\Insight.UC.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Release\Insight.UC.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Release\Gravity.Root.dll

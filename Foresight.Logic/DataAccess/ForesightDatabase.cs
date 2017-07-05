@@ -154,7 +154,6 @@ namespace Foresight.Logic.DataAccess
             coaMapper.EasyCode = ForesightUtil.ConvertDbNullToString(rdr["EasyCode"]);
             coaMapper.McsCode = ForesightUtil.ConvertDbNullToString(rdr["McsCode"]);
             coaMapper.TcsCode = ForesightUtil.ConvertDbNullToString(rdr["TcsCode"]);
-            coaMapper.InsightCode = ForesightUtil.ConvertDbNullToString(rdr["InsightCode"]);
             return coaMapper;
         }
 
