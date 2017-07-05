@@ -266,7 +266,8 @@ namespace Ferry.Logic.Insight
                 ChartOfAccountId = coa.ForesightId.ToString(),
                 Name = account.Name,
                 GroupId = account.GroupId,
-                PartyId = account.PartyId,
+                //TODO: Need to get the address from Party
+                //PartyId = account.PartyId,
                 AddressLine1 = account.AddressLine1,
                 AddressLine2 = account.AddressLine2,
                 City = account.City,
