@@ -17,9 +17,14 @@ namespace Scalable.RavenDb.DataAccess
             store = new EmbeddableDocumentStore
             {
                 RunInMemory = AppConfig.AppGenus == Genus.RunInMemory,
-                DataDirectory = databaseName,
+                DefaultDatabase = databaseName,
                 UseEmbeddedHttpServer = AppConfig.UseEmbeddedHttpServer
-            }.Initialize();
+            };
+
+            (store as EmbeddableDocumentStore)
+                .Configuration.Port = AppConfig.EmbeddedHttpServerPort;
+
+            store.Initialize();
         }
 
         //public override IDocumentSession OpenSession()

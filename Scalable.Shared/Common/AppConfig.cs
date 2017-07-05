@@ -76,7 +76,7 @@ namespace Scalable.Shared.Common
 
         private static void saveConfigItem(string key, string value)
         {
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var config = ConfigurationManager.OpenMappedExeConfiguration(  .OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings.Remove(key);
             config.AppSettings.Settings.Add(key, value);
             config.Save(ConfigurationSaveMode.Modified);
@@ -205,6 +205,16 @@ namespace Scalable.Shared.Common
         public static bool UseEmbeddedHttpServer
         {
             get { return processBooleanConfigItem("UseEmbeddedHttpServer"); }
+        }
+
+        public static int EmbeddedHttpServerPort
+        {
+            get
+            {
+                const int defaultEmbeddedHttpServerPort = 8090;
+                var value = getIntegerConfigItem("EmbeddedHttpServerPort");
+                return value ?? defaultEmbeddedHttpServerPort;
+            }
         }
 
         public static bool UseTestCoGroup
