@@ -53,5 +53,10 @@ namespace Insight.Domain.Model
         {
             return new CompanyPeriod(new CompanyPeriodEntity());
         }
+
+        public string ToStringNameAndPeriod()
+        {
+            return $"{Company.Entity.Name}-{Period.Entity.Name}";
+        }
     }
 }

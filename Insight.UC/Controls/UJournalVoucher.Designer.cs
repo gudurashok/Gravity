@@ -38,7 +38,7 @@
             // lblAccount
             // 
             this.lblAccount.Size = new System.Drawing.Size(37, 13);
-            this.lblAccount.Text = "&Credit:";
+            this.lblAccount.Text = "&Credit a/c:";
             // 
             // lblAmount
             // 
@@ -87,7 +87,7 @@
             this.lblDebit.Name = "lblDebit";
             this.lblDebit.Size = new System.Drawing.Size(35, 13);
             this.lblDebit.TabIndex = 11;
-            this.lblDebit.Text = "&Debit:";
+            this.lblDebit.Text = "&Debit a/c:";
             // 
             // txbDebitAccount
             // 
@@ -99,6 +99,10 @@
             this.txbDebitAccount.Size = new System.Drawing.Size(312, 20);
             this.txbDebitAccount.TabIndex = 12;
             // 
+            // lblNotes
+            // 
+            this.lblNotes.Text = "Cr. No&tes:";
+            // 
             // lblNotesDebit
             // 
             this.lblNotesDebit.AutoSize = true;
@@ -106,7 +110,7 @@
             this.lblNotesDebit.Name = "lblNotesDebit";
             this.lblNotesDebit.Size = new System.Drawing.Size(38, 13);
             this.lblNotesDebit.TabIndex = 13;
-            this.lblNotesDebit.Text = "No&tes:";
+            this.lblNotesDebit.Text = "Db. No&tes:";
             // 
             // rtbNotesDebit
             // 

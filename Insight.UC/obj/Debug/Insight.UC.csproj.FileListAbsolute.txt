@@ -305,4 +305,3 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCo
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Dictionary\en-US.dic

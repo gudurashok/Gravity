@@ -15,6 +15,7 @@ using Insight.Domain.ViewModel;
 using Insight.Domain.Enums;
 using Foresight.Logic.DataAccess;
 using Gravity.Root.Common;
+using Ferry.Logic.Insight;
 
 namespace Ferry.Win.Controls
 {
@@ -196,8 +197,40 @@ namespace Ferry.Win.Controls
 
         private void importSelectedCompanyPeriods()
         {
+            var provider = getCheckedItemCompanyProvider();
+            if (provider == SourceDataProvider.Insight)
+            {
+                performInsightDataImport();
+                return;
+            }
+
             var importer = new FImporter(getSelectedCompanyPeriods());
             importer.ShowDialog();
+        }
+
+        private void performInsightDataImport()
+        {
+            var statusForm = new FStatusMessage();
+
+            try
+            {
+                var companyPerdiods = getSelectedCompanyPeriods();
+                foreach (var companyPeriod in companyPerdiods
+                                    .Where(cp => cp.Entity.ForesighId != 0))
+                {
+                    statusForm.SetStatusMessage($"Importing: {companyPeriod.ToStringNameAndPeriod()}");
+                    statusForm.Refresh();
+                    var importer = new InsightDataImporter(GravitySession.CompanyGroup, companyPeriod);
+                    importer.Execute();
+                    statusForm.Close();
+                    MessageBoxUtil.ShowMessage("Data importing completed.");
+                }
+            }
+            catch (Exception ex)
+            {
+                statusForm.Close();
+                MessageBoxUtil.ShowError(ex);
+            }
         }
 
         private IList<CompanyPeriod> getSelectedCompanyPeriods()
@@ -331,8 +364,8 @@ namespace Ferry.Win.Controls
                cp.Entity.SourceDataProvider != SourceDataProvider.Insight);
 
             return selectedCompanyPeriods.Count == nonInsightCoCount
-                ? SourceDataProvider.Tcs
-                : SourceDataProvider.None;
+                                                ? SourceDataProvider.Tcs
+                                                : SourceDataProvider.None;
         }
 
         private void saveCompanyPeriod(CompanyPeriod cp)
