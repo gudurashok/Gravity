@@ -107,6 +107,7 @@ namespace Foresight.Win.Forms
 
             try
             {
+                lblTimeElapsed.Text = $"Time elapsed: 00:00:00 hrs";
                 elapsedTimeTimer = new Timer();
                 elapsedTimeTimer.Interval = 1000;
                 elapsedTimeTimer.Enabled = true;
@@ -121,7 +122,10 @@ namespace Foresight.Win.Forms
             finally
             {
                 if (elapsedTimeTimer != null)
+                {
+                    elapsedTimeTimer.Stop();
                     elapsedTimeTimer.Tick -= elapsedTimeTimer_Tick;
+                }
 
                 Cursor = Cursors.Default;
             }
@@ -129,7 +133,7 @@ namespace Foresight.Win.Forms
 
         void elapsedTimeTimer_Tick(object sender, EventArgs e)
         {
-            lblTimeElapsed.Text = string.Format("Time elapsed: {0}", getTimeSpanDisplayText(_timer.Elapsed));
+            lblTimeElapsed.Text = $"Time elapsed: {getTimeSpanDisplayText(_timer.Elapsed)}";
         }
 
         private string getTimeSpanDisplayText(TimeSpan ts)
@@ -144,6 +148,7 @@ namespace Foresight.Win.Forms
         {
             Cursor = Cursors.WaitCursor;
             _timer = new Stopwatch();
+            _timer.Start();
             setPreUpdateState();
             performUpdate();
             _timer.Stop();

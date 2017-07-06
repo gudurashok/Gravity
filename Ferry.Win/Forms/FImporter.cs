@@ -26,7 +26,6 @@ namespace Ferry.Win.Forms
         private IList<CompanyPeriod> _companyPeriods { get; set; }
         private bool _isImportInProgress;
         private bool _isImportSuccess = true;
-        private Timer _elapsedTimeTimer = null;
 
         #endregion
 
@@ -120,10 +119,12 @@ namespace Ferry.Win.Forms
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            Timer elapsedTimeTimer = null;
+
             try
             {
                 lblTimeElapsed.Text = $"Time elapsed: 00:00:00 hrs";
-                setupElapsedTimeTimer();
+                elapsedTimeTimer = setupElapsedTimeTimer();
                 startImport();
             }
             catch (ImportAbortException)
@@ -132,10 +133,10 @@ namespace Ferry.Win.Forms
             }
             finally
             {
-                if (_elapsedTimeTimer != null)
+                if (elapsedTimeTimer != null)
                 {
-                    _elapsedTimeTimer.Stop();
-                    _elapsedTimeTimer.Tick -= elapsedTimeTimer_Tick;
+                    elapsedTimeTimer.Stop();
+                    elapsedTimeTimer.Tick -= elapsedTimeTimer_Tick;
                 }
 
                 Cursor = Cursors.Default;
@@ -143,12 +144,13 @@ namespace Ferry.Win.Forms
             }
         }
 
-        private void setupElapsedTimeTimer()
+        private Timer setupElapsedTimeTimer()
         {
-            var _elapsedTimeTimer = new Timer();
-            _elapsedTimeTimer.Interval = 1000;
-            _elapsedTimeTimer.Enabled = true;
-            _elapsedTimeTimer.Tick += elapsedTimeTimer_Tick;
+            var elapsedTimeTimer = new Timer();
+            elapsedTimeTimer.Interval = 1000;
+            elapsedTimeTimer.Enabled = true;
+            elapsedTimeTimer.Tick += elapsedTimeTimer_Tick;
+            return elapsedTimeTimer;
         }
 
         void elapsedTimeTimer_Tick(object sender, EventArgs e)
