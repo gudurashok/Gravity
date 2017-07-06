@@ -28,6 +28,7 @@ namespace Ferry.Win.Common
                 if (!shouldCreateForesightCompanyGroup())
                     return false;
 
+                statusMessageForm = new FStatusMessage();
                 statusMessageForm.SetStatusMessage("Please wait while the group is being created...");
                 statusMessageForm.Show();
                 statusMessageForm.Refresh();
@@ -36,20 +37,20 @@ namespace Ferry.Win.Common
             }
             catch (Exception ex)
             {
-                statusMessageForm.Hide();
+                statusMessageForm?.Hide();
                 MessageBoxUtil.ShowMessage(ex.Message);
                 return false;
             }
             finally
             {
-                statusMessageForm.Close();
+                statusMessageForm?.Close();
             }
         }
 
         private bool shouldCreateForesightCompanyGroup()
         {
-            var message = $"Company group \n'{GravitySession.CompanyGroup.Entity.Name} not found.'\n" +
-                          $"Check it's physical file {GravitySession.CompanyGroup.ForesightDatabaseName} exists.\n\n" +
+            var message = $"Company group \n'{GravitySession.CompanyGroup.Entity.Name}' not found.\n" +
+                          $"Check it's physical file: {GravitySession.CompanyGroup.ForesightDatabaseName} exists.\n\n" +
                           $"If you are sure that its first time, then click Yes to create a new group now.";
             return MessageBoxUtil.GetConfirmationYesNo(message) == DialogResult.Yes;
         }
@@ -70,8 +71,8 @@ namespace Ferry.Win.Common
         {
             var db = ForesightDatabaseFactory.GetInstance();
 
-            if (db.IsCompanyGroupNameExist(GravitySession.CompanyGroup))
-                return (db.IsCompanyGroupExist(GravitySession.CompanyGroup));
+            if (db.IsCompanyGroupNameExist(GravitySession.CompanyGroup.Entity.Name))
+                return (db.IsCompanyGroupExist(GravitySession.CompanyGroup.Entity.ForesightDatabaseName));
 
             return false;
         }

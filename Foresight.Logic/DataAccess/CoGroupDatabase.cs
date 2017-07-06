@@ -83,7 +83,7 @@ namespace Foresight.Logic.DataAccess
             if (string.IsNullOrWhiteSpace(companyGroup.Entity.Name))
                 throw new ValidationException("Company group name cannot be empty");
 
-            if (_foresightDb.IsCompanyGroupNameExist(companyGroup))
+            if (_foresightDb.IsCompanyGroupNameExist(companyGroup.Entity.Name))
                 throw new ValidationException("This company group already exist");
         }
 

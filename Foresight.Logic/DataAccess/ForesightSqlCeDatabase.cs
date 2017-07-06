@@ -17,9 +17,9 @@ namespace Foresight.Logic.DataAccess
             setDatabaseContext();
         }
 
-        public override bool IsCompanyGroupExist(CompanyGroup companyGroup)
+        public override bool IsCompanyGroupExist(string companyGroupDbName)
         {
-            return File.Exists(companyGroup.ForesightDatabaseName);
+            return File.Exists(companyGroupDbName);
         }
 
         private void setDatabaseContext()

@@ -210,22 +210,24 @@ namespace Ferry.Win.Controls
 
         private void performInsightDataImport()
         {
-            var statusForm = new FStatusMessage();
+            FStatusMessage statusForm = null;
 
             try
             {
-                var companyPerdiods = getSelectedCompanyPeriods();
-                foreach (var companyPeriod in companyPerdiods
-                                    .Where(cp => cp.Entity.ForesighId != 0))
+                statusForm = new FStatusMessage();
+                statusForm.Show();
+                var companyPeriods = getSelectedCompanyPeriods()
+                                    .Where(cp => cp.Entity.ForesighId != 0);
+                foreach (var companyPeriod in companyPeriods)
                 {
                     statusForm.SetStatusMessage($"Importing: {companyPeriod.ToStringNameAndPeriod()}");
-                    statusForm.Show();
                     statusForm.Refresh();
                     var importer = new InsightDataImporter(GravitySession.CompanyGroup, companyPeriod);
                     importer.Execute();
-                    statusForm.Close();
-                    MessageBoxUtil.ShowMessage("Data importing completed.");
                 }
+
+                statusForm.Close();
+                MessageBoxUtil.ShowMessage("Data importing completed.");
             }
             catch (Exception ex)
             {

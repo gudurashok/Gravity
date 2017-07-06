@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Gravity.Root.Common;
+using Foresight.Logic.Ledger;
 
 namespace Ferry.Logic.Insight
 {
@@ -50,6 +51,9 @@ namespace Ferry.Logic.Insight
                 updateCompanyPeriod();
                 completeImport();
                 _targetDbContext.Commit();
+
+                var lb = new LedgerBuilder(_targetDbContext, _companyPeriod);
+                lb.BuildDimensionTables();
             }
             finally
             {

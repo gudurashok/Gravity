@@ -13,6 +13,7 @@ using Scalable.Win.Forms;
 using Scalable.Shared.Common;
 using Gravity.Root.Common;
 using System.Diagnostics;
+using Foresight.Logic.Ledger;
 
 namespace Ferry.Win.Forms
 {
@@ -26,6 +27,7 @@ namespace Ferry.Win.Forms
         private IList<CompanyPeriod> _companyPeriods { get; set; }
         private bool _isImportInProgress;
         private bool _isImportSuccess = true;
+        private LedgerBuilder _lb;
 
         #endregion
 
@@ -174,7 +176,7 @@ namespace Ferry.Win.Forms
             setPreImportState();
             performImport();
             _timer.Stop();
-            showPostImportInfo();
+            showPostImportStatus();
         }
 
         private void setPreImportState()
@@ -204,6 +206,7 @@ namespace Ferry.Win.Forms
                     setImportInProgress(lvi);
                     performImport(cp);
                     setImportSuccess(lvi);
+                    startUpdating(lvi);
                 }
                 catch (Exception ex)
                 {
@@ -264,7 +267,7 @@ namespace Ferry.Win.Forms
             lvi.SubItems[0].Tag = ex;
         }
 
-        private void showPostImportInfo()
+        private void showPostImportStatus()
         {
             displayPostImportStatusMessage();
             setLabelText(lblProgress, "");
@@ -353,6 +356,83 @@ namespace Ferry.Win.Forms
         {
             lbl.Text = text;
             lbl.Refresh();
+        }
+
+        #endregion
+
+        #region Ledger Updation
+
+        private void startUpdating(ListViewItem lvi)
+        {
+            setPreUpdateState();
+            performUpdate(lvi);
+        }
+
+        private void setPreUpdateState()
+        {
+            Text = Resources.UpdateInProgress;
+            lblStartTime.Text = string.Format(Resources.ImportStartedAt, DateTime.Now.ToLongTimeString());
+            picWaitIndicator.Visible = true;
+            picWaitIndicator.Refresh();
+            btnStart.Visible = false;
+            pnlProgress.Visible = true;
+            pnlStart.Visible = false;
+            btnStart.Visible = false;
+            lblProgress.Text = Resources.StartingUpdating;
+            btnCancel.Cursor = Cursors.Hand;
+            pnlProgress.Refresh();
+        }
+
+        private void performUpdate(ListViewItem lvi)
+        {
+            try
+            {
+                var cp = lvi.Tag as CompanyPeriod;
+                setUpdateInProgress(lvi);
+                performUpdate(cp);
+                setUpdationSuccess(lvi);
+            }
+            catch (Exception ex)
+            {
+                if (ex is LedgerUpdateAbortException)
+                    throw;
+
+                RootUtil.LogError(ex);
+                setUpdationFailed(lvi, ex);
+            }
+        }
+
+        private void setUpdateInProgress(ListViewItem lvi)
+        {
+            lvi.ForeColor = Color.Blue;
+            lvi.Font = new Font(lvwList.Font, FontStyle.Italic);
+        }
+
+        private void performUpdate(CompanyPeriod cp)
+        {
+            var dbc = new DataContext(GravitySession.CompanyGroup);
+            _lb = new LedgerBuilder(dbc, cp);
+            _lb.Updating += Updater_Updating;
+            _lb.BuildDimensionTables();
+            _lb.Updating -= Updater_Updating;
+        }
+
+        private void Updater_Updating(object sender, UpdatingEventArgs e)
+        {
+            showProgress(e.CurrentItem);
+        }
+
+        private void setUpdationSuccess(ListViewItem lvi)
+        {
+            lvi.ForeColor = Color.DarkGreen;
+            lvi.Font = new Font(lvwList.Font, FontStyle.Bold);
+        }
+
+        private void setUpdationFailed(ListViewItem lvi, Exception ex)
+        {
+            lvi.ForeColor = Color.Red;
+            lvi.Font = new Font(lvwList.Font, FontStyle.Strikeout);
+            lvi.SubItems[0].Tag = ex;
         }
 
         #endregion

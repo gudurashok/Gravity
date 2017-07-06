@@ -45,16 +45,9 @@ namespace Foresight.Logic.DataAccess
 
         public void Commit()
         {
-            if (_transaction == null)
-                return;
-
             try
             {
-                _transaction.Commit();
-            }
-            catch (Exception)
-            {
-                throw;
+                _transaction?.Commit();
             }
             finally
             {
@@ -64,11 +57,14 @@ namespace Foresight.Logic.DataAccess
 
         public void Rollback()
         {
-            if (_transaction == null)
-                return;
-
-            _transaction.Rollback();
-            _transaction = null;
+            try
+            {
+                _transaction?.Rollback();
+            }
+            finally
+            {
+                _transaction = null;
+            }
         }
 
         public void AddParameterWithValue(IDbCommand cmd, string name, object value)

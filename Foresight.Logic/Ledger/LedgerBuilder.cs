@@ -25,20 +25,12 @@ namespace Foresight.Logic.Ledger
 
         public void BuildDimensionTables()
         {
-            try
-            {
-                targetDbContext.BeginTransaction();
-                targetDbContext.DeleteCompanyPeriodLedgerData(companyPeriod);
-                OnUpdating(new UpdatingEventArgs("Building dimension tables"));
-                executeImport(populateAccountLedger);
-                executeImport(populateItemLedger);
-                targetDbContext.Commit();
-            }
-            catch (Exception)
-            {
-                targetDbContext.Rollback();
-                throw;
-            }
+            targetDbContext.BeginTransaction();
+            targetDbContext.DeleteCompanyPeriodLedgerData(companyPeriod);
+            OnUpdating(new UpdatingEventArgs("Building dimension tables"));
+            executeImport(populateAccountLedger);
+            executeImport(populateItemLedger);
+            targetDbContext.Commit();
         }
 
         #endregion
@@ -48,7 +40,6 @@ namespace Foresight.Logic.Ledger
             if (IsCancelled) return;
             executeUpdateDelegate();
         }
-
 
         public void CancelUpdation()
         {
@@ -64,7 +55,8 @@ namespace Foresight.Logic.Ledger
             var trans = AccountTransTables.GetAllTransactionTables();
             foreach (var tran in trans)
             {
-                populateAccountTransDimension(ledger, targetDbContext.ReadLedgerData(tran, companyPeriod.Entity.Id), tran);
+                var ledgerDataReader = targetDbContext.ReadLedgerData(tran, companyPeriod.Foresight.Id);
+                populateAccountTransDimension(ledger, ledgerDataReader, tran);
                 OnUpdating(new UpdatingEventArgs(string.Format("Building account ledger {0}", tran.TransName)));
                 if (IsCancelled) break;
             }
@@ -79,32 +71,33 @@ namespace Foresight.Logic.Ledger
 
         private void populateAccountTransDimension(IList<AccountMonthlyLedger> ledger, IDataReader rdr, AccountTransTables tran)
         {
-            while (rdr.Read())
+            using (rdr)
             {
-                var accountId = rdr["AccountId"].ToString();
-                var month = Convert.ToInt32(rdr["Month"]);
-                var al = ledger.SingleOrDefault(a => a.AccountId == accountId && a.Month == month);
-                if (al == null)
+                while (rdr.Read())
                 {
-                    al = new AccountMonthlyLedger
+                    var accountId = rdr["AccountId"].ToString();
+                    var month = Convert.ToInt32(rdr["Month"]);
+                    var al = ledger.SingleOrDefault(a => a.AccountId == accountId && a.Month == month);
+                    if (al == null)
                     {
-                        AccountId = accountId,
-                        ChartOfAccountId = rdr["ChartOfAccountId"].ToString(),
-                        Month = month,
-                        CompanyPeriod = companyPeriod,
+                        al = new AccountMonthlyLedger
+                        {
+                            AccountId = accountId,
+                            ChartOfAccountId = rdr["ChartOfAccountId"].ToString(),
+                            Month = month,
+                            CompanyPeriod = companyPeriod,
 
-                    };
-                    al.GetType().GetProperty(tran.TransName).SetValue(al, Convert.ToDecimal(rdr["Amount"]), null);
-                    ledger.Add(al);
-                }
-                else
-                {
-                    var amount = Convert.ToDecimal(al.GetType().GetProperty(tran.TransName).GetValue(al, null));
-                    al.GetType().GetProperty(tran.TransName).SetValue(al, amount + Convert.ToDecimal(rdr["Amount"]), null);
+                        };
+                        al.GetType().GetProperty(tran.TransName).SetValue(al, Convert.ToDecimal(rdr["Amount"]), null);
+                        ledger.Add(al);
+                    }
+                    else
+                    {
+                        var amount = Convert.ToDecimal(al.GetType().GetProperty(tran.TransName).GetValue(al, null));
+                        al.GetType().GetProperty(tran.TransName).SetValue(al, amount + Convert.ToDecimal(rdr["Amount"]), null);
+                    }
                 }
             }
-
-            rdr.Close();
         }
 
         #endregion
@@ -133,44 +126,42 @@ namespace Foresight.Logic.Ledger
 
         private void populateItemLedgerDimension(IList<ItemMonthlyLedger> items, ItemTransTables tran)
         {
-            var rdr = targetDbContext.ReadItemLedger(tran, companyPeriod.Entity.Id);
-
-            while (rdr.Read())
+            using (var rdr = targetDbContext.ReadItemLedger(tran, companyPeriod.Foresight.Id))
             {
-                var itemId = rdr["ItemId"].ToString();
-                var accountId = rdr["AccountId"].ToString();
-                var month = Convert.ToInt32(rdr["Month"]);
-                var il = items.SingleOrDefault(i => i.ItemId == itemId
-                                && i.AccountId == accountId && i.Month == month);
-                if (il == null)
+                while (rdr.Read())
                 {
-                    il = new ItemMonthlyLedger
+                    var itemId = rdr["ItemId"].ToString();
+                    var accountId = rdr["AccountId"].ToString();
+                    var month = Convert.ToInt32(rdr["Month"]);
+                    var il = items.SingleOrDefault(i => i.ItemId == itemId
+                                    && i.AccountId == accountId && i.Month == month);
+                    if (il == null)
                     {
-                        ItemId = itemId,
-                        AccountId = accountId,
-                        ChartOfAccountId = rdr["chartOfAccountId"].ToString(),
-                        Month = month,
-                        CompanyPeriod = companyPeriod
-                    };
-                    il.GetType().GetProperty(tran.TransName).SetValue(il, Convert.ToDecimal(rdr["Amount"]), null);
-                    items.Add(il);
-                }
-                else
-                {
-                    var amount = Convert.ToDecimal(il.GetType().GetProperty(tran.TransName).GetValue(il, null));
-                    il.GetType().GetProperty(tran.TransName).SetValue(il, amount + Convert.ToDecimal(rdr["Amount"]), null);
+                        il = new ItemMonthlyLedger
+                        {
+                            ItemId = itemId,
+                            AccountId = accountId,
+                            ChartOfAccountId = rdr["chartOfAccountId"].ToString(),
+                            Month = month,
+                            CompanyPeriod = companyPeriod
+                        };
+                        il.GetType().GetProperty(tran.TransName).SetValue(il, Convert.ToDecimal(rdr["Amount"]), null);
+                        items.Add(il);
+                    }
+                    else
+                    {
+                        var amount = Convert.ToDecimal(il.GetType().GetProperty(tran.TransName).GetValue(il, null));
+                        il.GetType().GetProperty(tran.TransName).SetValue(il, amount + Convert.ToDecimal(rdr["Amount"]), null);
+                    }
                 }
             }
-
-            rdr.Close();
         }
 
         #endregion
 
         public void OnUpdating(UpdatingEventArgs e)
         {
-            if (Updating != null)
-                Updating(this, e);
+            Updating?.Invoke(this, e);
         }
     }
 }

@@ -49,10 +49,9 @@ namespace Ferry.Insight.Service
         {
             try
             {
-                var companyPerdiods = getInsightCompanyPeriods();
-                foreach (var companyPeriod in companyPerdiods)
+                var companyPeriods = getInsightCompanyPeriods();
+                foreach (var companyPeriod in companyPeriods)
                 {
-                    companyPeriod.Entity.IsImported = true;
                     var importer = new InsightDataImporter(null, companyPeriod);
                     importer.Execute();
                 }

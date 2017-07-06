@@ -152,7 +152,7 @@ namespace Foresight.Win.Forms
             setPreUpdateState();
             performUpdate();
             _timer.Stop();
-            showPostUpdateInfo();
+            showPostUpdateStatus();
         }
 
         private void setPreUpdateState()
@@ -232,7 +232,7 @@ namespace Foresight.Win.Forms
             lvi.Font = new Font(lvwList.Font, FontStyle.Bold);
         }
 
-        private void showPostUpdateInfo()
+        private void showPostUpdateStatus()
         {
             displayPostUpdateStatusMessage();
             setLabelText(lblProgress, "");

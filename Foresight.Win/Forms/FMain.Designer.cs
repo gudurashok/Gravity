@@ -197,6 +197,7 @@ namespace Foresight.Win.Forms
             this.updateLedgersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateLedgersToolStripMenuItem.Name = "updateLedgersToolStripMenuItem";
             this.updateLedgersToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.updateLedgersToolStripMenuItem.Enabled = false;
             this.updateLedgersToolStripMenuItem.Text = "&Update Ledgers";
             this.updateLedgersToolStripMenuItem.Click += new System.EventHandler(this.updateLedgersToolStripMenuItem_Click);
             // 

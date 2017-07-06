@@ -1030,10 +1030,13 @@ namespace Foresight.Logic.DataAccess
 
         #region Account Ledger
 
-        public IDataReader ReadLedgerData(AccountTransTables tran, string cpId)
+        public IDataReader ReadLedgerData(AccountTransTables tran, int cpId)
         {
             if (tran.TransName == "Opening")
-                return _db.ExecuteReader(SqlQueries.SelectMonthlyOpeningBalanceByAccount, "@companyPeriodId", cpId);
+            {
+                return _db.ExecuteReader(SqlQueries.SelectMonthlyOpeningBalanceByAccount,
+                                        "@companyPeriodId", cpId);
+            }
 
             return _db.ExecuteReader(string.Format(SqlQueries.SelectMonthlySumOfTransByAccount,
                               tran.TableName, getTransDimensionFilter(tran)), "@companyPeriodId", cpId);
@@ -1061,9 +1064,9 @@ namespace Foresight.Logic.DataAccess
             _db.AddParameterWithValue(cmd, "@bankReceipt", account.BankReceipt);
             _db.AddParameterWithValue(cmd, "@creditNote", account.CreditNote);
             _db.AddParameterWithValue(cmd, "@creditJV", account.CreditJV);
-            _db.AddParameterWithValue(cmd, "@periodId", account.CompanyPeriod.Period.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@companyId", account.CompanyPeriod.Company.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@companyPeriodId", account.CompanyPeriod.Entity.Id);
+            _db.AddParameterWithValue(cmd, "@periodId", account.CompanyPeriod.Foresight.PeriodId);
+            _db.AddParameterWithValue(cmd, "@companyId", account.CompanyPeriod.Foresight.CompanyId);
+            _db.AddParameterWithValue(cmd, "@companyPeriodId", account.CompanyPeriod.Foresight.Id);
             cmd.ExecuteNonQuery();
             account.Id = _db.GetGeneratedIdentityValue();
         }
@@ -1612,7 +1615,7 @@ namespace Foresight.Logic.DataAccess
 
         #region Item Ledger
 
-        public IDataReader ReadItemLedger(ItemTransTables tran, string cpId)
+        public IDataReader ReadItemLedger(ItemTransTables tran, int cpId)
         {
             return _db.ExecuteReader(string.Format(
                 SqlQueries.SelectMonthlySumOfTransByItemAndAccount,
@@ -1628,9 +1631,9 @@ namespace Foresight.Logic.DataAccess
             _db.AddParameterWithValue(cmd, "@month", item.Month);
             _db.AddParameterWithValue(cmd, "@sale", item.Sale);
             _db.AddParameterWithValue(cmd, "@purchase", item.Purchase);
-            _db.AddParameterWithValue(cmd, "@periodId", item.CompanyPeriod.Period.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@companyId", item.CompanyPeriod.Company.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@companyPeriodId", item.CompanyPeriod.Entity.Id);
+            _db.AddParameterWithValue(cmd, "@periodId", item.CompanyPeriod.Foresight.PeriodId);
+            _db.AddParameterWithValue(cmd, "@companyId", item.CompanyPeriod.Foresight.CompanyId);
+            _db.AddParameterWithValue(cmd, "@companyPeriodId", item.CompanyPeriod.Foresight.Id);
             cmd.ExecuteNonQuery();
             item.Id = _db.GetGeneratedIdentityValue();
         }

@@ -19,12 +19,12 @@ namespace Foresight.Logic.DataAccess
             db.Close();
         }
 
-        public abstract bool IsCompanyGroupExist(CompanyGroup companyGroup);
+        public abstract bool IsCompanyGroupExist(string companyGroupDbName);
 
-        public bool IsCompanyGroupNameExist(CompanyGroup companyGroup)
+        public bool IsCompanyGroupNameExist(string companyGroupName)
         {
             var cmd = db.CreateCommand(SqlQueries.SelectCountByCompanyGroupName);
-            db.AddParameterWithValue(cmd, "@name", companyGroup.Entity.Name);
+            db.AddParameterWithValue(cmd, "@name", companyGroupName);
             var value = cmd.ExecuteScalar();
             return Convert.ToInt32(value) > 0;
         }

@@ -183,4 +183,10 @@ WARNING: Deleting company period will delete imported data.</value>
   <data name="CompanyPeriodAlreadyTaken" xml:space="preserve">
     <value>This company period already taken. Cannot add again</value>
   </data>
+  <data name="StartingUpdating" xml:space="preserve">
+    <value>Starting update...</value>
+  </data>
+  <data name="UpdateInProgress" xml:space="preserve">
+    <value>Updation is in progress...</value>
+  </data>
 </root>
