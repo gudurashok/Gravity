@@ -7,6 +7,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Scalable.Shared.Common;
 using Scalable.Shared.Enums;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gravity.Root.Common
 {
@@ -93,13 +94,16 @@ namespace Gravity.Root.Common
                 return Directory.Exists(coGroup.DatabaseName);
 
             bool exists = true;
-
             GravitySession.Initialize();
+            if (!GravitySession.StoreManager.Store.IsServerOnline())
+            {
+                throw new ValidationException("Server not online!");
+            }
 
             if (AppConfig.AppGenus != Genus.RavenHQ)
             {
                 exists = GravitySession.StoreManager.Store
-                    .IsDatabaseExists(coGroup.DatabaseName);
+                            .IsDatabaseExists(coGroup.DatabaseName);
             }
 
             GravitySession.Dispose();

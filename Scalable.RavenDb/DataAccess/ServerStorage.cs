@@ -22,6 +22,11 @@ namespace Scalable.RavenDb.DataAccess
             connectToServer();
         }
 
+        public override bool IsServerOnline()
+        {
+            return store.IsServerOnline();
+        }
+
         public override void OpenDatabase(string databaseName)
         {
             _databaseName = databaseName;

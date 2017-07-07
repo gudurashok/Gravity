@@ -12,6 +12,11 @@ namespace Scalable.RavenDb.DataAccess
 {
     public class EmbeddableStorage : DocumentStorageBase
     {
+        public override bool IsServerOnline()
+        {
+            return store.IsServerOnline();
+        }
+
         public override void OpenDatabase(string databaseName)
         {
             store = new EmbeddableDocumentStore

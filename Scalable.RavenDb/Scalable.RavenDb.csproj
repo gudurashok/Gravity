@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataAccess\ServerStorage.cs" />
+    <Compile Include="DataAccess\RavenDbExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataAccess\StorageManagerBase.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

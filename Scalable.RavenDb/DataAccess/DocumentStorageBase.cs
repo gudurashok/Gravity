@@ -15,6 +15,7 @@ namespace Scalable.RavenDb.DataAccess
         public abstract bool IsDatabaseExists(string databaseName);
         public abstract void AttachDatabase(string databaseName);
         public abstract void DeleteDatabase(string databaseName, bool deleteDataDir = false);
+        public abstract bool IsServerOnline();
 
         public void Dispose()
         {
