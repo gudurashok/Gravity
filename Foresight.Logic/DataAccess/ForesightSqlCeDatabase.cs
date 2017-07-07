@@ -30,7 +30,12 @@ namespace Foresight.Logic.DataAccess
 
         private static string getForesightFilePath()
         {
-            return AppConfig.AppPath + @"\" + databaseFileName;
+            var path = AppConfig.AppPath;
+
+            if (path.EndsWith(@"\bin"))
+                path = path.Substring(0, path.Length - 4);
+
+            return $@"{path}\{databaseFileName}";
         }
     }
 }

@@ -12,6 +12,10 @@ namespace Foresight.Logic.DataAccess
 
         protected override void createCompanyGroupDatabase()
         {
+            var fi = new FileInfo(companyGroup.FilePath);
+            if (!Directory.Exists(fi.DirectoryName))
+                Directory.CreateDirectory(fi.DirectoryName);
+
             createCompanyGroupWithEngine();
             groupDb = DatabaseFactory.GetForesightDatabase(companyGroup);
         }

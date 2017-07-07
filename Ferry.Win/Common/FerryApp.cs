@@ -18,7 +18,7 @@ namespace Ferry.Win.Common
             if (!base.OnStartup(eventArgs))
                 return false;
 
-            var statusMessageForm = new FStatusMessage();
+            FStatusMessage statusMessageForm = null;
             try
             {
                 var coGroupDbExists = isForesightCompanyGroupExists();
@@ -31,14 +31,14 @@ namespace Ferry.Win.Common
                 statusMessageForm = new FStatusMessage();
                 statusMessageForm.SetStatusMessage("Please wait while the group is being created...");
                 statusMessageForm.Show();
-                statusMessageForm.Refresh();
                 createForesightCompanyGroup();
                 return true;
             }
             catch (Exception ex)
             {
                 statusMessageForm?.Hide();
-                MessageBoxUtil.ShowMessage(ex.Message);
+                RootUtil.LogError("FerryApp", ex);
+                MessageBoxUtil.ShowError(ex);
                 return false;
             }
             finally

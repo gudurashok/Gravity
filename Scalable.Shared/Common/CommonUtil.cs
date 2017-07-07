@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Security.Principal;
 
 namespace Scalable.Shared.Common
 {
@@ -14,6 +15,13 @@ namespace Scalable.Shared.Common
         #endregion
 
         #region Public Methods
+
+        public static bool IsAdministrator()
+        {
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
 
         public static string GetProdcutName()
         {

@@ -104,7 +104,6 @@ namespace Foresight.Logic.DataAccess
 
         private string getDatabaseSchemaScript()
         {
-
 #if DEBUG
             return File.ReadAllText(getDatabaseScriptFileName());
 #else

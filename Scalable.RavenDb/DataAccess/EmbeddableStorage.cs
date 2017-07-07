@@ -19,11 +19,13 @@ namespace Scalable.RavenDb.DataAccess
 
         public override void OpenDatabase(string databaseName)
         {
+            var enableEmbeddedHttpServer = AppConfig.UseEmbeddedHttpServer && CommonUtil.IsAdministrator();
+
             store = new EmbeddableDocumentStore
             {
                 RunInMemory = AppConfig.AppGenus == Genus.RunInMemory,
                 DefaultDatabase = databaseName,
-                UseEmbeddedHttpServer = AppConfig.UseEmbeddedHttpServer
+                UseEmbeddedHttpServer = enableEmbeddedHttpServer
             };
 
             (store as EmbeddableDocumentStore)
