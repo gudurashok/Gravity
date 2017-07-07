@@ -31,6 +31,7 @@ namespace Ferry.Win.Common
                 statusMessageForm = new FStatusMessage();
                 statusMessageForm.SetStatusMessage("Please wait while the group is being created...");
                 statusMessageForm.Show();
+                statusMessageForm.Refresh();
                 createForesightCompanyGroup();
                 return true;
             }
@@ -64,7 +65,8 @@ namespace Ferry.Win.Common
             companyGroup.Entity.ForesightGroupId = db.SaveCompanyGroup(companyGroup);
             var repo = new CoGroupRepository();
             companyGroup.Entity.Id = GravitySession.CompanyGroup.Entity.Id;
-            repo.Save(companyGroup.Entity);
+            var coGroupId = repo.Save(companyGroup.Entity);
+            GravitySession.OpenCompanyGroup(repo.GetById(coGroupId, true), true);
         }
 
         private bool isForesightCompanyGroupExists()
