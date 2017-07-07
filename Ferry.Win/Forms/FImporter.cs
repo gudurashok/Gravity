@@ -216,7 +216,7 @@ namespace Ferry.Win.Forms
                     if (ex is ImportAbortException)
                         throw;
 
-                    RootUtil.LogError(ex);
+                    RootUtil.LogError("Ferry:Importer", ex);
                     setImportFailed(lvi, ex);
                 }
             }
@@ -397,7 +397,7 @@ namespace Ferry.Win.Forms
                 if (ex is LedgerUpdateAbortException)
                     throw;
 
-                RootUtil.LogError(ex);
+                RootUtil.LogError("Ferry:Importer", ex);
                 setUpdationFailed(lvi, ex);
             }
         }

@@ -12,19 +12,25 @@ namespace Gravity.Root.Repositories
     {
         public void OpenCoGroupDatabase(CompanyGroup coGroup)
         {
-            checkCoGroupDatabaseExists(coGroup);
+            CheckCoGroupDatabaseExists(coGroup);
             Store.OpenDatabase(coGroup.DatabaseName);
         }
 
-        private void checkCoGroupDatabaseExists(CompanyGroup coGroup)
+        public void CheckCoGroupDatabaseExists(CompanyGroup coGroup)
         {
             if (AppConfig.AppGenus == Genus.RunInMemory || AppConfig.AppGenus == Genus.RavenHQ)
                 return;
 
             if (!Store.IsDatabaseExists(coGroup.DatabaseName))
-                throw new ValidationException(
-                    string.Format("Database for company group {0} does not exist!\n\nPath: {1}",
-                                  coGroup.Entity.Name, coGroup.DatabaseName));
+            {
+                var message = $"Database for company group '{coGroup.Entity.Name}' does not exist.\n\n";
+                if (AppConfig.AppGenus == Genus.Embedded)
+                    message = $"{message}Path: '{AppConfig.EmbeddedStoreDataPath}'";
+                else
+                    message = $"{message}Database: '{coGroup.DatabaseName}'";
+
+                throw new ValidationException(message);
+            }
         }
 
         public void CreateCoGroupDatabase(CompanyGroup coGroup)

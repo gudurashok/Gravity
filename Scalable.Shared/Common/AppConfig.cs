@@ -15,6 +15,25 @@ namespace Scalable.Shared.Common
             get { return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); }
         }
 
+        public static string RavenWorkigDir
+        {
+            get
+            {
+                var result = ConfigurationManager.AppSettings.Get("Raven/WorkingDir");
+                return string.IsNullOrWhiteSpace(result)
+                        ? @"~\InsightData"
+                        : result;
+            }
+        }
+
+        public static string EmbeddedStoreDataPath
+        {
+            get
+            {
+                return $@"{RavenWorkigDir.Replace(@"~\", "")}\Databases";
+            }
+        }
+
         public static string CoGroupDataPath
         {
             get

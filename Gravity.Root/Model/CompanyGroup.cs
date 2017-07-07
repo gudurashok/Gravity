@@ -33,6 +33,7 @@ namespace Gravity.Root.Model
         {
             var coGroup = New();
             coGroup.Entity.Id = id;
+            coGroup.Entity.DatabaseName = databaseName;
             coGroup.DatabaseName = databaseName;
             return coGroup;
         }
@@ -112,7 +113,7 @@ namespace Gravity.Root.Model
                         createDatabaseName();
                 }
 
-                _databaseName = getDatabaseName();
+                _databaseName = Entity.DatabaseName; //getDatabaseName();
                 return _databaseName;
             }
             private set { _databaseName = value; }

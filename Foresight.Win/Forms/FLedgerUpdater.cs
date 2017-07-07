@@ -190,7 +190,7 @@ namespace Foresight.Win.Forms
                     if (ex is LedgerUpdateAbortException)
                         throw;
 
-                    RootUtil.LogError(ex);
+                    RootUtil.LogError("Ferry:LedgerUpdater", ex);
                     setUpdationFailed(lvi, ex);
                 }
             }

@@ -6,6 +6,7 @@ namespace Scalable.Shared.Common
     {
         public int Id { private get; set; }
         public DateTime DateTime { get; set; }
+        public string Source { get; set; }
         public string Text { get; set; }
     }
 }

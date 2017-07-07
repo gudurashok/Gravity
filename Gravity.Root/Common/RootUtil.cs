@@ -27,31 +27,36 @@ namespace Gravity.Root.Common
 
     public class RootUtil
     {
-        public static void LogError(Exception exception)
+        public static void LogError(string source, Exception exception)
+        {
+            LogText(source, exception.ToString());
+        }
+
+        public static void LogText(string source, string text)
         {
             try
             {
                 var repo = new CoGroupRepository();
                 repo.Insert(new ErrorMessage
                 {
+                    Source = source,
                     DateTime = DateTime.Now,
-                    Text = exception.ToString()
+                    Text = text,
                 });
-
             }
             catch (Exception ex)
             {
 
 #if DEBUG
-                MessageBoxUtil.ShowMessageBox(string.Format("{0}. Original Exception: {1}",
-                                        Resources.CannotLogException, ex),
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Exclamation);
+                MessageBoxUtil.ShowMessageBox(
+                                    $"{Resources.CannotLogException}. Original Exception: {ex}",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
 #else
-                MessageBoxUtil.ShowMessageBox(string.Format("{0}. Message: {1}",
-                                        Resources.CannotLogException, ex.Message),
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Exclamation);
+                MessageBoxUtil.ShowMessageBox(
+                                    $"{Resources.CannotLogException}. Original Exception: {ex.Message}",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
 #endif
             }
         }

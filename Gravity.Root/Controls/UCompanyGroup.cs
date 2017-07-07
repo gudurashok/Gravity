@@ -106,8 +106,7 @@ namespace Gravity.Root.Controls
 
         protected virtual void OnCoGroupSaved(CoGroupSavedEventArgs e)
         {
-            if (CoGroupSaved != null)
-                CoGroupSaved(this, e);
+            CoGroupSaved?.Invoke(this, e);
         }
 
         #endregion

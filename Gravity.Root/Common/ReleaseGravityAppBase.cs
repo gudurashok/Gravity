@@ -20,24 +20,14 @@ namespace Gravity.Root.Common
                 if (!base.OnStartup(eventArgs))
                     return false;
 
-                var createNewCoGroup = true;
                 var coGroup = getCoGroupFromAppConfig();
                 if (coGroup != null)
+                    checkCoGroupOfAppConfigExists(coGroup);
+                else
                 {
-                    if (!isCoGroupOfAppConfigExist(coGroup))
-                    {
-                        if (!shouldCreateNewCoGroup(coGroup.DatabaseName))
-                            return false;
-                    }
-                    else
-                        createNewCoGroup = false;
-                }
+                    if (loginNotPerformed(true))
+                        return false;
 
-                if (createNewCoGroup && loginNotPerformed(true))
-                    return false;
-
-                if (createNewCoGroup)
-                {
                     coGroup = createCoGroup();
                     if (coGroup == null)
                         return false;
@@ -80,42 +70,26 @@ namespace Gravity.Root.Common
         private CompanyGroup getCoGroupFromAppConfig()
         {
             var databaseName = AppConfig.CoGroupDatabase;
-            return string.IsNullOrWhiteSpace(databaseName)
-                ? null
-                : CompanyGroup.NewFrom(AppConfig.CoGroupId, databaseName);
+            if (string.IsNullOrWhiteSpace(databaseName))
+                return null;
+
+            var result = CompanyGroup.NewFrom(AppConfig.CoGroupId, databaseName);
+            result.Entity.Name = databaseName;
+            return result;
         }
 
-        private bool isCoGroupOfAppConfigExist(CompanyGroup coGroup)
+        private void checkCoGroupOfAppConfigExists(CompanyGroup coGroup)
         {
             if (AppConfig.AppGenus == Genus.RunInMemory)
-                return false;
+                return;
 
-            if (AppConfig.AppGenus == Genus.Embedded)
-                return Directory.Exists(coGroup.DatabaseName);
-
-            bool exists = true;
             GravitySession.Initialize();
-            if (!GravitySession.StoreManager.Store.IsServerOnline())
-            {
-                throw new ValidationException("Server not online!");
-            }
+            if (AppConfig.AppGenus != Genus.Embedded)
+                if (!GravitySession.StoreManager.Store.IsServerOnline())
+                    throw new ValidationException("Server not online!");
 
-            if (AppConfig.AppGenus != Genus.RavenHQ)
-            {
-                exists = GravitySession.StoreManager.Store
-                            .IsDatabaseExists(coGroup.DatabaseName);
-            }
-
+            GravitySession.StoreManager.CheckCoGroupDatabaseExists(coGroup);
             GravitySession.Dispose();
-            return exists;
-        }
-
-        private bool shouldCreateNewCoGroup(string databaseName)
-        {
-            HideSplashScreen();
-            return (MessageBoxUtil.GetConfirmationYesNo(
-                    string.Format(Resources.CoGroupDatabaseDoesNotExistCreateNew, databaseName)) ==
-                    DialogResult.Yes);
         }
 
         private CompanyGroup createCoGroup()

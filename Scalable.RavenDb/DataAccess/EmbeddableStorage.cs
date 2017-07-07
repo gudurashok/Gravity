@@ -41,13 +41,15 @@ namespace Scalable.RavenDb.DataAccess
 
         public override string[] GetDatabaseNames()
         {
-            if (!Directory.Exists(AppConfig.CoGroupDataPath))
+            var ravenDir = AppConfig.RavenWorkigDir.Replace(@"~\", "");
+
+            if (!Directory.Exists(ravenDir))
                 return new string[] { };
 
-            var di = new DirectoryInfo(AppConfig.CoGroupDataPath);
+            var di = new DirectoryInfo(AppConfig.EmbeddedStoreDataPath);
             var dirs = di.GetDirectories();
             return dirs.Where(d => (File.Exists(string.Concat(d.FullName, @"\raven-data.ico"))))
-                        .Select(d => d.FullName)
+                        .Select(d => d.Name)
                         .ToArray();
         }
 
@@ -58,7 +60,11 @@ namespace Scalable.RavenDb.DataAccess
 
         public override bool IsDatabaseExists(string databaseName)
         {
-            return AppConfig.AppGenus != Genus.RunInMemory && Directory.Exists(databaseName);
+            if (AppConfig.AppGenus == Genus.RunInMemory)
+                return true;
+
+            var databases = GetDatabaseNames();
+            return databases.Contains(databaseName);
         }
 
         public override void AttachDatabase(string databaseName)
