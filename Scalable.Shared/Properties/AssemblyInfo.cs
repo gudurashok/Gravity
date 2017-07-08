@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Scalable.Shared")]
-[assembly: AssemblyDescription("Scalabled Shared")]
+[assembly: AssemblyDescription("Gravity: Shared Module")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Gravity Software Technologies Private Limited.")]
+[assembly: AssemblyCompany("Gravity Software Technologies")]
 [assembly: AssemblyProduct("Scalable.Shared")]
-[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies Private Limited. All rights reserved.")]
-[assembly: AssemblyTrademark("Scalable Shared")]
+[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies. All rights reserved.")]
+[assembly: AssemblyTrademark("Gravity")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

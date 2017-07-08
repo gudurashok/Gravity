@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Mingle.UC")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Mingle: Contact Management UI component")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mingle.UC")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Gravity Software Technologies")]
+[assembly: AssemblyProduct("Mingle")]
+[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies. All rights reserved.")]
+[assembly: AssemblyTrademark("Gravity")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

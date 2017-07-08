@@ -53,7 +53,7 @@ namespace Scalable.Win.FormControls
 
         private void launchLink()
         {
-            Process.Start("http://www.iscalable.com");
+            Process.Start("http://www.gravitysoftware.in");
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

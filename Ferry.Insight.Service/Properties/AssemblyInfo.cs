@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Ferry.Insight.Service")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Gravity: Insight Data ETL Service")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Gravity Software Technologies")]
 [assembly: AssemblyProduct("Ferry.Insight.Service")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies. All rights reserved.")]
+[assembly: AssemblyTrademark("Gravity")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

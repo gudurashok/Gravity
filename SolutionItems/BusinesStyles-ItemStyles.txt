@@ -27,7 +27,7 @@ THOSHIBA
 Sale Order
 Sale Invoice
 Sale Return
-Sale Order
+Purchase Order
 Purchase Invoice
 Purchase Return
 Receipts of Cash & Bank

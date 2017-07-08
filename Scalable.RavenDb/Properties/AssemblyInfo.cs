@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Scalable.RavenDb")]
-[assembly: AssemblyDescription("Gravity: Business Intelligence Software")]
+[assembly: AssemblyDescription("Gravity: RavenDB Connector")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Gravity Software Technologies Private Limited.")]
+[assembly: AssemblyCompany("Gravity Software Technologies")]
 [assembly: AssemblyProduct("Scalable.RavenDb")]
-[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies Private Limited. All rights reserved.")]
-[assembly: AssemblyTrademark("Scalable.RavenDb")]
+[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies. All rights reserved.")]
+[assembly: AssemblyTrademark("Gravity")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

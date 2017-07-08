@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Synergy.Win")]
-[assembly: AssemblyDescription("Synergy: Peer Task management & tracking software")]
+[assembly: AssemblyDescription("Gravity: Peer Task management & tracking software")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Gravity Software Technologies Pvt. Ltd.")]
+[assembly: AssemblyCompany("Gravity Software Technologies")]
 [assembly: AssemblyProduct("Synergy")]
-[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies Private Limited. All rights reserved.")]
-[assembly: AssemblyTrademark("Synergy")]
+[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies. All rights reserved.")]
+[assembly: AssemblyTrademark("Gravity")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Gravity.Root")]
-[assembly: AssemblyDescription("Gravity: Business Intelligence Software")]
+[assembly: AssemblyDescription("Gravity: Root Module")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Gravity Software Technologies Pvt. Ltd.")]
+[assembly: AssemblyCompany("Gravity Software Technologies")]
 [assembly: AssemblyProduct("Gravity")]
-[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies Private Limited. All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies. All rights reserved.")]
 [assembly: AssemblyTrademark("Gravity")]
 [assembly: AssemblyCulture("")]
 

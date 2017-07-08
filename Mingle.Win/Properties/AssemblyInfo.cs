@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Mingle")]
 [assembly: AssemblyDescription("Mingle: Enterprise Contact Manager")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Gravity Software Technologies Pvt. Ltd.")]
+[assembly: AssemblyCompany("Gravity Software Technologies")]
 [assembly: AssemblyProduct("Mingle")]
-[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies Pvt. Ltd. All rights reserved.")]
-[assembly: AssemblyTrademark("Mingle")]
+[assembly: AssemblyCopyright("Copyright © 2017, Gravity Software Technologies. All rights reserved.")]
+[assembly: AssemblyTrademark("Gravity")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
