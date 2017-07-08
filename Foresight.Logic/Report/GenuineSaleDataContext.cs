@@ -28,7 +28,7 @@ namespace Foresight.Logic.Report
 
         private string getSelectGenuineSaleQuery()
         {
-            var coaIds = ChartOfAccount.GetChartOfAccountIds(AccountTypes.Customers);
+            var coaIds = GetChartOfAccountIds(AccountTypes.Customers);
             return string.Format(ReportQueries.SelectGenuineSaleRatio,
                                         getPartyIdentityColumn(), coaIds);
         }

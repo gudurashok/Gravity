@@ -8,13 +8,13 @@ namespace Foresight.Logic.Report
     {
         protected override string getCompanyPeriodTotalValueQuery(string filterExpr)
         {
-            string coaIds = ChartOfAccount.GetChartOfAccountIds((int)ChartOfAccountType.Expense);
+            string coaIds = GetChartOfAccountIds((int)ChartOfAccountType.Expense);
             return string.Format(ReportQueries.SelectTotalOfExpense, filterExpr, coaIds);
         }
 
         protected override string getAccountsQuery(string filterExpr)
         {
-            string coaIds = ChartOfAccount.GetChartOfAccountIds((int)ChartOfAccountType.Expense);
+            string coaIds = GetChartOfAccountIds((int)ChartOfAccountType.Expense);
             return string.Format(ReportQueries.SelectTopNExpenses, TopNCount,
                                 getPartyIdentityColumn(), filterExpr, coaIds);
         }

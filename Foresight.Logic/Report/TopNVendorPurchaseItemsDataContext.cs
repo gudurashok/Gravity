@@ -12,7 +12,7 @@ namespace Foresight.Logic.Report
         {
             return string.Format(ReportQueries.SelectTopNAccountItems,
                                 TopNCount, getPartyIdentityColumn(), getItemIdentityColumn(), getTableName(),
-                                columnName, ChartOfAccount.GetChartOfAccountIds(AccountTypes.Vendors));
+                                columnName, GetChartOfAccountIds(AccountTypes.Vendors));
         }
     }
 }

@@ -7,6 +7,7 @@ using Foresight.Logic.Common;
 using Foresight.Logic.DataAccess;
 using Gravity.Root.Model;
 using Insight.Domain.Model;
+using Insight.Domain.Enums;
 
 namespace Foresight.Logic.Report
 {
@@ -103,6 +104,16 @@ namespace Foresight.Logic.Report
         protected string getItemIdentityColumn()
         {
             return ItemGrouping ? "GroupId" : "Id";
+        }
+
+        protected string GetChartOfAccountIds(AccountTypes accountTypes)
+        {
+            return GetChartOfAccountIds((int)accountTypes);
+        }
+
+        protected string GetChartOfAccountIds(int coaId)
+        {
+            return ForesightSession.Dbc.GetChartOfAccountIds(coaId);
         }
 
         #endregion

@@ -1214,7 +1214,7 @@ namespace Foresight.Logic.DataAccess
         private string getSelectAccountsQuery(AccountTypes accountTypes, bool partyGrouping)
         {
             var sb = new StringBuilder();
-            var coaId = ChartOfAccount.GetChartOfAccountIds(accountTypes);
+            var coaId = GetChartOfAccountIds(accountTypes);
 
             if (!string.IsNullOrEmpty(coaId))
                 sb.Append(string.Format(" ca.Nr {0} ", coaId));
@@ -1237,6 +1237,25 @@ namespace Foresight.Logic.DataAccess
                 result = " WHERE " + sb;
 
             return string.Format(SqlQueries.SelectAllAccounts, result);
+        }
+
+        public string GetChartOfAccountIds(AccountTypes accountTypes)
+        {
+            return GetChartOfAccountIds((int)accountTypes);
+        }
+
+        public string GetChartOfAccountIds(int coaId)
+        {
+            var coPeriods = GetCompanyPeriods();
+            if (coPeriods.Count == 0 || coaId == 0)
+                return " NOT IN ('') ";
+
+            var sb = new StringBuilder(" IN (");
+            var ids = GetChartOfAccountIDsFor(coaId);
+            foreach (var id in ids)
+                sb.Append(String.Format("'{0}',", id));
+
+            return sb.Remove(sb.Length - 1, 1).Append(") ").ToString();
         }
 
         private Account readAccountInfo(IDataReader rdr)

@@ -1,6 +1,7 @@
 ﻿using Scalable.Shared.Repositories;
 using Scalable.Win.Controls;
 using Scalable.Win.Picklist;
+using System;
 
 namespace Gravity.Root.Picklists
 {
@@ -19,12 +20,12 @@ namespace Gravity.Root.Picklists
 
         protected override string getTitleText()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         protected override IListRepository createRepository()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

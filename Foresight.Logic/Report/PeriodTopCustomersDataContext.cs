@@ -20,7 +20,7 @@ namespace Foresight.Logic.Report
 
         private string getTypeCodes()
         {
-            return ChartOfAccount.GetChartOfAccountIds(AccountTypes.Customers);
+            return GetChartOfAccountIds(AccountTypes.Customers);
         }
     }
 }

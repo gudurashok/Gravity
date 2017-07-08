@@ -6,6 +6,7 @@ using Gravity.Root.Model;
 using Scalable.Shared.Model;
 using Scalable.Shared.Repositories;
 using Raven.Client;
+using System;
 
 namespace Gravity.Root.Repositories
 {
@@ -78,7 +79,7 @@ namespace Gravity.Root.Repositories
 
         public IEnumerator GetEnumerator()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

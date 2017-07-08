@@ -11,14 +11,14 @@ namespace Foresight.Logic.Report
 
         protected override string getTotalValueQuery()
         {
-            string coaIds = ChartOfAccount.GetChartOfAccountIds(expensesChartOfAccountId);
+            string coaIds = GetChartOfAccountIds(expensesChartOfAccountId);
             return string.Format(ReportQueries.SelectTotalOfExpense,
                                 createFilterExprFrom(queryPrefix, getCoPeriodIds()), coaIds);
         }
 
         protected override string getTopNQuery()
         {
-            string coaIds = ChartOfAccount.GetChartOfAccountIds(expensesChartOfAccountId);
+            string coaIds = GetChartOfAccountIds(expensesChartOfAccountId);
             return string.Format(ReportQueries.SelectTopNExpenses,
                                 TopNCount, getPartyIdentityColumn(),
                                 createFilterExprFrom(queryPrefix, getCoPeriodIds()), coaIds);

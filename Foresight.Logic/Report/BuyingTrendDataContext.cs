@@ -20,7 +20,7 @@ namespace Foresight.Logic.Report
 
         private IDataReader readData()
         {
-            var coaIDs = ChartOfAccount.GetChartOfAccountIds(AccountTypes.Customers);
+            var coaIDs = GetChartOfAccountIds(AccountTypes.Customers);
             var cmd = db.CreateCommand(string.Format(ReportQueries.SelectBuyingTrend,
                             getPartyIdentityColumn(), coaIDs, getFilterExpr()));
             return cmd.ExecuteReader();

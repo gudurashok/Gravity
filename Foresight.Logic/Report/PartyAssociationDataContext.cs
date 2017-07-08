@@ -27,7 +27,7 @@ namespace Foresight.Logic.Report
 
         private string getQuery()
         {
-            string coaIds = ChartOfAccount.GetChartOfAccountIds(AccountTypes.Customers);
+            string coaIds = GetChartOfAccountIds(AccountTypes.Customers);
             return string.Format(ReportQueries.SelectTopNSalePartyAssociations,
                                 TopNCount, getPartyIdentityColumn(),
                                 getOuterQueryFilterOpr(),

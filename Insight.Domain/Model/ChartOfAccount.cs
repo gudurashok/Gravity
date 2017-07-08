@@ -35,31 +35,5 @@ namespace Insight.Domain.Model
         {
             return new ChartOfAccount(new ChartOfAccountEntity());
         }
-
-        #region Factory Method
-
-        public static string GetChartOfAccountIds(AccountTypes accountTypes)
-        {
-            return GetChartOfAccountIds((int)accountTypes);
-        }
-
-        public static string GetChartOfAccountIds(int coaId)
-        {
-            throw new NotImplementedException();
-
-            //TODO: Should be uncommented later.
-            //var coPeriods = InsightSession.Dbc.GetCompanyPeriods();
-            //if (coPeriods.Count == 0 || coaId == 0)
-            //    return " NOT IN ('') ";
-
-            //var sb = new StringBuilder(" IN (");
-            //var ids = InsightSession.Dbc.GetChartOfAccountIDsFor(coaId);
-            //foreach (var id in ids)
-            //    sb.Append(String.Format("'{0}',", id));
-
-            //return sb.Remove(sb.Length - 1, 1).Append(") ").ToString();
-        }
-
-        #endregion
     }
 }
