@@ -234,13 +234,13 @@
       <dsig:DigestValue>2PmP3lTIKe0VRDNEFY8rkuH6myKgYumWP63qSt9L1O0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Synergy.exe.config" size="1387">
+  <file name="Synergy.exe.config" size="2014">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Bt8sfYdfzkrtpGXBFJr0f7Iv97LHywDIQ+qM9xarlKg=</dsig:DigestValue>
+      <dsig:DigestValue>71Q0gGfisrfOJqUyj95wt0kHMZUqnudQPQoJBZtEYwc=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
