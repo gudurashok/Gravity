@@ -7,6 +7,8 @@ using Gravity.Root.Model;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Scalable.Win.Controls;
+using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
@@ -166,14 +168,14 @@ namespace Foresight.Win.Reports
             lvwReport.Columns.Clear();
             lvwReport.Items.Clear();
 
-            lvwReport.Columns.Add("Year", 80);
+            lvwReport.Columns.Add(new iColumnHeader("Year", 80));
 
             if (_currentView == LedgerView.Yearly)
-                lvwReport.Columns.Add("Opening", 120, HorizontalAlignment.Right);
+                lvwReport.Columns.Add(new iColumnHeader("Opening", DataType.Number, 120));
 
-            lvwReport.Columns.Add("Credit", 120, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Debit", 120, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Balance", 120, HorizontalAlignment.Right);
+            lvwReport.Columns.Add(new iColumnHeader("Credit", DataType.Number, 120));
+            lvwReport.Columns.Add(new iColumnHeader("Debit", DataType.Number, 120));
+            lvwReport.Columns.Add(new iColumnHeader("Balance", DataType.Number, 120));
         }
 
         private void setViewTypeColumnText()

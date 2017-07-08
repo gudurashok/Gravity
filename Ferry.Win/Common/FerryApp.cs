@@ -74,7 +74,6 @@ namespace Ferry.Win.Common
         private bool isForesightCompanyGroupExists()
         {
             var db = ForesightDatabaseFactory.GetInstance();
-
             if (db.IsCompanyGroupNameExist(GravitySession.CompanyGroup.Entity.Name))
                 return (db.IsCompanyGroupExist(GravitySession.CompanyGroup.Entity.ForesightDatabaseName));
 

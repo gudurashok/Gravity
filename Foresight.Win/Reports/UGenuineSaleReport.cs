@@ -9,6 +9,8 @@ using Gravity.Root.Model;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
 using Scalable.Win.Common;
+using Scalable.Win.Controls;
+using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
@@ -173,12 +175,12 @@ namespace Foresight.Win.Reports
             lvwReport.Columns.Clear();
             lvwReport.Items.Clear();
 
-            lvwReport.Columns.Add("Rank", 50, HorizontalAlignment.Right);
-            lvwReport.Columns.Add(getColumnName(), 90, HorizontalAlignment.Left);
-            lvwReport.Columns.Add("Sale", 90, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Receipt", 90, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Balance", 90, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Genuine Sale %", 70, HorizontalAlignment.Right);
+            lvwReport.Columns.Add(new iColumnHeader("Rank", DataType.Number, 50));
+            lvwReport.Columns.Add(new iColumnHeader(getColumnName(), 90));
+            lvwReport.Columns.Add(new iColumnHeader("Sale", DataType.Number, 90));
+            lvwReport.Columns.Add(new iColumnHeader("Receipt", DataType.Number, 90));
+            lvwReport.Columns.Add(new iColumnHeader("Balance", DataType.Number, 90));
+            lvwReport.Columns.Add(new iColumnHeader("Genuine Sale %", DataType.Number, 70));
             autoResize();
         }
 

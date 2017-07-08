@@ -8,6 +8,8 @@ using Foresight.Logic.Report;
 using Gravity.Root.Model;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Scalable.Win.Controls;
+using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
@@ -156,12 +158,12 @@ namespace Foresight.Win.Reports
             lvwReport.Columns.Clear();
             lvwReport.Items.Clear();
 
-            lvwReport.Columns.Add("Rank", 50);
-            lvwReport.Columns.Add(getColumnName(), 150);
-            lvwReport.Columns.Add("First Date", 80);
-            lvwReport.Columns.Add("Last Date", 80);
-            lvwReport.Columns.Add("Total Amount", 100, HorizontalAlignment.Right);
-            lvwReport.Columns.Add("Txn Count", 80, HorizontalAlignment.Right);
+            lvwReport.Columns.Add(new iColumnHeader("Rank", DataType.Number, 50));
+            lvwReport.Columns.Add(new iColumnHeader(getColumnName(), 150));
+            lvwReport.Columns.Add(new iColumnHeader("First Date", 80));
+            lvwReport.Columns.Add(new iColumnHeader("Last Date", 80));
+            lvwReport.Columns.Add(new iColumnHeader("Total Amount", DataType.Number, 100));
+            lvwReport.Columns.Add(new iColumnHeader("Txn Count", DataType.Number, 80));
             autoResize();
         }
 

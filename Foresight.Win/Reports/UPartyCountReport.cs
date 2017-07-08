@@ -8,6 +8,8 @@ using Gravity.Root.Model;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Scalable.Win.Controls;
+using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
@@ -120,9 +122,9 @@ namespace Foresight.Win.Reports
         private void buildReportViewColumns()
         {
             clearList();
-            lvwReport.Columns.Add("Year", 60);
-            lvwReport.Columns.Add("Total Amount", 120, HorizontalAlignment.Right);
-            lvwReport.Columns.Add(getColumnName(), 220, HorizontalAlignment.Right);
+            lvwReport.Columns.Add(new iColumnHeader("Year", 60));
+            lvwReport.Columns.Add(new iColumnHeader("Total Amount", DataType.Number, 120));
+            lvwReport.Columns.Add(new iColumnHeader(getColumnName(), DataType.Number, 220));
         }
 
         private string getColumnName()

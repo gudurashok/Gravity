@@ -24,7 +24,6 @@ namespace Foresight.Win.Common
                 var message = $"Company group \n'{GravitySession.CompanyGroup.Entity.Name}' not found.\n" +
                               $"Check it's physical file: {GravitySession.CompanyGroup.ForesightDatabaseName} exists.";
                 MessageBoxUtil.ShowMessage(message);
-                return false;
             }
             catch (Exception ex)
             {

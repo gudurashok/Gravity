@@ -9,6 +9,7 @@ using Gravity.Root.Model;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Scalable.Win.Controls;
 
 namespace Foresight.Win.Reports
 {
@@ -191,7 +192,7 @@ namespace Foresight.Win.Reports
             lvwReport.Columns.Clear();
             lvwReport.Items.Clear();
 
-            lvwReport.Columns.Add(getColumnName(), 150);
+            lvwReport.Columns.Add(new iColumnHeader(getColumnName(), 150));
 
             var companyIds = getDistinctCompanies();
             var count = companyIds.Count();
@@ -225,15 +226,15 @@ namespace Foresight.Win.Reports
 
         private void addListCompanyColumn(CompanyPeriodAccountValue cpav)
         {
-            var company = lvwReport.Columns.Add(cpav.Topper.CompanyPeriod.Company.Entity.Code, 100);
+            var company = new iColumnHeader(cpav.Topper.CompanyPeriod.Company.Entity.Code, 100);
+            lvwReport.Columns.Add(company);
             company.Tag = cpav.Topper.CompanyPeriod.Company.Entity.Id;
-            company.TextAlign = HorizontalAlignment.Right;
         }
 
         private void addDiffPctListColumn()
         {
-            var diffPct = lvwReport.Columns.Add("Diff.%", 65);
-            diffPct.TextAlign = HorizontalAlignment.Right;
+            var diffPct = new iColumnHeader("Diff.%", 65);
+            lvwReport.Columns.Add(diffPct);
         }
 
         private IEnumerable<string> getDistinctCompanies()
@@ -285,12 +286,12 @@ namespace Foresight.Win.Reports
             {
                 var value = getCompanyAccountValue(accountId, companyId);
                 return new CompanyPeriodAccountValue
-                           {
-                               Topper = new CompanyPeriodTopperValue
-                                            {
-                                                Account = new AccountValue { Id = accountId, Amount = value }
-                                            }
-                           };
+                {
+                    Topper = new CompanyPeriodTopperValue
+                    {
+                        Account = new AccountValue { Id = accountId, Amount = value }
+                    }
+                };
             }
 
             return cpav;

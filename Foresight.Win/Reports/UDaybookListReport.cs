@@ -8,6 +8,7 @@ using Gravity.Root.Model;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
 using Scalable.Win.Common;
+using Scalable.Win.Controls;
 
 namespace Foresight.Win.Reports
 {
@@ -72,7 +73,7 @@ namespace Foresight.Win.Reports
 
         private void lvwReport_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            EventHandlerExecutor.Execute(sortListItems,sender,e);
+            EventHandlerExecutor.Execute(sortListItems, sender, e);
         }
 
         void sortListItems(object sender, EventArgs e)
@@ -157,7 +158,7 @@ namespace Foresight.Win.Reports
             lvwReport.Items.Clear();
 
             lvwReport.Columns.Clear();
-            lvwReport.Columns.Add("Name", 280);
+            lvwReport.Columns.Add(new iColumnHeader("Name", 280));
             autoResize();
         }
 

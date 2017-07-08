@@ -10,6 +10,8 @@ using Insight.Domain.Entities;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Scalable.Win.Controls;
+using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
@@ -195,16 +197,16 @@ namespace Foresight.Win.Reports
             lvwReport.Columns.Clear();
             lvwReport.Items.Clear();
 
-            lvwReport.Columns.Add("Year", 70);
+            lvwReport.Columns.Add(new iColumnHeader("Year", 70));
             buildMonthColumns();
             buildYearTotalColumn();
         }
 
         private void buildYearTotalColumn()
         {
-            var yearTotal = lvwReport.Columns.Add("TOTAL", 100);
+            var yearTotal = new iColumnHeader("TOTAL", DataType.Number, 100);
             yearTotal.Tag = 13;
-            yearTotal.TextAlign = HorizontalAlignment.Right;
+            lvwReport.Columns.Add(yearTotal);
         }
 
         private void buildMonthColumns()
@@ -276,9 +278,9 @@ namespace Foresight.Win.Reports
 
         private void addMonthColumn(int month)
         {
-            var year = lvwReport.Columns.Add(getMonthName(calculateMonth(month)), 80);
+            var year = new iColumnHeader(getMonthName(calculateMonth(month)), 80);
+            lvwReport.Columns.Add(year);
             year.Tag = calculateMonth(month);
-            year.TextAlign = HorizontalAlignment.Right;
         }
 
         private int calculateMonth(int month)

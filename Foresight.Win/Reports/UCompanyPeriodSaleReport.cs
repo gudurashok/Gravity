@@ -10,6 +10,8 @@ using Insight.Domain.Entities;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Scalable.Win.Controls;
+using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
@@ -143,7 +145,7 @@ namespace Foresight.Win.Reports
             lvwReport.Columns.Clear();
             lvwReport.Items.Clear();
 
-            lvwReport.Columns.Add("Company", 100);
+            lvwReport.Columns.Add(new iColumnHeader("Company", 100));
 
             var periodIds = getDistinctPeriods(report);
             var count = periodIds.Count();
@@ -171,15 +173,15 @@ namespace Foresight.Win.Reports
 
         private void addYearListColumn(CompanyPeriodValue cpv)
         {
-            var year = lvwReport.Columns.Add(cpv.CompanyPeriod.Period.Entity.Financial.To.Year.ToString(), 80);
+            var year = new iColumnHeader(cpv.CompanyPeriod.Period.Entity.Financial.To.Year.ToString(), DataType.Number, 80);
+            lvwReport.Columns.Add(year);
             year.Tag = cpv.CompanyPeriod.Period.Entity.Id;
-            year.TextAlign = HorizontalAlignment.Right;
         }
 
         private void addDiffPctListColumn()
         {
-            var diffPct = lvwReport.Columns.Add("Diff %", 75);
-            diffPct.TextAlign = HorizontalAlignment.Right;
+            var diffPct = new iColumnHeader("Diff %", DataType.Number, 75);
+            lvwReport.Columns.Add(diffPct);
         }
 
         private IEnumerable<string> getDistinctPeriods(IEnumerable<CompanyPeriodValue> report)
@@ -281,7 +283,7 @@ namespace Foresight.Win.Reports
             lvs.Font = new Font(lvwReport.Font, FontStyle.Regular);
         }
 
-        private IList<CompanyPeriodValue> getCompaniesOf(IEnumerable<CompanyPeriodValue> report, 
+        private IList<CompanyPeriodValue> getCompaniesOf(IEnumerable<CompanyPeriodValue> report,
                                                             string companyId)
         {
             return (from r in report

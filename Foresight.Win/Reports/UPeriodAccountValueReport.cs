@@ -9,6 +9,8 @@ using Gravity.Root.Model;
 using Insight.Domain.Enums;
 using Insight.Domain.Model;
 using Scalable.Shared.Common;
+using Scalable.Win.Controls;
+using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
@@ -182,7 +184,7 @@ namespace Foresight.Win.Reports
             lvwReport.Columns.Clear();
             lvwReport.Items.Clear();
 
-            lvwReport.Columns.Add(getColumnName(), 150);
+            lvwReport.Columns.Add(new iColumnHeader(getColumnName(), 150));
 
             var periodIds = getDistinctPeriods();
             if (periodIds == null)
@@ -215,15 +217,15 @@ namespace Foresight.Win.Reports
 
         private void addListPeriodColumn(CompanyPeriodAccountValue cpv)
         {
-            var year = lvwReport.Columns.Add(cpv.Topper.CompanyPeriod.Period.Entity.Financial.To.Year.ToString(), 100);
+            var year = new iColumnHeader(cpv.Topper.CompanyPeriod.Period.Entity.Financial.To.Year.ToString(), DataType.Number, 100);
+            lvwReport.Columns.Add(year);
             year.Tag = cpv.Topper.CompanyPeriod.Period.Entity.Id;
-            year.TextAlign = HorizontalAlignment.Right;
         }
 
         private void addDiffPctListColumn()
         {
-            var diffPct = lvwReport.Columns.Add("Diff.%", 65);
-            diffPct.TextAlign = HorizontalAlignment.Right;
+            var diffPct = new iColumnHeader("Diff.%", DataType.Number, 65);
+            lvwReport.Columns.Add(diffPct);
         }
 
         private IEnumerable<string> getDistinctPeriods()
