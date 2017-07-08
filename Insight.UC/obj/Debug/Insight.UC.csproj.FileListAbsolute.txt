@@ -236,6 +236,7 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Debu
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Debug\Insight.UC.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Debug\Insight.UC.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Debug\Insight.UC.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Dictionary\en-US.dic
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Insight.UC.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Insight.UC.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Gravity.Root.dll
@@ -305,4 +306,3 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCo
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Dictionary\en-US.dic

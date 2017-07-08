@@ -66,7 +66,9 @@ namespace Ferry.Win.Common
             var repo = new CoGroupRepository();
             companyGroup.Entity.Id = GravitySession.CompanyGroup.Entity.Id;
             GravitySession.CompanyGroup.Entity.ForesightDatabaseName = companyGroup.Entity.ForesightDatabaseName;
+            GravitySession.CompanyGroup.Entity.ForesightGroupId = companyGroup.Entity.ForesightGroupId;
             GravitySession.CompanyGroup.ForesightDatabaseName = companyGroup.ForesightDatabaseName;
+            repo.Save(GravitySession.CompanyGroup.Entity);
         }
 
         private bool isForesightCompanyGroupExists()

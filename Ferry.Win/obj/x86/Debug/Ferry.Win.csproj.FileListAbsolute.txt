@@ -157,8 +157,8 @@ C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FCoG
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FCompanyPeriod.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FImporter.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FMain.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FStatusMessage.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Properties.Resources.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FStatusMessage.resources

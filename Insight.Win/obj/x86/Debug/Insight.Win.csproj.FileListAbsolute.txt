@@ -134,6 +134,7 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Win\obj\x86
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Win\obj\x86\Debug\Insight.exe
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Win\obj\x86\Debug\Insight.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Dictionary\en-US.dic
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.exe.config
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Insight.pdb
@@ -169,4 +170,3 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.Proper
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\obj\x86\Debug\Insight.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.Win\bin\Debug\Dictionary\en-US.dic
