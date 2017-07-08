@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Foresight.Logic.DataAccess;
 using Gravity.Root.Model;
 using Gravity.Root.Repositories;
+using System.Collections.Generic;
 
 namespace Ferry.Win.Common
 {
@@ -83,6 +84,39 @@ namespace Ferry.Win.Common
         protected override void setMainForm()
         {
             MainForm = new FMain(this);
+        }
+
+        protected override void saveMainWindowStateInUserConfig()
+        {
+            if (SkipSaveUserConfig) return;
+
+            var settings = new Dictionary<string, object>();
+            var mainForm = ApplicationContext.MainForm;
+            settings.Add(UserConfig.ferryMainWindowStateKey, mainForm.WindowState);
+            settings.Add(UserConfig.ferryMainWindowStartPositionKey, MainForm.StartPosition);
+            settings.Add(UserConfig.ferryMainWindowLocationKey, mainForm.Location);
+            settings.Add(UserConfig.ferryMainWindowSizeKey, mainForm.Size);
+            UserConfig.SaveSettings(GravitySession.User.Entity.Id, settings);
+        }
+
+        protected override void setUserConfig()
+        {
+            var winState = UserConfig.FerryMainWindowState;
+            MainForm.WindowState = winState == FormWindowState.Minimized
+                                            ? FormWindowState.Normal
+                                            : winState;
+
+            MainForm.StartPosition = UserConfig.FerryMainWindowLocation.IsEmpty
+                                    ? UserConfig.FerryMainWindowStartPosition
+                                    : FormStartPosition.Manual;
+            var size = UserConfig.FerryMainWindowSize;
+            MainForm.Size = size.IsEmpty ? MainForm.Size : size;
+
+            var location = UserConfig.FerryMainWindowLocation;
+            if (!Screen.PrimaryScreen.WorkingArea.Contains(location.X, location.Y))
+                MainForm.StartPosition = FormStartPosition.CenterScreen;
+            else
+                MainForm.Location = location.IsEmpty ? MainForm.Location : location;
         }
     }
 }

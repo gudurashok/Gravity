@@ -28,6 +28,39 @@ namespace Synergy.Win.Common
             MainForm = new FMain(this);
         }
 
+        protected override void saveMainWindowStateInUserConfig()
+        {
+            if (SkipSaveUserConfig) return;
+
+            var settings = new Dictionary<string, object>();
+            var mainForm = ApplicationContext.MainForm;
+            settings.Add(UserConfig.synergyMainWindowStateKey, mainForm.WindowState);
+            settings.Add(UserConfig.synergyMainWindowStartPositionKey, MainForm.StartPosition);
+            settings.Add(UserConfig.synergyMainWindowLocationKey, mainForm.Location);
+            settings.Add(UserConfig.synergyMainWindowSizeKey, mainForm.Size);
+            UserConfig.SaveSettings(GravitySession.User.Entity.Id, settings);
+        }
+
+        protected override void setUserConfig()
+        {
+            var winState = UserConfig.SynergyMainWindowState;
+            MainForm.WindowState = winState == FormWindowState.Minimized
+                                            ? FormWindowState.Normal
+                                            : winState;
+
+            MainForm.StartPosition = UserConfig.SynergyMainWindowLocation.IsEmpty
+                                    ? UserConfig.SynergyMainWindowStartPosition
+                                    : FormStartPosition.Manual;
+            var size = UserConfig.SynergyMainWindowSize;
+            MainForm.Size = size.IsEmpty ? MainForm.Size : size;
+
+            var location = UserConfig.SynergyMainWindowLocation;
+            if (!Screen.PrimaryScreen.WorkingArea.Contains(location.X, location.Y))
+                MainForm.StartPosition = FormStartPosition.CenterScreen;
+            else
+                MainForm.Location = location.IsEmpty ? MainForm.Location : location;
+        }
+
         //protected override void createIndexes()
         //{
         //    GravitySession.StoreManager.CreateIndexesFrom(GetAssembliesToScanForIndexingTasks());

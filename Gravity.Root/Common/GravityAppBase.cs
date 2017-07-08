@@ -5,6 +5,7 @@ using Gravity.Root.Services;
 using Scalable.Shared.Common;
 using Scalable.Win.Common;
 using System;
+using System.Collections.Generic;
 
 namespace Gravity.Root.Common
 {
@@ -34,35 +35,37 @@ namespace Gravity.Root.Common
             EventHandlerExecutor.Execute(saveMainWindowStateInUserConfig);
         }
 
-        private void saveMainWindowStateInUserConfig()
+        protected virtual void saveMainWindowStateInUserConfig()
         {
             if (SkipSaveUserConfig) return;
 
-            var mainForm = ApplicationContext.MainForm;
-            UserConfig.MainWindowState = mainForm.WindowState;
-            UserConfig.MainWindowStartPosition = MainForm.StartPosition;
-            UserConfig.MainWindowLocation = mainForm.Location;
-            UserConfig.MainWindowSize = mainForm.Size;
+            //var settings = new Dictionary<string, object>();
+            //var mainForm = ApplicationContext.MainForm;
+            //settings.Add(UserConfig.gravityMainWindowStateKey, mainForm.WindowState);
+            //settings.Add(UserConfig.gravityMainWindowStartPositionKey, MainForm.StartPosition);
+            //settings.Add(UserConfig.gravityMainWindowLocationKey, mainForm.Location);
+            //settings.Add(UserConfig.gravityMainWindowSizeKey, mainForm.Size);
+            //UserConfig.SaveSettings(GravitySession.User.Entity.Id, settings);
         }
 
-        protected void setUserConfig()
+        protected virtual void setUserConfig()
         {
-            var winState = UserConfig.MainWindowState;
-            MainForm.WindowState = winState == FormWindowState.Minimized
-                                            ? FormWindowState.Normal
-                                            : winState;
+            //var winState = UserConfig.GravityMainWindowState;
+            //MainForm.WindowState = winState == FormWindowState.Minimized
+            //                                ? FormWindowState.Normal
+            //                                : winState;
 
-            MainForm.StartPosition = UserConfig.MainWindowLocation.IsEmpty
-                                    ? UserConfig.MainWindowStartPosition
-                                    : FormStartPosition.Manual;
-            var size = UserConfig.MainWindowSize;
-            MainForm.Size = size.IsEmpty ? MainForm.Size : size;
+            //MainForm.StartPosition = UserConfig.GravityMainWindowLocation.IsEmpty
+            //                        ? UserConfig.GravityMainWindowStartPosition
+            //                        : FormStartPosition.Manual;
+            //var size = UserConfig.GravityMainWindowSize;
+            //MainForm.Size = size.IsEmpty ? MainForm.Size : size;
 
-            var location = UserConfig.MainWindowLocation;
-            if (!Screen.PrimaryScreen.WorkingArea.Contains(location.X, location.Y))
-                MainForm.StartPosition = FormStartPosition.CenterScreen;
-            else
-                MainForm.Location = location.IsEmpty ? MainForm.Location : location;
+            //var location = UserConfig.GravityMainWindowLocation;
+            //if (!Screen.PrimaryScreen.WorkingArea.Contains(location.X, location.Y))
+            //    MainForm.StartPosition = FormStartPosition.CenterScreen;
+            //else
+            //    MainForm.Location = location.IsEmpty ? MainForm.Location : location;
         }
 
         protected override void OnShutdown()

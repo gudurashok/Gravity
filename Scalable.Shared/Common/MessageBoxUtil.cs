@@ -15,7 +15,6 @@ namespace Scalable.Shared.Common
 #if DEBUG
             ShowMessageBox(exception.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 #else
-            //TODO: Log the full error exception.ToString() in logger...
             ShowMessageBox(exception.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 #endif
         }

@@ -2,9 +2,12 @@
 using Foresight.Win.Forms;
 using Gravity.Root.Common;
 using Gravity.Root.Forms;
+using Gravity.Root.Model;
 using Microsoft.VisualBasic.ApplicationServices;
 using Scalable.Shared.Common;
 using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Foresight.Win.Common
 {
@@ -45,6 +48,39 @@ namespace Foresight.Win.Common
         protected override void setMainForm()
         {
             MainForm = new FMain();
+        }
+
+        protected override void saveMainWindowStateInUserConfig()
+        {
+            if (SkipSaveUserConfig) return;
+
+            var settings = new Dictionary<string, object>();
+            var mainForm = ApplicationContext.MainForm;
+            settings.Add(UserConfig.foresightMainWindowStateKey, mainForm.WindowState);
+            settings.Add(UserConfig.foresightMainWindowStartPositionKey, MainForm.StartPosition);
+            settings.Add(UserConfig.foresightMainWindowLocationKey, mainForm.Location);
+            settings.Add(UserConfig.foresightMainWindowSizeKey, mainForm.Size);
+            UserConfig.SaveSettings(GravitySession.User.Entity.Id, settings);
+        }
+
+        protected override void setUserConfig()
+        {
+            var winState = UserConfig.ForesightMainWindowState;
+            MainForm.WindowState = winState == FormWindowState.Minimized
+                                            ? FormWindowState.Normal
+                                            : winState;
+
+            MainForm.StartPosition = UserConfig.ForesightMainWindowLocation.IsEmpty
+                                    ? UserConfig.ForesightMainWindowStartPosition
+                                    : FormStartPosition.Manual;
+            var size = UserConfig.ForesightMainWindowSize;
+            MainForm.Size = size.IsEmpty ? MainForm.Size : size;
+
+            var location = UserConfig.ForesightMainWindowLocation;
+            if (!Screen.PrimaryScreen.WorkingArea.Contains(location.X, location.Y))
+                MainForm.StartPosition = FormStartPosition.CenterScreen;
+            else
+                MainForm.Location = location.IsEmpty ? MainForm.Location : location;
         }
     }
 }

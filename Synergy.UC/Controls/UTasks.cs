@@ -1135,10 +1135,12 @@ namespace Synergy.UC.Controls
 
             TaskExecution.HaltCurrentTask("Application closed");
 
-            UserConfig.TaskWindowStartPosition = _taskWindowStartPosition;
-            UserConfig.TaskWindowState = _taskWindowState;
-            UserConfig.TaskWindowLocation = _taskWindowLocation;
-            UserConfig.TaskWindowSize = _taskWindowSize;
+            var settings = new Dictionary<string, object>();
+            settings.Add(UserConfig.taskWindowStartPositionKey, _taskWindowStartPosition);
+            settings.Add(UserConfig.taskWindowStateKey, _taskWindowState);
+            settings.Add(UserConfig.taskWindowLocationKey, _taskWindowLocation);
+            settings.Add(UserConfig.taskWindowSizeKey, _taskWindowSize);
+            UserConfig.SaveSettings(GravitySession.User.Entity.Id, settings);
         }
 
         #endregion
