@@ -70,6 +70,7 @@
     <Compile Include="Common\InsightSession.cs" />
     <Compile Include="Common\TransactionFactory.cs" />
     <Compile Include="Entities\AccountEntity.cs" />
+    <Compile Include="Entities\AccountOpeningBalanceEntity.cs" />
     <Compile Include="Entities\BillTermEntity.cs" />
     <Compile Include="Entities\ChartOfAccountEntity.cs" />
     <Compile Include="Entities\CompanyEntity.cs" />

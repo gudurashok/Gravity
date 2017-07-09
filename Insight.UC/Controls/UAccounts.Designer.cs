@@ -126,10 +126,10 @@
             this.uAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uAccount.Enabled = false;
             this.uAccount.Location = new System.Drawing.Point(2, 174);
-            this.uAccount.MaximumSize = new System.Drawing.Size(640, 126);
-            this.uAccount.MinimumSize = new System.Drawing.Size(300, 126);
+            this.uAccount.MaximumSize = new System.Drawing.Size(640, 156);
+            this.uAccount.MinimumSize = new System.Drawing.Size(300, 156);
             this.uAccount.Name = "uAccount";
-            this.uAccount.Size = new System.Drawing.Size(374, 126);
+            this.uAccount.Size = new System.Drawing.Size(374, 156);
             this.uAccount.TabIndex = 3;
             // 
             // UAccounts
@@ -137,9 +137,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.uAccount);
-            this.MinimumSize = new System.Drawing.Size(378, 302);
+            this.MinimumSize = new System.Drawing.Size(378, 332);
             this.Name = "UAccounts";
-            this.Size = new System.Drawing.Size(378, 302);
+            this.Size = new System.Drawing.Size(378, 332);
             this.Controls.SetChildIndex(this.uAccount, 0);
             this.Controls.SetChildIndex(this.lvw, 0);
             this.Controls.SetChildIndex(this.CommandBar, 0);

@@ -163,8 +163,8 @@ namespace Insight.Win.Forms
 
         void processSetup()
         {
-            var f1 = new FOptions(new InsightEntityListRepository());
-            f1.ShowDialog();
+            var optionsForm = new FOptions(new InsightEntityListRepository());
+            optionsForm.ShowDialog();
         }
 
         #endregion

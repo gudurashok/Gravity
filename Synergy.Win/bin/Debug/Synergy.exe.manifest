@@ -56,7 +56,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O2H1bxA/I+N2SE0PXofebT27DlLOhpIKze43wLQjBPs=</dsig:DigestValue>
+        <dsig:DigestValue>l2kqINHoajKMzoi+crIEPz1AsB0rZZdULBXpQut+wlI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -68,19 +68,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PW9ZLhmYomiYapqO1q0xT6B4TrmqdCS47wLH0/2jCn4=</dsig:DigestValue>
+        <dsig:DigestValue>AYbBpq9i55idlm0FAILJJ3kqL2/hSzy/n+A8yzQCXW8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mingle.UC.dll" size="134144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mingle.UC.dll" size="135168">
       <assemblyIdentity name="Mingle.UC" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O+DWMHPnM9925ZI2eJHXxBHTPNP5JhFyYARtzWvPTm0=</dsig:DigestValue>
+        <dsig:DigestValue>MlXn5QiNXiE5eDKXHinAuad7A+WE6KBcys0dEZLrg8w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -140,7 +140,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8F25+VkItJBUtmHr2Yt3/Z/LBqLikUWAYHDROVjYmC8=</dsig:DigestValue>
+        <dsig:DigestValue>1/yMS75NHXfLmNFKYKDkmdyQEjpD4HbBSuRCIzZU1ls=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -152,7 +152,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kO6hU3oFkp3u9FcRAXpM4+413v4zO+Ewz0W5dxnHcJg=</dsig:DigestValue>
+        <dsig:DigestValue>ciD71jf1NA+uDkcG3qaVDxpJBQcU/hrWs2kMuQTA0T0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -164,19 +164,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BIsQqIUojaRUIgIJjNDMro3L6N25PLFWu4iG4qhMF40=</dsig:DigestValue>
+        <dsig:DigestValue>IwilBvcB+Uc7Qn+Vs4EbnLtNAZsHiU3VZs+1JQS2eRM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scalable.Win.dll" size="176128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Scalable.Win.dll" size="176640">
       <assemblyIdentity name="Scalable.Win" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UF2EAnTeuOcVnvPYnqhmULfjqnVlV4z8XG2lphNALkc=</dsig:DigestValue>
+        <dsig:DigestValue>c949Zih0Zv8hdkFc5u4Mssbw4ubaYjY2s69eb3S/QkY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -188,19 +188,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>oyXJlBLHCpW3ZYVHGTRhn7+fmYOWoe38PXlw6cvPqAI=</dsig:DigestValue>
+        <dsig:DigestValue>fSynSr6ljqPz8lTCY88/tvU9HSAwqtRpRBsF6fSgi5Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Synergy.Domain.dll" size="143360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Synergy.Domain.dll" size="143872">
       <assemblyIdentity name="Synergy.Domain" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zhtcLvRaQ/Ing2TctjFnJw2kYmY6/qtX7E5sf2AgYw0=</dsig:DigestValue>
+        <dsig:DigestValue>X7ZTiOzGUQxEahF6eQeTpWvRzLuLWBG+mKfFkaflSyc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -212,7 +212,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eN7m/bz15sJhHrtLNn7TY5woqaMfWM3lVcwZ/mmUqS8=</dsig:DigestValue>
+        <dsig:DigestValue>C/QjMAJroy5MUxT+8hwUxWvZoY/0NrEnCLEIsMSNQ1M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

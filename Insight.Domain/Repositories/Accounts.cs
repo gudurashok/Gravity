@@ -7,6 +7,9 @@ using Insight.Domain.ViewModel;
 using Mingle.Domain.Repositories;
 using Scalable.Shared.Model;
 using Scalable.Shared.Repositories;
+using Raven.Client;
+using System;
+using Gravity.Root.Common;
 
 namespace Insight.Domain.Repositories
 {
@@ -31,11 +34,24 @@ namespace Insight.Domain.Repositories
                                 Party = string.IsNullOrEmpty(a.PartyId)
                                             ? null
                                             : repo.GetById(a.PartyId, false),
-                                ChartOfAccount = new ChartOfAccount(s.Load<ChartOfAccountEntity>(a.ChartOfAccountId))
+                                ChartOfAccount = new ChartOfAccount(s.Load<ChartOfAccountEntity>(a.ChartOfAccountId)),
+                                OpeningBalance = getOpeningBalance(a.Id, s),
                             }
                         })
                         .Cast<dynamic>().ToList();
             }
+        }
+
+        private AccountOpeningBalanceEntity getOpeningBalance(string accountId, IDocumentSession s)
+        {
+            var result = s.Query<AccountOpeningBalanceEntity>()
+                          .Where(opb => opb.AccountId == accountId)
+                          .SingleOrDefault();
+
+            if (result != null)
+                return result;
+
+            return new AccountOpeningBalanceEntity { AccountId = accountId };
         }
     }
 }

@@ -511,9 +511,9 @@ namespace Foresight.Logic.DataAccess
 
         private void setAccountOpeningBalanceParams(IDbCommand cmd, AccountOpeningBalance aob)
         {
-            _db.AddParameterWithValue(cmd, "@accountId", aob.Account.Entity.Id);
-            _db.AddParameterWithValue(cmd, "@date", aob.Date);
-            _db.AddParameterWithValue(cmd, "@amount", aob.Amount);
+            _db.AddParameterWithValue(cmd, "@accountId", aob.Entity.AccountId);
+            _db.AddParameterWithValue(cmd, "@date", aob.Entity.Date);
+            _db.AddParameterWithValue(cmd, "@amount", aob.Entity.Amount);
         }
 
         #endregion

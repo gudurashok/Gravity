@@ -325,8 +325,8 @@ namespace Synergy.UC.Controls
 
         void processSetup()
         {
-            var f1 = new FOptions();
-            f1.ShowDialog();
+            var optionsForm = new FOptions();
+            optionsForm.ShowDialog();
         }
 
         #endregion

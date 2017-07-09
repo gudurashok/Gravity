@@ -166,8 +166,8 @@ namespace Gravity.Root.Controls
 
         void processOptions()
         {
-            var f1 = new FOptions(new EntityListRepository());
-            f1.ShowDialog();
+            var optionsForm = new FOptions(new EntityListRepository());
+            optionsForm.ShowDialog();
         }
 
         #endregion

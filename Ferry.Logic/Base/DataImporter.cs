@@ -152,9 +152,11 @@ namespace Ferry.Logic.Base
         private AccountOpeningBalance getAccountOpeningBalance(SourceAccount sourceAccount)
         {
             var aob = new AccountOpeningBalance();
-            aob.Account = extractor.LoadAccount(extractor.GetAccount(sourceAccount.Code));
-            aob.Date = companyPeriod.Period.Entity.Financial.From;
-            aob.Amount = sourceAccount.OpeningBalance;
+            var account = extractor.LoadAccount(extractor.GetAccount(sourceAccount.Code));
+            aob.Account = account;
+            aob.Entity.AccountId = account.Entity.Id;
+            aob.Entity.Date = companyPeriod.Period.Entity.Financial.From;
+            aob.Entity.Amount = sourceAccount.OpeningBalance;
             return aob;
         }
 

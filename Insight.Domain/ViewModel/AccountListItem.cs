@@ -25,5 +25,10 @@ namespace Insight.Domain.ViewModel
         {
             get { return Account.Group.Entity.Name; }
         }
+
+        public decimal OpeningBalance
+        {
+            get { return Account.OpeningBalance.Amount; }
+        }
     }
 }

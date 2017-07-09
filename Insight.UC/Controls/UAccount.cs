@@ -7,6 +7,7 @@ using Mingle.Domain.ViewModel;
 using Scalable.Shared.Common;
 using Scalable.Win.Events;
 using Scalable.Win.FormControls;
+using Insight.Domain.Common;
 
 namespace Insight.UC.Controls
 {
@@ -57,6 +58,13 @@ namespace Insight.UC.Controls
             fillPartyObject();
             fillChartOfAccountObject();
             fillGroup();
+            fillOpeningBalance();
+        }
+
+        private void fillOpeningBalance()
+        {
+            _account.OpeningBalance.Amount = Convert.ToDecimal(ntbOpeningBalance.Text);
+            _account.OpeningBalance.Date = InsightSession.CompanyPeriod.Period.Entity.Financial.From;
         }
 
         private void fillChartOfAccountObject()
@@ -95,6 +103,9 @@ namespace Insight.UC.Controls
             txbParty.Value = getParty();
             txbChartOfAccount.Value = getChartOfAccount();
             txbGroup.Value = getGroup();
+            var openingBalance = _account.GetOpeningBalance();
+            ntbOpeningBalance.Text = openingBalance.ToString();
+            ntbOpeningBalance.Value = Convert.ToDouble(openingBalance);
         }
 
         private PartyListItem getParty()
@@ -131,8 +142,8 @@ namespace Insight.UC.Controls
 
         protected virtual void OnAccountSaved(EventArgs e)
         {
-            if (ItemSaved != null)
-                ItemSaved(this, e);
+            ItemSaved?.Invoke(this, e);
         }
     }
 }
+

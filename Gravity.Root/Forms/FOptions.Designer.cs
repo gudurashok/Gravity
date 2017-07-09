@@ -54,16 +54,16 @@ namespace Gravity.Root.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uOptions.Location = new System.Drawing.Point(0, 45);
             this.uOptions.Name = "uOptions";
-            this.uOptions.Size = new System.Drawing.Size(554, 354);
+            this.uOptions.Size = new System.Drawing.Size(654, 384);
             this.uOptions.TabIndex = 13;
             // 
             // FOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 399);
+            this.ClientSize = new System.Drawing.Size(654, 429);
             this.Controls.Add(this.uOptions);
-            this.MinimumSize = new System.Drawing.Size(570, 433);
+            this.MinimumSize = new System.Drawing.Size(570, 463);
             this.Name = "FOptions";
             this.Text = "FOptions";
             this.Controls.SetChildIndex(this.uOptions, 0);

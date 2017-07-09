@@ -3,6 +3,7 @@ using Insight.Domain.Entities;
 using Insight.Domain.Properties;
 using Insight.Domain.Repositories;
 using Mingle.Domain.Model;
+using Scalable.Shared.Common;
 
 namespace Insight.Domain.Model
 {
@@ -12,10 +13,23 @@ namespace Insight.Domain.Model
         public Account Group { get; set; }
         public ChartOfAccount ChartOfAccount { get; set; }
         public Party Party { get; set; }
+        public AccountOpeningBalanceEntity OpeningBalance { get; set; }
 
         public Account(AccountEntity entity)
         {
             Entity = entity;
+            OpeningBalance = new AccountOpeningBalanceEntity
+            {
+                AccountId = entity.Id,
+            };
+        }
+
+        public decimal GetOpeningBalance()
+        {
+            if (OpeningBalance == null)
+                return 0;
+
+            return OpeningBalance.Amount;
         }
 
         public string ToStringAddress()
@@ -41,6 +55,8 @@ namespace Insight.Domain.Model
                 throw new ValidationException(Resources.AccountAlreadyExist);
 
             repo.Save(Entity);
+            OpeningBalance.AccountId = Entity.Id;
+            repo.Save(OpeningBalance);
         }
 
         public static Account New()

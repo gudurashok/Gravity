@@ -32,7 +32,8 @@ namespace Insight.UC.Controls
         {
             ListView.Columns.Clear();
             ListView.Columns.Add(new iColumnHeader("Name", true));
-            ListView.Columns.Add(new iColumnHeader("ChartOfAccount", 120));
+            ListView.Columns.Add(new iColumnHeader("ChartOfAccount", "Chart of Account", 120));
+            ListView.Columns.Add(new iColumnHeader("OpeningBalance", "Opening Balance", 100));
         }
 
         #endregion
