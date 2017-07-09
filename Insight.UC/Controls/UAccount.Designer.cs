@@ -39,6 +39,7 @@
             this.txbGroup = new Scalable.Win.Controls.iTextBoxButton();
             this.ntbOpeningBalance = new Scalable.Win.Controls.iNumberTextBox();
             this.lblOpeningBalance = new Scalable.Win.Controls.iLabel();
+            this.cmbOpeningBalancebDbCr = new Scalable.Win.Controls.iComboBox();
             this.CommandBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             // 
             // txtName
             // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Location = new System.Drawing.Point(92, 3);
             this.txtName.Name = "txtName";
@@ -87,7 +88,7 @@
             // 
             // txbParty
             // 
-            this.txbParty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbParty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbParty.Location = new System.Drawing.Point(92, 26);
             this.txbParty.Name = "txbParty";
@@ -97,7 +98,7 @@
             // 
             // txbChartOfAccount
             // 
-            this.txbChartOfAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbChartOfAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbChartOfAccount.Location = new System.Drawing.Point(92, 49);
             this.txbChartOfAccount.Name = "txbChartOfAccount";
@@ -127,7 +128,7 @@
             // 
             // txbGroup
             // 
-            this.txbGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbGroup.Location = new System.Drawing.Point(92, 72);
             this.txbGroup.Name = "txbGroup";
@@ -146,22 +147,33 @@
             // 
             // ntbOpeningBalance
             // 
-            this.ntbOpeningBalance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ntbOpeningBalance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ntbOpeningBalance.DisplayFormat = "##,##,##,###.##";
             this.ntbOpeningBalance.Location = new System.Drawing.Point(92, 95);
             this.ntbOpeningBalance.Name = "ntbOpeningBalance";
-            this.ntbOpeningBalance.Size = new System.Drawing.Size(177, 22);
+            this.ntbOpeningBalance.Size = new System.Drawing.Size(121, 22);
             this.ntbOpeningBalance.TabIndex = 9;
             this.ntbOpeningBalance.Text = "0.00";
             this.ntbOpeningBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ntbOpeningBalance.Value = 0D;
             this.ntbOpeningBalance.ValueFormat = "9.2";
             // 
+            // cmbOpeningBalancebDbCr
+            // 
+            this.cmbOpeningBalancebDbCr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbOpeningBalancebDbCr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOpeningBalancebDbCr.FormattingEnabled = true;
+            this.cmbOpeningBalancebDbCr.Location = new System.Drawing.Point(217, 95);
+            this.cmbOpeningBalancebDbCr.Name = "cmbOpeningBalancebDbCr";
+            this.cmbOpeningBalancebDbCr.Size = new System.Drawing.Size(60, 21);
+            this.cmbOpeningBalancebDbCr.TabIndex = 9;
+            // 
             // UAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cmbOpeningBalancebDbCr);
             this.Controls.Add(this.ntbOpeningBalance);
             this.Controls.Add(this.lblOpeningBalance);
             this.Controls.Add(this.txbGroup);
@@ -187,6 +199,7 @@
             this.Controls.SetChildIndex(this.txbGroup, 0);
             this.Controls.SetChildIndex(this.lblOpeningBalance, 0);
             this.Controls.SetChildIndex(this.ntbOpeningBalance, 0);
+            this.Controls.SetChildIndex(this.cmbOpeningBalancebDbCr, 0);
             this.CommandBar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -204,7 +217,8 @@
         private Scalable.Win.Controls.iCommandButton btnSave;
         private Scalable.Win.Controls.iLabel lblGroup;
         private Scalable.Win.Controls.iTextBoxButton txbGroup;
-        protected Scalable.Win.Controls.iNumberTextBox ntbOpeningBalance;
-        protected Scalable.Win.Controls.iLabel lblOpeningBalance;
+        private Scalable.Win.Controls.iNumberTextBox ntbOpeningBalance;
+        private Scalable.Win.Controls.iLabel lblOpeningBalance;
+        private Scalable.Win.Controls.iComboBox cmbOpeningBalancebDbCr;
     }
 }

@@ -8,6 +8,8 @@ using Scalable.Shared.Common;
 using Scalable.Win.Events;
 using Scalable.Win.FormControls;
 using Insight.Domain.Common;
+using Insight.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Insight.UC.Controls
 {
@@ -28,6 +30,7 @@ namespace Insight.UC.Controls
             txbParty.ItemSelected += txbParty_ItemSelected;
             txbChartOfAccount.PickList = PicklistFactory.ChartOfAccounts.Form;
             txbGroup.PickList = PicklistFactory.Accounts.Form;
+            EnumUtil.LoadEnumListItems(cmbOpeningBalancebDbCr, typeof(TxnType));
         }
 
         void txbParty_ItemSelected(object sender, PicklistItemEventArgs e)
@@ -63,7 +66,16 @@ namespace Insight.UC.Controls
 
         private void fillOpeningBalance()
         {
-            _account.OpeningBalance.Amount = Convert.ToDecimal(ntbOpeningBalance.Text);
+            var amount = Convert.ToDecimal(ntbOpeningBalance.Text);
+            if (amount != 0 && cmbOpeningBalancebDbCr.SelectedIndex == -1)
+                throw new ValidationException("Please select whther opening balance is Debit or Credit");
+
+            if (amount != 0)
+            {
+                var opbDbCr = (TxnType)cmbOpeningBalancebDbCr.SelectedValue;
+                amount = opbDbCr == TxnType.Credit ? amount : -amount;
+            }
+            _account.OpeningBalance.Amount = amount;
             _account.OpeningBalance.Date = InsightSession.CompanyPeriod.Period.Entity.Financial.From;
         }
 
@@ -103,9 +115,19 @@ namespace Insight.UC.Controls
             txbParty.Value = getParty();
             txbChartOfAccount.Value = getChartOfAccount();
             txbGroup.Value = getGroup();
+
             var openingBalance = _account.GetOpeningBalance();
             ntbOpeningBalance.Text = openingBalance.ToString();
-            ntbOpeningBalance.Value = Convert.ToDouble(openingBalance);
+            ntbOpeningBalance.Value = Convert.ToDouble(Math.Abs(openingBalance));
+
+            if (openingBalance == 0)
+            {
+                cmbOpeningBalancebDbCr.SelectedIndex = -1;
+                return;
+            }
+
+            var dbCrValue = openingBalance > 0 ? TxnType.Credit : TxnType.Debit;
+            EnumUtil.SetEnumListItem(cmbOpeningBalancebDbCr, dbCrValue);
         }
 
         private PartyListItem getParty()
