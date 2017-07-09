@@ -76,7 +76,7 @@ namespace Foresight.Win.Reports
 
         protected string formatAmount(decimal value, ListControl control, bool withDbCr)
         {
-            return (value / Scalable.Shared.Common.AmountFormat.Value(control)).ToString(withDbCr ? CommonUtil.AmountFormatWithCrDb : "##,##,##0.00");
+            return (value / Scalable.Shared.Common.AmountFormat.Value(control)).ToString(withDbCr ? CommonUtil.AmountFormatWithCrDbZero : "##,##,##0.00");
         }
 
         protected string formatAmountWithBlank(decimal value, ListControl control)

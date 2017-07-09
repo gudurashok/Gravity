@@ -4,6 +4,7 @@ using Insight.UC.Forms;
 using Scalable.Shared.Common;
 using Scalable.Win.Controls;
 using Scalable.Win.FormControls;
+using Scalable.Shared.Enums;
 
 namespace Insight.UC.Controls
 {
@@ -27,7 +28,9 @@ namespace Insight.UC.Controls
             ListView.Columns.Clear();
             ListView.Columns.Add(new iColumnHeader("Name", true));
             ListView.Columns.Add(new iColumnHeader("ChartOfAccount", "Chart of Account", 120));
-            ListView.Columns.Add(new iColumnHeader("OpeningBalance", "Opening Balance", 100));
+            var opbCol = new iColumnHeader("OpeningBalance", "Opening Balance", DataType.Number, 100);
+            opbCol.Format = CommonUtil.AmountFormatWithCrDb;
+            ListView.Columns.Add(opbCol);
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)

@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Diagnostics;
 using System.Text;
+using Scalable.Shared.Enums;
 
 namespace Scalable.Win.Controls
 {
@@ -177,7 +178,14 @@ namespace Scalable.Win.Controls
             if (value == null)
                 return "";
 
-            return value.ToString(); //TODO: Apply column format
+            //TODO: Use column DataType and auto format accordingly
+            if (col.DataType == DataType.Number)
+            {
+                if (!string.IsNullOrWhiteSpace(col.Format))
+                    return Convert.ToDecimal(value).ToString(col.Format);
+            }
+
+            return value.ToString();
         }
 
         #endregion

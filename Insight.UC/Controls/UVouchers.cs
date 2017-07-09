@@ -12,6 +12,7 @@ using Scalable.Shared.Repositories;
 using Scalable.Win.Controls;
 using Scalable.Win.Events;
 using Scalable.Win.FormControls;
+using Scalable.Shared.Enums;
 
 namespace Insight.UC.Controls
 {
@@ -35,7 +36,9 @@ namespace Insight.UC.Controls
             ListView.Columns.Add(new iColumnHeader("Daybook", 100));
             ListView.Columns.Add(new iColumnHeader("Date", 70));
             ListView.Columns.Add(new iColumnHeader("Account", true));
-            ListView.Columns.Add(new iColumnHeader("Amount", 90));
+            var amountCol = new iColumnHeader("Amount", DataType.Number, 100);
+            amountCol.Format = CommonUtil.AmountFormat;
+            ListView.Columns.Add(amountCol);
         }
 
         private void newVoucherToolStripMenuItem_Click(object sender, EventArgs e)

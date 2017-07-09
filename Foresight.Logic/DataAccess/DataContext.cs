@@ -502,18 +502,18 @@ namespace Foresight.Logic.DataAccess
 
         #region Account Opening Balance
 
-        public void SaveAccountOpeningBalance(AccountOpeningBalance aob)
+        public void SaveAccountOpeningBalance(AccountOpeningBalanceEntity aob)
         {
             var cmd = _db.CreateCommand(SqlQueries.InsertAccountOpeningBalance);
             setAccountOpeningBalanceParams(cmd, aob);
             cmd.ExecuteNonQuery();
         }
 
-        private void setAccountOpeningBalanceParams(IDbCommand cmd, AccountOpeningBalance aob)
+        private void setAccountOpeningBalanceParams(IDbCommand cmd, AccountOpeningBalanceEntity aob)
         {
-            _db.AddParameterWithValue(cmd, "@accountId", aob.Entity.AccountId);
-            _db.AddParameterWithValue(cmd, "@date", aob.Entity.Date);
-            _db.AddParameterWithValue(cmd, "@amount", aob.Entity.Amount);
+            _db.AddParameterWithValue(cmd, "@accountId", aob.AccountId);
+            _db.AddParameterWithValue(cmd, "@date", aob.Date);
+            _db.AddParameterWithValue(cmd, "@amount", aob.Amount);
         }
 
         #endregion

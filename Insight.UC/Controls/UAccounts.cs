@@ -6,6 +6,7 @@ using Insight.Domain.ViewModel;
 using Scalable.Shared.Common;
 using Scalable.Win.Controls;
 using Scalable.Win.FormControls;
+using Scalable.Shared.Enums;
 
 namespace Insight.UC.Controls
 {
@@ -33,7 +34,9 @@ namespace Insight.UC.Controls
             ListView.Columns.Clear();
             ListView.Columns.Add(new iColumnHeader("Name", true));
             ListView.Columns.Add(new iColumnHeader("ChartOfAccount", "Chart of Account", 120));
-            ListView.Columns.Add(new iColumnHeader("OpeningBalance", "Opening Balance", 100));
+            var opbCol = new iColumnHeader("OpeningBalance", "Opening Balance", DataType.Number, 100);
+            opbCol.Format = CommonUtil.AmountFormatWithCrDb;
+            ListView.Columns.Add(opbCol);
         }
 
         #endregion
@@ -63,8 +66,8 @@ namespace Insight.UC.Controls
 
         private Account getSelectedAccount()
         {
-            return ListView.HasAnyItemsSelected() 
-                        ? ((AccountListItem)ListView.SelectedItems[0].Tag).Account 
+            return ListView.HasAnyItemsSelected()
+                        ? ((AccountListItem)ListView.SelectedItems[0].Tag).Account
                         : Account.New();
         }
 

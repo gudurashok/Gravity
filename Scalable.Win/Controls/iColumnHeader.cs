@@ -8,7 +8,7 @@ namespace Scalable.Win.Controls
         //public int MinWidth { get; set; }
         //public int MaxWidth { get; set; }
         public bool AutoResizable { get; set; }
-        //public string Format { get; set; }
+        public string Format { get; set; }
         public DataType DataType { get; set; }
 
         public iColumnHeader(string name)

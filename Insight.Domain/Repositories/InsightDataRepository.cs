@@ -50,6 +50,17 @@ namespace Insight.Domain.Repositories
             }
         }
 
+        public IList<AccountOpeningBalanceEntity> GetAccountOpeningBalances()
+        {
+            using (var s = Store.OpenSession())
+            {
+                return s.Query<AccountOpeningBalanceEntity>()
+                        .Where(aob => aob.CompanyPeriodId == _companyPeriod.Entity.Id)
+                        .Where(aob => aob.Amount != 0)
+                        .ToList();
+            }
+        }
+
         public IList<CashReceiptEntity> GetAllCashReceipts()
         {
             using (var s = Store.OpenSession())

@@ -25,6 +25,7 @@ namespace Ferry.Logic.Insight
         public IList<AccountEntity> SourceAccounts;
         public IList<DaybookEntity> SourceDaybooks;
 
+        public IList<AccountOpeningBalanceEntity> SourceAccountOpeningBalances;
         public IList<CashReceiptEntity> SourceCashReceipts;
         public IList<CashPaymentEntity> SourceCashPayments;
         public IList<BankReceiptEntity> SourceBankReceipts;
@@ -86,11 +87,17 @@ namespace Ferry.Logic.Insight
 
         private void readSourceTransactions()
         {
+            readAccountOpeningBalances();
             readCashReceipts();
             readCashPayments();
             readBankReceipts();
             readBankPayments();
             readJournalVouchers();
+        }
+
+        private void readAccountOpeningBalances()
+        {
+            SourceAccountOpeningBalances = _insightDataRepository.GetAccountOpeningBalances();
         }
 
         private void readCashReceipts()

@@ -79,7 +79,7 @@ namespace Ferry.Logic.Insight
 
         private void importTransactions()
         {
-            //importAccountOpeningBalances();
+            importAccountOpeningBalances();
             //importSaleInvoices();
             //importPurchaseInvoices();
 
@@ -96,6 +96,27 @@ namespace Ferry.Logic.Insight
             //importInventoryReceives();
             //importMiscInventoryIssues();
         }
+
+        #region Account Opening Balance
+
+        private void importAccountOpeningBalances()
+        {
+            loadAccountOpeningBalances(_dataExtractor.SourceAccountOpeningBalances);
+        }
+
+        private void loadAccountOpeningBalances(IEnumerable<AccountOpeningBalanceEntity> openingBalances)
+        {
+            foreach (var aob in openingBalances)
+            {
+                var account = _dataExtractor.TargetAccounts
+                                .Where(a => a.Entity.Id == aob.AccountId)
+                                .SingleOrDefault();
+                aob.AccountId = account.ForesightId.ToString();
+                _targetDbContext.SaveAccountOpeningBalance(aob);
+            }
+        }
+
+        #endregion
 
         #region Cash Receipts
 

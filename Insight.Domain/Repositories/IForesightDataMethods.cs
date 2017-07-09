@@ -13,6 +13,7 @@ namespace Insight.Domain.Repositories
         IList<ChartOfAccountEntity> GetAllChatOfAccounts();
         IList<AccountEntity> GetAllAccounts();
         IList<DaybookEntity> GetAllDaybooks();
+        IList<AccountOpeningBalanceEntity> GetAccountOpeningBalances();
         IList<CashReceiptEntity> GetAllCashReceipts();
         IList<CashPaymentEntity> GetAllCashPayments();
         IList<BankReceiptEntity> GetAllBankReceipts();

@@ -2,6 +2,8 @@
 using Insight.Domain.Model;
 using Insight.Domain.Repositories;
 using Insight.Domain.ViewModel;
+using Scalable.Shared.Common;
+using Scalable.Shared.Enums;
 using Scalable.Shared.Repositories;
 using Scalable.Win.Controls;
 using Scalable.Win.Events;
@@ -31,7 +33,9 @@ namespace Insight.UC.Controls
             ListView.Columns.Add(new iColumnHeader("Date", 70));
             ListView.Columns.Add(new iColumnHeader("CreditAccount", "Cr.Account", true));
             ListView.Columns.Add(new iColumnHeader("DebitAccount", "Db.Account", true));
-            ListView.Columns.Add(new iColumnHeader("Amount", 90));
+            var amountCol = new iColumnHeader("Amount", DataType.Number, 100);
+            amountCol.Format = CommonUtil.AmountFormat;
+            ListView.Columns.Add(amountCol);
         }
 
         protected override IListRepository GetRepository(VoucherSearchCriteria criteria)

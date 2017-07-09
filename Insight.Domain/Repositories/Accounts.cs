@@ -10,6 +10,7 @@ using Scalable.Shared.Repositories;
 using Raven.Client;
 using System;
 using Gravity.Root.Common;
+using Insight.Domain.Common;
 
 namespace Insight.Domain.Repositories
 {
@@ -44,8 +45,10 @@ namespace Insight.Domain.Repositories
 
         private AccountOpeningBalanceEntity getOpeningBalance(string accountId, IDocumentSession s)
         {
+            var companyPeriodId = InsightSession.CompanyPeriod.Entity.Id;
             var result = s.Query<AccountOpeningBalanceEntity>()
-                          .Where(opb => opb.AccountId == accountId)
+                          .Where(aob => aob.AccountId == accountId)
+                          .Where(aob => aob.CompanyPeriodId == companyPeriodId)
                           .SingleOrDefault();
 
             if (result != null)

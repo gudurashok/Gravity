@@ -4,6 +4,7 @@ using Insight.Domain.Properties;
 using Insight.Domain.Repositories;
 using Mingle.Domain.Model;
 using Scalable.Shared.Common;
+using Insight.Domain.Common;
 
 namespace Insight.Domain.Model
 {
@@ -55,7 +56,11 @@ namespace Insight.Domain.Model
                 throw new ValidationException(Resources.AccountAlreadyExist);
 
             repo.Save(Entity);
+
             OpeningBalance.AccountId = Entity.Id;
+            OpeningBalance.CompanyPeriodId = InsightSession.CompanyPeriod.Entity.Id;
+            OpeningBalance.CompanyId = InsightSession.CompanyPeriod.Company.Entity.Id;
+            OpeningBalance.PeriodId = InsightSession.CompanyPeriod.Period.Entity.Id;
             repo.Save(OpeningBalance);
         }
 

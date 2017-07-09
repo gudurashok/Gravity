@@ -164,7 +164,7 @@ namespace Foresight.Win.Reports
 
             if (isJVDaybook())
                 _reportJournalVoucher = transformLedgerDetails()
-                                        .OrderBy(r => r.Amount.ToString(CommonUtil.AmountFormatWithCrDb))
+                                        .OrderBy(r => r.Amount.ToString(CommonUtil.AmountFormatWithCrDbZero))
                                         .OrderBy(r => r.DocumentNr).OrderBy(r => r.Date).ToList();
 
         }
@@ -281,7 +281,7 @@ namespace Foresight.Win.Reports
 
         private void addRunningBalanceColumn(ListViewItem lvi, decimal amount)
         {
-            lvi.SubItems.Add(amount.ToString(CommonUtil.AmountFormatWithCrDb));
+            lvi.SubItems.Add(amount.ToString(CommonUtil.AmountFormatWithCrDbZero));
         }
 
         private void addTotalsRow()

@@ -143,7 +143,7 @@ namespace Ferry.Logic.Base
         {
             foreach (var aob in sourceAccounts.Select(getAccountOpeningBalance))
             {
-                targetDbContext.SaveAccountOpeningBalance(aob);
+                targetDbContext.SaveAccountOpeningBalance(aob.Entity);
                 ReportProgress(ieaFactory.ForAccountOpeningBalance(aob.Account.Entity));
                 if (IsCancelled) break;
             }
