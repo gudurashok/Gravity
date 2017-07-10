@@ -41,7 +41,7 @@
             // 
             this.lnkiScalableWeb.AutoSize = true;
             this.lnkiScalableWeb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkiScalableWeb.Location = new System.Drawing.Point(238, 293);
+            this.lnkiScalableWeb.Location = new System.Drawing.Point(233, 296);
             this.lnkiScalableWeb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lnkiScalableWeb.Name = "lnkiScalableWeb";
             this.lnkiScalableWeb.Size = new System.Drawing.Size(258, 17);
@@ -54,7 +54,7 @@
             this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVersion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(153, 161);
+            this.lblVersion.Location = new System.Drawing.Point(153, 173);
             this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(223, 17);
@@ -65,8 +65,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(223, 102);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(238, 114);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(59, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -77,7 +77,7 @@
             // 
             this.picLoading.Image = ((System.Drawing.Image)(resources.GetObject("picLoading.Image")));
             this.picLoading.Location = new System.Drawing.Point(13, 14);
-            this.picLoading.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picLoading.Margin = new System.Windows.Forms.Padding(4);
             this.picLoading.Name = "picLoading";
             this.picLoading.Size = new System.Drawing.Size(51, 49);
             this.picLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -95,7 +95,8 @@
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.picLoading);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "USplash";
             this.Size = new System.Drawing.Size(531, 325);
             this.Load += new System.EventHandler(this.USplash_Load);

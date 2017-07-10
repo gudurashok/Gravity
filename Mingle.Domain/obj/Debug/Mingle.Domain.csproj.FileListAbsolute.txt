@@ -86,22 +86,3 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Mingle.Domain\obj\D
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Mingle.Domain\obj\Debug\Mingle.Domain.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Mingle.Domain\obj\Debug\Mingle.Domain.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Mingle.Domain\obj\Debug\Mingle.Domain.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Mingle.Domain.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Mingle.Domain.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Gravity.Root.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Newtonsoft.Json.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Raven.Abstractions.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Raven.Client.Lightweight.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Scalable.RavenDb.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Scalable.Shared.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Scalable.Win.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Raven.Database.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Gravity.Root.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Scalable.RavenDb.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Scalable.Shared.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\bin\Debug\Scalable.Win.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\obj\Debug\Mingle.Domain.csprojResolveAssemblyReference.cache
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\obj\Debug\Mingle.Domain.Properties.Resources.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\obj\Debug\Mingle.Domain.csproj.GenerateResource.Cache
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\obj\Debug\Mingle.Domain.dll
-C:\Users\gw2ks\Source\Repos\Gravity\Mingle.Domain\obj\Debug\Mingle.Domain.pdb
