@@ -90,6 +90,7 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.application
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.exe
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Win\obj\x86\Debug\Synergy.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Debug\Dictionary\en-US.dic
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Debug\Synergy.exe.config
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Debug\Synergy.exe.manifest
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Win\bin\Debug\Synergy.application

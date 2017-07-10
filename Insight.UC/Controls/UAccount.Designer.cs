@@ -48,7 +48,7 @@
             this.CommandBar.Controls.Add(this.btnSave);
             this.CommandBar.Location = new System.Drawing.Point(-1, 122);
             this.CommandBar.Size = new System.Drawing.Size(304, 35);
-            this.CommandBar.TabIndex = 10;
+            this.CommandBar.TabIndex = 11;
             // 
             // lblName
             // 
@@ -167,7 +167,7 @@
             this.cmbOpeningBalancebDbCr.Location = new System.Drawing.Point(217, 95);
             this.cmbOpeningBalancebDbCr.Name = "cmbOpeningBalancebDbCr";
             this.cmbOpeningBalancebDbCr.Size = new System.Drawing.Size(60, 21);
-            this.cmbOpeningBalancebDbCr.TabIndex = 9;
+            this.cmbOpeningBalancebDbCr.TabIndex = 10;
             // 
             // UAccount
             // 

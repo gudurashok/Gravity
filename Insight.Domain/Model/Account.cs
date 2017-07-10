@@ -5,6 +5,7 @@ using Insight.Domain.Repositories;
 using Mingle.Domain.Model;
 using Scalable.Shared.Common;
 using Insight.Domain.Common;
+using Insight.Domain.Enums;
 
 namespace Insight.Domain.Model
 {
@@ -49,8 +50,29 @@ namespace Insight.Domain.Model
             return string.IsNullOrWhiteSpace(Entity.Id);
         }
 
+        public bool HasOpeningBalance
+        {
+            get
+            {
+                return OpeningBalance.Amount != 0;
+            }
+        }
+
+        public TxnType OpeningBalanceType
+        {
+            get
+            {
+                if (OpeningBalance.Amount == 0) return TxnType.None;
+                if (OpeningBalance.Amount > 0) return TxnType.Credit;
+                return TxnType.Debit;
+            }
+        }
+
         public void Save()
         {
+            if (HasOpeningBalance && ChartOfAccount.IsProfitAndLossType)
+                throw new ValidationException("Opening Balance cannot be set for balance sheet accounts");
+
             var repo = new InsightRepository();
             if (IsNew() && repo.GetAccountByName(Entity.Name) != null)
                 throw new ValidationException(Resources.AccountAlreadyExist);

@@ -46,15 +46,15 @@ namespace Mingle.Domain.Repositories
         private void createInternal()
         {
             //create a contact person for org
-            var fullNameEntity = new FullName { First = "Srikanth", Middle = "M", Last = "Guduru" };
+            var fullNameEntity = new FullName { First = "Rajiv", Middle = "N", Last = "Shah" };
 
             var contact = PartyEntity.New();
             contact.Type = PartyType.Person;
-            contact.Salutation = "Chi.";
+            contact.Salutation = "Sri.";
             contact.Name = fullNameEntity.ToString();
             contact.FullName = fullNameEntity;
             contact.Gender = Gender.Male;
-            contact.Photo = getImage(@"\\SVR-1\\Public\\TestImages\\srikanth.jpg");
+            contact.Photo = getImage(@"\\SVR-1\\Public\\TestImages\\rajiv.jpg");
             session.Store(contact);
             session.SaveChanges();
 
@@ -69,14 +69,14 @@ namespace Mingle.Domain.Repositories
                 session.Store(persons.Current);
 
             //create a person for spouse relation
-            fullNameEntity = new FullName { First = "Sridevi", Middle = "A", Last = "Guduru" };
+            fullNameEntity = new FullName { First = "Jigna", Middle = "R", Last = "Shah" };
             var spouse = PartyEntity.New();
             spouse.Type = PartyType.Person;
             spouse.Name = fullNameEntity.ToString();
             spouse.Salutation = "Mrs.";
             spouse.FullName = fullNameEntity;
             spouse.Gender = Gender.Female;
-            spouse.Photo = getImage(@"\\SVR-1\\Public\\TestImages\\sridevi.jpg");
+            spouse.Photo = getImage(@"\\SVR-1\\Public\\TestImages\\jigna.jpg");
             session.Store(spouse);
 
             //create a person with full details
@@ -87,13 +87,13 @@ namespace Mingle.Domain.Repositories
         private Address createTestAddress()
         {
             var address = new Address();
-            address.Street = "12-1-106/1, Plot #89, Road #1\nAjay Nagar Colony (New), Bandlaguda";
-            address.Area = "Nagole";
-            address.Landmark = "Graveyard";
-            address.City = "Hyderabad";
-            address.State = "Andhra Pradesh";
+            address.Street = "A-803, Prime Arcade";
+            address.Area = "Adajan";
+            address.Landmark = "Prime Arcade";
+            address.City = "Surat";
+            address.State = "Gujarat";
             address.Country = "India";
-            address.PinCode = "500068";
+            address.PinCode = "395009";
             //session.Store(address);
             return address;
         }
@@ -101,13 +101,13 @@ namespace Mingle.Domain.Repositories
         private PartyEntity createTestOrganization(string contactId, Address address)
         {
             var org = PartyEntity.New();
-            org.Name = "Gravity Software Technologies Pvt. Ltd.";
+            org.Name = "Gravity Software Technologies";
             org.Type = PartyType.Organization;
             //org.ParentId = 
             org.Salutation = "M/s.";
             //org.Prefix =
-            org.ShortName = "iScalable";
-            org.AliasName = "Scalable Apps";
+            org.ShortName = "Gravity Tech";
+            org.AliasName = "Gravity Sfotech";
             org.Abbreviation = "S3PL";
             //org.Suffix =
             //org.Nickname =
@@ -129,20 +129,20 @@ namespace Mingle.Domain.Repositories
             org.Addresses.Add(addr);
 
             //Phones
-            org.Phones.Add(new Phone { Nr = "+91-9989923219", Label = "Mobile" });
+            org.Phones.Add(new Phone { Nr = "+91-7881923456", Label = "Mobile" });
             org.Phones.Add(new Phone { Nr = "+91-9449438821", Label = "3G" });
 
             //Emails
-            org.Emails.Add(new Email { EmailId = "info@iscalable.com", Label = "" });
-            org.Emails.Add(new Email { EmailId = "iscalable@live.in", Label = "" });
+            org.Emails.Add(new Email { EmailId = "info@gravitysoftware.in", Label = "" });
+            org.Emails.Add(new Email { EmailId = "gravitysoftware@live.in", Label = "" });
 
             //IMs
-            org.InstantMessengers.Add(new InstantMessenger { IMName = "Skype", IMId = "iscalable", Label = "" });
-            org.InstantMessengers.Add(new InstantMessenger { IMName = "gtalk", IMId = "iscalable@gmail.com", Label = "" });
+            org.InstantMessengers.Add(new InstantMessenger { IMName = "Skype", IMId = "gravitysoftware", Label = "" });
+            org.InstantMessengers.Add(new InstantMessenger { IMName = "gtalk", IMId = "gravitysoftware.in@gmail.com", Label = "" });
 
             //Websites
-            org.Websites.Add(new Website { Label = "Main site", Url = @"www.iscalable.com" });
-            org.Websites.Add(new Website { Label = "Alternate site", Url = @"www.scalableapps.com" });
+            org.Websites.Add(new Website { Label = "Main site", Url = @"www.gravitysoftware.in" });
+            org.Websites.Add(new Website { Label = "Alternate site", Url = @"www.gravitysoftware.ord" });
 
             //Dates
             org.Dates.Add(new PartyDate { Label = "Anniversary", Value = new DateTime(2011, 2, 28) });
@@ -177,12 +177,12 @@ namespace Mingle.Domain.Repositories
         private IEnumerable<PartyEntity> createTestPersonsWithMinDeatils()
         {
             var persons = new List<PartyEntity>();
-            persons.Add(getPerson(new FullName { First = "Balaji", Middle = "H", Last = "Guduru" }));
-            persons.Add(getPerson(new FullName { First = "Siddhartha", Middle = "A", Last = "Guduru" }));
-            persons.Add(getPerson(new FullName { First = "Markandeya", Middle = "H", Last = "Guduru" }));
-            persons.Add(getPerson(new FullName { First = "Tejas", Middle = "A", Last = "Guduru" }));
-            persons.Add(getPerson(new FullName { First = "Sripathi", Middle = "K", Last = "Dasari" }));
-            persons.Add(getPerson(new FullName { First = "Bhaskar", Middle = "S", Last = "Kurapati" }));
+            persons.Add(getPerson(new FullName { First = "Parshwa", Middle = "N", Last = "Shah" }));
+            persons.Add(getPerson(new FullName { First = "Komal", Middle = "N", Last = "Shah" }));
+            persons.Add(getPerson(new FullName { First = "Krusha", Middle = "N", Last = "Shah" }));
+            persons.Add(getPerson(new FullName { First = "Ramesh", Middle = "A", Last = "Shah" }));
+            persons.Add(getPerson(new FullName { First = "Sripathi", Middle = "K", Last = "Patel" }));
+            persons.Add(getPerson(new FullName { First = "Bhaskar", Middle = "S", Last = "Kapadia" }));
             return persons;
         }
 
@@ -202,7 +202,7 @@ namespace Mingle.Domain.Repositories
         {
             //Basic Details
             //ashok.Id = "Person/1"; // Auto
-            var fullNameEntity = new FullName { First = "Ashok", Middle = "H", Last = "Guduru" };
+            var fullNameEntity = new FullName { First = "Nikhil", Middle = "N", Last = "Shah" };
             var ashok = PartyEntity.New();
             ashok.Type = PartyType.Person;
             ashok.Name = fullNameEntity.ToString();
@@ -212,8 +212,8 @@ namespace Mingle.Domain.Repositories
             ashok.BloodGroup = BloodGroup.BPositive;
             ashok.Nickname = "Shh!";
             ashok.ShortName = "Ask";
-            ashok.AliasName = "kohsA";
-            ashok.Notes = "Ashok is founder of Scalable Software Solutions Pvt. Ltd. He is specialized in enterprise software development in varous business domains and uses Microsoft family of application development platform such as .NET";
+            ashok.AliasName = "lihkiN";
+            ashok.Notes = "Nikhil is founder of Gravity Software Technolgies. He is specialized in enterprise accounting and tax consultant in varous business domains.";
 
             ////Contacts
             //ashok.Contacts.Add(new PartyContact { PartyId = org.Id, Designation = "Developer", Department = "Development", IsActive = true });
@@ -242,23 +242,23 @@ namespace Mingle.Domain.Repositories
             ashok.Addresses.Add(paddr);
 
             //Phones
-            ashok.Phones.Add(new Phone { Nr = "+91-9989923219", Label = "Mobile" });
+            ashok.Phones.Add(new Phone { Nr = "+91-9896123444", Label = "Mobile" });
             ashok.Phones.Add(new Phone { Nr = "+91-9449438821", Label = "3G" });
 
             //Emails
-            ashok.Emails.Add(new Email { EmailId = "ashok.gudur@gmail.com", Label = "Alternate" });
-            ashok.Emails.Add(new Email { EmailId = "gudur.ashok@gmail.com", Label = "Personal" });
-            ashok.Emails.Add(new Email { EmailId = "ashok@iscalable.com", Label = "Office" });
+            ashok.Emails.Add(new Email { EmailId = "nikhil.surat@gmail.com", Label = "Alternate" });
+            ashok.Emails.Add(new Email { EmailId = "shah.nikhil@gmail.com", Label = "Personal" });
+            ashok.Emails.Add(new Email { EmailId = "rajiv.shah@gravitysoftware.in", Label = "Office" });
 
             //IMs
-            ashok.InstantMessengers.Add(new InstantMessenger { IMName = "Skype", IMId = "ashok.gudur", Label = "Official" });
-            ashok.InstantMessengers.Add(new InstantMessenger { IMName = "gtalk", IMId = "ashok.gudur", Label = "Personal" });
-            ashok.InstantMessengers.Add(new InstantMessenger { IMName = "MSN", IMId = "ashokg@msn.com", Label = "" });
-            ashok.InstantMessengers.Add(new InstantMessenger { IMName = "YIM", IMId = "ashokg@yahoo.com", Label = "Personal" });
+            ashok.InstantMessengers.Add(new InstantMessenger { IMName = "Skype", IMId = "nikhil.shah", Label = "Official" });
+            ashok.InstantMessengers.Add(new InstantMessenger { IMName = "gtalk", IMId = "shah.nikhil", Label = "Personal" });
+            ashok.InstantMessengers.Add(new InstantMessenger { IMName = "MSN", IMId = "nikhilshahg@msn.com", Label = "" });
+            ashok.InstantMessengers.Add(new InstantMessenger { IMName = "YIM", IMId = "nishahg@yahoo.com", Label = "Personal" });
 
             //Websites
-            ashok.Websites.Add(new Website { Label = "Personal", Url = @"www.ashokg.com" });
-            ashok.Websites.Add(new Website { Label = "Office", Url = @"www.scalableapps.com" });
+            ashok.Websites.Add(new Website { Label = "Personal", Url = @"www.nishah.com" });
+            ashok.Websites.Add(new Website { Label = "Office", Url = @"www.gravityapps.com" });
 
             //Dates
             ashok.Dates.Add(new PartyDate { Label = "BirthDay", Value = new DateTime(1971, 1, 2) });
@@ -295,16 +295,15 @@ namespace Mingle.Domain.Repositories
             ashok.Languages.Add("English");
             ashok.Languages.Add("Hindi");
             ashok.Languages.Add("Gujarati");
-            ashok.Languages.Add("Telugu");
 
             //CustomProperties
-            ashok.CustomProperties.Add(new CustomProperty { Name = "Qualification", Value = "BCA" });
+            ashok.CustomProperties.Add(new CustomProperty { Name = "Qualification", Value = "BCom" });
             ashok.CustomProperties.Add(new CustomProperty { Name = "Vehicles", Value = 3 });
             ashok.CustomProperties.Add(new CustomProperty { Name = "Bikes", Value = 2 });
             ashok.CustomProperties.Add(new CustomProperty { Name = "Cars", Value = 1 });
-            ashok.CustomProperties.Add(new CustomProperty { Name = "Car Name", Value = "Alto" });
+            ashok.CustomProperties.Add(new CustomProperty { Name = "Car Name", Value = "Figo" });
 
-            ashok.Photo = getImage(@"\\SVR-1\\Public\\TestImages\\ashok.jpg");
+            ashok.Photo = getImage(@"\\SVR-1\\Public\\TestImages\\cooool.jpg");
 
             return ashok;
         }

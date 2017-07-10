@@ -191,7 +191,6 @@ C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\bin\Debug\Scalable.Shared.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\bin\Debug\Scalable.Win.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\bin\Debug\Scalable.RavenDb.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\bin\Debug\Mingle.Domain.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.csprojResolveAssemblyReference.cache
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Forms.FLedgerUpdater.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Forms.FMain.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Properties.Resources.resources

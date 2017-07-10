@@ -35,5 +35,23 @@ namespace Insight.Domain.Model
         {
             return new ChartOfAccount(new ChartOfAccountEntity());
         }
+
+        public bool IsBalanceSheetType
+        {
+            get
+            {
+                return Entity.Type == ChartOfAccountType.Asset ||
+                       Entity.Type == ChartOfAccountType.Liability;
+            }
+        }
+
+        public bool IsProfitAndLossType
+        {
+            get
+            {
+                return Entity.Type == ChartOfAccountType.Income ||
+                       Entity.Type == ChartOfAccountType.Expense;
+            }
+        }
     }
 }

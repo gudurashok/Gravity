@@ -51,7 +51,7 @@
             this.lnkEMail.Size = new System.Drawing.Size(159, 14);
             this.lnkEMail.TabIndex = 2;
             this.lnkEMail.TabStop = true;
-            this.lnkEMail.Text = "Email us: info@iscalable.com";
+            this.lnkEMail.Text = "Email us: info@gravitysoftware.in";
             // 
             // lnkiScalableWeb
             // 
@@ -62,7 +62,7 @@
             this.lnkiScalableWeb.Size = new System.Drawing.Size(210, 14);
             this.lnkiScalableWeb.TabIndex = 1;
             this.lnkiScalableWeb.TabStop = true;
-            this.lnkiScalableWeb.Text = "Visit us at: http://www.iscalable.com";
+            this.lnkiScalableWeb.Text = "Visit us at: http://www.gravitysoftware.in";
             this.lnkiScalableWeb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkClicked);
             // 
             // lblVersion

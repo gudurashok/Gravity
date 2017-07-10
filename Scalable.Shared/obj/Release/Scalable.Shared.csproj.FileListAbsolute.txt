@@ -16,4 +16,3 @@ C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.
 C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Scalable.Shared\obj\Release\Scalable.Shared.csprojResolveAssemblyReference.cache

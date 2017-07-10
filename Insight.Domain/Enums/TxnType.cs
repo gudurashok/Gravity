@@ -3,6 +3,7 @@
     public enum TxnType
     {
         Credit = 0,
-        Debit = 1
+        Debit = 1,
+        None = 2
     }
 }

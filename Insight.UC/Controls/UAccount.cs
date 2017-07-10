@@ -67,14 +67,13 @@ namespace Insight.UC.Controls
         private void fillOpeningBalance()
         {
             var amount = Convert.ToDecimal(ntbOpeningBalance.Text);
-            if (amount != 0 && cmbOpeningBalancebDbCr.SelectedIndex == -1)
-                throw new ValidationException("Please select whther opening balance is Debit or Credit");
+            var opbType = (TxnType)cmbOpeningBalancebDbCr.SelectedValue;
+            if (amount != 0 && opbType == TxnType.None)
+                throw new ValidationException("Please select whether opening balance is Debit or Credit");
 
             if (amount != 0)
-            {
-                var opbDbCr = (TxnType)cmbOpeningBalancebDbCr.SelectedValue;
-                amount = opbDbCr == TxnType.Credit ? amount : -amount;
-            }
+                amount = opbType == TxnType.Credit ? amount : -amount;
+
             _account.OpeningBalance.Amount = amount;
             _account.OpeningBalance.Date = InsightSession.CompanyPeriod.Period.Entity.Financial.From;
         }
@@ -119,15 +118,7 @@ namespace Insight.UC.Controls
             var openingBalance = _account.GetOpeningBalance();
             ntbOpeningBalance.Text = openingBalance.ToString();
             ntbOpeningBalance.Value = Convert.ToDouble(Math.Abs(openingBalance));
-
-            if (openingBalance == 0)
-            {
-                cmbOpeningBalancebDbCr.SelectedIndex = -1;
-                return;
-            }
-
-            var dbCrValue = openingBalance > 0 ? TxnType.Credit : TxnType.Debit;
-            EnumUtil.SetEnumListItem(cmbOpeningBalancebDbCr, dbCrValue);
+            EnumUtil.SetEnumListItem(cmbOpeningBalancebDbCr, _account.OpeningBalanceType);
         }
 
         private PartyListItem getParty()
