@@ -101,3 +101,27 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\DataUpdator\bin\Deb
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\DataUpdator\obj\x86\Debug\DataUpdator.csprojResolveAssemblyReference.cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\DataUpdator\obj\x86\Debug\DataUpdator.exe
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\DataUpdator\obj\x86\Debug\DataUpdator.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\DataUpdator.exe.config
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\DataUpdator.exe
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\DataUpdator.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Gravity.Root.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Insight.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Mingle.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Scalable.Win.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Synergy.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Gravity.Root.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Insight.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Synergy.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\obj\x86\Debug\DataUpdator.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\obj\x86\Debug\DataUpdator.exe
+C:\Users\gw2ks\Source\Repos\Gravity\DataUpdator\obj\x86\Debug\DataUpdator.pdb

@@ -108,6 +108,7 @@ namespace Foresight.Win.Reports
                 Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name && r.Opening < 0).Sum(r => r.Opening));
             var transCr = _report.Where(r => r.ChartOfAccountName == group.Name).Sum(r => r.TransactionCredit);
             var transDb = Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name).Sum(r => r.TransactionDebit));
+
             var closingCr = _report.Where(r => r.ChartOfAccountName == group.Name && r.Closing > 0).Sum(r => r.Closing);
             var closingDb =
                 Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name && r.Closing < 0).Sum(r => r.Closing));
