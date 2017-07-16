@@ -76,12 +76,12 @@ namespace Foresight.Win.Reports
 
         protected string formatAmount(decimal value, ListControl control, bool withDbCr)
         {
-            return (value / Scalable.Shared.Common.AmountFormat.Value(control)).ToString(withDbCr ? CommonUtil.AmountFormatWithCrDbZero : "##,##,##0.00");
+            return (value / AmountFormatting.Value(control)).ToString(CommonUtil.GetAmountFormat(withDbCr));
         }
 
         protected string formatAmountWithBlank(decimal value, ListControl control)
         {
-            return (value / Scalable.Shared.Common.AmountFormat.Value(control)).ToString(CommonUtil.AmountFormatBlankWhenZero);
+            return (value / AmountFormatting.Value(control)).ToString(CommonUtil.AmountFormatBlankWhenZero);
         }
 
         protected bool selectCompanyPeriods(CompanyPeriodType type)

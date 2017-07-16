@@ -112,8 +112,7 @@ namespace Scalable.Shared.Common
         private static void onExecution(ExecutionCallback callback,
                                                     EventHandlerExecutionResult result)
         {
-            if (callback != null)
-                callback(result);
+            callback?.Invoke(result);
         } 
 
         #endregion

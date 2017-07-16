@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Foresight.Logic.Common;
 using Foresight.Logic.Sql;
 using Insight.Domain.Model;
@@ -28,8 +29,7 @@ namespace Foresight.Logic.Report
             else
                 loadData(readData(new AccountTransTables()));
 
-
-            return new ReportData(_result);
+            return new ReportData(_result.OrderBy(x => x.Date).OrderBy(x => x.DocumentNr).ToList());
         }
 
         private void getDaybookIdOfAccount()
@@ -127,6 +127,11 @@ namespace Foresight.Logic.Report
             }
 
             rdr.Close();
+        }
+
+        public bool IsDaybookAccount()
+        {
+            return IsDaybookAccount(Account.Entity.Id);
         }
     }
 }

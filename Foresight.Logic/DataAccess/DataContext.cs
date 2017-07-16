@@ -1416,12 +1416,13 @@ namespace Foresight.Logic.DataAccess
 
         private Daybook readDaybookHelper(IDataReader rdr)
         {
-            Daybook daybook = null;
-            if (rdr.Read())
-                daybook = readDaybook(rdr);
+            using (rdr)
+            {
+                if (rdr.Read())
+                    return readDaybook(rdr);
 
-            rdr.Close();
-            return daybook;
+                return null;
+            }
         }
 
         private Daybook readDaybook(IDataReader rdr)

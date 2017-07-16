@@ -222,7 +222,6 @@ namespace Foresight.Win.Reports
                 return;
 
             var account = ForesightSession.Dbc.GetAccountById(trialBalance.AccountId);
-
             FReportViewer.ShowLedger(FindForm(), account);
         }
 
@@ -279,14 +278,6 @@ namespace Foresight.Win.Reports
             lvwReport.Columns.Add(new iColumnHeader("Txn Debit", DataType.Number, 120));
             lvwReport.Columns.Add(new iColumnHeader("Closing Credit", DataType.Number, 120));
             lvwReport.Columns.Add(new iColumnHeader("Closing Debit", DataType.Number, 120));
-
-            //lvwReport.Columns.Add("Account Name", 150);
-            //lvwReport.Columns.Add("Opening Credit", 100, HorizontalAlignment.Right);
-            //lvwReport.Columns.Add("Opening Debit", 100, HorizontalAlignment.Right);
-            //lvwReport.Columns.Add("Txn Credit", 100, HorizontalAlignment.Right);
-            //lvwReport.Columns.Add("Txn Debit", 100, HorizontalAlignment.Right);
-            //lvwReport.Columns.Add("Closing Credit", 100, HorizontalAlignment.Right);
-            //lvwReport.Columns.Add("Closing Debit", 100, HorizontalAlignment.Right);
 
             createChartOfAccountGroups();
         }

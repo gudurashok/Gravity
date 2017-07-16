@@ -128,3 +128,16 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.RavenDb\ob
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.RavenDb\obj\Debug\Scalable.RavenDb.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.RavenDb\obj\Debug\Scalable.RavenDb.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Scalable.RavenDb\obj\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\obj\Debug\Scalable.RavenDb.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\obj\Debug\Scalable.RavenDb.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\obj\Debug\Scalable.RavenDb.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\obj\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Scalable.RavenDb\obj\Debug\Scalable.RavenDb.pdb

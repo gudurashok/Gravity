@@ -82,7 +82,12 @@ namespace Foresight.Logic.Report
             result.CompanyPeriod.Period = ForesightSession.Dbc.GetDatePeriodById(Convert.ToInt32(rdr["PeriodId"]));
             result.OpeningAmount = Convert.ToDecimal(rdr["OpAmount"]);
             readTransAmount(rdr, result);
-            result.BalanceAmount = result.OpeningAmount + result.CreditAmount - result.DebitAmount;
+
+            if (IsDaybookAccount(Account.Entity.Id))
+                result.BalanceAmount = result.OpeningAmount - result.CreditAmount + result.DebitAmount;
+            else
+                result.BalanceAmount = result.OpeningAmount + result.CreditAmount - result.DebitAmount;
+
             return result;
         }
 
@@ -103,11 +108,13 @@ namespace Foresight.Logic.Report
         private IList<LedgerSummary> loadMonthlyData(IDataReader rdr)
         {
             var result = new List<LedgerSummary>();
-            while (rdr.Read())
-                result.Add(readMonthlyLedger(rdr));
+            using (rdr)
+            {
+                while (rdr.Read())
+                    result.Add(readMonthlyLedger(rdr));
 
-            rdr.Close();
-            return result;
+                return result;
+            }
         }
 
         private IDataReader readMonthlyLedgerData()
@@ -129,7 +136,10 @@ namespace Foresight.Logic.Report
             _report[0].OpeningAmount = ForesightSession.Dbc.GetAccountOpeningBalance(Account.Entity.Id, Period.Entity.Id);
             for (var i = 0; i < _report.Count; i++)
             {
-                _report[i].BalanceAmount = _report[i].OpeningAmount + _report[i].CreditAmount - _report[i].DebitAmount;
+                if (IsDaybookAccount(Account.Entity.Id))
+                    _report[i].BalanceAmount = _report[i].OpeningAmount - _report[i].CreditAmount + _report[i].DebitAmount;
+                else
+                    _report[i].BalanceAmount = _report[i].OpeningAmount + _report[i].CreditAmount - _report[i].DebitAmount;
 
                 if (i < _report.Count - 1)
                     _report[i + 1].OpeningAmount = _report[i].BalanceAmount;

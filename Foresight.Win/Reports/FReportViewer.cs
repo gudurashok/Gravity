@@ -3,6 +3,9 @@ using System.Windows.Forms;
 using Foresight.Logic.DataAccess;
 using Foresight.Win.Common;
 using Insight.Domain.Model;
+using Gravity.Root.Model;
+using System;
+using Scalable.Shared.Common;
 
 namespace Foresight.Win.Reports
 {
@@ -45,9 +48,20 @@ namespace Foresight.Win.Reports
             detail.Enabled = false;
 
             var viewer = new FReportViewer(detail);
-            viewer.Size = new Size(742, 480);
+            viewer.Size = UserConfig.ForesightLedgerReportWindowSize;
             viewer.AddReportControl(summary);
+            viewer.ResizeEnd += LedgerReportViewer_ResizeEnd;
             viewer.Show(owner);
+        }
+
+        private static void LedgerReportViewer_ResizeEnd(object sender, EventArgs e)
+        {
+            EventHandlerExecutor.Execute(saveLedgerWindowSize, sender, e);
+        }
+
+        private static void saveLedgerWindowSize(object sender, EventArgs e)
+        {
+            UserConfig.ForesightLedgerReportWindowSize = (sender as Form).Size;
         }
     }
 }

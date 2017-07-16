@@ -186,7 +186,13 @@ namespace Ferry.Logic.Insight
                     ParentForesightId = coa.Parent == null ? 0 : Convert.ToInt32(coa.Parent.Entity.Id),
                 };
 
-            TargetChartOfAccounts.Add(result);
+            var tcoa = TargetChartOfAccounts
+                        .Where(c => c.ForesightId == result.ForesightId)
+                        .SingleOrDefault();
+
+            if (tcoa == null)
+                TargetChartOfAccounts.Add(result);
+
             return result;
         }
 

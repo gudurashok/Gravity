@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\AmountFormat.cs" />
+    <Compile Include="Common\AmountFormatting.cs" />
     <Compile Include="Common\AppConfig.cs" />
     <Compile Include="Common\CommonUtil.cs" />
     <Compile Include="Common\Emailer.cs" />

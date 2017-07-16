@@ -155,7 +155,7 @@ namespace Foresight.Win.Reports
 
         private void getReportData()
         {
-            var ldc = new LedgerDetailDataContext();
+            var ldc = rdc as LedgerDetailDataContext;
             ldc.Account = _account;
             ldc.Daybook = _daybook;
             ldc.Month = Summary.Month;
@@ -233,10 +233,11 @@ namespace Foresight.Win.Reports
         private void addReportViewRows()
         {
             var balance = Summary.OpeningAmount;
+            var isDaybookAccount = (rdc as LedgerDetailDataContext).IsDaybookAccount();
 
             foreach (var ld in _report)
             {
-                balance += ld.Amount;
+                balance = isDaybookAccount ? balance - ld.Amount : balance + ld.Amount;
                 var lvi = new ListViewItem(ld.Date.ToString("dd/MM/yyyy"));
                 lvi.UseItemStyleForSubItems = true;
                 lvi.Font = new Font(lvi.Font, FontStyle.Regular);

@@ -29,6 +29,7 @@ namespace Gravity.Root.Model
         public const string foresightMainWindowStateKey = "ForesightMainWindowState";
         public const string foresightMainWindowLocationKey = "ForesightMainWindowLocation";
         public const string foresightMainWindowSizeKey = "ForesightMainWindowSize";
+        public const string foresightLedgerReportWindowSizeKey = "ForesightLedgerReportWindowSize";
 
         public const string taskWindowStartPositionKey = "TaskWindowStartPosition";
         public const string taskWindowStateKey = "TaskWindowState";
@@ -264,6 +265,21 @@ namespace Gravity.Root.Model
             set
             {
                 SetConfig(foresightMainWindowSizeKey, value);
+            }
+        }
+
+        public static Size ForesightLedgerReportWindowSize
+        {
+            get
+            {
+                var config = GetConfig(foresightLedgerReportWindowSizeKey);
+                return config == null ? new Size(742, 480)
+                                      : new Size(Convert.ToInt32(config.Value.ToString().Split(',')[0]),
+                                                Convert.ToInt32(config.Value.ToString().Split(',')[1]));
+            }
+            set
+            {
+                SetConfig(foresightLedgerReportWindowSizeKey, value);
             }
         }
 

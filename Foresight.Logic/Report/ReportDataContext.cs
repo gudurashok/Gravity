@@ -116,6 +116,12 @@ namespace Foresight.Logic.Report
             return ForesightSession.Dbc.GetChartOfAccountIds(coaId);
         }
 
+        protected bool IsDaybookAccount(string accountId)
+        {
+            var daybook = ForesightSession.Dbc.GetDaybookOfAccount(accountId);
+            return daybook != null;
+        }
+
         #endregion
     }
 }

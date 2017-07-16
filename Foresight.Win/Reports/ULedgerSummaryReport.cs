@@ -16,7 +16,7 @@ namespace Foresight.Win.Reports
     {
         #region Declarations
 
-        private LedgerSummary _yearTotal;
+        private LedgerSummary _periodTotal;
         private IList<LedgerSummary> _report;
         private readonly Account _account;
         private readonly Daybook _daybook;
@@ -97,7 +97,6 @@ namespace Foresight.Win.Reports
                     processBackButton();
                     return true;
                 }
-
             }
             catch (Exception ex)
             {
@@ -107,6 +106,7 @@ namespace Foresight.Win.Reports
             {
                 Cursor = Cursors.Default;
             }
+
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -116,6 +116,7 @@ namespace Foresight.Win.Reports
                 return;
 
             switchLedgerView();
+            Cursor = Cursors.Default;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -235,18 +236,18 @@ namespace Foresight.Win.Reports
             lvi.Text = @"Opening:";
             lvi.ForeColor = Color.Maroon;
 
-            if (_yearTotal.OpeningAmount > 0)
+            if (_periodTotal.OpeningAmount > 0)
             {
-                lvi.SubItems.Add(formatAmount(_yearTotal.OpeningAmount, cmbAmtFormat));
+                lvi.SubItems.Add(formatAmount(_periodTotal.OpeningAmount, cmbAmtFormat));
                 lvi.SubItems.Add("");
             }
             else
             {
                 lvi.SubItems.Add("");
-                lvi.SubItems.Add(formatAmount(Math.Abs(_yearTotal.OpeningAmount), cmbAmtFormat));
+                lvi.SubItems.Add(formatAmount(Math.Abs(_periodTotal.OpeningAmount), cmbAmtFormat));
             }
 
-            lvi.SubItems.Add(formatAmount(_yearTotal.OpeningAmount, cmbAmtFormat, withDbCr: true));
+            lvi.SubItems.Add(formatAmount(_periodTotal.OpeningAmount, cmbAmtFormat, withDbCr: true));
             lvwReport.Items.Add(lvi);
         }
 
@@ -272,14 +273,14 @@ namespace Foresight.Win.Reports
 
         private void addMonthlyTotalsRow()
         {
-            _yearTotal.Month = 13;
+            _periodTotal.Month = 13;
             var lvi = new ListViewItem();
             lvi.ForeColor = Color.Maroon;
-            lvi.Tag = _yearTotal;
+            lvi.Tag = _periodTotal;
             lvi.Text = @"TOTAL:";
-            lvi.SubItems.Add(formatAmount(_yearTotal.CreditAmount, cmbAmtFormat));
-            lvi.SubItems.Add(formatAmount(_yearTotal.DebitAmount, cmbAmtFormat));
-            lvi.SubItems.Add(formatAmount(_yearTotal.BalanceAmount, cmbAmtFormat, withDbCr: true));
+            lvi.SubItems.Add(formatAmount(_periodTotal.CreditAmount, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmount(_periodTotal.DebitAmount, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmount(_periodTotal.BalanceAmount, cmbAmtFormat, withDbCr: true));
             lvwReport.Items.Add(lvi);
         }
 
@@ -293,7 +294,7 @@ namespace Foresight.Win.Reports
 
         private void showMonthlyLedger()
         {
-            _yearTotal = getSelectedPeriod();
+            _periodTotal = getSelectedPeriod();
             _currentView = LedgerView.Monthly;
             setViewTypeColumnText();
             setLedgerPeriod();

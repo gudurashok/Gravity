@@ -85,3 +85,22 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Domain\obj\
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Domain\obj\Debug\Synergy.Domain.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Domain\obj\Debug\Synergy.Domain.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Synergy.Domain\obj\Debug\Synergy.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Synergy.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Synergy.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Gravity.Root.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Raven.Abstractions.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Scalable.RavenDb.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Scalable.Shared.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Scalable.Win.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Raven.Database.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Gravity.Root.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Scalable.RavenDb.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Scalable.Shared.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Debug\Synergy.Domain.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Debug\Synergy.Domain.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Debug\Synergy.Domain.csproj.GenerateResource.Cache
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Debug\Synergy.Domain.dll
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Debug\Synergy.Domain.pdb
