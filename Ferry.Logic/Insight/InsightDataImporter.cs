@@ -88,9 +88,9 @@ namespace Ferry.Logic.Insight
             importBankReceipts();
             importBankPayments();
             importJournalVouchers();
+            importCreditNotes();
+            importDebitNotes();
 
-            //importCreditNotes();
-            //importDebitNotes();
             //importItemLots();
             //importInventoryIssue();
             //importInventoryReceives();
@@ -268,6 +268,62 @@ namespace Ferry.Logic.Insight
         private IEnumerable<JournalVoucherEntity> getJournalVouchers(string daybookId)
         {
             return _dataExtractor.SourceJournalVouchers.Where(t => t.DaybookId == daybookId);
+        }
+
+        #endregion
+
+        #region Credit Notes
+
+        private void importCreditNotes()
+        {
+            foreach (var daybook in getDaybooksOf(DaybookType.CreditNote))
+                loadCreditNotes(getCreditNotes(daybook.Entity.Id), daybook);
+        }
+
+        private void loadCreditNotes(IEnumerable<CreditNoteEntity> creditNotes, ForesightDaybook daybook)
+        {
+            foreach (var creditNote in creditNotes)
+            {
+                var account = _dataExtractor.TargetAccounts
+                                .Where(a => a.Entity.Id == creditNote.AccountId)
+                                .SingleOrDefault();
+                creditNote.DaybookId = daybook.ForesightId.ToString();
+                creditNote.AccountId = account.ForesightId.ToString();
+                _targetDbContext.SaveCreditNote(new CreditNote(creditNote));
+            }
+        }
+
+        private IEnumerable<CreditNoteEntity> getCreditNotes(string daybookId)
+        {
+            return _dataExtractor.SourceCreditNotes.Where(t => t.DaybookId == daybookId);
+        }
+
+        #endregion
+
+        #region Debit Notes
+
+        private void importDebitNotes()
+        {
+            foreach (var daybook in getDaybooksOf(DaybookType.DebitNote))
+                loadDebitNotes(getDebitNotes(daybook.Entity.Id), daybook);
+        }
+
+        private void loadDebitNotes(IEnumerable<DebitNoteEntity> debitNotes, ForesightDaybook daybook)
+        {
+            foreach (var debitNote in debitNotes)
+            {
+                var account = _dataExtractor.TargetAccounts
+                                .Where(a => a.Entity.Id == debitNote.AccountId)
+                                .SingleOrDefault();
+                debitNote.DaybookId = daybook.ForesightId.ToString();
+                debitNote.AccountId = account.ForesightId.ToString();
+                _targetDbContext.SaveDebitNote(new DebitNote(debitNote));
+            }
+        }
+
+        private IEnumerable<DebitNoteEntity> getDebitNotes(string daybookId)
+        {
+            return _dataExtractor.SourceDebitNotes.Where(t => t.DaybookId == daybookId);
         }
 
         #endregion

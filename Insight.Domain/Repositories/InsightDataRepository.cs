@@ -125,5 +125,31 @@ namespace Insight.Domain.Repositories
                         .ToList();
             }
         }
+
+        public IList<CreditNoteEntity> GetAllCreditNotes()
+        {
+            using (var s = Store.OpenSession())
+            {
+                return s.Query<CreditNoteEntity>()
+                        .Where(doc => doc.CompanyPeriodId == _companyPeriod.Entity.Id)
+                        .OrderBy(doc => doc.DaybookId)
+                        .OrderBy(doc => doc.Date)
+                        .OrderBy(doc => doc.Id)
+                        .ToList();
+            }
+        }
+
+        public IList<DebitNoteEntity> GetAllDebitNotes()
+        {
+            using (var s = Store.OpenSession())
+            {
+                return s.Query<DebitNoteEntity>()
+                        .Where(doc => doc.CompanyPeriodId == _companyPeriod.Entity.Id)
+                        .OrderBy(doc => doc.DaybookId)
+                        .OrderBy(doc => doc.Date)
+                        .OrderBy(doc => doc.Id)
+                        .ToList();
+            }
+        }
     }
 }

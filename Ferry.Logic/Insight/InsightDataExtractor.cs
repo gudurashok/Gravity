@@ -31,6 +31,8 @@ namespace Ferry.Logic.Insight
         public IList<BankReceiptEntity> SourceBankReceipts;
         public IList<BankPaymentEntity> SourceBankPayments;
         public IList<JournalVoucherEntity> SourceJournalVouchers;
+        public IList<CreditNoteEntity> SourceCreditNotes;
+        public IList<DebitNoteEntity> SourceDebitNotes;
 
         public IList<ForesightChartOfAccount> TargetChartOfAccounts;
         public IList<ForesightAccount> TargetAccounts;
@@ -93,6 +95,8 @@ namespace Ferry.Logic.Insight
             readBankReceipts();
             readBankPayments();
             readJournalVouchers();
+            readCreditNotes();
+            readDebitNotes();
         }
 
         private void readAccountOpeningBalances()
@@ -123,6 +127,16 @@ namespace Ferry.Logic.Insight
         private void readJournalVouchers()
         {
             SourceJournalVouchers = _insightDataRepository.GetAllJournalVouchers();
+        }
+
+        private void readCreditNotes()
+        {
+            SourceCreditNotes = _insightDataRepository.GetAllCreditNotes();
+        }
+
+        private void readDebitNotes()
+        {
+            SourceDebitNotes = _insightDataRepository.GetAllDebitNotes();
         }
 
         private void transformMasters()
