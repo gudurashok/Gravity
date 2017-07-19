@@ -437,6 +437,7 @@ namespace Insight.Domain.Repositories
             result.Name = "Transactions";
             result.Caption = "T&ransactions";
             result.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            result.IsNodeItem = true;
 
             var menuItem = new AppMenuItemEntity();
             menuItem.Nr = 1;
@@ -537,7 +538,7 @@ namespace Insight.Domain.Repositories
             result.UIAssembly = "Mingle.UC.dll";
             result.ShortcutKeys = Keys.Control | Keys.P;
             result.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-
+            result.IsNodeItem = true;
             return result;
         }
 
@@ -553,6 +554,7 @@ namespace Insight.Domain.Repositories
             result.UIAssembly = "Synergy.UC.dll";
             result.ShortcutKeys = Keys.Control | Keys.T;
             result.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            result.IsNodeItem = true;
             return result;
         }
 

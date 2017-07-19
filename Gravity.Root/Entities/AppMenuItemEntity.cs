@@ -19,6 +19,7 @@ namespace Gravity.Root.Entities
         public Keys ShortcutKeys { get; set; }
         public Font Font { get; set; }
         public bool IsForAdminOnly { get; set; }
+        public bool IsNodeItem { get; set; }
         public IList<AppMenuItemEntity> SubItems { get; set; }
 
         public AppMenuItemEntity()

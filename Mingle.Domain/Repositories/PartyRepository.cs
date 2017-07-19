@@ -266,7 +266,7 @@ namespace Mingle.Domain.Repositories
             menuItem.UIAssembly = "Gravity.Root.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.U;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
+            menuItem.IsNodeItem = true;
             menuItems.Add(menuItem);
 
             menuItem = new AppMenuItemEntity();
@@ -279,7 +279,7 @@ namespace Mingle.Domain.Repositories
             menuItem.UIAssembly = "Mingle.UC.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.P;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
+            menuItem.IsNodeItem = true;
             menuItems.Add(menuItem);
 
             if (GravitySession.User.Entity.IsAdmin)

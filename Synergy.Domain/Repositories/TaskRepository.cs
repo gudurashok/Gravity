@@ -418,7 +418,7 @@ namespace Synergy.Domain.Repositories
             menuItem.UIAssembly = "Mingle.UC.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.P;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
+            menuItem.IsNodeItem = true;
             menuItems.Add(menuItem);
 
             menuItem = new AppMenuItemEntity();
@@ -431,7 +431,7 @@ namespace Synergy.Domain.Repositories
             menuItem.UIAssembly = "Synergy.UC.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.T;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
+            menuItem.IsNodeItem = true;
             menuItems.Add(menuItem);
 
             if (GravitySession.User.Entity.IsAdmin)

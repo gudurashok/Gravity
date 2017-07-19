@@ -158,10 +158,25 @@ namespace Gravity.Root.Forms
             return item;
         }
 
+        private ToolStripItem getHighlightMenuItem(ToolStripMenuItem item)
+        {
+            var itemEntity = item.Tag as AppMenuItemEntity;
+            if (itemEntity.IsNodeItem) return item;
+            var parentItem = item.OwnerItem;
+            if (parentItem == null) return null;
+            itemEntity = parentItem.Tag as AppMenuItemEntity;
+            if (itemEntity.IsNodeItem) return parentItem;
+            return null;
+        }
+
         private void menuItem_Click(object sender, EventArgs e)
         {
-            mainMenuStrip.HighlightMenuItem((ToolStripItem)sender);
-            var itemEntity = (AppMenuItemEntity)((ToolStripMenuItem)sender).Tag;
+            var item = sender as ToolStripMenuItem;
+            var itemEntity = item.Tag as AppMenuItemEntity;
+            var mi = getHighlightMenuItem(item);
+            if (mi != null)
+                mainMenuStrip.HighlightMenuItem(mi);
+
             if (findControlByName(itemEntity.UIControlName) != null)
                 return;
 

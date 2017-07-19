@@ -309,3 +309,4 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UDe
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UDebitNote.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCreditNote.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCreditNotes.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Dictionary\en-US.dic
