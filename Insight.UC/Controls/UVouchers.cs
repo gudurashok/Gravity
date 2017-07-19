@@ -106,13 +106,13 @@ namespace Insight.UC.Controls
 
         protected virtual IListRepository GetRepository(VoucherSearchCriteria criteria)
         {
-            return null;
+            throw new NotImplementedException("This method would have been overiden by derived class");
         }
 
         private void showVoucherForm(TransactionHeader header)
         {
-            var receipt = new FVoucher(header, _fDaybooks, TransactionType);
-            receipt.ShowDialog();
+            var voucherForm = new FVoucher(header, _fDaybooks, TransactionType);
+            voucherForm.ShowDialog();
             FillList(true);
         }
 
@@ -200,14 +200,21 @@ namespace Insight.UC.Controls
 
         protected override void OnItemOpened(PicklistItemEventArgs e)
         {
-            var transaction = GetTransactionHeader(e);
-            showVoucherForm(transaction);
+            var header = GetTransactionHeader(e);
+            showVoucherForm(header);
             base.OnItemOpened(e);
         }
 
         protected virtual TransactionHeader GetTransactionHeader(PicklistItemEventArgs e)
         {
             return ((TransactionListItem)e.PicklistItem).TransactionHeader;
+        }
+
+        protected void fillVoucherDetails(TransactionHeader header, TransactionHeader trans)
+        {
+            header.Account = trans.Account;
+            header.Daybook = trans.Daybook;
+            header.CompanyPeriod = trans.CompanyPeriod;
         }
 
         protected virtual void ProcessNewVoucher()

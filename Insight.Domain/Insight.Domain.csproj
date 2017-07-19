@@ -193,8 +193,11 @@
     <Compile Include="Repositories\CompanyPeriods.cs" />
     <Compile Include="Repositories\Companies.cs" />
     <Compile Include="Repositories\ChartOfAccounts.cs" />
+    <Compile Include="Repositories\DebitNotes.cs" />
     <Compile Include="Repositories\IForesightDataMethods.cs" />
     <Compile Include="Repositories\InsightDataRepository.cs" />
+    <Compile Include="Repositories\PurchaseInvoices.cs" />
+    <Compile Include="Repositories\CreditNotes.cs" />
     <Compile Include="Repositories\SaleInvoices.cs" />
     <Compile Include="Repositories\Items.cs" />
     <Compile Include="Repositories\ItemCategories.cs" />
@@ -216,6 +219,7 @@
     <Compile Include="ViewModel\BillTermListItem.cs" />
     <Compile Include="ViewModel\BillTermView.cs" />
     <Compile Include="ViewModel\LineItemView.cs" />
+    <Compile Include="ViewModel\PurchaseInvoiceListItem.cs" />
     <Compile Include="ViewModel\SaleInvoiceListItem.cs" />
     <Compile Include="ViewModel\ItemListItem.cs" />
     <Compile Include="ViewModel\DaybookListItem.cs" />

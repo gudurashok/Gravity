@@ -364,15 +364,34 @@ namespace Insight.Domain.Repositories
             }
         }
 
-        public static SaleInvoice GetInvoiceWithFullDetails(SaleInvoiceEntity entity, IDocumentSession s)
+        public static PurchaseInvoice GetPurchaseInvoiceWithFullDetails(PurchaseInvoiceEntity entity, IDocumentSession s)
         {
-            var invoice = (SaleInvoice)GetTransactionWithFullDetails(new SaleInvoice(entity), s);
-            invoice.Lines = entity.LineEntities.Select(l => GetInvoiceLineItemWithFullDetails(l, s)).ToList();
+            var invoice = (PurchaseInvoice)GetTransHeaderWithFullDetails(new PurchaseInvoice(entity), s);
+            invoice.Lines = entity.LineEntities.Select(l => GetPurchaseInvoiceLineItemWithFullDetails(l, s)).ToList();
+            invoice.Terms = entity.TermEntities.Select(t => new PurchaseInvoiceTerm(t)).ToList();
+            return invoice;
+        }
+
+        public static PurchaseInvoiceLine GetPurchaseInvoiceLineItemWithFullDetails(PurchaseInvoiceLineEntity entity, IDocumentSession s)
+        {
+            var invoiceLine = new PurchaseInvoiceLine(entity);
+            invoiceLine.Entity = entity;
+
+            var itemEntity = s.Load<ItemEntity>(entity.ItemId);
+            invoiceLine.Item = new Item(itemEntity);
+
+            return invoiceLine;
+        }
+
+        public static SaleInvoice GetSaleInvoiceWithFullDetails(SaleInvoiceEntity entity, IDocumentSession s)
+        {
+            var invoice = (SaleInvoice)GetTransHeaderWithFullDetails(new SaleInvoice(entity), s);
+            invoice.Lines = entity.LineEntities.Select(l => GetSaleInvoiceLineItemWithFullDetails(l, s)).ToList();
             invoice.Terms = entity.TermEntities.Select(t => new SaleInvoiceTerm(t)).ToList();
             return invoice;
         }
 
-        public static SaleInvoiceLine GetInvoiceLineItemWithFullDetails(SaleInvoiceLineEntity entity, IDocumentSession s)
+        public static SaleInvoiceLine GetSaleInvoiceLineItemWithFullDetails(SaleInvoiceLineEntity entity, IDocumentSession s)
         {
             var invoiceLine = new SaleInvoiceLine(entity);
             invoiceLine.Entity = entity;
@@ -383,7 +402,7 @@ namespace Insight.Domain.Repositories
             return invoiceLine;
         }
 
-        public static TransactionHeader GetTransactionWithFullDetails(TransactionHeader transaction, IDocumentSession s)
+        public static TransactionHeader GetTransHeaderWithFullDetails(TransactionHeader transaction, IDocumentSession s)
         {
             var accountEntity = s.Load<AccountEntity>(transaction.Entity.AccountId);
             transaction.Account = new Account(accountEntity);
@@ -410,7 +429,7 @@ namespace Insight.Domain.Repositories
             return jv;
         }
 
-        private AppMenuItemEntity createTransactionsMenuItem()
+        private static AppMenuItemEntity createTransactionsMenuItem()
         {
             var result = new AppMenuItemEntity();
             result.Nr = 1;
@@ -472,7 +491,7 @@ namespace Insight.Domain.Repositories
             menuItem.DisplayOrder = "5";
             menuItem.Name = "DebitNotes";
             menuItem.Caption = "&DebitNotes";
-            menuItem.UIControlName = "UPayments";
+            menuItem.UIControlName = "UDebitNotes";
             menuItem.UIControlPath = "Insight.UC.Controls";
             menuItem.UIAssembly = "Insight.UC.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.B;
@@ -506,7 +525,7 @@ namespace Insight.Domain.Repositories
             return result;
         }
 
-        private AppMenuItemEntity createPartiesMenuItem()
+        private static AppMenuItemEntity createPartiesMenuItem()
         {
             var result = new AppMenuItemEntity();
             result.Nr = 6;
@@ -522,7 +541,7 @@ namespace Insight.Domain.Repositories
             return result;
         }
 
-        private AppMenuItemEntity createTasksMenuItem()
+        private static AppMenuItemEntity createTasksMenuItem()
         {
             var result = new AppMenuItemEntity();
             result.Nr = 5;
@@ -537,7 +556,7 @@ namespace Insight.Domain.Repositories
             return result;
         }
 
-        public IList<AppMenuItemEntity> GetAllAppMenuItems()
+        public static IList<AppMenuItemEntity> GetAllAppMenuItems()
         {
             var menuItems = new List<AppMenuItemEntity>();
             menuItems.Add(createTransactionsMenuItem());

@@ -1,5 +1,6 @@
 ﻿using Insight.Domain.Entities;
 using Insight.Domain.Model;
+using Insight.UC.Events;
 using Insight.UC.Forms;
 
 namespace Insight.UC.Controls
@@ -43,6 +44,12 @@ namespace Insight.UC.Controls
             {
                 Daybook = Voucher.Daybook
             };
+        }
+
+        protected override void ProcessSave(object sender)
+        {
+            ((BankReceipt)DataSource).Save();
+            OnTransactionSaved(new VoucherSavedEventArgs(Voucher.Entity, CommandBar[sender]));
         }
     }
 }

@@ -58,6 +58,30 @@
   <ItemGroup>
     <Compile Include="Common\ISetup.cs" />
     <Compile Include="Common\VoucherFactory.cs" />
+    <Compile Include="Controls\UDebitNotes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UDebitNotes.Designer.cs">
+      <DependentUpon>UDebitNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UDebitNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UDebitNote.Designer.cs">
+      <DependentUpon>UDebitNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCreditNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCreditNote.Designer.cs">
+      <DependentUpon>UCreditNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCreditNotes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UCreditNotes.Designer.cs">
+      <DependentUpon>UCreditNotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\USaleInvoices.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -350,6 +374,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\UDebitNotes.resx">
+      <DependentUpon>UDebitNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UDebitNote.resx">
+      <DependentUpon>UDebitNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCreditNote.resx">
+      <DependentUpon>UCreditNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UCreditNotes.resx">
+      <DependentUpon>UCreditNotes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\USaleInvoices.resx">
       <DependentUpon>USaleInvoices.cs</DependentUpon>
     </EmbeddedResource>

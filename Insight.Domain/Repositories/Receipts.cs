@@ -39,7 +39,7 @@ namespace Insight.Domain.Repositories
                                 {
                                     TransactionHeader =
                                         InsightRepository
-                                            .GetTransactionWithFullDetails(
+                                            .GetTransHeaderWithFullDetails(
                                                 new TransactionHeader { Entity = e }, s)
                                 })
                             .Cast<dynamic>().ToList();

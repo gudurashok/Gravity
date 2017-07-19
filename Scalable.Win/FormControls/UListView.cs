@@ -136,8 +136,7 @@ namespace Scalable.Win.FormControls
 
         protected virtual void OnItemSelected(PicklistItemEventArgs e)
         {
-            if (ItemSelected != null)
-                ItemSelected(this, e);
+            ItemSelected?.Invoke(this, e);
         }
 
         protected PicklistItemEventArgs getSelectedItemArgs()

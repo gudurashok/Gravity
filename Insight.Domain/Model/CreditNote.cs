@@ -1,6 +1,5 @@
 ﻿using Insight.Domain.Entities;
 using Insight.Domain.Repositories;
-using System;
 using System.Collections.Generic;
 
 namespace Insight.Domain.Model

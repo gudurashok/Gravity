@@ -76,8 +76,7 @@ namespace Insight.Win.Forms
 
             base.InitializeForm();
             addCompanyPeriodMenuItem();
-            var repo = new InsightRepository();
-            MenuItems = repo.GetAllAppMenuItems();
+            MenuItems = InsightRepository.GetAllAppMenuItems();
             SetMenuStripItems();
             Show();
 

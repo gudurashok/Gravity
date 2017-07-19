@@ -21,7 +21,7 @@ namespace Insight.Domain.Repositories
             {
                 return s.Query<SaleInvoiceEntity>()
                         .Where(v => v.CompanyPeriodId == InsightSession.CompanyPeriod.Entity.Id).ToList()
-                        .Select(e => new SaleInvoiceListItem { TransactionHeader = InsightRepository.GetInvoiceWithFullDetails(e, s) })
+                        .Select(e => new SaleInvoiceListItem { TransactionHeader = InsightRepository.GetSaleInvoiceWithFullDetails(e, s) })
                         .Cast<dynamic>().ToList();
             }
         }

@@ -514,6 +514,7 @@ namespace Ferry.Logic.Base
             return note;
         }
 
+        //TODO: Are the credit notes in MCS/TCS mapped to sales returns?
         private CreditNoteLine getCreditNoteLineItem(SourceLineItem sourceLineItem)
         {
             var line = new CreditNoteLine();
@@ -561,6 +562,7 @@ namespace Ferry.Logic.Base
             return note;
         }
 
+        //TODO: Are the debit notes in MCS/TCS mapped to purchase returns?
         private DebitNoteLine getDebitNoteLineItem(SourceLineItem sourceLineItem)
         {
             var line = new DebitNoteLine();

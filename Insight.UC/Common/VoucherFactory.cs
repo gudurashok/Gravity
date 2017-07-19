@@ -24,8 +24,17 @@ namespace Insight.UC.Common
             if (bookType == DaybookType.JournalVoucher)
                 return new UJournalVoucher(fDaybooks);
 
+            if (bookType == DaybookType.CreditNote)
+                return new UCreditNote(fDaybooks);
+
+            if (bookType == DaybookType.DebitNote)
+                return new UDebitNote(fDaybooks);
+
             if (bookType == DaybookType.Sale)
                 return new USaleInvoice(fDaybooks);
+
+            //if (bookType == DaybookType.Purchase)
+            //    return new UPurchaseInvoice(fDaybooks);
 
             throw new ValidationException("Under Construction");
         }

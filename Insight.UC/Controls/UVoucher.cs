@@ -110,13 +110,12 @@ namespace Insight.UC.Controls
 
         protected virtual void ProcessNew()
         {
-            //Should override from respective form
+            throw new NotImplementedException("This method should have been overridden by derived class");
         }
 
         protected void OnTransactionSaved(VoucherSavedEventArgs e)
         {
-            if (TransactionSaved != null)
-                TransactionSaved(this, e);
+            TransactionSaved?.Invoke(this, e);
         }
 
         private void btnChange_Click(object sender, EventArgs e)

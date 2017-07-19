@@ -26,11 +26,11 @@ namespace Insight.UC.Forms
             _transaction = transaction;
             initialize();
             var control = VoucherFactory.GetVoucherForm(_transaction.Daybook.Entity.Type, fDaybooks, type);
-            setFormSizeForControl(control);
+            initializeVoucherUIControl(control);
             Controls.Add(control);
         }
 
-        private void setFormSizeForControl(UVoucher control)
+        private void initializeVoucherUIControl(UVoucher control)
         {
             ClientSize = new Size(control.Width, pnlHeader.Height + control.Height);
             MinimumSize = Size;

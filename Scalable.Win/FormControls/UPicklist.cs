@@ -48,8 +48,7 @@ namespace Scalable.Win.FormControls
 
         protected virtual void OnItemOpened(PicklistItemEventArgs e)
         {
-            if (ItemOpened != null)
-                ItemOpened(this, e);
+            ItemOpened?.Invoke(this, e);
         }
 
         #endregion
