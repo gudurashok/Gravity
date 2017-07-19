@@ -14,6 +14,7 @@ using Scalable.Win.Common;
 using Scalable.Win.FormControls;
 using Scalable.Win.Forms;
 using Gravity.Root.Common;
+using Scalable.Shared.Enums;
 
 #if !DEBUG
 using Gravity.Root.Properties;
@@ -80,7 +81,7 @@ namespace Gravity.Root.Forms
 
         protected virtual void InitializeForm()
         {
-            hideCoGroupSelectionMenuItemIfEmbedded();
+            setCoGroupSelectionMenuVisibility();
             mainMenuStrip.BringToFront();
             lnkUsers.BringToFront();
             lnkUsers.Visible = GravitySession.User.Entity.IsAdmin;
@@ -97,26 +98,53 @@ namespace Gravity.Root.Forms
 #endif
         }
 
-        private void hideCoGroupSelectionMenuItemIfEmbedded()
+        private void setCoGroupSelectionMenuVisibility()
         {
-            companyGroupToolStripMenuItem.Visible = false; //TODO: (AppConfig.AppGenus != Genus.Embedded);
+            companyGroupToolStripMenuItem.Visible = (AppConfig.AppGenus != Genus.Embedded);
         }
 
         protected void SetMenuStripItems()
         {
             foreach (var menuItem in MenuItems)
-                mainMenuStrip.Items.Add(getMenuStripItem(menuItem));
+            {
+                ToolStripItem item;
+
+                if (menuItem.HasSubItems())
+                    item = createMenuDropDownItem(menuItem);
+                else
+                    item = getMenuStripItem(menuItem);
+
+                mainMenuStrip.Items.Add(item);
+            }
         }
 
-        private ToolStripMenuItem getMenuStripItem(AppMenuItemEntity menuItem)
+        private ToolStripItem createMenuDropDownItem(AppMenuItemEntity menuItem)
+        {
+            var result = getMenuStripItem(menuItem, true);
+            foreach (var item in menuItem.SubItems)
+            {
+                ToolStripItem mi;
+                if (item.HasSubItems())
+                    mi = createMenuDropDownItem(item);
+                else
+                    mi = getMenuStripItem(item);
+
+                result.DropDownItems.Add(mi);
+            }
+            return result;
+        }
+
+        private ToolStripMenuItem getMenuStripItem(AppMenuItemEntity menuItem,
+                                                   bool skipHookingClickEventHandler = false)
         {
             if (string.IsNullOrEmpty(menuItem.Name))
                 throw new ValidationException("Under construction");
 
-            return createInstance(menuItem);
+            return createMenuItemInstance(menuItem, skipHookingClickEventHandler);
         }
 
-        private ToolStripMenuItem createInstance(AppMenuItemEntity menuItem)
+        private ToolStripMenuItem createMenuItemInstance(AppMenuItemEntity menuItem,
+                                                         bool skipHookingClickEventHandler = false)
         {
             var item = new ToolStripMenuItem();
             item.Name = string.Format("{0}ToolStripMenuItem", menuItem.Name);
@@ -124,7 +152,9 @@ namespace Gravity.Root.Forms
             item.Font = menuItem.Font;
             item.ShortcutKeys = menuItem.ShortcutKeys;
             item.Tag = menuItem;
-            item.Click += menuItem_Click;
+            if (!skipHookingClickEventHandler)
+                item.Click += menuItem_Click;
+
             return item;
         }
 
@@ -144,9 +174,9 @@ namespace Gravity.Root.Forms
             if (string.IsNullOrEmpty(menuItem.UIControlName))
                 throw new ValidationException("Under construction");
 
-            var path = string.Format("{0}\\{1}", AppConfig.AppPath, menuItem.UIAssembly);
+            var path = $"{AppConfig.AppPath}\\{menuItem.UIAssembly}";
             var asm = Assembly.LoadFrom(path);
-            var entityListControl = asm.CreateInstance(string.Format("{0}.{1}", menuItem.UIControlPath, menuItem.UIControlName), true) as UPicklist;
+            var entityListControl = asm.CreateInstance($"{menuItem.UIControlPath}.{menuItem.UIControlName}", true) as UPicklist;
 
             if (entityListControl != null)
             {

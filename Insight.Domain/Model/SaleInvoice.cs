@@ -12,8 +12,6 @@ namespace Insight.Domain.Model
         public SaleTaxColumn SaleTaxColumn { get; set; }
         public IList<SaleInvoiceLine> Lines { get; set; }
         public IList<SaleInvoiceTerm> Terms { get; set; }
-
-
         public SaleInvoiceHeaderEx HeaderEx { get; set; } //For Foresight only
 
         public SaleInvoice(SaleInvoiceEntity entity)

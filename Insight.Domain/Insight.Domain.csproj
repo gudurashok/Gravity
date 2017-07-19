@@ -72,6 +72,8 @@
     <Compile Include="Entities\AccountEntity.cs" />
     <Compile Include="Entities\AccountOpeningBalanceEntity.cs" />
     <Compile Include="Entities\BillTermEntity.cs" />
+    <Compile Include="Entities\DebitNoteEntity.cs" />
+    <Compile Include="Entities\CreditNoteEntity.cs" />
     <Compile Include="Entities\ChartOfAccountEntity.cs" />
     <Compile Include="Entities\CompanyEntity.cs" />
     <Compile Include="Entities\CashReceiptEntity.cs" />
@@ -127,13 +129,11 @@
     <Compile Include="Entities\CompanyPeriodEntity.cs" />
     <Compile Include="Model\CashReceipt.cs" />
     <Compile Include="Model\CreditNote.cs" />
-    <Compile Include="Model\CreditNoteHeader.cs" />
     <Compile Include="Model\CreditNoteLine.cs" />
     <Compile Include="Model\CreditPolicy.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Daybook.cs" />
     <Compile Include="Model\DebitNote.cs" />
-    <Compile Include="Model\DebitNoteHeader.cs" />
     <Compile Include="Model\DebitNoteLine.cs" />
     <Compile Include="Model\DiscountPolicy.cs" />
     <Compile Include="Model\DocumentAdjustment.cs" />

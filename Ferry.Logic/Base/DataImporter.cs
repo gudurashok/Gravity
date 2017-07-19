@@ -497,20 +497,18 @@ namespace Ferry.Logic.Base
         {
             foreach (var sourceTransaction in sourceTransactions)
             {
-                var note = new CreditNote();
-                note.Header = getCreditNoteHeader(sourceTransaction, daybook);
+                var note = getCreditNote(sourceTransaction, daybook);
                 note.Lines = getLineItems(sourceTransaction).Select(getCreditNoteLineItem).ToList();
-
                 targetDbContext.SaveCreditNote(note);
-                ReportProgress(ieaFactory.ForCreditNote(note.Header.Daybook.Entity.Code, note.Header.DocumentNr));
+                ReportProgress(ieaFactory.ForCreditNote(note.Daybook.Entity.Code, note.Entity.DocumentNr));
                 if (IsCancelled) break;
             }
         }
 
-        private CreditNoteHeader getCreditNoteHeader(SourceTransaction sourceTransaction, Daybook daybook)
+        private CreditNote getCreditNote(SourceTransaction sourceTransaction, Daybook daybook)
         {
-            var note = new CreditNoteHeader();
-            fillTransactionHeader(sourceTransaction, daybook, note);
+            var note = CreditNote.New();
+            fillTransactionHeader(sourceTransaction, daybook, note.Entity);
             note.Daybook = daybook;
             note.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             return note;
@@ -546,20 +544,18 @@ namespace Ferry.Logic.Base
         {
             foreach (var sourceTransaction in sourceTransactions)
             {
-                var note = new DebitNote();
-                note.Header = getDebitNoteHeader(sourceTransaction, daybook);
+                var note = getDebitNote(sourceTransaction, daybook);
                 note.Lines = getLineItems(sourceTransaction).Select(getDebitNoteLineItem).ToList();
-
                 targetDbContext.SaveDebitNote(note);
-                ReportProgress(ieaFactory.ForDebitNote(note.Header.Daybook.Entity.Code, note.Header.DocumentNr));
+                ReportProgress(ieaFactory.ForDebitNote(note.Daybook.Entity.Code, note.Entity.DocumentNr));
                 if (IsCancelled) break;
             }
         }
 
-        private DebitNoteHeader getDebitNoteHeader(SourceTransaction sourceTransaction, Daybook daybook)
+        private DebitNote getDebitNote(SourceTransaction sourceTransaction, Daybook daybook)
         {
-            var note = new DebitNoteHeader();
-            fillTransactionHeader(sourceTransaction, daybook, note);
+            var note = DebitNote.New();
+            fillTransactionHeader(sourceTransaction, daybook, note.Entity);
             note.Daybook = daybook;
             note.Account = extractor.LoadAccount(extractor.GetAccount(sourceTransaction.AccountCode));
             return note;

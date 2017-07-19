@@ -36,6 +36,10 @@ namespace Gravity.Root.Controls
             this.CommandBar.SuspendLayout();
             this.SuspendLayout();
             // 
+            // btnOpen
+            // 
+            this.btnOpen.Visible = false;
+            // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));

@@ -1,24 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using Insight.Domain.Entities;
+using Insight.Domain.Repositories;
+using System;
+using System.Collections.Generic;
 
 namespace Insight.Domain.Model
 {
-    public class CreditNote
+    public class CreditNote : TransactionHeader
     {
-        public CreditNoteHeader Header { get; set; }
         public IList<CreditNoteLine> Lines { get; set; }
 
-        public CreditNote()
+        public CreditNote(CreditNoteEntity entity)
         {
-            Header = new CreditNoteHeader();
+            Entity = entity;
             Lines = new List<CreditNoteLine>();
         }
 
         public void SetIdentityValue(string id)
         {
-            Header.Id = id;
+            Entity.Id = id;
 
             foreach (var line in Lines)
                 line.NoteId = id;
+        }
+
+        public static CreditNote New()
+        {
+            return new CreditNote(new CreditNoteEntity());
+        }
+
+        protected override void SetDocumentNr()
+        {
+            if (!IsNew())
+                return;
+
+            var repo = new InsightRepository();
+            var docNr = repo.GetNewCreditNoteDocNr(Entity.DaybookId, CompanyPeriod.Entity.Id);
+            Entity.DocumentNr = docNr.Trim().PadLeft(10);
         }
     }
 }

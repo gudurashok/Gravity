@@ -116,8 +116,7 @@ namespace Gravity.Root.Controls
 
         protected virtual void OnCoGroupSelected(CoGroupSelectedEventArgs e)
         {
-            if (CoGroupSelected != null)
-                CoGroupSelected(this, e);
+            CoGroupSelected?.Invoke(this, e);
         }
 
         #endregion
@@ -165,8 +164,7 @@ namespace Gravity.Root.Controls
 
         protected virtual void OnOpenCoGroup(OpenCoGroupEventArgs e)
         {
-            if (OpenCoGroup != null)
-                OpenCoGroup(this, e);
+            OpenCoGroup?.Invoke(this, e);
         }
 
         #endregion

@@ -64,7 +64,7 @@ namespace Insight.Domain.Model
 
         protected virtual void SetDocumentNr()
         {
-            //Should always be overridden
+            throw new NotImplementedException("This method should have been overridden by derived class");
         }
 
         public bool IsNew()

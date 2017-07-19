@@ -98,6 +98,9 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Domain\obj\
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Domain\obj\Debug\Insight.Domain.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Domain\obj\Debug\Insight.Domain.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.Domain\obj\Debug\Insight.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Debug\Insight.Domain.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Debug\Insight.Domain.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Debug\Insight.Domain.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Debug\Insight.Domain.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Debug\Insight.Domain.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Debug\Gravity.Root.dll
@@ -116,8 +119,5 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Debug\Scalable.RavenDb.pd
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Debug\Scalable.Shared.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Debug\Synergy.Domain.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\bin\Debug\Scalable.Win.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Debug\Insight.Domain.csprojResolveAssemblyReference.cache
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Debug\Insight.Domain.Properties.Resources.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Debug\Insight.Domain.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Debug\Insight.Domain.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.Domain\obj\Debug\Insight.Domain.pdb

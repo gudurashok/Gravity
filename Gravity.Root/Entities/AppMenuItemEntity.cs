@@ -1,6 +1,8 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using Gravity.Root.Enums;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Gravity.Root.Entities
 {
@@ -17,5 +19,16 @@ namespace Gravity.Root.Entities
         public Keys ShortcutKeys { get; set; }
         public Font Font { get; set; }
         public bool IsForAdminOnly { get; set; }
+        public IList<AppMenuItemEntity> SubItems { get; set; }
+
+        public AppMenuItemEntity()
+        {
+            SubItems = new List<AppMenuItemEntity>();
+        }
+
+        public bool HasSubItems()
+        {
+            return SubItems.Count > 0;
+        }
     }
 }

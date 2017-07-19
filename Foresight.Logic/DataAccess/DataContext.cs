@@ -757,17 +757,17 @@ namespace Foresight.Logic.DataAccess
 
         public void SaveCreditNote(CreditNote note)
         {
-            var id = saveCreditNoteHeader(note.Header);
+            var id = saveCreditNoteHeader(note.Entity as CreditNoteEntity);
             note.SetIdentityValue(id);
 
             foreach (var line in note.Lines)
                 saveCreditNoteLine(line);
         }
 
-        private string saveCreditNoteHeader(CreditNoteHeader header)
+        private string saveCreditNoteHeader(CreditNoteEntity entity)
         {
             var cmd = _db.CreateCommand(SqlQueries.InsertCreditNoteHeader);
-            setTransParams(cmd, header);
+            setTransParams(cmd, entity as TransactionHeaderEntity);
             cmd.ExecuteNonQuery();
             return _db.GetGeneratedIdentityValue();
         }
@@ -800,17 +800,17 @@ namespace Foresight.Logic.DataAccess
 
         public void SaveDebitNote(DebitNote note)
         {
-            var id = saveDebitNoteHeader(note.Header);
+            var id = saveDebitNoteHeader(note.Entity as DebitNoteEntity);
             note.SetIdentityValue(id);
 
             foreach (var line in note.Lines)
                 saveDebitNoteLine(line);
         }
 
-        private string saveDebitNoteHeader(DebitNoteHeader header)
+        private string saveDebitNoteHeader(DebitNoteEntity entity)
         {
             var cmd = _db.CreateCommand(SqlQueries.InsertDebitNoteHeader);
-            setTransParams(cmd, header);
+            setTransParams(cmd, entity as TransactionHeaderEntity);
             cmd.ExecuteNonQuery();
             return _db.GetGeneratedIdentityValue();
         }

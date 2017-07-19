@@ -173,7 +173,8 @@ namespace Insight.Domain.Repositories
             using (var s = Store.OpenSession())
             {
                 return s.Query<CompanyPeriodEntity>()
-                        .SingleOrDefault(c => c.CompanyId == entity.CompanyId && c.PeriodId == entity.PeriodId);
+                        .SingleOrDefault(c => c.CompanyId == entity.CompanyId &&
+                                              c.PeriodId == entity.PeriodId);
             }
         }
 
@@ -311,6 +312,32 @@ namespace Insight.Domain.Repositories
             }
         }
 
+        public string GetNewCreditNoteDocNr(string daybookId, string companyPeriodId)
+        {
+            using (var s = Store.OpenSession())
+            {
+                var result = s.Query<CreditNoteEntity>()
+                              .Where(doc => doc.DaybookId == daybookId &&
+                                     doc.CompanyPeriodId == companyPeriodId)
+                              .OrderByDescending(c => c.DocumentNr)
+                              .FirstOrDefault();
+                return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
+            }
+        }
+
+        public string GetNewDebitNoteDocNr(string daybookId, string companyPeriodId)
+        {
+            using (var s = Store.OpenSession())
+            {
+                var result = s.Query<DebitNoteEntity>()
+                              .Where(doc => doc.DaybookId == daybookId &&
+                                     doc.CompanyPeriodId == companyPeriodId)
+                              .OrderByDescending(c => c.DocumentNr)
+                              .FirstOrDefault();
+                return result == null ? "1" : (Convert.ToInt64(result.DocumentNr) + 1).ToString();
+            }
+        }
+
         public string GetNewSaleInvoiceDocNr(string daybookId, string companyPeriodId)
         {
             using (var s = Store.OpenSession())
@@ -383,87 +410,139 @@ namespace Insight.Domain.Repositories
             return jv;
         }
 
-        public IList<AppMenuItemEntity> GetAllAppMenuItems()
+        private AppMenuItemEntity createTransactionsMenuItem()
         {
-            var menuItems = new List<AppMenuItemEntity>();
+            var result = new AppMenuItemEntity();
+            result.Nr = 1;
+            result.DisplayOrder = "1";
+            result.Name = "Transactions";
+            result.Caption = "T&ransactions";
+            result.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
 
             var menuItem = new AppMenuItemEntity();
             menuItem.Nr = 1;
             menuItem.DisplayOrder = "1";
             menuItem.Name = "Receipts";
-            menuItem.Caption = "R&eceipts";
+            menuItem.Caption = "&Receipts";
             menuItem.UIControlName = "UReceipts";
             menuItem.UIControlPath = "Insight.UC.Controls";
             menuItem.UIAssembly = "Insight.UC.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.E;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
-            menuItems.Add(menuItem);
+            result.SubItems.Add(menuItem);
 
             menuItem = new AppMenuItemEntity();
             menuItem.Nr = 2;
             menuItem.DisplayOrder = "2";
             menuItem.Name = "Payments";
-            menuItem.Caption = "Pa&yments";
+            menuItem.Caption = "&Payments";
             menuItem.UIControlName = "UPayments";
             menuItem.UIControlPath = "Insight.UC.Controls";
             menuItem.UIAssembly = "Insight.UC.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.Y;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
-            menuItems.Add(menuItem);
+            result.SubItems.Add(menuItem);
 
             menuItem = new AppMenuItemEntity();
             menuItem.Nr = 3;
             menuItem.DisplayOrder = "3";
             menuItem.Name = "JournalVouchers";
-            menuItem.Caption = "&JV"; // "&Journal Vouchers";
+            menuItem.Caption = "&Journal Vouchers";
             menuItem.UIControlName = "UJournalVouchers";
             menuItem.UIControlPath = "Insight.UC.Controls";
             menuItem.UIAssembly = "Insight.UC.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.J;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
-            menuItems.Add(menuItem);
+            result.SubItems.Add(menuItem);
 
             menuItem = new AppMenuItemEntity();
             menuItem.Nr = 4;
             menuItem.DisplayOrder = "4";
+            menuItem.Name = "CreditNotes";
+            menuItem.Caption = "&Credit Notes";
+            menuItem.UIControlName = "UCreditNotes";
+            menuItem.UIControlPath = "Insight.UC.Controls";
+            menuItem.UIAssembly = "Insight.UC.dll";
+            menuItem.ShortcutKeys = Keys.Control | Keys.R;
+            menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            result.SubItems.Add(menuItem);
+
+            menuItem = new AppMenuItemEntity();
+            menuItem.Nr = 5;
+            menuItem.DisplayOrder = "5";
+            menuItem.Name = "DebitNotes";
+            menuItem.Caption = "&DebitNotes";
+            menuItem.UIControlName = "UPayments";
+            menuItem.UIControlPath = "Insight.UC.Controls";
+            menuItem.UIAssembly = "Insight.UC.dll";
+            menuItem.ShortcutKeys = Keys.Control | Keys.B;
+            menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            result.SubItems.Add(menuItem);
+
+            menuItem = new AppMenuItemEntity();
+            menuItem.Nr = 6;
+            menuItem.DisplayOrder = "6";
             menuItem.Name = "SaleInvoices";
-            menuItem.Caption = "Sa&le Invoices";
+            menuItem.Caption = "&Sales Invoices";
             menuItem.UIControlName = "USaleInvoices";
             menuItem.UIControlPath = "Insight.UC.Controls";
             menuItem.UIAssembly = "Insight.UC.dll";
             menuItem.ShortcutKeys = Keys.Control | Keys.L;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
-            menuItems.Add(menuItem);
+            result.SubItems.Add(menuItem);
 
             menuItem = new AppMenuItemEntity();
-            menuItem.Nr = 5;
-            menuItem.DisplayOrder = "5";
-            menuItem.Name = "Tasks";
-            menuItem.Caption = "&Tasks";
-            menuItem.UIControlName = "UTasks";
-            menuItem.UIControlPath = "Synergy.UC.Controls";
-            menuItem.UIAssembly = "Synergy.UC.dll";
-            menuItem.ShortcutKeys = Keys.Control | Keys.T;
+            menuItem.Nr = 7;
+            menuItem.DisplayOrder = "7";
+            menuItem.Name = "PurchaseInvoices";
+            menuItem.Caption = "P&urchase Invoices";
+            menuItem.UIControlName = "UPurchaseInvoices";
+            menuItem.UIControlPath = "Insight.UC.Controls";
+            menuItem.UIAssembly = "Insight.UC.dll";
+            menuItem.ShortcutKeys = Keys.Control | Keys.L;
             menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
-            menuItems.Add(menuItem);
+            result.SubItems.Add(menuItem);
 
-            menuItem = new AppMenuItemEntity();
-            menuItem.Nr = 6;
-            menuItem.DisplayOrder = "6";
-            menuItem.Name = "Parties";
-            menuItem.Caption = "&Parties";
-            menuItem.UIControlName = "UParties";
-            menuItem.UIControlPath = "Mingle.UC.Controls";
-            menuItem.UIAssembly = "Mingle.UC.dll";
-            menuItem.ShortcutKeys = Keys.Control | Keys.P;
-            menuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuItem.IsForAdminOnly = false;
-            menuItems.Add(menuItem);
+            return result;
+        }
+
+        private AppMenuItemEntity createPartiesMenuItem()
+        {
+            var result = new AppMenuItemEntity();
+            result.Nr = 6;
+            result.DisplayOrder = "6";
+            result.Name = "Parties";
+            result.Caption = "&Parties";
+            result.UIControlName = "UParties";
+            result.UIControlPath = "Mingle.UC.Controls";
+            result.UIAssembly = "Mingle.UC.dll";
+            result.ShortcutKeys = Keys.Control | Keys.P;
+            result.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+
+            return result;
+        }
+
+        private AppMenuItemEntity createTasksMenuItem()
+        {
+            var result = new AppMenuItemEntity();
+            result.Nr = 5;
+            result.DisplayOrder = "5";
+            result.Name = "Tasks";
+            result.Caption = "&Tasks";
+            result.UIControlName = "UTasks";
+            result.UIControlPath = "Synergy.UC.Controls";
+            result.UIAssembly = "Synergy.UC.dll";
+            result.ShortcutKeys = Keys.Control | Keys.T;
+            result.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            return result;
+        }
+
+        public IList<AppMenuItemEntity> GetAllAppMenuItems()
+        {
+            var menuItems = new List<AppMenuItemEntity>();
+            menuItems.Add(createTransactionsMenuItem());
+            menuItems.Add(createTasksMenuItem());
+            menuItems.Add(createPartiesMenuItem());
 
             if (GravitySession.User.Entity.IsAdmin)
                 return menuItems.OrderBy(m => m.DisplayOrder).ToList();

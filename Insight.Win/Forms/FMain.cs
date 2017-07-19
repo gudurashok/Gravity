@@ -119,37 +119,35 @@ namespace Insight.Win.Forms
 
         protected override void SetFormTitle()
         {
-            Text = getText();
+            Text = getFormTitle();
             lblTitle.Text = getTitle();
-            lblAdditionalInfo.Text = getAditionalInfo();
+            lblAdditionalInfo.Text = getAdditionalInfo();
         }
 
         private static string getTitle()
         {
-            return string.Format("{0} ({1})", InsightSession.CompanyPeriod.Company.Entity.Name,
-                                 InsightSession.CompanyPeriod.Period.Entity.Financial.ToYearString());
-
+            var company = InsightSession.CompanyPeriod.Company.Entity;
+            var coFinPeriod = InsightSession.CompanyPeriod.Period.Entity.Financial;
+            return $"{company.Name} ({coFinPeriod.ToYearString()})";
         }
 
-        private static string getAditionalInfo()
+        private static string getAdditionalInfo()
         {
             return InsightSession.CompanyPeriod.Company.Party.ToStringLocation();
         }
 
-        private string getText()
+        private string getFormTitle()
         {
-            return string.Format("{0} [{1}] [{2}] [{3}]",
-                                 InsightSession.CompanyPeriod.Company.Entity.Name,
-                                 InsightSession.CompanyPeriod.Period.Entity.Financial.ToYearString(),
-                                 GravityApplication.GetProductName(),
-                                 getLoginUserName());
+            var company = InsightSession.CompanyPeriod.Company.Entity;
+            var coFinPeriod = InsightSession.CompanyPeriod.Period.Entity.Financial;
+            return $"{company.Name} [{coFinPeriod.ToYearString()}] " +
+                   $"[{GravityApplication.GetProductName()}] [{getLoginUserName()}]";
         }
 
         private string getLoginUserName()
         {
-            return string.Format("{0} ({1})",
-                                GravitySession.User.Entity.Name,
-                                GravitySession.User.Entity.Designation);
+            var user = GravitySession.User.Entity;
+            return $"{user.Name} ({user.Designation})";
         }
 
         #endregion

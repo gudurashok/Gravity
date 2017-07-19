@@ -131,7 +131,7 @@ namespace Gravity.Root.Forms
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(632, 24);
             this.mainMenuStrip.TabIndex = 1;
-            this.mainMenuStrip.Text = "menuStrip1";
+            this.mainMenuStrip.Text = "AppMainMenu";
             // 
             // companyGroupToolStripMenuItem
             // 
