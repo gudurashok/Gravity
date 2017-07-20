@@ -52,7 +52,7 @@ namespace Insight.UC.Controls
 
         protected virtual TransactionHeader GetSaleInvoice(PicklistItemEventArgs e)
         {
-            var trans = ((TransactionListItem)e.PicklistItem).TransactionHeader;
+            var trans = ((SaleInvoiceListItem)e.PicklistItem).TransactionHeader;
             var result = new SaleInvoice(trans.Entity as SaleInvoiceEntity);
             fillVoucherDetails(result, trans);
             return result;
