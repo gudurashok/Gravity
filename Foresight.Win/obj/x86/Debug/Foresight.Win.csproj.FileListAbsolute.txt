@@ -178,7 +178,6 @@ C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Re
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Reports.UTopNItemsReport.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Reports.UDaybookListReport.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Reports.ULedgerSummaryReport.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Reports.UAccountListReport.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Reports.FReportViewer.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Reports.ULedgerDetailReport.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Reports.UCompanyAccountValueReport.resources
@@ -217,3 +216,4 @@ C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\bin\Debug\Scalable.RavenDb.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\bin\Debug\Mingle.Domain.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Debug\Foresight.Win.Reports.UTrialBalanceReport.resources

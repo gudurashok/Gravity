@@ -14,7 +14,7 @@ using Scalable.Shared.Enums;
 
 namespace Foresight.Win.Reports
 {
-    public partial class UAccountListReport : UReportBase
+    public partial class UTrialBalanceReport : UReportBase
     {
         #region Declarations
 
@@ -39,7 +39,7 @@ namespace Foresight.Win.Reports
 
         #region Constructor
 
-        public UAccountListReport(Command command)
+        public UTrialBalanceReport(Command command)
             : base(command)
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace Foresight.Win.Reports
 
         #region Load
 
-        private void UAccountListReport_Load(object sender, EventArgs e)
+        private void UTrialBalanceReport_Load(object sender, EventArgs e)
         {
             EventHandlerExecutor.Execute(intialize);
         }
@@ -90,6 +90,10 @@ namespace Foresight.Win.Reports
             lvwReport.SelectItem(selectedIndex, true);
         }
 
+        #endregion
+
+        #region Report View Rows
+
         private void addReportViewRows()
         {
             lvwReport.Items.Clear();
@@ -97,23 +101,56 @@ namespace Foresight.Win.Reports
             foreach (ListViewGroup group in lvwReport.Groups)
             {
                 addReportViewRows(group, _report.Where(r => r.ChartOfAccountName == group.Name));
-                addTotalChartOfAccountGroups(group);
+                addChartOfAccountGroupTotals(group);
             }
+
+            addReportGrandTotals();
         }
 
-        private void addTotalChartOfAccountGroups(ListViewGroup group)
+        private void addChartOfAccountGroupTotals(ListViewGroup group)
         {
-            var openingCr = _report.Where(r => r.ChartOfAccountName == group.Name && r.Opening > 0).Sum(r => r.Opening);
-            var openingDb =
-                Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name && r.Opening < 0).Sum(r => r.Opening));
-            var transCr = _report.Where(r => r.ChartOfAccountName == group.Name).Sum(r => r.TransactionCredit);
-            var transDb = Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name).Sum(r => r.TransactionDebit));
+            var openingCr = _report.Where(r => r.ChartOfAccountName == group.Name && r.Opening > 0)
+                                   .Sum(r => r.Opening);
+            var openingDb = Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name && r.Opening < 0)
+                                            .Sum(r => r.Opening));
+            var transCr = _report.Where(r => r.ChartOfAccountName == group.Name)
+                                 .Sum(r => r.TransactionCredit);
+            var transDb = Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name)
+                                          .Sum(r => r.TransactionDebit));
 
-            var closingCr = _report.Where(r => r.ChartOfAccountName == group.Name && r.Closing > 0).Sum(r => r.Closing);
-            var closingDb =
-                Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name && r.Closing < 0).Sum(r => r.Closing));
+            var closingCr = _report.Where(r => r.ChartOfAccountName == group.Name && r.Closing > 0)
+                                   .Sum(r => r.Closing);
+            var closingDb = Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name && r.Closing < 0)
+                                            .Sum(r => r.Closing));
 
             var lvi = new ListViewItem("TOTAL:", group);
+            lvi.SubItems.Add(formatAmountWithBlank(openingCr, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmountWithBlank(openingDb, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmountWithBlank(transCr, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmountWithBlank(transDb, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmountWithBlank(closingCr, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmountWithBlank(closingDb, cmbAmtFormat));
+
+            lvwReport.Items.Add(lvi);
+        }
+
+        private void addReportGrandTotals()
+        {
+            var openingCr = _report.Where(r => r.Opening > 0).Sum(r => r.Opening);
+            var openingDb = Math.Abs(_report.Where(r => r.Opening < 0).Sum(r => r.Opening));
+            var transCr = _report.Sum(r => r.TransactionCredit);
+            var transDb = Math.Abs(_report.Sum(r => r.TransactionDebit));
+            var closingCr = _report.Where(r => r.Closing > 0).Sum(r => r.Closing);
+            var closingDb = Math.Abs(_report.Where(r => r.Closing < 0).Sum(r => r.Closing));
+
+            const string totalsGroupName = "REPORT GRAND TOTALS";
+            var grandTotalsGroup = lvwReport.Groups.Add(totalsGroupName, totalsGroupName);
+            grandTotalsGroup.Name = totalsGroupName;
+            lvwReport.Groups.Add(grandTotalsGroup);
+
+            var lvi = new ListViewItem("GRAND TOTAL:", grandTotalsGroup);
+            lvi.BackColor = Color.Maroon;
+            lvi.ForeColor = Color.White;
             lvi.SubItems.Add(formatAmountWithBlank(openingCr, cmbAmtFormat));
             lvi.SubItems.Add(formatAmountWithBlank(openingDb, cmbAmtFormat));
             lvi.SubItems.Add(formatAmountWithBlank(transCr, cmbAmtFormat));
@@ -302,9 +339,7 @@ namespace Foresight.Win.Reports
                 lvi.Tag = trialBalance;
 
                 addOpeningBalanceSubItems(trialBalance, lvi);
-
                 addTransactionSubItems(trialBalance, lvi);
-
                 addClosingBalanceSubItems(trialBalance, lvi);
 
                 lvwReport.Items.Add(lvi);

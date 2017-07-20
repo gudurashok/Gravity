@@ -12,7 +12,7 @@ namespace Foresight.Win.Reports
     {
         #region Declarations
 
-        private UAccountListReport _list;
+        private UTrialBalanceReport _list;
         public bool IsPartyGroupingSelected { get; private set; }
 
         #endregion
@@ -113,7 +113,7 @@ namespace Foresight.Win.Reports
         {
             var command = ForesightDatabaseFactory.GetInstance()
                                 .GetCommandByNr(ForesightConstants.LedgerReportNr);
-            _list = new UAccountListReport(command);
+            _list = new UTrialBalanceReport(command);
             Controls.Add(_list);
             _list.BringToFront();
             _list.Dock = DockStyle.Fill;

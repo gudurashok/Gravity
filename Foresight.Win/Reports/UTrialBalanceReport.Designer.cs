@@ -1,6 +1,6 @@
 ﻿namespace Foresight.Win.Reports
 {
-    partial class UAccountListReport
+    partial class UTrialBalanceReport
     {
         /// <summary> 
         /// Required designer variable.
@@ -134,7 +134,7 @@
             this.lblAmtFormat.TabIndex = 6;
             this.lblAmtFormat.Text = "&Format:";
             // 
-            // UAccountListReport
+            // UTrialBalanceReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,9 +145,9 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnShowLedger);
             this.Controls.Add(this.lvwReport);
-            this.Name = "UAccountListReport";
+            this.Name = "UTrialBalanceReport";
             this.Size = new System.Drawing.Size(551, 351);
-            this.Load += new System.EventHandler(this.UAccountListReport_Load);
+            this.Load += new System.EventHandler(this.UTrialBalanceReport_Load);
             this.Controls.SetChildIndex(this.pnlHeader, 0);
             this.Controls.SetChildIndex(this.lvwReport, 0);
             this.Controls.SetChildIndex(this.btnShowLedger, 0);

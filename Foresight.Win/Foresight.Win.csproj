@@ -127,11 +127,11 @@
     <Compile Include="Reports\ULedgerSummaryReport.Designer.cs">
       <DependentUpon>ULedgerSummaryReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\UAccountListReport.cs">
+    <Compile Include="Reports\UTrialBalanceReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Reports\UAccountListReport.Designer.cs">
-      <DependentUpon>UAccountListReport.cs</DependentUpon>
+    <Compile Include="Reports\UTrialBalanceReport.Designer.cs">
+      <DependentUpon>UTrialBalanceReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\FReportViewer.cs">
       <SubType>Form</SubType>
@@ -242,8 +242,8 @@
     <EmbeddedResource Include="Reports\ULedgerSummaryReport.resx">
       <DependentUpon>ULedgerSummaryReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\UAccountListReport.resx">
-      <DependentUpon>UAccountListReport.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\UTrialBalanceReport.resx">
+      <DependentUpon>UTrialBalanceReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\FReportViewer.resx">
       <DependentUpon>FReportViewer.cs</DependentUpon>

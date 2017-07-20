@@ -44,7 +44,7 @@ namespace Foresight.Win.Reports
 
         #region Event Handlers
 
-        private void UAccountListReport_Load(object sender, EventArgs e)
+        private void UDaybookListReport_Load(object sender, EventArgs e)
         {
             EventHandlerExecutor.Execute(initialize);
         }

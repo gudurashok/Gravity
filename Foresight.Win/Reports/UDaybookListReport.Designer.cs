@@ -99,7 +99,7 @@
             this.Controls.Add(this.lvwReport);
             this.Name = "UDaybookListReport";
             this.Size = new System.Drawing.Size(551, 351);
-            this.Load += new System.EventHandler(this.UAccountListReport_Load);
+            this.Load += new System.EventHandler(this.UDaybookListReport_Load);
             this.Controls.SetChildIndex(this.pnlHeader, 0);
             this.Controls.SetChildIndex(this.lvwReport, 0);
             this.Controls.SetChildIndex(this.btnShowLedger, 0);

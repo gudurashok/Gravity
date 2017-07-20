@@ -41,7 +41,7 @@
             this.Name = "FReportViewer";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Foresight: Account Ledger";
+            this.Text = "Foresight: Reports";
             this.ResumeLayout(false);
 
         }
