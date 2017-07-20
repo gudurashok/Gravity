@@ -1,6 +1,6 @@
 ﻿namespace Insight.Domain.Enums
 {
-    public enum TransactionType
+    public enum CashBankTransactionType
     {
         Receipt = 0,
         Payment = 1,

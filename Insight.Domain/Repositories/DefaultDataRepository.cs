@@ -562,12 +562,14 @@ namespace Insight.Domain.Repositories
             var d = new DaybookEntity();
             d.Name = "CASH SALES";
             d.Type = DaybookType.Sale;
+            d.DocumentEntryType = DocumentEntryType.WithoutInventory;
             d.AccountId = createAccount("CASH SALES", chartOfAccountId);
             _session.Store(d);
 
             d = new DaybookEntity();
             d.Name = "CREDIT SALES";
             d.Type = DaybookType.Sale;
+            d.DocumentEntryType = DocumentEntryType.WithoutInventory;
             d.AccountId = createAccount("CREDIT SALES", chartOfAccountId);
             _session.Store(d);
 
@@ -583,12 +585,14 @@ namespace Insight.Domain.Repositories
             d = new DaybookEntity();
             d.Name = "CASH PURCHASE";
             d.Type = DaybookType.Purchase;
+            d.DocumentEntryType = DocumentEntryType.WithoutInventory;
             d.AccountId = createAccount("CASH PURCHASE", chartOfAccountId);
             _session.Store(d);
 
             d = new DaybookEntity();
             d.Name = "CREDIT PURCHASE";
             d.Type = DaybookType.Purchase;
+            d.DocumentEntryType = DocumentEntryType.WithoutInventory;
             d.AccountId = createAccount("CREDIT PURCHASE", chartOfAccountId);
             _session.Store(d);
 
@@ -602,6 +606,7 @@ namespace Insight.Domain.Repositories
             d = new DaybookEntity();
             d.Name = "PURCHASE RETURN";
             d.Type = DaybookType.PurchaseReturn;
+            d.DocumentEntryType = DocumentEntryType.WithInventory;
             d.AccountId = createAccount("PURCHASE RETURN", chartOfAccountId);
             _session.Store(d);
 
@@ -615,6 +620,7 @@ namespace Insight.Domain.Repositories
             d = new DaybookEntity();
             d.Name = "SALES RETURN";
             d.Type = DaybookType.SaleReturn;
+            d.DocumentEntryType = DocumentEntryType.WithInventory;
             d.AccountId = createAccount("SALES RETURN", chartOfAccountId);
             _session.Store(d);
 

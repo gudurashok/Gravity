@@ -18,7 +18,7 @@ namespace Insight.UC.Controls
 
         public override void Initialize()
         {
-            newVoucherToolStripMenuItem.Text = @"&New Sale Invoice"; 
+            newVoucherToolStripMenuItem.Text = @"&New Sale Invoice";
             base.Initialize();
         }
 
@@ -29,7 +29,7 @@ namespace Insight.UC.Controls
 
         protected override void ProcessNewVoucher()
         {
-            if (!IsDaybookSelected(DaybookType.Sale)) 
+            if (!IsDaybookSelected(DaybookType.Sale))
                 return;
 
             var invoice = new SaleInvoice(new SaleInvoiceEntity());
@@ -52,7 +52,10 @@ namespace Insight.UC.Controls
 
         protected virtual TransactionHeader GetSaleInvoice(PicklistItemEventArgs e)
         {
-            return ((SaleInvoiceListItem)e.PicklistItem).TransactionHeader;
+            var trans = ((TransactionListItem)e.PicklistItem).TransactionHeader;
+            var result = new SaleInvoice(trans.Entity as SaleInvoiceEntity);
+            fillVoucherDetails(result, trans);
+            return result;
         }
     }
 }

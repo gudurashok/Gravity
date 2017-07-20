@@ -151,5 +151,31 @@ namespace Insight.Domain.Repositories
                         .ToList();
             }
         }
+
+        public IList<SaleInvoiceEntity> GetAllSaleInvoices()
+        {
+            using (var s = Store.OpenSession())
+            {
+                return s.Query<SaleInvoiceEntity>()
+                        .Where(doc => doc.CompanyPeriodId == _companyPeriod.Entity.Id)
+                        .OrderBy(doc => doc.DaybookId)
+                        .OrderBy(doc => doc.Date)
+                        .OrderBy(doc => doc.Id)
+                        .ToList();
+            }
+        }
+
+        public IList<PurchaseInvoiceEntity> GetAllPurchaseInvoices()
+        {
+            using (var s = Store.OpenSession())
+            {
+                return s.Query<PurchaseInvoiceEntity>()
+                        .Where(doc => doc.CompanyPeriodId == _companyPeriod.Entity.Id)
+                        .OrderBy(doc => doc.DaybookId)
+                        .OrderBy(doc => doc.Date)
+                        .OrderBy(doc => doc.Id)
+                        .ToList();
+            }
+        }
     }
 }

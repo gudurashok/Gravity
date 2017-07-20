@@ -102,7 +102,7 @@
     <Compile Include="Enums\DaybookType.cs" />
     <Compile Include="Enums\LedgerView.cs" />
     <Compile Include="Enums\SourceDataProvider.cs" />
-    <Compile Include="Enums\TransactionType.cs" />
+    <Compile Include="Enums\CashBankTransactionType.cs" />
     <Compile Include="Enums\TxnType.cs" />
     <Compile Include="Enums\VehicleType.cs" />
     <Compile Include="Model\Account.cs" />

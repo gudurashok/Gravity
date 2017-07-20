@@ -17,7 +17,7 @@ namespace Insight.UC.Controls
 
         public override void Initialize()
         {
-            TransactionType = TransactionType.Payment;
+            TransactionType = CashBankTransactionType.Payment;
             newVoucherToolStripMenuItem.Text = @"&New Payment"; 
             base.Initialize();
         }

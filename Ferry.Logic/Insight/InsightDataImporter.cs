@@ -80,9 +80,6 @@ namespace Ferry.Logic.Insight
         private void importTransactions()
         {
             importAccountOpeningBalances();
-            //importSaleInvoices();
-            //importPurchaseInvoices();
-
             importCashReceipts();
             importCashPayments();
             importBankReceipts();
@@ -90,6 +87,8 @@ namespace Ferry.Logic.Insight
             importJournalVouchers();
             importCreditNotes();
             importDebitNotes();
+            importSaleInvoices();
+            importPurchaseInvoices();
 
             //importItemLots();
             //importInventoryIssue();
@@ -324,6 +323,62 @@ namespace Ferry.Logic.Insight
         private IEnumerable<DebitNoteEntity> getDebitNotes(string daybookId)
         {
             return _dataExtractor.SourceDebitNotes.Where(t => t.DaybookId == daybookId);
+        }
+
+        #endregion
+
+        #region Sales Invoices
+
+        private void importSaleInvoices()
+        {
+            foreach (var daybook in getDaybooksOf(DaybookType.Sale))
+                loadSaleInvoices(getSaleInvoices(daybook.Entity.Id), daybook);
+        }
+
+        private void loadSaleInvoices(IEnumerable<SaleInvoiceEntity> saleInvoices, ForesightDaybook daybook)
+        {
+            foreach (var saleInvoice in saleInvoices)
+            {
+                var account = _dataExtractor.TargetAccounts
+                                .Where(a => a.Entity.Id == saleInvoice.AccountId)
+                                .SingleOrDefault();
+                saleInvoice.DaybookId = daybook.ForesightId.ToString();
+                saleInvoice.AccountId = account.ForesightId.ToString();
+                _targetDbContext.SaveSaleInvoice(new SaleInvoice(saleInvoice));
+            }
+        }
+
+        private IEnumerable<SaleInvoiceEntity> getSaleInvoices(string daybookId)
+        {
+            return _dataExtractor.SourceSaleInvoices.Where(t => t.DaybookId == daybookId);
+        }
+
+        #endregion
+
+        #region Purchase Invoices
+
+        private void importPurchaseInvoices()
+        {
+            foreach (var daybook in getDaybooksOf(DaybookType.Purchase))
+                loadPurchaseInvoices(getPurchaseInvoices(daybook.Entity.Id), daybook);
+        }
+
+        private void loadPurchaseInvoices(IEnumerable<PurchaseInvoiceEntity> purchaseInvoices, ForesightDaybook daybook)
+        {
+            foreach (var purchaseInvoice in purchaseInvoices)
+            {
+                var account = _dataExtractor.TargetAccounts
+                                .Where(a => a.Entity.Id == purchaseInvoice.AccountId)
+                                .SingleOrDefault();
+                purchaseInvoice.DaybookId = daybook.ForesightId.ToString();
+                purchaseInvoice.AccountId = account.ForesightId.ToString();
+                _targetDbContext.SavePurchaseInvoice(new PurchaseInvoice(purchaseInvoice));
+            }
+        }
+
+        private IEnumerable<PurchaseInvoiceEntity> getPurchaseInvoices(string daybookId)
+        {
+            return _dataExtractor.SourcePurchaseInvoices.Where(t => t.DaybookId == daybookId);
         }
 
         #endregion

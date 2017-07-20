@@ -58,6 +58,24 @@
   <ItemGroup>
     <Compile Include="Common\ISetup.cs" />
     <Compile Include="Common\VoucherFactory.cs" />
+    <Compile Include="Controls\UPurchaseVoucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPurchaseVoucher.Designer.cs">
+      <DependentUpon>UPurchaseVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UPurchaseInvoices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPurchaseInvoices.Designer.cs">
+      <DependentUpon>UPurchaseInvoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\USaleVoucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\USaleVoucher.Designer.cs">
+      <DependentUpon>USaleVoucher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UDebitNotes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -374,6 +392,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\UPurchaseVoucher.resx">
+      <DependentUpon>UPurchaseVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UPurchaseInvoices.resx">
+      <DependentUpon>UPurchaseInvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\USaleVoucher.resx">
+      <DependentUpon>USaleVoucher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UDebitNotes.resx">
       <DependentUpon>UDebitNotes.cs</DependentUpon>
     </EmbeddedResource>

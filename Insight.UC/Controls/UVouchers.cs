@@ -20,7 +20,7 @@ namespace Insight.UC.Controls
     {
         protected Daybook _selectedDaybook;
         protected FDaybooks _fDaybooks;
-        protected TransactionType TransactionType;
+        protected CashBankTransactionType TransactionType;
 
         public UVouchers()
         {

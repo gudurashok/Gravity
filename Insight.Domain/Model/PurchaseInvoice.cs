@@ -30,12 +30,12 @@ namespace Insight.Domain.Model
                 term.Entity.InvoiceId = id;
         }
 
-        public string GetNewDocumentNr()
-        {
-            var repo = new InsightRepository();
-            var docNr = repo.GetNewPurchaseInvoiceDocNr(Entity.DaybookId, CompanyPeriod.Entity.Id);
-            return docNr.Trim().PadLeft(10);
-        }
+        //public string GetNewDocumentNr()
+        //{
+        //    var repo = new InsightRepository();
+        //    var docNr = repo.GetNewPurchaseInvoiceDocNr(Entity.DaybookId, CompanyPeriod.Entity.Id);
+        //    return docNr.Trim().PadLeft(10);
+        //}
 
         public override void Save()
         {
@@ -48,6 +48,16 @@ namespace Insight.Domain.Model
         public static PurchaseInvoice New()
         {
             return new PurchaseInvoice(new PurchaseInvoiceEntity());
+        }
+
+        protected override void SetDocumentNr()
+        {
+            if (!IsNew())
+                return;
+
+            var repo = new InsightRepository();
+            var docNr = repo.GetNewPurchaseInvoiceDocNr(Entity.DaybookId, CompanyPeriod.Entity.Id);
+            Entity.DocumentNr = docNr.Trim().PadLeft(10);
         }
     }
 }

@@ -12,20 +12,20 @@ namespace Insight.UC.Forms
     public partial class FVoucher : FFormBase
     {
         private readonly TransactionHeader _transaction;
-        private readonly TransactionType _type;
+        private readonly CashBankTransactionType _type;
 
         public FVoucher()
         {
             InitializeComponent();
         }
 
-        public FVoucher(TransactionHeader transaction, FDaybooks fDaybooks, TransactionType type = TransactionType.None)
+        public FVoucher(TransactionHeader transaction, FDaybooks fDaybooks, CashBankTransactionType type = CashBankTransactionType.None)
             : this()
         {
             _type = type;
             _transaction = transaction;
             initialize();
-            var control = VoucherFactory.GetVoucherForm(_transaction.Daybook.Entity.Type, fDaybooks, type);
+            var control = VoucherFactory.GetVoucherForm(_transaction.Daybook, fDaybooks, type);
             initializeVoucherUIControl(control);
             Controls.Add(control);
         }
@@ -63,7 +63,7 @@ namespace Insight.UC.Forms
 
         private void setFormTitle()
         {
-            Text = string.Format("{0} {1}", _transaction.Daybook.Entity.Type, _type == TransactionType.None ? (object)"" : _type);
+            Text = string.Format("{0} {1}", _transaction.Daybook.Entity.Type, _type == CashBankTransactionType.None ? (object)"" : _type);
             lblTitle.Text = Text;
         }
     }

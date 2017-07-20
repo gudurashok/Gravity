@@ -6,18 +6,18 @@ namespace Insight.Domain.Common
 {
     public static class TransactionFactory
     {
-        public static TransactionHeader GetTransactionHeader(TransactionType transactionType, DaybookType daybookType)
+        public static TransactionHeader GetTransactionHeader(CashBankTransactionType transactionType, DaybookType daybookType)
         {
-            if (daybookType == DaybookType.Cash && transactionType == TransactionType.Receipt)
+            if (daybookType == DaybookType.Cash && transactionType == CashBankTransactionType.Receipt)
                 return CashReceipt.New();
 
-            if (daybookType == DaybookType.Cash && transactionType == TransactionType.Payment)
+            if (daybookType == DaybookType.Cash && transactionType == CashBankTransactionType.Payment)
                 return CashPayment.New();
 
-            if (daybookType == DaybookType.Bank && transactionType == TransactionType.Receipt)
+            if (daybookType == DaybookType.Bank && transactionType == CashBankTransactionType.Receipt)
                 return BankReceipt.New();
 
-            if (daybookType == DaybookType.Bank && transactionType == TransactionType.Payment)
+            if (daybookType == DaybookType.Bank && transactionType == CashBankTransactionType.Payment)
                 return BankPayment.New();
 
             if (daybookType == DaybookType.JournalVoucher)

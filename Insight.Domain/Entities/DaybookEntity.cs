@@ -13,5 +13,6 @@ namespace Insight.Domain.Entities
             ErrorMessageResourceName = "DaybookNameCannotBeEmpty")]
         public string Name { get; set; }
         public string AccountId { get; set; }
+        public DocumentEntryType DocumentEntryType { get; set; }
     }
 }

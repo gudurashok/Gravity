@@ -2,6 +2,12 @@
 
 namespace Insight.Domain.Enums
 {
+    public enum DocumentEntryType
+    {
+        WithoutInventory = 0,
+        WithInventory = 1
+    }
+
     [Flags]
     public enum DaybookType
     {

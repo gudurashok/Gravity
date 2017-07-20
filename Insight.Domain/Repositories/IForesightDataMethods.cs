@@ -21,5 +21,7 @@ namespace Insight.Domain.Repositories
         IList<JournalVoucherEntity> GetAllJournalVouchers();
         IList<CreditNoteEntity> GetAllCreditNotes();
         IList<DebitNoteEntity> GetAllDebitNotes();
+        IList<SaleInvoiceEntity> GetAllSaleInvoices();
+        IList<PurchaseInvoiceEntity> GetAllPurchaseInvoices();
     }
 }

@@ -2,39 +2,53 @@
 using Insight.Domain.Enums;
 using Insight.UC.Controls;
 using Insight.UC.Forms;
+using Insight.Domain.Entities;
+using Insight.Domain.Model;
 
 namespace Insight.UC.Common
 {
     public static class VoucherFactory
     {
-        public static UVoucher GetVoucherForm(DaybookType bookType, FDaybooks fDaybooks, TransactionType transactionType = TransactionType.None)
+        public static UVoucher GetVoucherForm(Daybook daybook, FDaybooks daybooksForm, CashBankTransactionType transactionType = CashBankTransactionType.None)
         {
-            if (transactionType == TransactionType.Receipt && bookType == DaybookType.Cash)
-                return new UCashReceipt(fDaybooks);
+            var bookType = daybook.Entity.Type;
 
-            if (transactionType == TransactionType.Payment && bookType == DaybookType.Cash)
-                return new UCashPayment(fDaybooks);
+            if (transactionType == CashBankTransactionType.Receipt && bookType == DaybookType.Cash)
+                return new UCashReceipt(daybooksForm);
 
-            if (transactionType == TransactionType.Receipt && bookType == DaybookType.Bank)
-                return new UBankReceipt(fDaybooks);
+            if (transactionType == CashBankTransactionType.Payment && bookType == DaybookType.Cash)
+                return new UCashPayment(daybooksForm);
 
-            if (transactionType == TransactionType.Payment && bookType == DaybookType.Bank)
-                return new UBankPayment(fDaybooks);
+            if (transactionType == CashBankTransactionType.Receipt && bookType == DaybookType.Bank)
+                return new UBankReceipt(daybooksForm);
+
+            if (transactionType == CashBankTransactionType.Payment && bookType == DaybookType.Bank)
+                return new UBankPayment(daybooksForm);
 
             if (bookType == DaybookType.JournalVoucher)
-                return new UJournalVoucher(fDaybooks);
+                return new UJournalVoucher(daybooksForm);
 
             if (bookType == DaybookType.CreditNote)
-                return new UCreditNote(fDaybooks);
+                return new UCreditNote(daybooksForm);
 
             if (bookType == DaybookType.DebitNote)
-                return new UDebitNote(fDaybooks);
+                return new UDebitNote(daybooksForm);
 
             if (bookType == DaybookType.Sale)
-                return new USaleInvoice(fDaybooks);
+            {
+                if (daybook.Entity.DocumentEntryType == DocumentEntryType.WithoutInventory)
+                    return new USaleVoucher(daybooksForm);
+                else
+                    return new USaleInvoice(daybooksForm);
+            }
 
-            //if (bookType == DaybookType.Purchase)
-            //    return new UPurchaseInvoice(fDaybooks);
+            if (bookType == DaybookType.Purchase)
+            {
+                if (daybook.Entity.DocumentEntryType == DocumentEntryType.WithoutInventory)
+                    return new UPurchaseVoucher(daybooksForm);
+                else
+                    throw new ValidationException("Under Construction"); //return new UPurchaseInvoice(daybooksForm);
+            }
 
             throw new ValidationException("Under Construction");
         }
