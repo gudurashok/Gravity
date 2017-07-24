@@ -56,6 +56,7 @@ C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Release\Gravity.Root.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Release\Scalable.RavenDb.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Release\Scalable.Shared.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\bin\Release\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Release\Synergy.Domain.csprojResolveAssemblyReference.cache
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Release\Synergy.Domain.Properties.Resources.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Release\Synergy.Domain.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Synergy.Domain\obj\Release\Synergy.Domain.dll

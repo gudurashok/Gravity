@@ -115,13 +115,16 @@ namespace Foresight.Win.Reports
                                             .Sum(r => r.Opening));
             var transCr = _report.Where(r => r.ChartOfAccountName == group.Name)
                                  .Sum(r => r.TransactionCredit);
-            var transDb = Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name)
-                                          .Sum(r => r.TransactionDebit));
+            var transDb = _report.Where(r => r.ChartOfAccountName == group.Name)
+                                 .Sum(r => r.TransactionDebit);
+            transDb = Math.Abs(transDb);
 
             var closingCr = _report.Where(r => r.ChartOfAccountName == group.Name && r.Closing > 0)
                                    .Sum(r => r.Closing);
-            var closingDb = Math.Abs(_report.Where(r => r.ChartOfAccountName == group.Name && r.Closing < 0)
-                                            .Sum(r => r.Closing));
+
+            var closingDb = _report.Where(r => r.ChartOfAccountName == group.Name && r.Closing < 0)
+                                   .Sum(r => r.Closing);
+            closingDb = Math.Abs(closingDb);
 
             var lvi = new ListViewItem("TOTAL:", group);
             lvi.SubItems.Add(formatAmountWithBlank(openingCr, cmbAmtFormat));
@@ -151,12 +154,12 @@ namespace Foresight.Win.Reports
             var lvi = new ListViewItem("GRAND TOTAL:", grandTotalsGroup);
             lvi.BackColor = Color.Maroon;
             lvi.ForeColor = Color.White;
-            lvi.SubItems.Add(formatAmountWithBlank(openingCr, cmbAmtFormat));
-            lvi.SubItems.Add(formatAmountWithBlank(openingDb, cmbAmtFormat));
-            lvi.SubItems.Add(formatAmountWithBlank(transCr, cmbAmtFormat));
-            lvi.SubItems.Add(formatAmountWithBlank(transDb, cmbAmtFormat));
-            lvi.SubItems.Add(formatAmountWithBlank(closingCr, cmbAmtFormat));
-            lvi.SubItems.Add(formatAmountWithBlank(closingDb, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmount(openingCr, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmount(openingDb, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmount(transCr, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmount(transDb, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmount(closingCr, cmbAmtFormat));
+            lvi.SubItems.Add(formatAmount(closingDb, cmbAmtFormat));
 
             lvwReport.Items.Add(lvi);
         }
@@ -287,7 +290,6 @@ namespace Foresight.Win.Reports
             getReportData();
             renderReport();
         }
-
 
         private void getReportData()
         {

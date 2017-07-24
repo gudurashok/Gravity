@@ -170,6 +170,13 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Release\Scalable.Win.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Release\Synergy.Domain.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Release\Synergy.UC.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.UPurchaseVoucher.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.UPurchaseInvoices.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.USaleVoucher.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.UDebitNotes.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.UDebitNote.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.UCreditNote.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.UCreditNotes.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.USaleInvoices.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.UItemList.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Release\Insight.UC.Controls.UFiscalDatePeriodList.resources

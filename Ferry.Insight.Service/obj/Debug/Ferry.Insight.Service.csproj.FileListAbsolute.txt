@@ -1,7 +1,3 @@
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.csprojResolveAssemblyReference.cache
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.ImportService.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.ProjectInstaller.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\bin\Debug\Ferry.Insight.Service.exe.config
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\bin\Debug\Ferry.Insight.Service.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\bin\Debug\Ferry.Insight.Service.pdb
@@ -25,5 +21,9 @@ C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\bin\Debug\Scalable.Sha
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\bin\Debug\Scalable.Win.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\bin\Debug\Foresight.Logic.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.ImportService.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.ProjectInstaller.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Insight.Service\obj\Debug\Ferry.Insight.Service.pdb

@@ -128,15 +128,6 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Ferry.Win\obj\x86\D
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Ferry.Win\obj\x86\Debug\Ferry.exe
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Ferry.Win\obj\x86\Debug\Ferry.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Controls.UCompanyPeriods.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FCoGroupPeriods.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FCompanyPeriod.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FImporter.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FMain.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FStatusMessage.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Properties.Resources.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.csproj.GenerateResource.Cache
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.csprojResolveAssemblyReference.cache
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\bin\Debug\Ferry.exe.config
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\bin\Debug\Ferry.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\bin\Debug\Ferry.pdb
@@ -160,5 +151,14 @@ C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\bin\Debug\Mingle.Domain.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\bin\Debug\Scalable.RavenDb.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\bin\Debug\Scalable.Shared.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\bin\Debug\Scalable.Win.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Controls.UCompanyPeriods.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FCoGroupPeriods.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FCompanyPeriod.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FImporter.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FMain.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Forms.FStatusMessage.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.Win.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.exe
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Win\obj\x86\Debug\Ferry.pdb

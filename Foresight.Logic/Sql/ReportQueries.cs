@@ -135,12 +135,12 @@
 
         public const string SelectAllTrailBalances =
                             "SELECT ChartOfAccountName, Id AccountId, AccountName, " +
-                            " Opening, CrAmt, DbAmt, " +
-                            " CASE WHEN DaybookId IS NULL THEN Opening+CrAmt-DbAmt " +
-                            "      ELSE Opening-CrAmt+DbAmt END Closing " +
+                            " Opening, CrAmt, DbAmt, Opening+CrAmt-DbAmt Closing " +
                             " FROM (SELECT coa.Name AS ChartOfAccountName, a.Id, " +
                             " a.Name AS AccountName, dbk.Id DaybookId, " +
-                            " SUM(al.Opening) AS Opening, {0} AS CrAmt, {1} AS DbAmt " +
+                            " SUM(al.Opening) AS Opening, " +
+                            " CASE WHEN dbk.Id IS NULL THEN {1} ELSE {0} END AS CrAmt, " +
+                            " CASE WHEN dbk.Id IS NULL THEN {0} ELSE {1} END AS DbAmt " +
                             " FROM Account AS a LEFT OUTER JOIN Daybook AS dbk ON a.Id = dbk.AccountId " +
                             " LEFT OUTER JOIN AccountLedger AS al ON a.Id = al.AccountId " +
                             " LEFT OUTER JOIN ChartOfAccount AS coa ON coa.Id = a.ChartOfAccountId " +

@@ -236,6 +236,7 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Debu
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Debug\Insight.UC.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Debug\Insight.UC.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Insight.UC\obj\Debug\Insight.UC.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Dictionary\en-US.dic
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Insight.UC.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Insight.UC.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Gravity.Root.dll
@@ -263,6 +264,13 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Synergy.Domain.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Synergy.UC.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\bin\Debug\Scalable.SpellChecker.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UPurchaseVoucher.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UPurchaseInvoices.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.USaleVoucher.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UDebitNotes.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UDebitNote.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCreditNote.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCreditNotes.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.USaleInvoices.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UItemList.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UFiscalDatePeriodList.resources
@@ -305,10 +313,3 @@ C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCo
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UDebitNotes.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UDebitNote.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCreditNote.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UCreditNotes.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.USaleVoucher.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UPurchaseVoucher.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Insight.UC\obj\Debug\Insight.UC.Controls.UPurchaseInvoices.resources

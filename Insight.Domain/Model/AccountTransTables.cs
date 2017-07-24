@@ -35,8 +35,9 @@ namespace Insight.Domain.Model
         {
             var result = new List<AccountTransTables>();
             result.Add(new AccountTransTables { TransAmount = "Amount", TransName = "Purchase", TableName = "PurchaseInvoiceHeader" });
-            result.Add(new AccountTransTables { TransAmount = "Amount", TransName = "CashPayment", TableName = "CashTransaction", Filter = "TxnType = 0" });
+            result.Add(new AccountTransTables { TransAmount = "Amount", TransName = "CashReceipt", TableName = "CashTransaction", Filter = "TxnType = 0" });
             result.Add(new AccountTransTables { TransAmount = "Amount", TransName = "BankReceipt", TableName = "BankReceipt" });
+            result.Add(new AccountTransTables { TransAmount = "Amount", TransName = "CreditNote", TableName = "CreditNoteHeader" });
             result.Add(new AccountTransTables { TransAmount = "Amount", TransName = "CreditJV", TableName = "JournalVoucher", Filter = "TxnType = 0" });
             return result;
         }
@@ -45,9 +46,8 @@ namespace Insight.Domain.Model
         {
             var result = new List<AccountTransTables>();
             result.Add(new AccountTransTables { TransAmount = "-Amount", TransName = "Sale", TableName = "SaleInvoiceHeader" });
-            result.Add(new AccountTransTables { TransAmount = "-Amount", TransName = "CashReceipt", TableName = "CashTransaction", Filter = "TxnType = 1" });
+            result.Add(new AccountTransTables { TransAmount = "-Amount", TransName = "CashPayment", TableName = "CashTransaction", Filter = "TxnType = 1" });
             result.Add(new AccountTransTables { TransAmount = "-Amount", TransName = "BankPayment", TableName = "BankPayment" });
-            result.Add(new AccountTransTables { TransAmount = "-Amount", TransName = "CreditNote", TableName = "CreditNoteHeader" });
             result.Add(new AccountTransTables { TransAmount = "-Amount", TransName = "DebitNote", TableName = "DebitNoteHeader" });
             result.Add(new AccountTransTables { TransAmount = "-Amount", TransName = "DebitJV", TableName = "JournalVoucher", Filter = "TxnType = 1" });
             return result;

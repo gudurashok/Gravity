@@ -130,7 +130,7 @@ C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.Reports.UTopNItemsReport.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.Reports.UDaybookListReport.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.Reports.ULedgerSummaryReport.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.Reports.UAccountListReport.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.Reports.UTrialBalanceReport.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.Reports.FReportViewer.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.Reports.ULedgerDetailReport.resources
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Win\obj\x86\Release\Foresight.Win.Reports.UCompanyAccountValueReport.resources

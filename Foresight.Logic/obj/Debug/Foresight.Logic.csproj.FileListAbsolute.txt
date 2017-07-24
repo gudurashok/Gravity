@@ -98,9 +98,6 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csprojResolveAssemblyReference.cache
-C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.Properties.Resources.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\bin\Debug\Foresight.Logic.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\bin\Debug\Foresight.Logic.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\bin\Debug\Gravity.Root.dll
@@ -119,5 +116,8 @@ C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\bin\Debug\Scalable.Shared.pd
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\bin\Debug\Scalable.RavenDb.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\bin\Debug\Scalable.Win.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Foresight.Logic\obj\Debug\Foresight.Logic.pdb

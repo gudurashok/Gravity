@@ -11,7 +11,7 @@ namespace Scalable.Shared.Common
         public const string AmountFormatWithCrDbZero = "##,##,##0.00 CR;##,##,##0.00 DB;Zero";
         public const string AmountFormatWithCrDb = "##,##,##0.00 CR;##,##,##0.00 DB;0.00";
         public const string AmountFormat = "##,##,##,##0.00";
-        public const string AmountFormatBlankWhenZero = "##,##,##0.00;##,##,##0.00; ";
+        public const string AmountFormatBlankWhenZero = "##,##,##0.00;##,##,##0.00; "; //Don't remove the blank space at the end in the value. Its used for formatting the value with blank when zero
 
         public static string GetAmountFormat(bool withDbCr)
         {

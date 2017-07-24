@@ -104,9 +104,6 @@ C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Ferry.Logic\obj\Deb
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.dll
 C:\Users\gw2ks\Documents\Visual Studio 2017\Projects\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.pdb
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.Properties.Resources.resources
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.csproj.GenerateResource.Cache
-C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.csprojResolveAssemblyReference.cache
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\bin\Debug\Ferry.Logic.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\bin\Debug\Ferry.Logic.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\bin\Debug\Foresight.Logic.dll
@@ -127,5 +124,8 @@ C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\bin\Debug\Scalable.Shared.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\bin\Debug\Scalable.RavenDb.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\bin\Debug\Scalable.Win.pdb
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\bin\Debug\Mingle.Domain.pdb
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.csprojResolveAssemblyReference.cache
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.Properties.Resources.resources
+C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.csproj.GenerateResource.Cache
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.dll
 C:\Users\gw2ks\Source\Repos\Gravity\Ferry.Logic\obj\Debug\Ferry.Logic.pdb
