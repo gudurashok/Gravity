@@ -139,8 +139,8 @@
                             " FROM (SELECT coa.Name AS ChartOfAccountName, a.Id, " +
                             " a.Name AS AccountName, dbk.Id DaybookId, " +
                             " SUM(al.Opening) AS Opening, " +
-                            " CASE WHEN dbk.Id IS NULL THEN {1} ELSE {0} END AS CrAmt, " +
-                            " CASE WHEN dbk.Id IS NULL THEN {0} ELSE {1} END AS DbAmt " +
+                            " CASE WHEN dbk.Id IS NULL THEN {0} ELSE {1} END AS CrAmt, " +
+                            " CASE WHEN dbk.Id IS NULL THEN {1} ELSE {0} END AS DbAmt " +
                             " FROM Account AS a LEFT OUTER JOIN Daybook AS dbk ON a.Id = dbk.AccountId " +
                             " LEFT OUTER JOIN AccountLedger AS al ON a.Id = al.AccountId " +
                             " LEFT OUTER JOIN ChartOfAccount AS coa ON coa.Id = a.ChartOfAccountId " +
